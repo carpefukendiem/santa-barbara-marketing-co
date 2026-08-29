@@ -26,12 +26,12 @@ const variantClasses: Record<ButtonVariant, Record<ButtonTone, string>> = {
 };
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-sans font-semibold uppercase tracking-[0.06em] rounded-full ease-sbmc transition-[color,background-color,border-color,transform,box-shadow] duration-200 disabled:opacity-60 disabled:pointer-events-none';
+  'inline-flex items-center justify-center gap-2 font-sans font-semibold uppercase tracking-[0.08em] rounded-full ease-sbmc transition-[color,background-color,border-color,transform,box-shadow] duration-200 disabled:opacity-60 disabled:pointer-events-none';
 
 const sizeClasses: Record<ButtonVariant, string> = {
-  primary: 'px-7 py-3.5 text-[0.8125rem]',
-  secondary: 'px-7 py-3.5 text-[0.8125rem]',
-  link: 'text-[0.75rem] tracking-[0.08em]',
+  primary: 'px-8 py-3.5 text-[0.75rem]',
+  secondary: 'px-8 py-3.5 text-[0.75rem]',
+  link: 'text-[0.72rem] tracking-[0.1em]',
 };
 
 export type ButtonProps = {

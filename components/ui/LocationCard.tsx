@@ -38,14 +38,16 @@ export function LocationCard({
       />
       {image.needsHighRes ? <GrainOverlay /> : null}
       <div
-        className="absolute inset-0 z-[2] bg-gradient-to-t from-[rgb(5_33_54/0.85)] from-0% via-[rgb(5_33_54/0.35)] via-35% to-transparent to-65% transition-colors duration-300 group-hover:from-[rgb(5_33_54/0.92)]"
+        className="absolute inset-0 z-[2] bg-[rgb(5_33_54/0.42)] transition-colors duration-300 group-hover:bg-[rgb(5_33_54/0.52)]"
         aria-hidden="true"
       />
-      <div className="absolute inset-x-0 bottom-0 z-[3] p-5">
-        <p className="font-sans text-[0.8125rem] font-bold uppercase tracking-[0.1em] text-white">
+      <div className="absolute inset-0 z-[3] flex flex-col items-center justify-center p-6 text-center">
+        <p className="font-display text-[1.65rem] font-semibold tracking-[-0.02em] text-white md:text-[1.85rem]">
           {city}
         </p>
-        <p className="mt-1 text-body-sm text-white/80">{tagline}</p>
+        <p className="mt-2 max-w-[18ch] text-[0.95rem] leading-snug text-white/88">
+          {tagline}
+        </p>
       </div>
     </Link>
   );

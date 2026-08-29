@@ -48,7 +48,7 @@ export function MobileNav({
       aria-modal="true"
       aria-label="Menu"
     >
-      <div className="flex h-[84px] items-center justify-between px-5">
+      <div className="flex h-[100px] items-center justify-between px-5">
         <p className="font-sans text-sm font-semibold uppercase tracking-[0.08em] text-sbmc-navy">
           Menu
         </p>
@@ -62,7 +62,7 @@ export function MobileNav({
           <X size={22} />
         </button>
       </div>
-      <div className="h-[calc(100dvh-84px)] overflow-y-auto px-5 pb-10">
+      <div className="h-[calc(100dvh-100px)] overflow-y-auto px-5 pb-10">
         <details className="border-b border-sbmc-border py-3">
           <summary className="cursor-pointer list-none py-2 font-sans text-[0.8rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy">
             Services

@@ -49,19 +49,19 @@ export function Footer() {
       <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <Link href="/" className="inline-flex items-center gap-3">
+            <Link href="/" className="inline-flex items-center gap-4">
               <Image
                 src={brand.logo.src}
                 alt={brand.logo.alt}
-                width={56}
-                height={56}
-                className="h-14 w-14 object-contain"
+                width={160}
+                height={160}
+                className="h-20 w-20 object-contain"
               />
-              <span className="font-sans text-sm font-semibold uppercase tracking-[0.08em]">
+              <span className="font-sans text-[0.8rem] font-semibold uppercase tracking-[0.12em]">
                 Santa Barbara Marketing Co.
               </span>
             </Link>
-            <p className="font-script mt-4 text-xl text-white/80" aria-hidden="true">
+            <p className="font-script mt-5 text-[1.45rem] leading-tight text-white/80" aria-hidden="true">
               {site.tagline}
             </p>
             {socials.length > 0 ? (

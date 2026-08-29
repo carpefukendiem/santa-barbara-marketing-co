@@ -24,7 +24,7 @@ export function CtaBand({
       <div className="relative mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-6 px-5 py-[clamp(3rem,6vw,4.5rem)] md:flex-row md:items-center md:px-8 lg:px-10">
         <div className="flex items-start gap-4">
           <span className="mt-1 text-sbmc-peach">
-            <IconSun size={32} />
+            <IconSun size={36} />
           </span>
           <div>
             <h2 className="text-display-md text-white md:text-display-lg">{heading}</h2>

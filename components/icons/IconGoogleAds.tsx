@@ -16,8 +16,8 @@ export function IconGoogleAds({
       {...iconDefaults}
       {...props}
     >
-      <path d="M6.5 18.5 12 5.5l5.5 13" />
-      <path d="M9.2 13.5h5.6" />
+      <path d="M6.6 18.4 12 5.2l5.4 13.2" />
+      <path d="M9 13.35h6" />
     </svg>
   );
 }

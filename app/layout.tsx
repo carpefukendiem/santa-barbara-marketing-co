@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter, Caveat } from 'next/font/google';
+import { Playfair_Display, Montserrat, Caveat } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
@@ -10,18 +10,18 @@ import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
 import './globals.css';
 
-const fraunces = Fraunces({
+const playfair = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-fraunces',
-  axes: ['opsz'],
+  variable: '--font-playfair',
+  weight: ['400', '600', '700'],
   preload: true,
 });
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-montserrat',
   preload: true,
 });
 
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${caveat.variable}`}
+      className={`${playfair.variable} ${montserrat.variable} ${caveat.variable}`}
     >
       <body className="font-sans antialiased">
         <GrainDefs />

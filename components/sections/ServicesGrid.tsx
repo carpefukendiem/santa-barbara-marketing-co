@@ -13,7 +13,7 @@ export function ServicesGrid() {
     .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
   return (
-    <Section className="bg-sbmc-cream-warm">
+    <Section className="bg-sbmc-cream">
       <Container>
         <SectionEyebrow>What we do</SectionEyebrow>
         <Heading className="mt-4 text-center">
@@ -27,7 +27,7 @@ export function ServicesGrid() {
                 key={service.slug}
                 className={
                   index < featured.length - 1
-                    ? 'xl:border-r xl:border-sbmc-border'
+                    ? 'xl:border-r xl:border-sbmc-border/90'
                     : undefined
                 }
               >
@@ -35,7 +35,7 @@ export function ServicesGrid() {
                   title={service.shortName}
                   href={`/services/${service.slug}`}
                   blurb={service.cardBlurb}
-                  icon={<Icon size={26} />}
+                  icon={<Icon />}
                   iconBg={service.iconBg}
                 />
               </div>

@@ -56,13 +56,13 @@ export function LocalPanel() {
               when they exist, and we skip the noun-swapped city pages that
               pretend otherwise.
             </p>
-            <ul className="mt-10 grid grid-cols-2 gap-6">
+            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
               {values.map((value) => (
-                <li key={value.label} className="flex items-start gap-3">
+                <li key={value.label} className="flex flex-col items-start gap-2.5">
                   <span className="text-sbmc-teal">
-                    <value.icon size={22} />
+                    <value.icon size={24} />
                   </span>
-                  <span className="font-sans text-[0.7rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy">
+                  <span className="font-sans text-[0.68rem] font-bold uppercase tracking-[0.12em] text-sbmc-navy">
                     {value.label}
                   </span>
                 </li>

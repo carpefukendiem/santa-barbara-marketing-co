@@ -144,10 +144,10 @@ export function ServicePageContent({ service }: { service: Service }) {
             </div>
             <IconBadge
               background={service.iconBg}
-              size={72}
+              size={88}
               className="shrink-0"
             >
-              <Icon size={34} />
+              <Icon />
             </IconBadge>
           </div>
         </Container>

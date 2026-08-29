@@ -111,7 +111,7 @@ function SystemFlowDiagram() {
             textAnchor="middle"
             fill="#0c2539"
             fontSize="15"
-            fontFamily="var(--font-fraunces), Georgia, serif"
+            fontFamily="var(--font-playfair), Georgia, serif"
             fontWeight="600"
           >
             {node.label}

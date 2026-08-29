@@ -21,20 +21,32 @@ export function ServiceCard({
   variant = 'hairline',
   className,
 }: ServiceCardProps) {
+  const stacked = variant === 'bordered';
+
   const body = (
     <>
-      <IconBadge background={iconBg} size={56}>
-        {icon}
-      </IconBadge>
-      <h3 className="mt-5 font-sans text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy">
-        {title}
-      </h3>
-      <p className="mt-3 text-body-sm text-sbmc-ink-muted">{blurb}</p>
-      <span className="mt-4 inline-block">
-        <Button variant="link" href={href}>
-          Learn more
-        </Button>
-      </span>
+      <div
+        className={cn(
+          stacked
+            ? 'flex flex-col'
+            : 'flex items-start gap-4 min-[480px]:flex-col min-[480px]:gap-0',
+        )}
+      >
+        <IconBadge background={iconBg} size={72} className="shrink-0">
+          {icon}
+        </IconBadge>
+        <div className={stacked ? 'mt-5' : 'min-[480px]:mt-5'}>
+          <h3 className="font-sans text-[0.78rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy">
+            {title}
+          </h3>
+          <p className="mt-3 text-body-sm text-sbmc-ink-muted">{blurb}</p>
+          <span className="mt-4 inline-block">
+            <Button variant="link" href={href}>
+              Learn more
+            </Button>
+          </span>
+        </div>
+      </div>
     </>
   );
 
@@ -52,7 +64,7 @@ export function ServiceCard({
   }
 
   return (
-    <article className={cn('flex h-full flex-col px-2 py-2 lg:px-5', className)}>
+    <article className={cn('flex h-full flex-col px-1 py-1 lg:px-6', className)}>
       {body}
     </article>
   );

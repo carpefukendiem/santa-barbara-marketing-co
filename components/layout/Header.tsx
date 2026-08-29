@@ -17,6 +17,9 @@ import {
 } from '@/data/navigation';
 import { cn, telHref } from '@/lib/utils';
 
+const navItemClass =
+  'nav-link px-2.5 py-2 text-sbmc-navy xl:px-3.5';
+
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -46,31 +49,42 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 border-b border-transparent bg-sbmc-cream transition-[height,background-color,border-color,backdrop-filter] duration-200 ease-sbmc',
+        'sticky top-0 z-40 border-b border-transparent bg-sbmc-cream transition-[background-color,border-color,backdrop-filter] duration-200 ease-sbmc',
         scrolled &&
-          'border-sbmc-border bg-[rgb(248_244_237/0.92)] backdrop-blur-[12px]',
+          'border-sbmc-border bg-[rgb(248_244_237/0.94)] backdrop-blur-[12px]',
       )}
     >
       <div
         className={cn(
-          'mx-auto flex max-w-[1360px] items-center justify-between gap-4 px-5 transition-[height] duration-200 md:px-8 lg:px-10',
-          scrolled ? 'h-[68px]' : 'h-[84px]',
+          'mx-auto grid max-w-[1400px] items-center gap-3 px-5 transition-[height] duration-200 md:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-10',
+          isMinimal ? 'grid-cols-[1fr_auto]' : 'grid-cols-[1fr_auto]',
+          scrolled ? 'h-[76px] lg:h-[84px]' : 'h-[100px] lg:h-[112px]',
         )}
       >
-        <Link href="/" className="flex items-center gap-3 shrink-0">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-0"
+          aria-label="Santa Barbara Marketing Co. home"
+        >
           <Image
             src={brand.logo.src}
-            alt={brand.logo.alt}
-            width={64}
-            height={64}
+            alt=""
+            width={192}
+            height={192}
             className={cn(
-              'h-14 w-14 object-contain lg:h-16 lg:w-16',
-              scrolled && 'h-12 w-14 lg:h-14 lg:w-14',
+              'object-contain transition-[width,height] duration-200 ease-sbmc',
+              scrolled
+                ? 'h-[64px] w-[64px] lg:h-[70px] lg:w-[70px]'
+                : 'h-[80px] w-[80px] lg:h-[88px] lg:w-[88px] xl:h-[96px] xl:w-[96px]',
             )}
             priority
           />
           <span
-            className="font-script hidden text-[1.15rem] leading-tight text-sbmc-navy lg:block"
+            className="mx-3 hidden h-12 w-px bg-sbmc-navy/18 lg:block xl:mx-4 xl:h-14"
+            aria-hidden="true"
+          />
+          <span
+            className="font-script hidden max-w-[10.5rem] text-[1.2rem] leading-[1.15] text-sbmc-navy lg:block xl:max-w-[11.5rem] xl:text-[1.5rem]"
             aria-hidden="true"
           >
             {site.tagline}
@@ -78,7 +92,7 @@ export function Header() {
         </Link>
 
         {isMinimal ? (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-end gap-4">
             {site.phone ? (
               <a
                 href={telHref(site.phone)}
@@ -91,7 +105,7 @@ export function Header() {
         ) : (
           <>
             <nav
-              className="hidden items-center gap-1 lg:flex"
+              className="hidden items-center justify-center gap-0.5 lg:flex"
               aria-label="Primary"
             >
               {primaryNav.map((item) => {
@@ -109,9 +123,9 @@ export function Header() {
                         aria-expanded={servicesOpen}
                         aria-haspopup="true"
                         className={cn(
-                          'px-3 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-sbmc-navy',
+                          navItemClass,
                           (pathname.startsWith('/services') || servicesOpen) &&
-                            'underline decoration-sbmc-teal decoration-2 underline-offset-8',
+                            'underline decoration-sbmc-teal decoration-2 underline-offset-[10px]',
                         )}
                         onClick={() => setServicesOpen((value) => !value)}
                         onKeyDown={(event) => {
@@ -143,7 +157,7 @@ export function Header() {
                         id={locationsTriggerId}
                         type="button"
                         aria-expanded={locationsOpen}
-                        className="px-3 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-sbmc-navy"
+                        className={navItemClass}
                         onClick={() => setLocationsOpen((value) => !value)}
                       >
                         Locations
@@ -184,9 +198,9 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      'px-3 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-sbmc-navy',
+                      navItemClass,
                       active &&
-                        'underline decoration-sbmc-teal decoration-2 underline-offset-8',
+                        'underline decoration-sbmc-teal decoration-2 underline-offset-[10px]',
                     )}
                   >
                     {item.label}
@@ -194,10 +208,10 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="flex items-center gap-3">
-              <Button href={primaryCta.href} className="hidden lg:inline-flex">
-                {primaryCta.label}
-              </Button>
+            <div className="flex items-center justify-end gap-3">
+              <span className="hidden lg:inline-flex">
+                <Button href={primaryCta.href}>{primaryCta.label}</Button>
+              </span>
               <button
                 type="button"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full text-sbmc-navy lg:hidden"

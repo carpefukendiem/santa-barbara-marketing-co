@@ -1,9 +1,12 @@
+import { cloneElement, isValidElement } from 'react';
 import { cn } from '@/lib/utils';
+
+type GlyphProps = { size?: number };
 
 export function IconBadge({
   children,
   background,
-  size = 56,
+  size = 72,
   className,
   glyphClassName,
 }: {
@@ -13,6 +16,11 @@ export function IconBadge({
   className?: string;
   glyphClassName?: string;
 }) {
+  const glyphSize = Math.round(size * 0.46);
+  const glyph = isValidElement<GlyphProps>(children)
+    ? cloneElement(children, { size: children.props.size ?? glyphSize })
+    : children;
+
   return (
     <span
       className={cn(
@@ -26,7 +34,7 @@ export function IconBadge({
       }}
       aria-hidden="true"
     >
-      <span className={cn('text-sbmc-navy', glyphClassName)}>{children}</span>
+      <span className={cn('text-sbmc-navy', glyphClassName)}>{glyph}</span>
     </span>
   );
 }
