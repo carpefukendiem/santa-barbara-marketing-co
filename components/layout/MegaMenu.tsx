@@ -1,9 +1,12 @@
 'use client';
 
-import { useCallback, useEffect, useId, useRef } from 'react';
+import { useCallback, useEffect, useId } from 'react';
 import Link from 'next/link';
-import { megaColumns, primaryCta } from '@/data/navigation';
+import { IconCircle } from '@/components/ui/IconCircle';
 import { Button } from '@/components/ui/Button';
+import { megaColumns, primaryCta } from '@/data/navigation';
+import { getService } from '@/data/services';
+import { serviceLucide } from '@/lib/lucideIcons';
 
 export function MegaMenu({
   open,
@@ -15,7 +18,6 @@ export function MegaMenu({
   triggerId: string;
 }) {
   const panelId = useId();
-  const ref = useRef<HTMLDivElement>(null);
 
   const handleKey = useCallback(
     (event: KeyboardEvent) => {
@@ -32,36 +34,42 @@ export function MegaMenu({
 
   if (!open) return null;
 
+  const links = megaColumns.flatMap((column) => column.links);
+
   return (
     <div
       id={panelId}
-      ref={ref}
       role="region"
       aria-labelledby={triggerId}
-      className="absolute left-1/2 top-full z-50 mt-3 w-[min(920px,calc(100vw-2rem))] -translate-x-1/2 rounded-[12px] border border-sbmc-border bg-sbmc-white shadow-lift"
+      className="absolute left-1/2 top-full z-50 mt-3 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 rounded-2xl bg-white p-6 shadow-xl"
     >
-      <div className="grid gap-8 p-8 md:grid-cols-3">
-        {megaColumns.map((column) => (
-          <div key={column.id}>
-            <p className="text-eyebrow text-sbmc-teal">{column.title}</p>
-            <ul className="mt-4 space-y-2">
-              {column.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block rounded-md px-1 py-1.5 text-[0.95rem] text-sbmc-navy hover:text-sbmc-teal"
-                    onClick={onClose}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-sbmc-border bg-sbmc-cream-warm px-8 py-4">
-        <Button variant="link" href="/services" onClick={onClose}>
+      <ul className="grid gap-3 sm:grid-cols-2">
+        {links.map((link) => {
+          const service = getService(link.href.replace('/services/', ''));
+          const Icon = serviceLucide(service?.slug ?? '', service?.icon);
+          return (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="flex gap-3 rounded-2xl p-3 hover:bg-sand"
+                onClick={onClose}
+              >
+                <IconCircle icon={Icon} />
+                <span className="min-w-0">
+                  <span className="block font-medium text-navy">{link.label}</span>
+                  {service ? (
+                    <span className="mt-0.5 line-clamp-2 block text-sm text-stone">
+                      {service.cardBlurb}
+                    </span>
+                  ) : null}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+        <Button variant="ghost" href="/services" onClick={onClose}>
           All Services
         </Button>
         <Button href={primaryCta.href} onClick={onClose}>

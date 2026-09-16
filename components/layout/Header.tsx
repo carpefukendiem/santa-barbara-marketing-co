@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { IconCircle } from '@/components/ui/IconCircle';
 import { MegaMenu } from '@/components/layout/MegaMenu';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { brand } from '@/data/images';
@@ -15,10 +16,11 @@ import {
   primaryCta,
   primaryNav,
 } from '@/data/navigation';
+import { locations } from '@/data/locations';
 import { cn, telHref } from '@/lib/utils';
+import { MapPin } from '@/lib/lucideIcons';
 
-const navItemClass =
-  'nav-link px-2.5 py-2 text-sbmc-navy xl:px-3.5';
+const navItemClass = 'nav-link px-3 py-2 text-navy';
 
 export function Header() {
   const pathname = usePathname();
@@ -38,7 +40,6 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    // Pathname is an external App Router signal.
     /* eslint-disable react-hooks/set-state-in-effect */
     setMobileOpen(false);
     setServicesOpen(false);
@@ -46,49 +47,30 @@ export function Header() {
     /* eslint-enable react-hooks/set-state-in-effect */
   }, [pathname]);
 
+  const activeClass = 'underline decoration-ocean decoration-2 underline-offset-8';
+
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 border-b border-transparent bg-sbmc-cream transition-[background-color,border-color,backdrop-filter] duration-200 ease-sbmc',
-        scrolled &&
-          'border-sbmc-border bg-[rgb(248_244_237/0.94)] backdrop-blur-[12px]',
+        'sticky top-0 z-40 border-b border-line bg-white/80 backdrop-blur-md transition-[background-color] duration-200 ease-sbmc',
+        scrolled && 'bg-white/95',
       )}
     >
-      <div
-        className={cn(
-          'mx-auto grid max-w-[1400px] items-center gap-3 px-5 transition-[height] duration-200 md:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-10',
-          isMinimal ? 'grid-cols-[1fr_auto]' : 'grid-cols-[1fr_auto]',
-          scrolled
-            ? 'h-[76px] lg:h-[84px]'
-            : 'h-[148px] lg:h-[162px] xl:h-[176px]',
-        )}
-      >
+      <div className="mx-auto grid h-[4.5rem] max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-6 lg:grid-cols-[auto_1fr_auto]">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-0"
+          className="flex shrink-0 items-center gap-3"
           aria-label="Santa Barbara Marketing Co. home"
         >
           <Image
             src={brand.logo.src}
             alt=""
-            width={326}
-            height={326}
-            className={cn(
-              'object-contain transition-[width,height] duration-200 ease-sbmc',
-              scrolled
-                ? 'h-[64px] w-[64px] lg:h-[70px] lg:w-[70px]'
-                : 'h-[136px] w-[136px] lg:h-[150px] lg:w-[150px] xl:h-[163px] xl:w-[163px]',
-            )}
+            width={144}
+            height={144}
+            className="h-14 w-14 object-contain"
             priority
           />
-          <span
-            className="mx-3 hidden h-20 w-px bg-sbmc-navy/18 lg:block xl:mx-4 xl:h-24"
-            aria-hidden="true"
-          />
-          <span
-            className="font-display hidden max-w-[10.5rem] text-[1.2rem] leading-[1.15] text-navy italic lg:block xl:max-w-[11.5rem] xl:text-[1.5rem]"
-            aria-hidden="true"
-          >
+          <span className="hidden font-display text-sm italic text-navy xl:block">
             {site.tagline}
           </span>
         </Link>
@@ -98,7 +80,7 @@ export function Header() {
             {site.phone ? (
               <a
                 href={telHref(site.phone)}
-                className="hidden text-sm font-semibold text-sbmc-navy md:inline"
+                className="hidden text-sm font-medium text-navy md:inline"
               >
                 {site.phone}
               </a>
@@ -107,7 +89,7 @@ export function Header() {
         ) : (
           <>
             <nav
-              className="hidden items-center justify-center gap-0.5 lg:flex"
+              className="hidden items-center justify-center gap-1 lg:flex"
               aria-label="Primary"
             >
               {primaryNav.map((item) => {
@@ -127,15 +109,9 @@ export function Header() {
                         className={cn(
                           navItemClass,
                           (pathname.startsWith('/services') || servicesOpen) &&
-                            'underline decoration-sbmc-teal decoration-2 underline-offset-[10px]',
+                            activeClass,
                         )}
                         onClick={() => setServicesOpen((value) => !value)}
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault();
-                            setServicesOpen((value) => !value);
-                          }
-                        }}
                       >
                         Services
                       </button>
@@ -159,34 +135,43 @@ export function Header() {
                         id={locationsTriggerId}
                         type="button"
                         aria-expanded={locationsOpen}
-                        className={navItemClass}
+                        className={cn(
+                          navItemClass,
+                          locationsOpen && activeClass,
+                        )}
                         onClick={() => setLocationsOpen((value) => !value)}
                       >
                         Locations
                       </button>
                       {locationsOpen ? (
-                        <div className="absolute left-0 top-full z-50 mt-3 min-w-[220px] rounded-[12px] border border-sbmc-border bg-sbmc-white p-4 shadow-lift">
-                          <ul className="space-y-1">
-                            {locationLinks.map((link) => (
-                              <li key={link.href}>
-                                <Link
-                                  href={link.href}
-                                  className="block rounded-md px-2 py-2 text-sbmc-navy hover:text-sbmc-teal"
-                                  onClick={() => setLocationsOpen(false)}
-                                >
-                                  {link.label}
-                                </Link>
-                              </li>
-                            ))}
-                            <li>
-                              <Link
-                                href="/#community"
-                                className="block px-2 py-2 text-sbmc-teal"
-                                onClick={() => setLocationsOpen(false)}
-                              >
-                                All service areas →
-                              </Link>
-                            </li>
+                        <div className="absolute left-0 top-full z-50 mt-3 w-[min(420px,calc(100vw-2rem))] rounded-2xl bg-white p-6 shadow-xl">
+                          <ul className="grid gap-2">
+                            {locationLinks.map((link) => {
+                              const location = locations.find(
+                                (entry) => `/${entry.slug}` === link.href,
+                              );
+                              return (
+                                <li key={link.href}>
+                                  <Link
+                                    href={link.href}
+                                    className="flex gap-3 rounded-2xl p-3 hover:bg-sand"
+                                    onClick={() => setLocationsOpen(false)}
+                                  >
+                                    <IconCircle icon={MapPin} />
+                                    <span className="min-w-0">
+                                      <span className="block font-medium text-navy">
+                                        {link.label}
+                                      </span>
+                                      {location ? (
+                                        <span className="mt-0.5 line-clamp-2 block text-sm text-stone">
+                                          {location.heroLede}
+                                        </span>
+                                      ) : null}
+                                    </span>
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       ) : null}
@@ -199,11 +184,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={cn(
-                      navItemClass,
-                      active &&
-                        'underline decoration-sbmc-teal decoration-2 underline-offset-[10px]',
-                    )}
+                    className={cn(navItemClass, active && activeClass)}
                   >
                     {item.label}
                   </Link>
@@ -216,7 +197,7 @@ export function Header() {
               </span>
               <button
                 type="button"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-sbmc-navy lg:hidden"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-navy lg:hidden"
                 aria-label="Open menu"
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen(true)}

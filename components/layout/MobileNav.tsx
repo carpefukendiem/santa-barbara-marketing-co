@@ -42,71 +42,50 @@ export function MobileNav({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-sbmc-cream md:hidden"
+      className="fixed inset-0 z-50 flex flex-col bg-navy text-white lg:hidden"
       id={panelId}
       role="dialog"
       aria-modal="true"
       aria-label="Menu"
     >
-      <div className="flex h-[148px] items-center justify-between px-5">
-        <p className="font-sans text-sm font-semibold uppercase tracking-[0.08em] text-sbmc-navy">
-          Menu
-        </p>
+      <div className="flex h-[4.5rem] items-center justify-between px-6">
+        <p className="font-display text-lg">Menu</p>
         <button
           ref={closeRef}
           type="button"
           onClick={onClose}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-sbmc-navy"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white"
           aria-label="Close menu"
         >
           <X size={22} />
         </button>
       </div>
-      <div className="h-[calc(100dvh-148px)] overflow-y-auto px-5 pb-10">
-        <details className="border-b border-sbmc-border py-3">
-          <summary className="cursor-pointer list-none py-2 font-sans text-[0.8rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy">
-            Services
-          </summary>
-          <ul className="space-y-1 pb-4 pt-2">
-            {megaColumns.flatMap((column) =>
-              column.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block py-2 text-sbmc-ink"
-                    onClick={onClose}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )),
-            )}
-          </ul>
-        </details>
-        <details className="border-b border-sbmc-border py-3">
-          <summary className="cursor-pointer list-none py-2 font-sans text-[0.8rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy">
-            Locations
-          </summary>
-          <ul className="space-y-1 pb-4 pt-2">
-            {locationLinks.map((link) => (
+      <div className="flex-1 overflow-y-auto px-6 pb-8">
+        <p className="text-xs tracking-[0.18em] text-white/50 uppercase">Services</p>
+        <ul className="mt-3 space-y-1">
+          {megaColumns.flatMap((column) =>
+            column.links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block py-2 text-sbmc-ink"
+                  className="block py-2 font-display text-2xl text-white"
                   onClick={onClose}
                 >
                   {link.label}
                 </Link>
               </li>
-            ))}
-          </ul>
-        </details>
-        <ul className="space-y-1 py-4">
-          {companyLinks.map((link) => (
+            )),
+          )}
+        </ul>
+        <p className="mt-8 text-xs tracking-[0.18em] text-white/50 uppercase">
+          Locations
+        </p>
+        <ul className="mt-3 space-y-1">
+          {locationLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block py-2 font-sans text-[0.8rem] font-bold uppercase tracking-[0.1em] text-sbmc-navy"
+                className="block py-2 font-display text-2xl text-white"
                 onClick={onClose}
               >
                 {link.label}
@@ -114,23 +93,32 @@ export function MobileNav({
             </li>
           ))}
         </ul>
-        <div className="mt-4 space-y-4">
-          <Button href={primaryCta.href} className="w-full" onClick={onClose}>
-            {primaryCta.label}
-          </Button>
-          <p className="text-body-sm text-sbmc-ink-muted">
-            <a href={`mailto:${site.email}`} className="text-sbmc-teal">
-              {site.email}
-            </a>
+        <ul className="mt-8 space-y-1 border-t border-white/10 pt-6">
+          {companyLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="block py-2 font-display text-2xl text-white"
+                onClick={onClose}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="border-t border-white/10 px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+        <Button href={primaryCta.href} className="w-full" onClick={onClose}>
+          {primaryCta.label}
+        </Button>
+        <p className="mt-3 text-sm text-white/70">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        {site.phone ? (
+          <p className="mt-1 text-sm text-white/70">
+            <a href={telHref(site.phone)}>{site.phone}</a>
           </p>
-          {site.phone ? (
-            <p className="text-body-sm">
-              <a href={telHref(site.phone)} className="text-sbmc-teal">
-                {site.phone}
-              </a>
-            </p>
-          ) : null}
-        </div>
+        ) : null}
       </div>
     </div>
   );
