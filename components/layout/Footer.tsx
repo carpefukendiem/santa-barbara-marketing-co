@@ -50,7 +50,7 @@ export function Footer() {
         <p className="border-b border-cream/20 pb-10 font-display text-[clamp(3rem,8vw,7.5rem)] font-light leading-[0.95] text-cream lg:whitespace-nowrap">
           Santa Barbara Marketing Co.
         </p>
-        <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_2fr]">
+        <div className="mt-12 grid gap-12 xl:grid-cols-[16rem_minmax(0,1fr)]">
           <div>
             <Link href="/" className="inline-flex items-center gap-4">
               <span className="inline-flex rounded-full bg-cream p-1.5 ring-1 ring-rule">
@@ -92,8 +92,9 @@ export function Footer() {
               </ul>
             ) : null}
           </div>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            <FooterColumn title="Services" links={digitalServiceLinks} extra={printServiceLinks} />
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 xl:grid-cols-5 xl:gap-x-4">
+            <FooterColumn title="Services" links={digitalServiceLinks} />
+            <FooterColumn title="Print & Apparel" links={printServiceLinks} />
             <FooterColumn title="Locations" links={locationLinks} />
             <FooterColumn title="Company" links={companyLinks} />
             <div>
@@ -138,11 +139,9 @@ export function Footer() {
 function FooterColumn({
   title,
   links,
-  extra,
 }: {
   title: string;
   links: Array<{ label: string; href: string }>;
-  extra?: Array<{ label: string; href: string }>;
 }) {
   return (
     <div>
@@ -152,28 +151,15 @@ function FooterColumn({
       <ul className="mt-4 space-y-2">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-white/80 hover:text-white">
+            <Link
+              href={link.href}
+              className="text-sm text-white/80 hover:text-white xl:whitespace-nowrap"
+            >
               {link.label}
             </Link>
           </li>
         ))}
       </ul>
-      {extra ? (
-        <>
-          <p className="mt-6 text-xs font-medium tracking-[0.18em] text-white/60 uppercase">
-            Print & Apparel
-          </p>
-          <ul className="mt-4 space-y-2">
-            {extra.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="text-sm text-white/80 hover:text-white">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : null}
     </div>
   );
 }
