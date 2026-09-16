@@ -16,9 +16,9 @@ export function FormField({
   const errorId = `${id}-error`;
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-sbmc-navy">
+      <label htmlFor={id} className="block text-sm font-medium text-navy">
         {label}
-        {required ? <span className="text-sbmc-ink-muted"> (required)</span> : <span className="text-sbmc-ink-muted"> (optional)</span>}
+        {required ? <span className="text-stone"> (required)</span> : <span className="text-stone"> (optional)</span>}
       </label>
       <div className="mt-1.5">
         {children}
@@ -33,8 +33,9 @@ export function FormField({
 }
 
 export const inputClass = cn(
-  'w-full rounded-[8px] border border-sbmc-border bg-sbmc-white px-3 py-3 text-sbmc-ink',
-  'placeholder:text-sbmc-ink-muted/70',
+  'w-full rounded-xl border border-line bg-white px-3 py-3 text-ink',
+  'placeholder:text-stone/70',
+  'focus:outline-none focus:ring-2 focus:ring-ocean',
 );
 
 export function Honeypot({

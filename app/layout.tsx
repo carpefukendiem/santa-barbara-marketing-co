@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Montserrat, Caveat } from 'next/font/google';
+import { Fraunces, Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
@@ -10,27 +10,19 @@ import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
 import './globals.css';
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-playfair',
-  weight: ['400', '600', '700'],
+  variable: '--font-fraunces',
+  axes: ['opsz'],
   preload: true,
 });
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-inter',
   preload: true,
-});
-
-const caveat = Caveat({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '600',
-  variable: '--font-caveat',
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -57,10 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${montserrat.variable} ${caveat.variable}`}
-    >
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
         <GrainDefs />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />

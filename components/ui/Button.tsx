@@ -3,36 +3,10 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { track } from '@/lib/analytics';
+import { useDark } from '@/components/ui/DarkContext';
 
-type ButtonVariant = 'primary' | 'secondary' | 'link';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'link';
 type ButtonTone = 'light' | 'dark';
-
-const variantClasses: Record<ButtonVariant, Record<ButtonTone, string>> = {
-  primary: {
-    light:
-      'bg-sbmc-orange text-white hover:bg-sbmc-orange-hover hover:-translate-y-px',
-    dark: 'bg-sbmc-orange text-white hover:bg-sbmc-orange-hover hover:-translate-y-px',
-  },
-  secondary: {
-    light:
-      'border-[1.5px] border-sbmc-navy bg-transparent text-sbmc-navy hover:bg-sbmc-navy hover:text-white',
-    dark: 'border-[1.5px] border-white bg-transparent text-white hover:bg-white hover:text-sbmc-navy',
-  },
-  link: {
-    light:
-      'text-sbmc-teal hover:text-sbmc-teal-dark px-0 py-0 gap-1.5 [&>.btn-arrow]:transition-transform [&>.btn-arrow]:duration-200 hover:[&>.btn-arrow]:translate-x-[3px]',
-    dark: 'text-sbmc-aqua hover:text-white px-0 py-0 gap-1.5 [&>.btn-arrow]:transition-transform [&>.btn-arrow]:duration-200 hover:[&>.btn-arrow]:translate-x-[3px]',
-  },
-};
-
-const base =
-  'inline-flex items-center justify-center gap-2 font-sans font-semibold uppercase tracking-[0.08em] rounded-full ease-sbmc transition-[color,background-color,border-color,transform,box-shadow] duration-200 disabled:opacity-60 disabled:pointer-events-none';
-
-const sizeClasses: Record<ButtonVariant, string> = {
-  primary: 'px-8 py-3.5 text-[0.75rem]',
-  secondary: 'px-8 py-3.5 text-[0.75rem]',
-  link: 'text-[0.72rem] tracking-[0.1em]',
-};
 
 export type ButtonProps = {
   variant?: ButtonVariant;
@@ -49,7 +23,7 @@ export type ButtonProps = {
 
 export function Button({
   variant = 'primary',
-  tone = 'light',
+  tone,
   href,
   className,
   children,
@@ -59,10 +33,29 @@ export function Button({
   'aria-label': ariaLabel,
   'aria-busy': ariaBusy,
 }: ButtonProps) {
+  const inDark = useDark();
+  const resolvedTone: ButtonTone = tone ?? (inDark ? 'dark' : 'light');
+  const visual = variant === 'link' ? 'ghost' : variant;
+
   const classes = cn(
-    base,
-    sizeClasses[variant],
-    variantClasses[variant][tone],
+    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium ease-sbmc transition-[color,background-color,border-color,transform,box-shadow] duration-200 disabled:pointer-events-none disabled:opacity-60',
+    visual === 'primary' &&
+      'bg-tile text-white hover:bg-[#a84730] motion-safe:hover:-translate-y-0.5',
+    visual === 'secondary' &&
+      resolvedTone === 'dark' &&
+      'border border-white/20 bg-transparent text-white hover:bg-white/10',
+    visual === 'secondary' &&
+      resolvedTone === 'light' &&
+      'border border-navy bg-transparent text-navy hover:bg-navy hover:text-white',
+    visual === 'ghost' &&
+      resolvedTone === 'dark' &&
+      'px-0 py-0 text-white/80 hover:text-white',
+    visual === 'ghost' &&
+      resolvedTone === 'light' &&
+      'px-0 py-0 text-ocean hover:text-navy',
+    visual !== 'ghost' && '[&>.btn-arrow]:transition-transform [&>.btn-arrow]:duration-200 hover:[&>.btn-arrow]:translate-x-1',
+    visual === 'ghost' &&
+      'gap-1.5 [&>.btn-arrow]:transition-transform [&>.btn-arrow]:duration-200 hover:[&>.btn-arrow]:translate-x-1',
     className,
   );
 
@@ -89,7 +82,8 @@ export function Button({
   };
 
   if (href) {
-    const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
+    const isExternal =
+      href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:');
     if (isExternal) {
       return (
         <a href={href} className={classes} aria-label={ariaLabel} onClick={handleClick}>

@@ -33,7 +33,7 @@ export function LocalPanel() {
             aria-hidden="true"
           />
           <p
-            className="font-script absolute inset-x-8 bottom-8 z-[3] text-2xl text-white md:text-3xl"
+            className="font-display absolute inset-x-8 bottom-8 z-[3] text-2xl text-white italic md:text-3xl"
             aria-hidden="true"
           >
             Local People. Local Businesses. A Stronger 805.

@@ -84,7 +84,7 @@ export default function AboutPage() {
             <GrainOverlay />
           </div>
           <div className="flex items-center bg-sbmc-navy-deep px-5 py-12 md:px-12">
-            <p className="font-script max-w-[28ch] text-2xl text-white md:text-3xl">
+            <p className="font-display max-w-[28ch] text-2xl text-white italic md:text-3xl">
               Local People. Local Businesses. A Stronger 805.
             </p>
           </div>

@@ -59,7 +59,7 @@ export function ContactForm() {
     <form
       onSubmit={form.handleSubmit(onSubmit)}
       noValidate
-      className="relative space-y-4"
+      className="relative space-y-4 rounded-2xl border border-line bg-white p-6 shadow-card sm:p-8"
       onFocusCapture={() => {
         if (!form.getValues('startedAt')) {
           form.setValue('startedAt', Date.now());

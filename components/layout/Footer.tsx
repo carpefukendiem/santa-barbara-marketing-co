@@ -61,7 +61,7 @@ export function Footer() {
                 Santa Barbara Marketing Co.
               </span>
             </Link>
-            <p className="font-script mt-5 text-[1.45rem] leading-tight text-white/80" aria-hidden="true">
+            <p className="font-display mt-5 text-[1.45rem] leading-tight text-white/80 italic" aria-hidden="true">
               {site.tagline}
             </p>
             {socials.length > 0 ? (

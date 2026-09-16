@@ -58,7 +58,9 @@ export function Header() {
         className={cn(
           'mx-auto grid max-w-[1400px] items-center gap-3 px-5 transition-[height] duration-200 md:px-8 lg:grid-cols-[auto_1fr_auto] lg:px-10',
           isMinimal ? 'grid-cols-[1fr_auto]' : 'grid-cols-[1fr_auto]',
-          scrolled ? 'h-[76px] lg:h-[84px]' : 'h-[100px] lg:h-[112px]',
+          scrolled
+            ? 'h-[76px] lg:h-[84px]'
+            : 'h-[148px] lg:h-[162px] xl:h-[176px]',
         )}
       >
         <Link
@@ -69,22 +71,22 @@ export function Header() {
           <Image
             src={brand.logo.src}
             alt=""
-            width={192}
-            height={192}
+            width={326}
+            height={326}
             className={cn(
               'object-contain transition-[width,height] duration-200 ease-sbmc',
               scrolled
                 ? 'h-[64px] w-[64px] lg:h-[70px] lg:w-[70px]'
-                : 'h-[80px] w-[80px] lg:h-[88px] lg:w-[88px] xl:h-[96px] xl:w-[96px]',
+                : 'h-[136px] w-[136px] lg:h-[150px] lg:w-[150px] xl:h-[163px] xl:w-[163px]',
             )}
             priority
           />
           <span
-            className="mx-3 hidden h-12 w-px bg-sbmc-navy/18 lg:block xl:mx-4 xl:h-14"
+            className="mx-3 hidden h-20 w-px bg-sbmc-navy/18 lg:block xl:mx-4 xl:h-24"
             aria-hidden="true"
           />
           <span
-            className="font-script hidden max-w-[10.5rem] text-[1.2rem] leading-[1.15] text-sbmc-navy lg:block xl:max-w-[11.5rem] xl:text-[1.5rem]"
+            className="font-display hidden max-w-[10.5rem] text-[1.2rem] leading-[1.15] text-navy italic lg:block xl:max-w-[11.5rem] xl:text-[1.5rem]"
             aria-hidden="true"
           >
             {site.tagline}

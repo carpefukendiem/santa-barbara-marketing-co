@@ -21,7 +21,7 @@ export function Hero() {
       <GrainOverlay />
       <div className="hero-scrim absolute inset-0 z-[2]" aria-hidden="true" />
       <p
-        className="font-script absolute right-[5%] top-[11%] z-[3] hidden text-[clamp(1.7rem,2.1vw,2.45rem)] leading-tight text-white [text-shadow:0_2px_14px_rgb(5_33_54/0.65),0_0_24px_rgb(5_33_54/0.35)] xl:block"
+        className="font-display absolute right-[5%] top-[11%] z-[3] hidden text-[clamp(1.7rem,2.1vw,2.45rem)] leading-tight text-white italic [text-shadow:0_2px_14px_rgb(5_33_54/0.65),0_0_24px_rgb(5_33_54/0.35)] xl:block"
         aria-hidden="true"
       >
         Same Community. Bigger Opportunities.
