@@ -1,14 +1,13 @@
-import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { PageHero } from '@/components/ui/PageHero';
 import { ResourceFilter } from '@/components/resources/ResourceFilter';
-import { GrowthPlanForm } from '@/components/forms/GrowthPlanForm';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { publishedResources, type Resource } from '@/data/resources';
-import { site } from '@/data/site';
+import { primaryCta } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { readingTimeLabel } from '@/lib/utils';
@@ -74,20 +73,14 @@ export default function ResourcesPage() {
                 Get a plan for your listing and your pages
               </Heading>
               <p className="mt-5 max-w-[52ch] text-lg text-ink">
-                The articles explain how the market works. The Free 805 Growth
-                Plan applies that to your Google Business Profile, your site,
-                and the searches you can actually win. A person writes it,{' '}
-                {site.growthPlanTurnaround}. No contract attached to the
-                document.
+                The articles explain how the market works. A free call applies
+                that to your Google Business Profile, your site, and the
+                searches you can actually win.
               </p>
-            </div>
-            <Card hover={false} className="p-6 md:p-8">
-              <p className="text-eyebrow text-ocean">Free 805 Growth Plan</p>
-              <p className="mt-3 text-h3 text-navy">Tell us about the business</p>
-              <div className="mt-6">
-                <GrowthPlanForm />
+              <div className="mt-8">
+                <Button href={primaryCta.href}>{primaryCta.label}</Button>
               </div>
-            </Card>
+            </div>
           </div>
         </Reveal>
       </Section>

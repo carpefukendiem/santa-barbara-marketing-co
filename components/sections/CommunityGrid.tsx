@@ -14,13 +14,11 @@ const taglines: Record<string, string> = {
 
 export function CommunityGrid() {
   return (
-    <Section bg="white" id="community">
+    <Section bg="navy" id="community">
       <Reveal>
-        <div className="text-center">
-          <Eyebrow align="center">Serving our community</Eyebrow>
-          <Heading className="mt-4">Proud to Support the 805.</Heading>
-        </div>
-        <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-4">
+        <Eyebrow dark>Serving our community</Eyebrow>
+        <Heading className="mt-4 !text-cream">Proud to Support the 805.</Heading>
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {overviewLocations.map((location) => (
             <LocationCard
               key={location.slug}
@@ -28,7 +26,6 @@ export function CommunityGrid() {
               city={location.city}
               tagline={taglines[location.slug] ?? location.heroLede}
               image={location.heroImage}
-              className="snap-start"
             />
           ))}
         </div>

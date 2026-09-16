@@ -66,11 +66,11 @@ export function MobileNav({
           {megaColumns.flatMap((column) =>
             column.links.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block py-2 font-display text-2xl text-white"
-                  onClick={onClose}
-                >
+        <Link
+          href={link.href}
+          className="block border-b border-white/15 py-4 font-display text-4xl text-white"
+          onClick={onClose}
+        >
                   {link.label}
                 </Link>
               </li>

@@ -23,6 +23,18 @@ export function organizationSchema(): JsonLd {
     ...(site.phone ? { telephone: site.phone } : {}),
     ...(sameAs.length > 0 ? { sameAs } : {}),
     foundingDate: site.founded,
+    potentialAction: {
+      '@type': 'ReserveAction',
+      name: 'Book a Free Call',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${site.url}/book-a-call`,
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+    },
   };
 }
 
@@ -82,6 +94,11 @@ export function professionalServiceSchema(input: {
       areaServed: site.areaServed,
     },
     provider: { '@id': organizationId() },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      name: 'Book a Free Call',
+      target: `${site.url}/book-a-call`,
+    },
   };
 }
 

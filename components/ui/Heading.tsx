@@ -20,12 +20,12 @@ const sizeClass: Record<HeadingSize, string> = {
 
 function withAccent(children: React.ReactNode, accent?: string) {
   if (!accent || typeof children !== 'string') return children;
-  const index = children.indexOf(accent);
+  const index = children.lastIndexOf(accent);
   if (index === -1) return children;
   return (
     <>
       {children.slice(0, index)}
-      <em className="not-italic text-tile">{accent}</em>
+      <em className="font-light italic text-tile">{accent}</em>
       {children.slice(index + accent.length)}
     </>
   );
@@ -40,7 +40,7 @@ export function Heading({
 }: HeadingProps) {
   const resolvedSize = size ?? (Tag === 'h1' ? 'xl' : Tag === 'h3' ? 'sm' : 'lg');
   return (
-    <Tag className={cn(sizeClass[resolvedSize], 'text-navy', className)}>
+    <Tag className={cn(sizeClass[resolvedSize], 'text-ink', className)}>
       {withAccent(children, accent)}
     </Tag>
   );

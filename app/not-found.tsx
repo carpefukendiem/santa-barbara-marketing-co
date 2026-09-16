@@ -48,7 +48,7 @@ export default function NotFound() {
             <li key={service.slug}>
               <Link
                 href={`/services/${service.slug}`}
-                className="block rounded-[12px] border border-sbmc-border bg-sbmc-white px-5 py-4 font-sans text-[0.78rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy shadow-card hover:text-sbmc-teal"
+                className="block border-t border-rule py-4 font-display text-2xl text-ink"
               >
                 {service.shortName}
               </Link>
@@ -62,7 +62,7 @@ export default function NotFound() {
             <li key={location.slug}>
               <Link
                 href={`/${location.slug}`}
-                className="block rounded-[12px] border border-sbmc-border bg-sbmc-white px-5 py-4 font-sans text-[0.78rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy shadow-card hover:text-sbmc-teal"
+                className="block border-t border-rule py-4 font-display text-2xl text-ink"
               >
                 {location.city}
               </Link>

@@ -3,17 +3,17 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
-import { IconCircle } from '@/components/ui/IconCircle';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { faqsByCategory } from '@/data/faqs';
+import { NumberedList } from '@/components/ui/NumberedList';
+import { printServices } from '@/data/printServices';
 import { getService, services, type ServiceNavGroup } from '@/data/services';
 import { primaryCta } from '@/data/navigation';
 import { breadcrumbSchema, faqPageSchema } from '@/lib/schema';
-import { serviceLucide } from '@/lib/lucideIcons';
 
 const groupOrder: ServiceNavGroup[] = ['found', 'convert', 'systems'];
 
@@ -88,23 +88,25 @@ export function ServicesOverview() {
           <div className="mt-8">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
           </div>
-          <div className="mt-14 grid gap-4 lg:grid-cols-3">
-            {services.map((service) => {
-              const Icon = serviceLucide(service.slug, service.icon);
-              return (
-                <Card key={service.slug} className="p-6">
-                  <IconCircle icon={Icon} />
-                  <h3 className="mt-5 text-h3 text-navy">{service.shortName}</h3>
-                  <p className="mt-3 text-stone">{service.cardBlurb}</p>
-                  <div className="mt-5">
-                    <Button variant="ghost" href={`/services/${service.slug}`}>
-                      Learn more
-                    </Button>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+          <NumberedList
+            className="mt-14"
+            items={[
+              ...services.map((service, index) => ({
+                index: index + 1,
+                name: service.name,
+                description: service.cardBlurb,
+                href: `/services/${service.slug}`,
+                group: index === 0 ? 'Digital Marketing' : undefined,
+              })),
+              ...printServices.map((service, index) => ({
+                index: services.length + index + 1,
+                name: service.name,
+                description: service.cardBlurb,
+                href: `/services/${service.slug}`,
+                group: index === 0 ? 'Print & Apparel' : undefined,
+              })),
+            ]}
+          />
         </Reveal>
       </Section>
 
@@ -179,7 +181,7 @@ export function ServicesOverview() {
           <Heading className="mt-4 text-center">Which do I need?</Heading>
           <p className="mx-auto mt-5 max-w-[58ch] text-center text-lg text-stone">
             Three common 805 situations, and the service we would usually open
-            with. The Growth Plan is how we confirm that for your pin and your
+            with. A free call is how we confirm that for your pin and your
             category, instead of selling the whole menu.
           </p>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -213,7 +215,7 @@ export function ServicesOverview() {
 
       <CtaBand
         heading="Not sure which service comes first?"
-        subline="The Free 805 Growth Plan is a written 90-day priority list, not a pitch deck."
+        subline="A free call is a written 90-day priority list, not a pitch deck."
       />
     </>
   );

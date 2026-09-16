@@ -4,7 +4,7 @@ export type NavLink = {
 };
 
 export type MegaColumn = {
-  id: 'found' | 'convert' | 'systems';
+  id: 'digital' | 'print';
   title: string;
   links: NavLink[];
 };
@@ -15,32 +15,31 @@ export type ServiceNavItem = NavLink & {
 
 export const megaColumns: MegaColumn[] = [
   {
-    id: 'found',
-    title: 'Get Found',
+    id: 'digital',
+    title: 'Digital Marketing',
     links: [
       { label: 'Local SEO', href: '/services/local-seo' },
       { label: 'SEO', href: '/services/seo' },
       { label: 'Google Ads', href: '/services/google-ads' },
       { label: 'Google Business Profile', href: '/services/google-business-profile' },
-    ],
-  },
-  {
-    id: 'convert',
-    title: 'Convert & Grow',
-    links: [
       { label: 'Web Design & Development', href: '/services/web-design' },
       { label: 'Conversion Optimization', href: '/services/conversion-optimization' },
       { label: 'Social Media', href: '/services/social-media' },
-    ],
-  },
-  {
-    id: 'systems',
-    title: 'Systems',
-    links: [
       { label: 'Marketing Automation', href: '/services/marketing-automation' },
       { label: 'AI Automation', href: '/services/ai-automation' },
       { label: 'Analytics & Reporting', href: '/services/analytics' },
       { label: 'Digital Marketing Strategy', href: '/services/strategy' },
+    ],
+  },
+  {
+    id: 'print',
+    title: 'Print & Apparel',
+    links: [
+      { label: 'Print & Apparel', href: '/services/print-and-apparel' },
+      { label: 'Screen Printing', href: '/services/screen-printing' },
+      { label: 'Custom Apparel & Uniforms', href: '/services/custom-apparel' },
+      { label: 'Promotional Products', href: '/services/promotional-products' },
+      { label: 'Team & Fan Stores', href: '/services/team-stores' },
     ],
   },
 ];
@@ -76,7 +75,7 @@ export const companyLinks: NavLink[] = [
 ];
 
 export const getStartedLinks: NavLink[] = [
-  { label: 'Free Growth Plan', href: '/free-growth-plan' },
+  { label: 'Book a Free Call', href: '/book-a-call' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -86,11 +85,17 @@ export const legalLinks: NavLink[] = [
   { label: 'Accessibility', href: '/accessibility' },
 ];
 
+export const digitalServiceLinks: NavLink[] =
+  megaColumns.find((column) => column.id === 'digital')?.links ?? [];
+
+export const printServiceLinks: NavLink[] =
+  megaColumns.find((column) => column.id === 'print')?.links ?? [];
+
 export const allServiceLinks: NavLink[] = megaColumns.flatMap(
   (column) => column.links,
 );
 
 export const primaryCta = {
-  label: 'Get a Free Growth Plan',
-  href: '/free-growth-plan',
+  label: 'Book a Free Call',
+  href: '/book-a-call',
 } as const;

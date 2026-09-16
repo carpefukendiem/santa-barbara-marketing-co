@@ -43,13 +43,11 @@ export default function PrivacyPolicyPage() {
             </p>
             <h2>Form data</h2>
             <p>
-              Growth Plan and contact forms collect the fields you choose to
-              provide: name, business name, email, phone, website, primary goal,
-              and a short description of your marketing challenge. We use that
-              information to write and deliver the plan, to reply to your
-              message, and to follow up about working together if you ask us
-              to. We do not add you to a promotional drip sequence because you
-              submitted a form.
+              Contact forms collect the fields you choose to
+              provide: name, business name, email, phone, what you need, and a
+              message. We use that information to reply to you and to follow up
+              about working together if you ask us to. We do not add you to a
+              promotional drip sequence because you submitted a form.
             </p>
             <p>
               Forms include an anti-spam honeypot and a minimum time-on-form

@@ -7,7 +7,7 @@ export type FaqItem = {
     | 'ads'
     | 'websites'
     | 'working-together'
-    | 'growth-plan'
+    | 'free-call'
     | 'homepage';
 };
 
@@ -34,17 +34,17 @@ export const faqs: FaqItem[] = [
     category: 'homepage',
     question: 'How do we get started?',
     answer:
-      'Request a Free 805 Growth Plan. We review your current search visibility, look at what nearby competitors in your category are doing, list the gaps, and send a prioritized 90-day plan. A person writes it. We walk through it on a short call. There is no contract attached to the plan. If it is useful, we talk about what to run first. If it is not, you keep the document.',
+      'Book a free call. We ask about the business, look at your current visibility before we talk, and come to the call with a short list of what we would do first. If it makes sense to work together, we send a proposal. If not, you leave with the list. No contract, no pressure.',
   },
   {
     category: 'getting-started',
-    question: 'What is included in the Free 805 Growth Plan?',
+    question: 'What happens on a free call?',
     answer:
-      'A written review of how you currently show up in Search and Maps, a look at competitors in the same category in your city, the specific gaps we found, and a 90-day priority list. It is delivered within three business days by a person, then we schedule a 20-minute call to walk through it. It is not a generic audit PDF and it is not a sales script with your logo on the cover.',
+      'We look at your current visibility before we talk, then spend about thirty minutes on where you show up today, what nearby competitors are doing, and what we would fix first. If it makes sense to work together, we send a proposal. If not, you leave with the list.',
   },
   {
     category: 'getting-started',
-    question: 'Do I have to sign a contract after the Growth Plan?',
+    question: 'Do I have to sign a contract after the call?',
     answer:
       'No. The plan is the deliverable. If we work together after that, we agree on a scope in writing. We do not use long-term lock-ins as a default. Month-to-month or defined project terms are the norm, spelled out before any invoice.',
   },
@@ -145,28 +145,28 @@ export const faqs: FaqItem[] = [
       'Sometimes, if the work is a fit. The agency is built around the 805. If you are in Ventura or Santa Ynez and the market maps onto what we already do, we can talk. We will not open a thin city page for a town we do not intend to serve well.',
   },
   {
-    category: 'growth-plan',
-    question: 'Is the Growth Plan really free?',
+    category: 'free-call',
+    question: 'Is the call really free?',
     answer:
-      'Yes. You get the written plan and a short call. We will not hold the document hostage, add a “setup fee,” or require a credit card to receive it. If we work together afterward, that is a separate agreement.',
+      'Yes. Thirty minutes, no credit card, no contract. If we work together afterward, that is a separate agreement.',
   },
   {
-    category: 'growth-plan',
-    question: 'How fast will I receive it?',
+    category: 'free-call',
+    question: 'What should I have ready?',
     answer:
-      'Within three business days of receiving the information we need, usually your website, your city, and a primary goal. If Google Business Profile access is missing, the plan will note what we could not see. We will not invent a visibility score to fill the gap.',
+      'Your website, the city you serve, and a primary goal are enough. If Google Business Profile access is missing, we will note what we could not see. We will not invent a visibility score to fill the gap.',
   },
   {
-    category: 'growth-plan',
+    category: 'free-call',
     question: 'What if I already have an agency?',
     answer:
-      'You can still request the plan. It is a second set of eyes on search, the site, and follow-up. We will not trash another vendor in the write-up. We will point at gaps. If those gaps are already on their roadmap, you will know. If they are not, you have a document you can take back to them.',
+      'You can still book the call. It is a second set of eyes on search, the site, and follow-up. We will not trash another vendor. We will point at gaps. If those gaps are already on their roadmap, you will know.',
   },
   {
-    category: 'growth-plan',
-    question: 'Will you spam me after I submit the form?',
+    category: 'free-call',
+    question: 'Will you spam me after I book?',
     answer:
-      'No. You will get the plan and the walkthrough invitation. We will not add you to a drip sequence of “just checking in.” If you say you are not moving forward, that is the end of the sales conversation.',
+      'No. You will get the calendar confirmation and the call. We will not add you to a drip sequence of “just checking in.” If you say you are not moving forward, that is the end of the sales conversation.',
   },
 ];
 
@@ -175,4 +175,4 @@ export function faqsByCategory(category: FaqItem['category']): FaqItem[] {
 }
 
 export const homepageFaqs = faqs.filter((item) => item.category === 'homepage');
-export const growthPlanFaqs = faqs.filter((item) => item.category === 'growth-plan');
+export const freeCallFaqs = faqs.filter((item) => item.category === 'free-call');

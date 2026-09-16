@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Fraunces, Inter_Tight, JetBrains_Mono } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
@@ -8,6 +8,8 @@ import { GrainDefs } from '@/components/ui/GrainOverlay';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
+import { BookCallProvider } from '@/components/booking/BookCallModal';
+import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -15,13 +17,22 @@ const fraunces = Fraunces({
   display: 'swap',
   variable: '--font-fraunces',
   axes: ['opsz'],
+  style: ['normal', 'italic'],
   preload: true,
 });
 
-const inter = Inter({
+const inter = Inter_Tight({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono-jb',
+  weight: '500',
   preload: true,
 });
 
@@ -49,16 +60,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body className="font-sans antialiased">
-        <GrainDefs />
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
-        <SkipLink />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <StickyMobileCta />
-        <AnalyticsScripts />
+        <BookCallProvider>
+          <GrainDefs />
+          <JsonLd data={[organizationSchema(), websiteSchema()]} />
+          <SkipLink />
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <StickyMobileCta />
+          <AnalyticsScripts />
+          <GhlChatWidget />
+        </BookCallProvider>
       </body>
     </html>
   );

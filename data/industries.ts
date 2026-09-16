@@ -375,7 +375,7 @@ export const industries: Industry[] = [
           'No. IDX can help buyers who already trust you and want to browse. It is not a requirement for ranking as an agent or a manager, and a broken feed is worse than none. Portals already own most listing queries. Your SEO job is the person, the areas you work, and the services (especially property management) that are not a duplicate of the MLS search.',
       },
       {
-        category: 'growth-plan',
+        category: 'working-together',
         question: 'Montecito has so few sales. Is search even worth it?',
         answer:
           'Volume is low. Consideration is high. Search still happens: the seller who heard your name, the advisor who is checking you, the buyer who typed Montecito and then looked for an agent who actually works there. The budget should match that reality. We will not sell you a content factory for a market that does not publish like a suburb.',

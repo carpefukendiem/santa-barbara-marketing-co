@@ -14,16 +14,12 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        'text-eyebrow inline-flex items-center gap-3',
-        dark ? 'text-white/70' : 'text-ocean',
-        align === 'center' && 'justify-center',
+        'text-eyebrow',
+        dark ? 'text-ochre' : 'text-stone',
+        align === 'center' && 'text-center',
         className,
       )}
     >
-      <span
-        className="inline-block h-[2px] w-6 shrink-0 bg-tile"
-        aria-hidden="true"
-      />
       {children}
     </p>
   );

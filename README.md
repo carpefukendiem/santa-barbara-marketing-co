@@ -37,17 +37,21 @@ Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so c
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Yes for production | Canonical and OG base URL |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No | Overrides `hello@santabarbaramarketingco.com` |
-| `NEXT_PUBLIC_CONTACT_PHONE` | No | If unset, no tel links render |
+| `NEXT_PUBLIC_PHONE` | No | If unset, no tel links render. `NEXT_PUBLIC_CONTACT_PHONE` is an alias. |
 | `NEXT_PUBLIC_GTM_ID` | No | Loads GTM when set |
 | `NEXT_PUBLIC_GA_ID` | No | Loads GA4 only when GTM is unset |
-| `NEXT_PUBLIC_META_PIXEL_ID` | No | Reserved |
-| `NEXT_PUBLIC_GOOGLE_ADS_ID` | No | Reserved |
-| `LEAD_PROVIDER` | No | `console` (default), `webhook`, `gohighlevel`, `hubspot`, `resend` |
+| `GHL_PRIVATE_TOKEN` | Yes in production | Private Integration token for contacts/opportunities |
+| `GHL_LOCATION_ID` | Yes in production | GoHighLevel subaccount location ID |
+| `NEXT_PUBLIC_GHL_CALENDAR_ID` | Yes in production | Booking widget calendar ID |
+| `GHL_PIPELINE_ID` | No | Opportunity pipeline |
+| `GHL_PIPELINE_STAGE_ID` | No | Default opportunity stage |
+| `GHL_PRINT_STAGE_ID` | No | Print-tagged leads use this stage when set |
+| `NEXT_PUBLIC_GHL_CHAT_WIDGET_ID` | No | Chat widget; omitted when unset |
+| `LEAD_PROVIDER` | No | Fallback if GHL fails: `console`, `webhook`, `resend` |
 | `LEAD_WEBHOOK_URL` | If webhook | JSON POST destination |
-| `GHL_WEBHOOK_URL` | If gohighlevel | GHL inbound webhook |
-| `GHL_API_KEY` | No | Reserved for a future API client |
-| `HUBSPOT_PORTAL_ID` / `HUBSPOT_FORM_GUID` | If hubspot | Stub until implemented |
 | `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` | If resend | Stub until implemented |
+
+Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. Production builds fail if the three required GHL keys are missing.
 
 See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/ANALYTICS.md).
 
@@ -55,9 +59,10 @@ See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/AN
 
 | File | What it controls |
 | --- | --- |
-| `data/site.ts` | Name, URL, email, phone, geo, social, Growth Plan turnaround |
+| `data/site.ts` | Name, URL, email, phone, geo, social, contact details |
 | `data/navigation.ts` | Header, mega menu, footer, breadcrumbs |
-| `data/services.ts` | All service pages |
+| `data/services.ts` | Digital marketing service pages |
+| `data/printServices.ts` | Print & apparel service pages and hub |
 | `data/locations.ts` | City landing pages |
 | `data/industries.ts` | Industry pages |
 | `data/resources.ts` | Articles (`status: 'published'` vs `'planned'`) |

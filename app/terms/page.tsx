@@ -47,9 +47,8 @@ export default function TermsPage() {
               search engine optimization, Google Ads management, website design
               and development, conversion work, Google Business Profile support,
               automation, analytics, and strategy. Scope, timeline, and fees
-              are defined in a written proposal. The Free 805 Growth Plan is a
-              complimentary document and a walkthrough call. It is not a
-              promise of rankings, revenue, or a later discount.
+              are defined in a written proposal. A free call is complimentary.
+              It is not a promise of rankings, revenue, or a later discount.
             </p>
             <p>
               We do not guarantee search rankings, Map Pack placement, ad
@@ -65,7 +64,7 @@ export default function TermsPage() {
               those platforms to you unless we agree otherwise in writing. Our
               fee is for management and production, not a markup we hide.
               Invoices are due as stated. Work may pause if invoices remain
-              unpaid. The Growth Plan does not require a credit card.
+              unpaid. A free call does not require a credit card.
             </p>
             <h2>Intellectual property</h2>
             <p>

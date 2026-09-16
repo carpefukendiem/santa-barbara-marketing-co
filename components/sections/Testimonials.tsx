@@ -10,7 +10,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
           {items.map((item) => (
             <blockquote
               key={`${item.name}-${item.business}`}
-              className="rounded-2xl border border-line bg-white p-8 shadow-card"
+              className="border-t border-rule py-8"
             >
               <p className="text-lg text-ink">{item.quote}</p>
               <footer className="mt-4 text-sm text-stone">

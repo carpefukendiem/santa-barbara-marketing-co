@@ -54,7 +54,7 @@ export const services: Service[] = [
       'Get found in Google Search and Maps when locals are ready to buy.',
     metaTitle: 'Local SEO Services in Santa Barbara & the 805',
     metaDescription:
-      'Show up in Google Search and Maps when Santa Barbara and Goleta customers are ready to call. Honest Local SEO, no ranking promises. Get a Growth Plan.',
+      'Show up in Google Search and Maps when Santa Barbara and Goleta customers are ready to call. Honest Local SEO, no ranking promises. Book a Free Call.',
     h1: 'Local SEO for Santa Barbara, Goleta, and the rest of the 805',
     eyebrow: 'Get Found',
     heroLede:
@@ -194,7 +194,7 @@ export const services: Service[] = [
       'Organic search beyond Maps: pages, technical health, and visibility in AI answers.',
     metaTitle: 'SEO Services for Santa Barbara Businesses',
     metaDescription:
-      'Organic search for Santa Barbara businesses that need more than the Map Pack. Content, technical SEO, and honest AI-search work. Request a Growth Plan.',
+      'Organic search for Santa Barbara businesses that need more than the Map Pack. Content, technical SEO, and honest AI-search work. Book a Free Call.',
     h1: 'SEO for Santa Barbara businesses that need more than the Map Pack',
     eyebrow: 'Organic Search',
     heroLede:
@@ -326,7 +326,7 @@ export const services: Service[] = [
       'Targeted, high-intent traffic that turns into real customers.',
     metaTitle: 'Google Ads Management in Santa Barbara',
     metaDescription:
-      'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Request a Growth Plan.',
+      'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Book a Free Call.',
     h1: 'Google Ads management for Santa Barbara businesses tired of wasted clicks',
     eyebrow: 'Paid Search',
     heroLede:
@@ -459,7 +459,7 @@ export const services: Service[] = [
       'Modern, fast, and built to convert visitors into customers.',
     metaTitle: 'Website Design & Development in Santa Barbara',
     metaDescription:
-      'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Request a Growth Plan.',
+      'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Book a Free Call.',
     h1: 'Websites built for phones, speed, and a short decision window',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -597,7 +597,7 @@ export const services: Service[] = [
       'Make the listing people tap in Maps accurate, complete, and worth trusting.',
     metaTitle: 'Google Business Profile Optimization in Santa Barbara',
     metaDescription:
-      'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Get a Growth Plan.',
+      'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Book a Free Call.',
     h1: 'Google Business Profile work for the listing customers actually tap',
     eyebrow: 'Your Google Listing',
     heroLede:
@@ -730,7 +730,7 @@ export const services: Service[] = [
       'Turn the traffic you already pay for into more calls, forms, and booked jobs.',
     metaTitle: 'Conversion Rate Optimization for Local Businesses',
     metaDescription:
-      'Turn Santa Barbara site traffic into more calls and forms. Landing pages, mobile CTAs, and tests based on real behavior. Request a Growth Plan.',
+      'Turn Santa Barbara site traffic into more calls and forms. Landing pages, mobile CTAs, and tests based on real behavior. Book a Free Call.',
     h1: 'Conversion optimization for local sites that get visits and miss the call',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -863,7 +863,7 @@ export const services: Service[] = [
       'Content and campaigns that build your brand and community.',
     metaTitle: 'Social Media Marketing in Santa Barbara',
     metaDescription:
-      'Social media for Santa Barbara businesses that need community and content, not a posting treadmill. Instagram, campaigns, and honest scope. Get a Growth Plan.',
+      'Social media for Santa Barbara businesses that need community and content, not a posting treadmill. Instagram, campaigns, and honest scope. Book a Free Call.',
     h1: 'Social media marketing that matches how the 805 actually uses it',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -999,7 +999,7 @@ export const services: Service[] = [
       'Save time, follow up faster, and never miss a lead again.',
     metaTitle: 'Marketing Automation & CRM for 805 Businesses',
     metaDescription:
-      'CRM and follow-up for Santa Barbara businesses so leads get a reply before they hire someone else. Pipelines, reminders, reporting. Get a Growth Plan.',
+      'CRM and follow-up for Santa Barbara businesses so leads get a reply before they hire someone else. Pipelines, reminders, reporting. Book a Free Call.',
     h1: 'Marketing automation so 805 leads get a reply before they hire someone else',
     eyebrow: 'Follow-up Systems',
     heroLede:
@@ -1131,7 +1131,7 @@ export const services: Service[] = [
       'Missed-call text-back, routing, review asks, and intake that actually runs.',
     metaTitle: 'AI Automation for Local Businesses in Santa Barbara',
     metaDescription:
-      'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Get a Growth Plan.',
+      'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Book a Free Call.',
     h1: 'AI automation for missed calls, routing, reviews, and intake',
     eyebrow: 'Practical AI',
     heroLede:
@@ -1263,7 +1263,7 @@ export const services: Service[] = [
       'Calls, forms, and campaigns in English, without a 14-tab vanity dashboard.',
     metaTitle: 'Marketing Analytics & Reporting in Santa Barbara',
     metaDescription:
-      'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Request a Growth Plan.',
+      'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Book a Free Call.',
     h1: 'Marketing analytics you can read without a decoder',
     eyebrow: 'Measurement',
     heroLede:
@@ -1394,11 +1394,11 @@ export const services: Service[] = [
     cardBlurb: 'A clear plan for long-term, sustainable growth.',
     metaTitle: 'Digital Marketing Strategy in Santa Barbara',
     metaDescription:
-      'A 90-day digital marketing plan for Santa Barbara businesses: what to do first, what to wait on, and how we will measure. Request a Growth Plan.',
+      'A 90-day digital marketing plan for Santa Barbara businesses: what to do first, what to wait on, and how we will measure. Book a Free Call.',
     h1: 'Digital marketing strategy for the next 90 days, not a binder',
     eyebrow: 'The Plan',
     heroLede:
-      'Most 805 owners do not need more ideas. They need a sequence. Local SEO, a website, ads, social, automation: each can be right, and doing a little of all of them is how budgets disappear by October. Digital marketing strategy here is a written plan for Santa Barbara, Goleta, Montecito, and Carpinteria businesses that says what to run first, what to ignore, who has to answer the phone, and how we will know in 90 days whether it worked. The Free Growth Plan is a short version of this thinking. A strategy engagement is the deeper one, with access, competitors, and a calendar you can staff. It is not a 70-page deck that dies in a drawer.',
+      'Most 805 owners do not need more ideas. They need a sequence. Local SEO, a website, ads, social, automation: each can be right, and doing a little of all of them is how budgets disappear by October. Digital marketing strategy here is a written plan for Santa Barbara, Goleta, Montecito, and Carpinteria businesses that says what to run first, what to ignore, who has to answer the phone, and how we will know in 90 days whether it worked. A free call is a short version of this thinking. A strategy engagement is the deeper one, with access, competitors, and a calendar you can staff. It is not a 70-page deck that dies in a drawer.',
     problemFraming:
       'The pattern is familiar. A State Street retailer hired a social person, a Goleta contractor bought an SEO package from a national call center, the website was rebuilt in 2019, and Google Ads was “tried” for six weeks in summer. Nobody owns the story. Reports do not agree. Fiesta is treated as a surprise every year. The owner is asked to pick a channel like a personality test.\n\nMontecito-facing firms have a different version: high ticket, low search volume, a reputation that lives in referrals, and a fear of looking hungry online. Carpinteria businesses get treated as Santa Barbara with a cheaper rent, which they are not. Strategy that ignores those differences is just a generic funnel graphic. Proximity in Maps, tourist versus resident intent, UCSB calendars, and the 101 commute are not flavor. They are constraints.\n\nWe write plans that a small team can run. First 90 days usually mean one acquisition engine (often Local SEO plus the listing, or ads if the phone needs to ring while organic catches up), a site that does not leak, and follow-up that does not depend on heroics. Measurement is part of the plan, not an appendix. We will not promise a ranking, a lead volume, or a revenue figure we cannot see. Founded in 2024, we do not pretend to a decade of case studies. We pretend to a calendar and a point of view.',
     whatsIncluded: [
@@ -1450,7 +1450,7 @@ export const services: Service[] = [
         step: 3,
         title: 'Write the 90-day sequence',
         body:
-          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We include the Free Growth Plan level of clarity even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
+          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We include a free call level of clarity even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
       },
       {
         step: 4,
@@ -1470,9 +1470,9 @@ export const services: Service[] = [
     faqs: [
       {
         category: 'working-together',
-        question: 'Is this the same as the Free 805 Growth Plan?',
+        question: 'Is this the same as a free call?',
         answer:
-          'The Growth Plan is a shorter, no-obligation version: visibility gaps, a competitor glance, and 90-day priorities, delivered within three business days, then a 20-minute call. A strategy engagement is deeper: more access, a tighter channel sequence, resourcing, and measurement design. You can request the free plan first. Many businesses should. We will not make you pay for a longer document if the short one already answers the question.',
+          'A free call is a shorter, no-obligation version: visibility gaps, a competitor glance, and 90-day priorities, delivered within three business days, then a 20-minute call. A strategy engagement is deeper: more access, a tighter channel sequence, resourcing, and measurement design. You can request the free plan first. Many businesses should. We will not make you pay for a longer document if the short one already answers the question.',
       },
       {
         category: 'working-together',

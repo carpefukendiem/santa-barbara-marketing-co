@@ -22,13 +22,10 @@ export function FormStatus({
         tabIndex={-1}
         role="status"
         aria-live="polite"
-        className="rounded-[12px] border border-sbmc-border bg-sbmc-white p-8 shadow-card"
+        className="border-t border-rule py-8"
       >
-        <h3 className="text-heading-sm">We received it.</h3>
-        <p className="mt-3 text-body-sm text-sbmc-ink-muted">
-          A person will follow up. If you requested a Growth Plan, expect it{' '}
-          {site.growthPlanTurnaround}. Check your inbox, including spam, for the
-          walkthrough invitation.
+        <p className="font-display text-2xl text-ink">
+          Thanks — we will reply with a next step within one business day.
         </p>
       </div>
     );
@@ -39,7 +36,7 @@ export function FormStatus({
       ref={ref}
       tabIndex={-1}
       role="alert"
-      className="mb-4 rounded-[8px] border border-[#e8c4c4] bg-[#fdf2f2] p-4 text-sm text-[#7a1f1f]"
+      className="mb-4 border-t-2 border-tile py-4 text-sm text-ink"
     >
       {error} You can also email{' '}
       <a className="underline" href={`mailto:${site.email}`}>

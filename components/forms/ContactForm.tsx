@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/Button';
@@ -9,7 +10,15 @@ import { FormStatus } from '@/components/forms/FormStatus';
 import { contactSchema, type ContactInput } from '@/lib/schemas';
 import { track } from '@/lib/analytics';
 
+const INTEREST_OPTIONS: Array<{ value: ContactInput['interest']; label: string }> = [
+  { value: 'digital', label: 'Digital marketing' },
+  { value: 'print', label: 'Print & apparel' },
+  { value: 'both', label: 'Both' },
+  { value: 'unsure', label: 'Not sure' },
+];
+
 export function ContactForm() {
+  const pathname = usePathname();
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
   const form = useForm<ContactInput>({
@@ -20,6 +29,8 @@ export function ContactForm() {
       businessName: '',
       phone: '',
       message: '',
+      interest: 'unsure',
+      pagePath: pathname,
       company_website: '',
       startedAt: 0,
     },
@@ -31,21 +42,19 @@ export function ContactForm() {
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, type: 'contact' }),
+        body: JSON.stringify({ ...values, pagePath: pathname }),
       });
       const json = (await response.json()) as { ok: boolean; error?: string };
       if (!response.ok || !json.ok) {
         setError(json.error ?? 'Could not send.');
         setStatus('error');
-        track('form_error', { form: 'contact' });
         return;
       }
       setStatus('success');
-      track('contact_form_submit');
+      track('lead_submit', { page: pathname, interest: values.interest });
     } catch {
       setError('Could not send.');
       setStatus('error');
-      track('form_error', { form: 'contact' });
     }
   }
 
@@ -59,7 +68,7 @@ export function ContactForm() {
     <form
       onSubmit={form.handleSubmit(onSubmit)}
       noValidate
-      className="relative space-y-4 rounded-2xl border border-line bg-white p-6 shadow-card sm:p-8"
+      className="relative space-y-5"
       onFocusCapture={() => {
         if (!form.getValues('startedAt')) {
           form.setValue('startedAt', Date.now());
@@ -70,7 +79,7 @@ export function ContactForm() {
       <Honeypot inputProps={form.register('company_website')} />
       <div className="grid gap-4 sm:grid-cols-2">
         <FormField id="name" label="Name" required error={form.formState.errors.name?.message}>
-          <input id="name" className={inputClass} autoComplete="name" {...form.register('name')} aria-invalid={Boolean(form.formState.errors.name)} aria-describedby={form.formState.errors.name ? 'name-error' : undefined} />
+          <input id="name" className={inputClass} autoComplete="name" {...form.register('name')} aria-invalid={Boolean(form.formState.errors.name)} />
         </FormField>
         <FormField id="email" label="Email" required error={form.formState.errors.email?.message}>
           <input id="email" type="email" className={inputClass} autoComplete="email" {...form.register('email')} aria-invalid={Boolean(form.formState.errors.email)} />
@@ -82,6 +91,15 @@ export function ContactForm() {
           <input id="phone" type="tel" className={inputClass} autoComplete="tel" {...form.register('phone')} />
         </FormField>
       </div>
+      <FormField id="interest" label="What do you need?" error={form.formState.errors.interest?.message}>
+        <select id="interest" className={inputClass} {...form.register('interest')}>
+          {INTEREST_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </FormField>
       <FormField id="message" label="Message" required error={form.formState.errors.message?.message}>
         <textarea id="message" rows={5} className={inputClass} {...form.register('message')} />
       </FormField>

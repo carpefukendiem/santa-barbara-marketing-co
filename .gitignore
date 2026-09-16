@@ -48,7 +48,7 @@ sbmc-individual-webp-assets.zip
 sbmc-individual-webp-assets/
 website-mockup.png
 
-# misc
+/shots/
 *.pem
 AGENTS.md
 CLAUDE.md

@@ -1,53 +1,22 @@
 import { z } from 'zod';
 
-export const contactSchema = z.object({
-  name: z.string().trim().min(2, 'Please enter your name.').max(80),
-  email: z.string().trim().email('Please enter a valid email.'),
-  businessName: z.string().trim().min(2, 'Please enter your business name.').max(120),
-  phone: z.string().trim().max(30).optional().or(z.literal('')),
-  message: z.string().trim().min(10, 'Please add a short message.').max(2000),
-  company_website: z.string().optional(),
-  startedAt: z.number(),
+const honeypot = z.object({
+  company_website: z.string().max(0).optional().or(z.literal('')),
 });
 
-export const growthPlanSchema = z.object({
-  name: z.string().trim().min(2, 'Please enter your name.').max(80),
-  businessName: z.string().trim().min(2, 'Please enter your business name.').max(120),
-  website: z
-    .string()
-    .trim()
-    .max(200)
-    .optional()
-    .or(z.literal(''))
-    .refine(
-      (value) => !value || /^https?:\/\//i.test(value) || /^[\w.-]+\.[a-z]{2,}/i.test(value),
-      'Enter a website URL, or leave this blank.',
-    ),
-  email: z.string().trim().email('Please enter a valid email.'),
-  phone: z.string().trim().max(30).optional().or(z.literal('')),
-  primaryGoal: z.enum([
-    'More Calls',
-    'More Leads',
-    'Better Google Rankings',
-    'New Website',
-    'Google Ads',
-    'Marketing Automation',
-    'Not Sure Yet',
-  ]),
-  challenge: z.string().trim().max(500).optional().or(z.literal('')),
-  company_website: z.string().optional(),
-  startedAt: z.number(),
-});
+export const interestSchema = z.enum(['digital', 'print', 'both', 'unsure']);
+
+export const contactSchema = z
+  .object({
+    name: z.string().trim().min(2, 'Name is required.').max(120),
+    email: z.string().trim().email('Enter a valid email.'),
+    phone: z.string().trim().max(40).optional().or(z.literal('')),
+    businessName: z.string().trim().min(2, 'Business name is required.').max(160),
+    message: z.string().trim().min(8, 'A short message is required.').max(4000),
+    interest: interestSchema,
+    pagePath: z.string().trim().max(200).optional().or(z.literal('')),
+    startedAt: z.number().int().positive(),
+  })
+  .merge(honeypot);
 
 export type ContactInput = z.infer<typeof contactSchema>;
-export type GrowthPlanInput = z.infer<typeof growthPlanSchema>;
-
-export const primaryGoals = [
-  'More Calls',
-  'More Leads',
-  'Better Google Rankings',
-  'New Website',
-  'Google Ads',
-  'Marketing Automation',
-  'Not Sure Yet',
-] as const;

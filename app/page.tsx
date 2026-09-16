@@ -1,8 +1,7 @@
 import { buildMetadata } from '@/lib/seo';
 import { Hero } from '@/components/sections/Hero';
-import { TrustStrip } from '@/components/sections/TrustStrip';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
-import { GrowthSystem } from '@/components/sections/GrowthSystem';
+import { HowWeWork } from '@/components/sections/HowWeWork';
 import { LocalPanel } from '@/components/sections/LocalPanel';
 import { CommunityGrid } from '@/components/sections/CommunityGrid';
 import { LocalSeoSection } from '@/components/sections/LocalSeoSection';
@@ -24,7 +23,7 @@ export const metadata = buildMetadata({
   title:
     'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
   description:
-    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. A 90-day Growth Plan, no contract attached.',
+    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a free call.',
   path: '/',
   absoluteTitle: true,
 });
@@ -44,9 +43,8 @@ export default function HomePage() {
         ]}
       />
       <Hero />
-      <TrustStrip />
       <ServicesGrid />
-      <GrowthSystem />
+      <HowWeWork />
       <LocalPanel />
       <CommunityGrid />
       <LocalSeoSection />

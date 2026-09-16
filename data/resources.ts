@@ -73,7 +73,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO in Santa Barbara</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with the Free 805 Growth Plan. If you want to understand the market first, keep reading.`,
+        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO in Santa Barbara</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with a free call. If you want to understand the market first, keep reading.`,
       },
       {
         type: 'h2',
@@ -200,7 +200,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2024; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what the Growth Plan is for.`,
+        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2024; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what a free call is for.`,
       },
       {
         type: 'takeaways',
@@ -531,7 +531,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `Santa Barbara Marketing Co. prices by scope after we see the market and the site. We do not publish a fake average to win the RFP. The Growth Plan is how we show you the gaps first. Then you can decide whether SEO, the site, ads, or follow-up is the first dollar. That order is worth more than shaving $200 off a retainer that was aimed at the wrong surface.`,
+        html: `Santa Barbara Marketing Co. prices by scope after we see the market and the site. We do not publish a fake average to win the RFP. A free call is how we show you the gaps first. Then you can decide whether SEO, the site, ads, or follow-up is the first dollar. That order is worth more than shaving $200 off a retainer that was aimed at the wrong surface.`,
       },
       {
         type: 'takeaways',
@@ -686,7 +686,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2024; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what the Growth Plan starts.`,
+        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2024; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what a free call starts.`,
       },
       {
         type: 'takeaways',
@@ -840,7 +840,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2024; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, the Growth Plan can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
+        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2024; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, a free call can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
       },
       {
         type: 'takeaways',
@@ -995,7 +995,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `If you want this applied to your listing and your pages, ask for the Growth Plan. You will get what we can see in Search and Maps, not a made-up “AI visibility score.” If the honest gap is the website or the profile, we will say that. If the honest gap is that a competitor has ten times the review velocity, we will say that too.`,
+        html: `If you want this applied to your listing and your pages, ask for a free call. You will get what we can see in Search and Maps, not a made-up “AI visibility score.” If the honest gap is the website or the profile, we will say that. If the honest gap is that a competitor has ten times the review velocity, we will say that too.`,
       },
       {
         type: 'takeaways',

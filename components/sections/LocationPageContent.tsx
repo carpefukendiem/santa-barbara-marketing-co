@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MapPin } from 'lucide-react';
-import { GrowthPlanForm } from '@/components/forms/GrowthPlanForm';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { FAQAccordion } from '@/components/ui/Accordion';
@@ -193,7 +192,7 @@ export function LocationPageContent({ slug }: { slug: string }) {
         breadcrumbs={crumbItems}
         image={location.heroImage}
         primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
-        secondaryCta={{ href: '/contact', label: 'Contact us' }}
+        secondaryCta={{ href: '/services', label: 'Our Services' }}
       />
 
       <Section bg="white">
@@ -331,24 +330,6 @@ export function LocationPageContent({ slug }: { slug: string }) {
         heading={`Let's talk about ${location.city}.`}
         subline="A written 90-day plan for your pin, your category, and this city."
       />
-
-      <Section bg="white">
-        <Reveal>
-          <div className="mx-auto max-w-xl">
-            <Eyebrow align="center">Growth Plan</Eyebrow>
-            <Heading className="mt-4 text-center">
-              Request a Free 805 Growth Plan
-            </Heading>
-            <p className="mt-4 text-center text-lg text-stone">
-              Tell us the business and the city. A person writes the plan. No
-              contract attached.
-            </p>
-            <div className="mt-8">
-              <GrowthPlanForm />
-            </div>
-          </div>
-        </Reveal>
-      </Section>
     </>
   );
 }

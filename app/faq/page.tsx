@@ -15,12 +15,13 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Frequently Asked Questions',
   description:
-    'Clear answers on Local SEO, Google Ads, websites, pricing, and how we work with Santa Barbara County businesses. Request a Free 805 Growth Plan.',
+    'Clear answers on Local SEO, Google Ads, websites, pricing, and how we work with Santa Barbara County businesses. Book a Free Call.',
   path: '/faq',
 });
 
 const groups: Array<{ category: FaqItem['category']; title: string }> = [
   { category: 'getting-started', title: 'Getting Started' },
+  { category: 'free-call', title: 'Free Call' },
   { category: 'seo', title: 'SEO & Local Search' },
   { category: 'ads', title: 'Google Ads' },
   { category: 'websites', title: 'Websites' },
@@ -58,8 +59,8 @@ export default function FaqPage() {
       <Section bg="white" py="pt-0 pb-8">
         <p className="max-w-[60ch] text-lg text-ink">
           If your question is about the free plan, it also lives on the{' '}
-          <Link href="/free-growth-plan" className="font-medium text-ocean underline underline-offset-4">
-            Growth Plan page
+          <Link href="/book-a-call" className="font-medium text-ocean underline underline-offset-4">
+            booking page
           </Link>
           .
         </p>
@@ -77,7 +78,7 @@ export default function FaqPage() {
       ))}
       <CtaBand
         heading="Still looking at the market?"
-        subline="The Growth Plan is a written 90-day list for your category and city."
+        subline="A free call is a written 90-day list for your category and city."
       />
     </>
   );

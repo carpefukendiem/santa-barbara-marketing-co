@@ -1,23 +1,16 @@
 import { NextResponse } from 'next/server';
-import { contactSchema, growthPlanSchema } from '@/lib/schemas';
-import { rateLimit } from '@/lib/rateLimit';
-import { getLeadProvider } from '@/lib/leads';
+import { contactSchema } from '@/lib/schemas';
+import { clientIp, rateLimit } from '@/lib/rateLimit';
+import { submitWebsiteLead } from '@/lib/ghl';
 
 export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
 
-const MIN_MS = 3000;
+const MIN_MS = 3_000;
 
 export async function POST(request: Request) {
-  const ip =
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
-    'unknown';
-  const limited = rateLimit(ip);
-  if (!limited.ok) {
-    return NextResponse.json(
-      { ok: false, error: 'Too many submissions. Please try again later.' },
-      { status: 429 },
-    );
+  const ip = clientIp(request.headers);
+  if (!rateLimit(`lead:${ip}`)) {
+    return NextResponse.json({ ok: false, error: 'Too many submissions. Try again shortly.' }, { status: 429 });
   }
 
   let json: unknown;
@@ -27,47 +20,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'Invalid request.' }, { status: 400 });
   }
 
-  const body = json as { type?: string; company_website?: string; startedAt?: number };
-  if (body.company_website) {
-    return NextResponse.json({ ok: true });
-  }
-  if (
-    typeof body.startedAt !== 'number' ||
-    body.startedAt <= 0 ||
-    Date.now() - body.startedAt < MIN_MS
-  ) {
-    return NextResponse.json({ ok: false, error: 'Please try again.' }, { status: 400 });
-  }
-
-  try {
-    if (body.type === 'growth-plan') {
-      const parsed = growthPlanSchema.parse(json);
-      const result = await getLeadProvider().send({ type: 'growth-plan', ...parsed });
-      if (!result.ok) {
-        return NextResponse.json(
-          { ok: false, error: result.error ?? 'Could not send. Email us instead.' },
-          { status: 502 },
-        );
-      }
-      return NextResponse.json({ ok: true });
-    }
-
-    const parsed = contactSchema.parse(json);
-    const result = await getLeadProvider().send({ type: 'contact', ...parsed });
-    if (!result.ok) {
-      return NextResponse.json(
-        { ok: false, error: result.error ?? 'Could not send. Email us instead.' },
-        { status: 502 },
-      );
-    }
-    return NextResponse.json({ ok: true });
-  } catch (error) {
-    if (error instanceof Error && error.name === 'ZodError') {
-      return NextResponse.json({ ok: false, error: 'Please check the highlighted fields.' }, { status: 400 });
-    }
+  const parsed = contactSchema.safeParse(json);
+  if (!parsed.success) {
     return NextResponse.json(
-      { ok: false, error: 'Something went wrong. Email hello@santabarbaramarketingco.com.' },
-      { status: 500 },
+      { ok: false, error: parsed.error.issues[0]?.message ?? 'Check the form and try again.' },
+      { status: 400 },
     );
   }
+
+  const lead = parsed.data;
+  if (lead.company_website) {
+    return NextResponse.json({ ok: true });
+  }
+  if (Date.now() - lead.startedAt < MIN_MS) {
+    return NextResponse.json({ ok: false, error: 'Please take a moment and try again.' }, { status: 400 });
+  }
+
+  await submitWebsiteLead(lead, lead.pagePath || '/');
+  return NextResponse.json({ ok: true });
 }

@@ -1,12 +1,12 @@
-import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
-import { Chip } from '@/components/ui/Chip';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
 import { Reveal } from '@/components/ui/Reveal';
+import { SealWatermark } from '@/components/ui/SealWatermark';
 import { Breadcrumbs, type Crumb } from '@/components/layout/Breadcrumbs';
 import type { SiteImage } from '@/data/images';
+import { primaryCta as siteCta } from '@/data/navigation';
 
 type Cta = { href: string; label: string };
 
@@ -21,7 +21,7 @@ type PageHeroProps = {
   primaryCta?: Cta;
   secondaryCta?: Cta;
   chips?: string[];
-  icon?: LucideIcon;
+  icon?: unknown;
 };
 
 export function PageHero({
@@ -32,114 +32,58 @@ export function PageHero({
   subhead,
   breadcrumbs,
   image,
-  primaryCta,
+  primaryCta = siteCta,
   secondaryCta,
-  chips = [],
-  icon: Icon,
 }: PageHeroProps) {
-  if (variant === 'photo' && image) {
-    return (
-      <section className="relative min-h-[60vh] overflow-hidden">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          priority
-          quality={78}
-          sizes="100vw"
-          className="photo-treatment object-cover"
-          style={{ objectPosition: image.focalPoint }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/25"
-          aria-hidden="true"
-        />
-        <div className="relative z-[1] mx-auto flex min-h-[60vh] max-w-7xl flex-col justify-end px-6 py-16">
-          <Reveal>
-            <Breadcrumbs items={breadcrumbs} light />
-            {eyebrow ? (
-              <Eyebrow dark className="mt-6">
-                {eyebrow}
-              </Eyebrow>
-            ) : null}
-            <Heading as="h1" className="mt-4 max-w-3xl !text-white" accent={accent}>
-              {title}
-            </Heading>
-            {subhead ? (
-              <p className="mt-5 max-w-2xl text-lg text-white/80">{subhead}</p>
-            ) : null}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {primaryCta ? (
-                <Button href={primaryCta.href}>{primaryCta.label}</Button>
-              ) : null}
-              {secondaryCta ? (
-                <Button variant="secondary" tone="dark" href={secondaryCta.href}>
-                  {secondaryCta.label}
-                </Button>
-              ) : null}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-    );
-  }
-
-  if (variant === 'split') {
-    return (
-      <section className="bg-sand py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2">
-          <Reveal>
-            <Breadcrumbs items={breadcrumbs} />
-            {eyebrow ? <Eyebrow className="mt-6">{eyebrow}</Eyebrow> : null}
-            <Heading as="h1" className="mt-4 text-navy" accent={accent}>
-              {title}
-            </Heading>
-            {subhead ? (
-              <p className="mt-5 max-w-xl text-lg text-stone">{subhead}</p>
-            ) : null}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {primaryCta ? (
-                <Button href={primaryCta.href}>{primaryCta.label}</Button>
-              ) : null}
-              {secondaryCta ? (
-                <Button variant="secondary" href={secondaryCta.href}>
-                  {secondaryCta.label}
-                </Button>
-              ) : null}
-            </div>
-          </Reveal>
-          <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-navy p-8 min-h-[280px]">
-              {Icon ? (
-                <Icon
-                  className="pointer-events-none absolute -right-6 -bottom-6 h-56 w-56 text-white opacity-10"
-                  aria-hidden="true"
-                />
-              ) : null}
-              <div className="relative z-[1] flex flex-wrap gap-3">
-                {chips.map((chip) => (
-                  <Chip key={chip} dark>
-                    {chip}
-                  </Chip>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-    );
-  }
+  const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
+  const lastWord = accent ?? title.trim().split(/\s+/).pop();
 
   return (
-    <section className="bg-white py-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <Reveal>
-          <Breadcrumbs items={breadcrumbs} />
-          {eyebrow ? <Eyebrow className="mt-6">{eyebrow}</Eyebrow> : null}
-          <Heading as="h1" className="mt-4 text-navy" accent={accent}>
+    <section className="relative min-h-[56vh] overflow-hidden bg-navy pt-28">
+      {showPhoto && image ? (
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-5/12">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority
+            quality={78}
+            sizes="(max-width: 1024px) 100vw, 42vw"
+            className="object-cover"
+            style={{ objectPosition: image.focalPoint }}
+          />
+          <div
+            className="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-[--navy] via-[--navy]/60 to-transparent"
+            aria-hidden="true"
+          />
+        </div>
+      ) : (
+        <SealWatermark className="absolute -right-20 top-10 h-[420px] w-[420px] opacity-[0.06]" />
+      )}
+      <div className="relative z-[1] mx-auto grid min-h-[56vh] max-w-[1440px] items-end px-6 pb-16 lg:grid-cols-12 lg:px-14">
+        <Reveal className="lg:col-span-7">
+          <Breadcrumbs items={breadcrumbs} light />
+          {eyebrow ? (
+            <Eyebrow dark className="mt-6">
+              {eyebrow}
+            </Eyebrow>
+          ) : null}
+          <Heading as="h1" className="mt-4 !text-cream" accent={lastWord}>
             {title}
           </Heading>
-          {subhead ? <p className="mt-5 text-lg text-stone">{subhead}</p> : null}
+          {subhead ? (
+            <p className="mt-5 max-w-xl text-lg text-cream/70">{subhead}</p>
+          ) : null}
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            {primaryCta ? (
+              <Button href={primaryCta.href}>{primaryCta.label}</Button>
+            ) : null}
+            {secondaryCta ? (
+              <Button variant="ghost" tone="dark" href={secondaryCta.href}>
+                {secondaryCta.label}
+              </Button>
+            ) : null}
+          </div>
         </Reveal>
       </div>
     </section>

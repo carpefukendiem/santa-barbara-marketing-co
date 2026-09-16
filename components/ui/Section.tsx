@@ -7,7 +7,7 @@ type SectionProps = {
   id?: string;
   as?: 'section' | 'aside' | 'div';
   padded?: boolean;
-  bg?: 'white' | 'sand' | 'navy';
+  bg?: 'white' | 'sand' | 'navy' | 'tile' | 'cream';
   py?: string;
 };
 
@@ -20,11 +20,9 @@ export function Section({
   bg,
   py,
 }: SectionProps) {
-  const dark = bg === 'navy';
-  const inner = bg ? (
-    <div className="mx-auto max-w-7xl px-6">{children}</div>
-  ) : (
-    children
+  const dark = bg === 'navy' || bg === 'tile';
+  const inner = (
+    <div className="site-container">{children}</div>
   );
 
   return (
@@ -32,11 +30,11 @@ export function Section({
       <Tag
         id={id}
         className={cn(
-          !bg && padded && 'section-pad',
-          bg && (py ?? 'py-20 lg:py-28'),
-          bg === 'white' && 'bg-white text-ink',
-          bg === 'sand' && 'bg-sand text-ink',
-          bg === 'navy' && 'bg-navy text-white',
+          padded && (py ?? 'py-24 lg:py-36'),
+          (bg === 'white' || bg === 'sand' || bg === 'cream' || !bg) &&
+            'bg-cream text-ink',
+          bg === 'navy' && 'bg-navy text-cream',
+          bg === 'tile' && 'bg-tile text-cream',
           className,
         )}
       >

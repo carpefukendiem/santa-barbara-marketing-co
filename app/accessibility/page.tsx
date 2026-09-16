@@ -64,7 +64,7 @@ export default function AccessibilityPage() {
               report about our own pages.
             </p>
             <p>
-              If you need the Growth Plan or another document in an alternate
+              If you need a free call or another document in an alternate
               format, say so in the same email. We serve Santa Barbara County
               businesses and want the site to work for the owners, staff, and
               customers who use it.

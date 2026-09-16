@@ -1,8 +1,6 @@
-import type { ContactInput, GrowthPlanInput } from '@/lib/schemas';
+import type { ContactInput } from '@/lib/schemas';
 
-export type Lead =
-  | ({ type: 'contact' } & ContactInput)
-  | ({ type: 'growth-plan' } & GrowthPlanInput);
+export type Lead = { type: 'contact' } & ContactInput;
 
 export type LeadResult = { ok: boolean; error?: string };
 
@@ -49,42 +47,6 @@ export class WebhookProvider implements LeadProvider {
   }
 }
 
-export class GoHighLevelProvider implements LeadProvider {
-  async send(lead: Lead): Promise<LeadResult> {
-    const url = process.env.GHL_WEBHOOK_URL;
-    if (!url) {
-      throw new Error(
-        'GHL_WEBHOOK_URL is not set. Create an inbound webhook in GoHighLevel and add the URL.',
-      );
-    }
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: lead.name,
-        email: lead.email,
-        phone: lead.phone,
-        businessName: lead.businessName,
-        source: lead.type,
-        message: lead.type === 'contact' ? lead.message : lead.challenge,
-      }),
-    });
-    if (!response.ok) return { ok: false, error: 'GoHighLevel rejected the lead.' };
-    return { ok: true };
-  }
-}
-
-export class HubSpotProvider implements LeadProvider {
-  async send(lead: Lead): Promise<LeadResult> {
-    void lead;
-    assertEnv('HUBSPOT_PORTAL_ID');
-    assertEnv('HUBSPOT_FORM_GUID');
-    throw new Error(
-      'HubSpotProvider is stubbed. Set HUBSPOT_PORTAL_ID and HUBSPOT_FORM_GUID, then replace this throw with the Forms API submit.',
-    );
-  }
-}
-
 export class ResendProvider implements LeadProvider {
   async send(lead: Lead): Promise<LeadResult> {
     void lead;
@@ -101,10 +63,6 @@ export function getLeadProvider(): LeadProvider {
   switch (name) {
     case 'webhook':
       return new WebhookProvider();
-    case 'gohighlevel':
-      return new GoHighLevelProvider();
-    case 'hubspot':
-      return new HubSpotProvider();
     case 'resend':
       return new ResendProvider();
     default:

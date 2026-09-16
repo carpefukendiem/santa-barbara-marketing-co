@@ -24,7 +24,7 @@ export function ResourceBody({ blocks }: { blocks: ResourceBlock[] }) {
   return (
     <>
       <Prose>
-        <ResourceBlocks blocks={before} />
+        <ResourceBlocks blocks={before} enableDropCap />
       </Prose>
       <InlineArticleCta />
       <Prose>
@@ -34,20 +34,50 @@ export function ResourceBody({ blocks }: { blocks: ResourceBlock[] }) {
   );
 }
 
-function ResourceBlocks({ blocks }: { blocks: ResourceBlock[] }) {
+function ResourceBlocks({
+  blocks,
+  enableDropCap,
+}: {
+  blocks: ResourceBlock[];
+  enableDropCap?: boolean;
+}) {
+  let firstParagraph = Boolean(enableDropCap);
   return (
     <>
-      {blocks.map((block, index) => (
-        <ResourceBlockView key={`${block.type}-${index}`} block={block} />
-      ))}
+      {blocks.map((block, index) => {
+        const dropCap = block.type === 'p' && firstParagraph;
+        if (block.type === 'p') firstParagraph = false;
+        return (
+          <ResourceBlockView
+            key={`${block.type}-${index}`}
+            block={block}
+            dropCap={dropCap}
+          />
+        );
+      })}
     </>
   );
 }
 
-function ResourceBlockView({ block }: { block: ResourceBlock }) {
+function ResourceBlockView({
+  block,
+  dropCap,
+}: {
+  block: ResourceBlock;
+  dropCap?: boolean;
+}) {
   switch (block.type) {
     case 'p':
-      return <p dangerouslySetInnerHTML={{ __html: block.html }} />;
+      return (
+        <p
+          className={
+            dropCap
+              ? '[&::first-letter]:float-left [&::first-letter]:pr-3 [&::first-letter]:font-display [&::first-letter]:text-7xl [&::first-letter]:leading-[0.8] [&::first-letter]:text-tile'
+              : undefined
+          }
+          dangerouslySetInnerHTML={{ __html: block.html }}
+        />
+      );
     case 'h2':
       return <h2 id={headingId(block.text)}>{block.text}</h2>;
     case 'h3':
@@ -64,7 +94,7 @@ function ResourceBlockView({ block }: { block: ResourceBlock }) {
       return <blockquote>{block.text}</blockquote>;
     case 'takeaways':
       return (
-        <aside className="mt-10 rounded-2xl border border-line bg-sand p-6 md:p-8">
+        <aside className="mt-10 border-t-2 border-tile pt-6">
           <p className="text-eyebrow text-ocean">Key takeaways</p>
           <ul className="mt-4 list-disc space-y-2 pl-5 marker:text-ocean">
             {block.items.map((item) => (
@@ -81,7 +111,7 @@ function ResourceBlockView({ block }: { block: ResourceBlock }) {
 function InlineArticleCta() {
   return (
     <Card className="my-12 p-7">
-      <p className="text-eyebrow text-ocean">Free 805 Growth Plan</p>
+      <p className="text-eyebrow text-ocean">Free Call</p>
       <p className="mt-3 text-h3 text-navy">
         Want this applied to your listing and your pages?
       </p>

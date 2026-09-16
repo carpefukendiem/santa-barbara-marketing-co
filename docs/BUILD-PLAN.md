@@ -18,7 +18,7 @@ Execute in the order below. Commit after each phase. Do not ship scaffolding.
 5. Services overview + 12 service pages.
 6. Seven location pages (anti-doorway: unique copy per city).
 7. Industries, work system (empty-state aware), resources + 6 launch articles.
-8. Forms, `/api/lead`, providers, analytics, growth plan LP, contact, FAQ.
+8. Forms, `/api/lead`, providers, analytics, booking page, contact, FAQ.
 9. Technical SEO: metadata everywhere, sitemap, robots, manifest, schema.
 10. Legal pages, 404, accessibility pass.
 11. Performance pass, image/font optimization, real self-metrics.

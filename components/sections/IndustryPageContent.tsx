@@ -11,6 +11,7 @@ import { Prose } from '@/components/ui/Prose';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
+import { PrintApparelRow } from '@/components/sections/PrintApparelRow';
 import { getResource, resourceCategoryLabels } from '@/data/resources';
 import type { Industry } from '@/data/industries';
 import { getLocation } from '@/data/locations';
@@ -88,7 +89,7 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
                     <p className="mt-4 text-lg text-stone">{problem.body}</p>
                   </div>
                   <div
-                    className={`relative overflow-hidden rounded-3xl bg-navy p-8 min-h-[200px] ${
+                    className={`relative min-h-[200px] overflow-hidden bg-navy p-8 ${
                       flipped ? 'lg:order-1' : ''
                     }`}
                   >
@@ -119,6 +120,7 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
                 </Chip>
               ))}
             </div>
+            <PrintApparelRow industrySlug={industry.slug} />
             <div className="mt-10 grid gap-6 lg:grid-cols-2">
               {services.map(({ service, why }) => (
                 <Card key={service.slug} className="flex h-full flex-col p-7">

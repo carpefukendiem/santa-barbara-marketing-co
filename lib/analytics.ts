@@ -1,18 +1,9 @@
 export type AnalyticsEvent =
-  | 'growth_plan_click'
-  | 'contact_form_submit'
-  | 'growth_plan_submit'
-  | 'form_error'
+  | 'book_a_call_click'
+  | 'lead_submit'
+  | 'cta_click'
   | 'phone_click'
-  | 'email_click'
-  | 'service_cta_click'
-  | 'location_card_click'
-  | 'case_study_click'
-  | 'resource_click'
-  | 'nav_open_mobile'
-  | 'faq_open';
-
-export type AnalyticsPayload = Record<string, string | number>;
+  | 'email_click';
 
 declare global {
   interface Window {
@@ -20,12 +11,8 @@ declare global {
   }
 }
 
-export function track(event: AnalyticsEvent, payload?: AnalyticsPayload): void {
-  try {
-    if (typeof window === 'undefined') return;
-    window.dataLayer = window.dataLayer ?? [];
-    window.dataLayer.push({ event, ...payload });
-  } catch {
-    // Never throw from analytics.
-  }
+export function track(event: AnalyticsEvent, payload: Record<string, unknown> = {}) {
+  if (typeof window === 'undefined') return;
+  window.dataLayer = window.dataLayer ?? [];
+  window.dataLayer.push({ event, ...payload });
 }

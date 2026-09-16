@@ -1,87 +1,59 @@
 import Image from 'next/image';
-import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Chip } from '@/components/ui/Chip';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { GrainOverlay } from '@/components/ui/GrainOverlay';
-import { Heading } from '@/components/ui/Heading';
-import { Reveal } from '@/components/ui/Reveal';
+import { HeroHeadline } from '@/components/sections/HeroHeadline';
+import { SealWatermark } from '@/components/ui/SealWatermark';
 import { photos } from '@/data/images';
-import { site } from '@/data/site';
 import { primaryCta } from '@/data/navigation';
-
-const proofChips = [
-  `Santa Barbara · Est. ${site.founded}`,
-  'No long-term contracts',
-  'Lighthouse 95+ target on this site',
-];
-
-const planRows = ['w-[88%]', 'w-[72%]', 'w-[60%]'];
+import { trustCapabilities } from '@/data/trust';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] overflow-hidden">
-      <Image
-        src={photos.hero.src}
-        alt={photos.hero.alt}
-        fill
-        priority
-        fetchPriority="high"
-        quality={78}
-        sizes="100vw"
-        className="photo-treatment object-cover"
-        style={{ objectPosition: photos.hero.focalPoint }}
-      />
-      <GrainOverlay />
-      <div
-        className="absolute inset-0 z-[2] bg-gradient-to-t from-navy via-navy/70 to-navy/20"
-        aria-hidden="true"
-      />
-      <div className="relative z-[3] mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-28 lg:pb-20">
-        <Reveal className="max-w-3xl">
+    <section className="relative min-h-[100svh] bg-navy">
+      <div className="absolute inset-0 lg:grid lg:grid-cols-12">
+        <div className="hidden lg:col-span-7 lg:block" />
+        <div className="absolute inset-0 lg:relative lg:col-span-5">
+          <Image
+            src={photos.hero.src}
+            alt={photos.hero.alt}
+            fill
+            priority
+            fetchPriority="high"
+            quality={78}
+            sizes="(max-width: 1024px) 100vw, 42vw"
+            className="object-cover"
+            style={{ objectPosition: photos.hero.focalPoint }}
+          />
+          <div
+            className="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-[--navy] via-[--navy]/60 to-transparent"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 bg-navy/50 lg:hidden"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+      <SealWatermark className="absolute -bottom-40 -left-24 h-[560px] w-[560px]" />
+      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-32 lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
+        <div className="lg:col-span-7">
           <Eyebrow dark>Digital marketing for a stronger, local Santa Barbara</Eyebrow>
-          <Heading as="h1" className="mt-5 !text-white" accent="Stronger">
-            More Visibility. Better Customers. A Stronger Tomorrow.
-          </Heading>
-          <p className="mt-6 max-w-xl text-lg text-white/80">
+          <HeroHeadline />
+          <p className="mt-6 max-w-lg text-xl text-cream/70">
             Strategy, websites, and marketing that help Santa Barbara businesses
             get found, get chosen, and grow.
           </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
-            <Button variant="secondary" tone="dark" href="/services">
+            <Button variant="ghost" tone="dark" href="/services">
               Our Services
             </Button>
           </div>
-        </Reveal>
+        </div>
       </div>
-      <div className="pointer-events-none absolute top-[22%] right-8 z-[3] hidden w-64 flex-col gap-3 lg:flex">
-        {proofChips.map((chip, index) => (
-          <Chip
-            key={chip}
-            dark
-            className={index === 1 ? 'rotate-[1.5deg]' : 'rotate-[-1deg]'}
-          >
-            {chip}
-          </Chip>
-        ))}
-      </div>
-      <div className="absolute right-8 bottom-16 z-[3] hidden w-72 rounded-2xl bg-white p-5 shadow-xl lg:block">
-        <p className="text-xs font-medium tracking-[0.18em] text-ocean uppercase">
-          Sample 90-Day Growth Plan
-        </p>
-        <ul className="mt-4 space-y-3">
-          {planRows.map((width) => (
-            <li key={width} className="flex items-center gap-3">
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-ocean/10 text-ocean">
-                <Check size={12} aria-hidden="true" />
-              </span>
-              <span className={`h-2 rounded bg-sand ${width}`} />
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-sm text-stone">
-          Written by a person. Delivered in 3 business days.
+      <div className="relative z-[2] border-t border-cream/20">
+        <p className="mx-auto max-w-[1440px] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/60 lg:px-14">
+          {trustCapabilities.map((item) => item.label).join(' · ')}
         </p>
       </div>
     </section>

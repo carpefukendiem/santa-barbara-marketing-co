@@ -4,7 +4,7 @@ export const legalLastUpdated = '2026-08-01';
 
 export function LegalCallout() {
   return (
-    <aside className="rounded-2xl border border-line bg-sand px-5 py-4 text-sm text-navy">
+    <aside className="border-t-2 border-tile py-4 text-sm text-ink">
       <p className="text-eyebrow text-ocean">
         Attorney review required
       </p>

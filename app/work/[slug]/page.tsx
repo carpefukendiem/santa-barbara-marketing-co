@@ -161,7 +161,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <CtaBand
         heading="Want this level of reporting on your work?"
-        subline="Start with a Growth Plan. No invented metrics. A 90-day list you can hold us to."
+        subline="Start with a free call. No invented metrics. A short list of what we would do first."
       />
     </>
   );

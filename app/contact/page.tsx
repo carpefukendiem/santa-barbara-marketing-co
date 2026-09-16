@@ -13,7 +13,7 @@ import { formatPhone, telHref } from '@/lib/utils';
 export const metadata = buildMetadata({
   title: 'Contact Santa Barbara Marketing Co.',
   description:
-    'Contact Santa Barbara Marketing Co. for Local SEO, websites, and Google Ads in the 805. Email us or request a Free Growth Plan. No spam, no drip.',
+    'Contact Santa Barbara Marketing Co. for Local SEO, websites, and Google Ads in the 805. Email us or request a free call. No spam, no drip.',
   path: '/contact',
 });
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <p className="text-lg text-ink">
                 If you want the written 90-day plan, use the{' '}
                 <Link href={primaryCta.href} className="font-medium text-ocean underline underline-offset-4">
-                  Free 805 Growth Plan
+                  Free Call
                 </Link>{' '}
                 form instead.
               </p>

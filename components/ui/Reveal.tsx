@@ -16,8 +16,9 @@ export function Reveal({
     <div
       ref={ref}
       className={cn(
-        'transition-[opacity,transform] duration-[600ms] ease-sbmc',
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+        'transition-[opacity,transform] duration-[700ms] ease-sbmc',
+        visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
+        'motion-reduce:translate-y-0 motion-reduce:transition-opacity',
         className,
       )}
     >

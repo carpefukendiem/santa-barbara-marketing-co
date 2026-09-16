@@ -54,7 +54,7 @@ export function ServiceCard({
     return (
       <article
         className={cn(
-          'flex h-full flex-col rounded-[12px] border border-sbmc-border bg-sbmc-white p-7 shadow-card transition-[box-shadow,transform] duration-300 ease-sbmc hover:-translate-y-0.5 hover:shadow-lift',
+          'flex h-full flex-col border-t border-rule py-7',
           className,
         )}
       >

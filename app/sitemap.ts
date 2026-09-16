@@ -3,6 +3,7 @@ import { caseStudies } from '@/data/caseStudies';
 import { industries } from '@/data/industries';
 import { locations } from '@/data/locations';
 import { publishedResources } from '@/data/resources';
+import { printServices } from '@/data/printServices';
 import { services } from '@/data/services';
 import { site } from '@/data/site';
 
@@ -22,21 +23,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
     entry('/', 1, 'weekly'),
     entry('/services', 0.9, 'monthly'),
+    entry('/services/print-and-apparel', 0.8, 'monthly'),
     entry('/industries', 0.8, 'monthly'),
     entry('/work', 0.7, 'monthly'),
     entry('/resources', 0.6, 'weekly'),
     entry('/about', 0.7, 'monthly'),
     entry('/contact', 0.7, 'monthly'),
     entry('/faq', 0.7, 'monthly'),
-    entry('/free-growth-plan', 0.9, 'monthly'),
+    entry('/book-a-call', 0.9, 'monthly'),
     entry('/privacy-policy', 0.1, 'yearly'),
     entry('/terms', 0.1, 'yearly'),
     entry('/accessibility', 0.1, 'yearly'),
   ];
 
-  const serviceEntries = services.map((service) =>
-    entry(`/services/${service.slug}`, 0.8, 'monthly'),
-  );
+  const serviceEntries = [
+    ...services.map((service) => entry(`/services/${service.slug}`, 0.8, 'monthly')),
+    ...printServices.map((service) =>
+      entry(`/services/${service.slug}`, 0.8, 'monthly'),
+    ),
+  ];
 
   const locationEntries = locations.map((location) =>
     entry(

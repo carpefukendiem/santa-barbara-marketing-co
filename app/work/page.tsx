@@ -12,7 +12,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Our Work & Results',
   description:
-    'We publish case studies only with verified numbers and client permission. See how we measure work for 805 businesses, then request a Free Growth Plan.',
+    'We publish case studies only with verified numbers and client permission. See how we measure work for 805 businesses, then request a free call.',
   path: '/work',
 });
 

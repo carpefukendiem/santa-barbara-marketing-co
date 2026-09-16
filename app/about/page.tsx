@@ -23,7 +23,7 @@ import type { LucideIcon } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'About Santa Barbara Marketing Co.',
   description:
-    "We're a Santa Barbara digital marketing agency founded in 2024. Local by residence, proof over promises, one system. Request a Free 805 Growth Plan.",
+    "We're a Santa Barbara digital marketing agency founded in 2024. Local by residence, proof over promises, one system. Book a Free Call.",
   path: '/about',
 });
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
 
       <section className="bg-white px-6 pb-8">
         <Reveal>
-          <div className="relative mx-auto min-h-[420px] max-w-7xl overflow-hidden rounded-3xl">
+          <div className="relative mx-auto min-h-[420px] max-w-[1440px] overflow-hidden">
             <Image
               src={photos.localStreet.src}
               alt={photos.localStreet.alt}
@@ -188,7 +188,7 @@ export default function AboutPage() {
               there is no review widget. If we do not have a street address we
               can verify, there is no fake suite number in schema. If a
               competitor is beating you on review velocity, we will say that in
-              the Growth Plan instead of dressing it up.
+              a free call instead of dressing it up.
             </p>
             <p>
               That posture is how we write service pages, location pages, and
@@ -207,13 +207,11 @@ export default function AboutPage() {
             </p>
             <h2>How to start</h2>
             <p>
-              Request a <Link href="/free-growth-plan">Free 805 Growth Plan</Link>
-              . We review how you show up in Search and Maps, look at competitors
-              in your category, list the gaps, and send a prioritized 90-day
-              plan {site.growthPlanTurnaround}. A person writes it. We walk
-              through it on a short call. There is no contract attached to the
-              document. If the plan is useful, we talk about what to run first.
-              If it is not, you keep it.
+              <Link href="/book-a-call">Book a free call</Link>
+              . We look at your current visibility before we talk and come with
+              a short list of what we would do first. If it makes sense to work
+              together, we send a proposal. If not, you leave with the list. No
+              contract, no pressure.
             </p>
           </Prose>
           <div className="mt-8">
