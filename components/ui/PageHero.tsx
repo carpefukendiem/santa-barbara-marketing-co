@@ -62,7 +62,7 @@ export function PageHero({
                 {eyebrow}
               </Eyebrow>
             ) : null}
-            <Heading as="h1" className="mt-4 max-w-3xl text-white" accent={accent}>
+            <Heading as="h1" className="mt-4 max-w-3xl !text-white" accent={accent}>
               {title}
             </Heading>
             {subhead ? (

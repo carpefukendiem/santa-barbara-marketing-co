@@ -19,7 +19,7 @@ export function CtaBand({
       <div className="cta-noise pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-20 lg:flex-row lg:items-center lg:py-28">
         <Reveal>
-          <Heading as="h2" className="text-white">
+          <Heading as="h2" className="!text-white">
             {heading}
           </Heading>
           <p className="mt-3 text-lg text-white/85">{subline}</p>

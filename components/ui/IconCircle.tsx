@@ -1,8 +1,5 @@
-'use client';
-
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useDark } from '@/components/ui/DarkContext';
 
 export function IconCircle({
   icon: Icon,
@@ -13,12 +10,10 @@ export function IconCircle({
   className?: string;
   size?: number;
 }) {
-  const dark = useDark();
   return (
     <span
       className={cn(
-        'inline-flex shrink-0 items-center justify-center rounded-full',
-        dark ? 'bg-white/10 text-white' : 'bg-ocean/10 text-ocean',
+        'inline-flex shrink-0 items-center justify-center rounded-full bg-ocean/10 text-ocean [.bg-navy_&]:bg-white/10 [.bg-navy_&]:text-white',
         className,
       )}
       style={{ width: size, height: size }}

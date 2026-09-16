@@ -1,53 +1,73 @@
 import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
+import { Card } from '@/components/ui/Card';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { ServiceCard } from '@/components/ui/ServiceCard';
-import { serviceIconMap } from '@/components/icons/maps';
 import { featuredServiceSlugs, getService } from '@/data/services';
+import { serviceLucide } from '@/lib/lucideIcons';
+import { cn } from '@/lib/utils';
+
+const placement: Record<string, string> = {
+  'local-seo': 'lg:col-span-2 lg:row-span-2',
+  'web-design': 'lg:col-span-2',
+};
 
 export function ServicesGrid() {
-  const featured = featuredServiceSlugs
+  const featured = ['local-seo', 'web-design', ...featuredServiceSlugs.filter(
+    (slug) => slug !== 'local-seo' && slug !== 'web-design',
+  )]
     .map((slug) => getService(slug))
     .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
   return (
-    <Section className="bg-sbmc-cream">
-      <Container>
-        <SectionEyebrow>What we do</SectionEyebrow>
-        <Heading className="mt-4 text-center">
-          Full-Service Marketing. Built for Local Business.
-        </Heading>
-        <div className="mt-14 grid grid-cols-1 gap-10 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 xl:gap-0">
-          {featured.map((service, index) => {
-            const Icon = serviceIconMap[service.icon];
+    <Section bg="white">
+      <Reveal>
+        <div className="text-center">
+          <Eyebrow align="center">What we do</Eyebrow>
+          <Heading className="mt-4">
+            Full-Service Marketing. Built for Local Business.
+          </Heading>
+        </div>
+        <div className="mt-12 grid gap-4 lg:grid-cols-4">
+          {featured.map((service) => {
+            const Icon = serviceLucide(service.slug, service.icon);
+            const featuredCard = service.slug === 'local-seo';
             return (
-              <div
+              <Card
                 key={service.slug}
-                className={
-                  index < featured.length - 1
-                    ? 'xl:border-r xl:border-sbmc-border/90'
-                    : undefined
-                }
+                accent={featuredCard}
+                className={cn(
+                  'relative overflow-hidden p-6',
+                  placement[service.slug],
+                  featuredCard && 'min-h-[280px]',
+                )}
               >
-                <ServiceCard
-                  title={service.shortName}
-                  href={`/services/${service.slug}`}
-                  blurb={service.cardBlurb}
-                  icon={<Icon />}
-                  iconBg={service.iconBg}
-                />
-              </div>
+                {featuredCard ? (
+                  <span
+                    className="pointer-events-none absolute -right-16 -bottom-16 h-56 w-56 rounded-full bg-ocean/8"
+                    aria-hidden="true"
+                  />
+                ) : null}
+                <IconCircle icon={Icon} />
+                <h3 className="mt-5 text-h3 text-navy">{service.shortName}</h3>
+                <p className="mt-3 text-stone">{service.cardBlurb}</p>
+                <div className="mt-5">
+                  <Button variant="ghost" href={`/services/${service.slug}`}>
+                    Learn more
+                  </Button>
+                </div>
+              </Card>
             );
           })}
         </div>
-        <div className="mt-12 text-center">
-          <Button variant="link" href="/services">
+        <div className="mt-10 text-center">
+          <Button variant="ghost" href="/services">
             See all services
           </Button>
         </div>
-      </Container>
+      </Reveal>
     </Section>
   );
 }

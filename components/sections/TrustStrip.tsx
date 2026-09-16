@@ -1,25 +1,32 @@
-import { trustIconMap } from '@/components/icons/maps';
+import { CheckCircle2, FileText, Map, Layers } from 'lucide-react';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { Reveal } from '@/components/ui/Reveal';
 import { trustCapabilities } from '@/data/trust';
+import type { LucideIcon } from 'lucide-react';
+
+const icons: Record<(typeof trustCapabilities)[number]['icon'], LucideIcon> = {
+  waves: Map,
+  compass: Layers,
+  heart: FileText,
+  leaf: CheckCircle2,
+};
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-sbmc-border/80 bg-sbmc-cream py-8">
-      <div className="mx-auto grid max-w-[1200px] gap-6 px-5 sm:grid-cols-2 lg:grid-cols-4 md:px-8 lg:px-10">
-        {trustCapabilities.map((item) => {
-          const Icon = trustIconMap[item.icon];
-          return (
+    <section className="border-y border-line bg-sand">
+      <Reveal>
+        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 sm:grid-cols-2 md:grid-cols-4 md:divide-x md:divide-line">
+          {trustCapabilities.map((item) => (
             <p
               key={item.id}
-              className="flex items-center gap-3.5 font-sans text-[0.8125rem] font-semibold text-sbmc-navy"
+              className="flex items-center gap-3 px-2 text-sm font-medium text-navy md:px-5"
             >
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sbmc-aqua-light text-sbmc-teal">
-                <Icon size={22} />
-              </span>
+              <IconCircle icon={icons[item.icon]} />
               {item.label}
             </p>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }
