@@ -20,6 +20,7 @@ export function Header() {
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const servicesTriggerId = useId();
+  const servicesPanelId = useId();
   const locationsTriggerId = useId();
   const isMinimal = pathname === '/book-a-call';
 
@@ -99,6 +100,7 @@ export function Header() {
                         type="button"
                         aria-expanded={servicesOpen}
                         aria-haspopup="true"
+                        aria-controls={servicesPanelId}
                         className={navItemClass}
                         onClick={() => setServicesOpen((value) => !value)}
                       >
@@ -108,6 +110,7 @@ export function Header() {
                         open={servicesOpen}
                         onClose={() => setServicesOpen(false)}
                         triggerId={servicesTriggerId}
+                        panelId={servicesPanelId}
                       />
                     </div>
                   );

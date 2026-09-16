@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -22,6 +22,10 @@ export function MobileNav({
 }) {
   const panelId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
+    digital: true,
+    print: true,
+  });
 
   useEffect(() => {
     if (!open) return;
@@ -62,21 +66,48 @@ export function MobileNav({
       </div>
       <div className="flex-1 overflow-y-auto px-6 pb-8">
         <p className="text-xs tracking-[0.18em] text-white/50 uppercase">Services</p>
-        <ul className="mt-3 space-y-1">
-          {megaColumns.flatMap((column) =>
-            column.links.map((link) => (
-              <li key={link.href}>
-        <Link
-          href={link.href}
-          className="block border-b border-white/15 py-4 font-display text-4xl text-white"
-          onClick={onClose}
-        >
-                  {link.label}
-                </Link>
-              </li>
-            )),
-          )}
-        </ul>
+        <div className="mt-3">
+          {megaColumns.map((column) => {
+            const groupOpen = openGroups[column.id] ?? true;
+            const buttonId = `${panelId}-${column.id}`;
+            const regionId = `${panelId}-${column.id}-links`;
+            return (
+              <div key={column.id} className="border-b border-white/15">
+                <button
+                  type="button"
+                  id={buttonId}
+                  aria-expanded={groupOpen}
+                  aria-controls={regionId}
+                  className="flex w-full items-center justify-between py-4 text-left font-mono text-xs tracking-[0.18em] text-white/70 uppercase"
+                  onClick={() =>
+                    setOpenGroups((current) => ({
+                      ...current,
+                      [column.id]: !groupOpen,
+                    }))
+                  }
+                >
+                  <span>{column.title}</span>
+                  <span aria-hidden="true">{groupOpen ? '−' : '+'}</span>
+                </button>
+                {groupOpen ? (
+                  <ul id={regionId} role="region" aria-labelledby={buttonId}>
+                    {column.links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className="block border-t border-white/10 py-4 font-display text-3xl text-white"
+                          onClick={onClose}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
         <p className="mt-8 text-xs tracking-[0.18em] text-white/50 uppercase">
           Locations
         </p>
