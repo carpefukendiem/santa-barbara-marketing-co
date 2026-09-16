@@ -1,28 +1,25 @@
 # Asset replacement guide
 
-The photography shipped with this build is the supplied source, used so the site can launch. Several files are far below a 2x retina premium standard. Replacing them is a drop-in: same filename, same path, no code changes.
+Photography now comes from the high-resolution sources in `public/images/bg/`. `next/image` serves WebP/AVIF derivatives from `public/images/photos/`.
 
 ## How to replace
 
-1. Export or license a high-resolution original at the **required** dimensions below (or larger, same aspect).
-2. Convert to WebP, quality 75–80.
-3. Overwrite the file at the prepared path.
-4. Rebuild. `next/image` will pick up the new file. Dimensions in `data/images.ts` can be updated when the new file is in, then set `needsHighRes: false`.
+1. Drop the new original into `public/images/bg/` using the same naming prefix (`Hero`, `Street photo`, `Santa Barbara card`, and so on).
+2. Run `npm run prepare-assets` to rewrite the WebP files in `public/images/photos/`.
+3. Update width, height, alt, and focal point in `data/images.ts` if the crop changed.
 
-Do not set `quality` above 80 on an upscaled source.
+Do not set `quality` above 80.
 
-## Files that need high-res replacements
+## Current files
 
-| Current file | Supplied | Required for 2x retina | Drop-in path |
-| --- | --- | --- | --- |
-| Hero | 743×314 | 2400×1000 | `public/images/photos/hero-santa-barbara.webp` |
-| Local street | 536×208 | 1600×1200 | `public/images/photos/local-street-santa-barbara.webp` |
-| Community — Santa Barbara | 227×98 | 1200×900 | `public/images/photos/community-santa-barbara.webp` |
-| Community — Goleta | 233×98 | 1200×900 | `public/images/photos/community-goleta.webp` |
-| Community — Montecito | 227×98 | 1200×900 | `public/images/photos/community-montecito.webp` |
-| Community — Carpinteria | 233×98 | 1200×900 | `public/images/photos/community-carpinteria.webp` |
-
-Until replacements land, every photo rendered above 1.5× native width gets a navy scrim, a 3% grain overlay, and a slight saturate/contrast filter so softness reads as atmosphere rather than a defect.
+| Use | Aspect | Source prefix | Served path | Native size |
+| --- | --- | --- | --- | --- |
+| Hero | 3:2 landscape | `Hero` | `public/images/photos/hero-santa-barbara.webp` | 1536×1024 |
+| Local street | 4:5 portrait | `Street photo` | `public/images/photos/local-street-santa-barbara.webp` | 1122×1402 |
+| Community — Santa Barbara | 3:4 portrait | `Santa Barbara card` | `public/images/photos/community-santa-barbara.webp` | 1086×1448 |
+| Community — Goleta | 3:4 portrait | `Goleta card` | `public/images/photos/community-goleta.webp` | 1086×1448 |
+| Community — Montecito | 3:4 portrait | `Montecito card` | `public/images/photos/community-montecito.webp` | 1086×1448 |
+| Community — Carpinteria | 3:4 portrait | `Carpinteria card` | `public/images/photos/community-carpinteria.webp` | 1086×1448 |
 
 ## What not to replace
 
@@ -30,14 +27,4 @@ Brand icons were rebuilt as inline SVG in `components/icons/` and should not be 
 
 Decorative palm overlays and the CTA wave were alpha-stripped into `public/images/decor/`. Replace those only if you have a higher-resolution original with a real alpha channel.
 
-The logo at `public/images/brand/sbmc-logo.webp` is already 1254×1254 with the cream background removed. That resolution is adequate.
-
-## Regenerating derivatives
-
-If you update files in `public/images/raw/`:
-
-```bash
-npm run prepare-assets
-```
-
-This recopies photos, re-strips decorative backgrounds, and regenerates favicons, `app/icon.png`, `app/apple-icon.png`, and `public/images/brand/og-default.png`.
+The logo at `public/images/brand/sbmc-logo.webp` is already 1254×1254. That resolution is adequate.

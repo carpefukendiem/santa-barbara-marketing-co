@@ -74,7 +74,7 @@ See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/AN
 
 ## How to replace images
 
-See [docs/ASSET-REPLACEMENT.md](docs/ASSET-REPLACEMENT.md). Drop high-res WebP files at the same paths. No code changes required other than updating width/height and `needsHighRes: false` when you have real dimensions.
+See [docs/ASSET-REPLACEMENT.md](docs/ASSET-REPLACEMENT.md). Put originals in `public/images/bg/` and run `npm run prepare-assets`.
 
 Brand icons are inline SVG in `components/icons/` and should not be swapped back to the 70×70 rasters.
 
@@ -109,7 +109,6 @@ Phase-2 locations (only when there is real demand and unique copy): Summerland, 
 
 ## Known limitations
 
-- **Photography is low-resolution.** Hero and community photos should be replaced with high-resolution originals or licensed stock before a public launch. See `docs/ASSET-REPLACEMENT.md`.
 - **Testimonials, case studies, and partner logos are empty on purpose.** Do not invent them. Sections hide until real data exists.
 - **Legal pages are starter content.** They are flagged for attorney review on the pages and here.
 - **Pricing figures are not published as a rate card.** Service pages explain what drives cost. Confirm ranges with the business before putting dollars on the site. Competitive research suggests publishing starting ranges is an advantage once they are real.

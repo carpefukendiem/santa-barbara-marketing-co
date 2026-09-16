@@ -4,7 +4,6 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { StickyMobileCta } from '@/components/layout/StickyMobileCta';
-import { GrainDefs } from '@/components/ui/GrainOverlay';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
@@ -63,7 +62,6 @@ export default function RootLayout({
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body className="font-sans antialiased">
         <BookCallProvider>
-          <GrainDefs />
           <JsonLd data={[organizationSchema(), websiteSchema()]} />
           <SkipLink />
           <Header />

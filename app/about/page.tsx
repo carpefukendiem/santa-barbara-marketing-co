@@ -4,7 +4,6 @@ import { Layers, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { Heading } from '@/components/ui/Heading';
 import { IconCircle } from '@/components/ui/IconCircle';
 import { PageHero } from '@/components/ui/PageHero';
@@ -75,10 +74,9 @@ export default function AboutPage() {
               fill
               quality={78}
               sizes="100vw"
-              className="photo-treatment object-cover"
+              className="object-cover"
               style={{ objectPosition: photos.localStreet.focalPoint }}
             />
-            <GrainOverlay />
             <div
               className="absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-transparent"
               aria-hidden="true"

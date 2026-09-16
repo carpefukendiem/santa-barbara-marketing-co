@@ -17,15 +17,14 @@ export function LocalPanel() {
       <div className="mx-auto grid max-w-[1440px] gap-16 px-6 lg:grid-cols-12 lg:px-14">
         <div className="lg:col-span-6">
           <Reveal>
-            <div className="-mt-32 aspect-[4/5] overflow-hidden rounded-sm">
+            <div className="relative -mt-32 aspect-[4/5] overflow-hidden">
               <Image
                 src={photos.localStreet.src}
                 alt={photos.localStreet.alt}
-                width={photos.localStreet.width}
-                height={photos.localStreet.height}
+                fill
                 quality={78}
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-full w-full object-cover"
+                className="object-cover"
                 style={{ objectPosition: photos.localStreet.focalPoint }}
               />
             </div>

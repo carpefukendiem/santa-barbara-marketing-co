@@ -20,16 +20,14 @@ export function LocationCard({
 }: LocationCardProps) {
   return (
     <Link href={href} className={cn('group block', className)}>
-      <div className="aspect-[3/4] overflow-hidden rounded-sm">
+      <div className="relative aspect-[3/4] overflow-hidden">
         <Image
           src={image.src}
           alt={image.alt}
-          fill={false}
-          width={image.width}
-          height={image.height}
+          fill
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
           quality={78}
-          className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0"
+          className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
           style={{ objectPosition: image.focalPoint }}
         />
       </div>

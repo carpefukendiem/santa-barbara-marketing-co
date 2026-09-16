@@ -2,7 +2,7 @@
 /**
  * One-time asset preparation.
  *
- * - Copies photography to public/images/photos/
+ * - Converts photography in public/images/bg/ to WebP in public/images/photos/
  * - Strips near-white / cream backgrounds from logo + decorative overlays
  *   and feathers the edge by 1px. The logo is also circular-masked because
  *   it is a circular seal sitting on #FBF8F2 (B channel 242, below the
@@ -11,7 +11,7 @@
  *
  * Run: npm run prepare-assets
  */
-import { mkdir, copyFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -29,13 +29,14 @@ const WHITE_THRESHOLD = 245;
 const CREAM = { r: 251, g: 248, b: 242 };
 const CREAM_DISTANCE = 18;
 
-const PHOTOS_TO_COPY = [
-  'hero-santa-barbara.webp',
-  'local-street-santa-barbara.webp',
-  'community-santa-barbara.webp',
-  'community-goleta.webp',
-  'community-montecito.webp',
-  'community-carpinteria.webp',
+const BG = path.join(ROOT, 'public', 'images', 'bg');
+const BG_TO_PHOTOS = [
+  ['Hero', 'hero-santa-barbara.webp'],
+  ['Street photo', 'local-street-santa-barbara.webp'],
+  ['Santa Barbara card', 'community-santa-barbara.webp'],
+  ['Goleta card', 'community-goleta.webp'],
+  ['Montecito card', 'community-montecito.webp'],
+  ['Carpinteria card', 'community-carpinteria.webp'],
 ];
 
 const DECOR_TO_STRIP = [
@@ -198,9 +199,15 @@ async function main() {
   await mkdir(APP, { recursive: true });
   await mkdir(PUBLIC, { recursive: true });
 
-  for (const file of PHOTOS_TO_COPY) {
-    await copyFile(path.join(RAW, file), path.join(PHOTOS, file));
-    console.log('copied photo', file);
+  const bgFiles = await readdir(BG);
+  for (const [prefix, outName] of BG_TO_PHOTOS) {
+    const src = bgFiles.find((file) => file.startsWith(prefix));
+    if (!src) throw new Error(`Missing background source starting with "${prefix}"`);
+    await sharp(path.join(BG, src))
+      .rotate()
+      .webp({ quality: 78, effort: 6 })
+      .toFile(path.join(PHOTOS, outName));
+    console.log('converted photo', src, '->', outName);
   }
 
   for (const file of DECOR_TO_STRIP) {
