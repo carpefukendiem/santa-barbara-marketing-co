@@ -35,7 +35,7 @@ export function Hero() {
         </div>
       </div>
       <SealWatermark className="absolute -bottom-40 -left-24 h-[560px] w-[560px]" />
-      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-32 lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
+      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-48 lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
         <div className="lg:col-span-7">
           <Eyebrow dark>Digital marketing for a stronger, local Santa Barbara</Eyebrow>
           <HeroHeadline />

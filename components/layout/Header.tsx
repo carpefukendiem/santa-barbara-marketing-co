@@ -38,7 +38,7 @@ export function Header() {
 
   const overDark = !scrolled;
   const navItemClass = cn(
-    'nav-link px-3 py-2',
+    'nav-link px-3.5 py-2.5',
     overDark ? 'text-cream' : 'text-ink',
   );
 
@@ -55,26 +55,19 @@ export function Header() {
       <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-6 lg:px-14">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-3"
+          className="shrink-0"
           aria-label="Santa Barbara Marketing Co. home"
         >
-          <span className="inline-flex rounded-full bg-cream p-1.5 ring-1 ring-rule">
+          <span className="inline-flex rounded-full bg-cream p-1 ring-1 ring-rule">
             <Image
               src={brand.logo.src}
               alt=""
-              width={144}
-              height={144}
+              width={256}
+              height={256}
+              sizes="160px"
               className="header-seal object-contain"
               priority
             />
-          </span>
-          <span
-            className={cn(
-              'hidden font-display text-xl font-normal lg:block',
-              overDark ? 'text-cream' : 'text-ink',
-            )}
-          >
-            Santa Barbara Marketing Co.
           </span>
         </Link>
 
@@ -91,7 +84,7 @@ export function Header() {
           </div>
         ) : (
           <>
-            <nav className="hidden items-center justify-center gap-1 lg:flex" aria-label="Primary">
+            <nav className="hidden items-center justify-center gap-3 lg:flex" aria-label="Primary">
               {primaryNav.map((item) => {
                 if (item.label === 'Services') {
                   return (
@@ -193,7 +186,7 @@ export function Header() {
               <button
                 type="button"
                 className={cn(
-                  'inline-flex h-11 w-11 items-center justify-center lg:hidden',
+                  'nav-link inline-flex items-center px-3.5 py-2.5 lg:hidden',
                   overDark ? 'text-cream' : 'text-ink',
                 )}
                 aria-label="Open menu"
