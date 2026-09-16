@@ -64,11 +64,11 @@ function ResourceBlockView({ block }: { block: ResourceBlock }) {
       return <blockquote>{block.text}</blockquote>;
     case 'takeaways':
       return (
-        <aside className="mt-10 rounded-[12px] border border-sbmc-border bg-sbmc-cream-warm p-6 md:p-8">
-          <p className="text-eyebrow text-sbmc-teal">Key takeaways</p>
-          <ul className="mt-4 list-disc space-y-2 pl-5">
+        <aside className="mt-10 rounded-2xl border border-line bg-sand p-6 md:p-8">
+          <p className="text-eyebrow text-ocean">Key takeaways</p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 marker:text-ocean">
             {block.items.map((item) => (
-              <li key={item} className="text-[1.0625rem] leading-[1.65] text-sbmc-ink">
+              <li key={item} className="text-[1.0625rem] leading-[1.65] text-ink">
                 {item}
               </li>
             ))}
@@ -80,12 +80,12 @@ function ResourceBlockView({ block }: { block: ResourceBlock }) {
 
 function InlineArticleCta() {
   return (
-    <Card className="my-12 border-sbmc-teal/30 bg-sbmc-cream p-7">
-      <p className="text-eyebrow text-sbmc-teal">Free 805 Growth Plan</p>
-      <p className="mt-3 text-heading-sm">
+    <Card className="my-12 p-7">
+      <p className="text-eyebrow text-ocean">Free 805 Growth Plan</p>
+      <p className="mt-3 text-h3 text-navy">
         Want this applied to your listing and your pages?
       </p>
-      <p className="mt-3 text-body-sm text-sbmc-ink-muted">
+      <p className="mt-3 text-stone">
         A written look at Search and Maps, competitor gaps, and a 90-day
         priority list. A person writes it. No contract attached.
       </p>

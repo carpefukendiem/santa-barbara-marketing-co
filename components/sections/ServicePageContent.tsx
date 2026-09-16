@@ -1,57 +1,40 @@
-import {
-  IconDiscover,
-  IconExecute,
-  IconGrow,
-  IconStrategize,
-  type IconProps,
-} from '@/components/icons';
-import { serviceIconMap } from '@/components/icons/maps';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { Check, ClipboardList, LineChart, MapPin, Search, Settings, Shield } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { FAQAccordion } from '@/components/ui/Accordion';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { PageHero } from '@/components/ui/PageHero';
+import { Prose } from '@/components/ui/Prose';
+import { Reveal } from '@/components/ui/Reveal';
+import { Section } from '@/components/ui/Section';
+import { Timeline } from '@/components/ui/Timeline';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { Accordion } from '@/components/ui/Accordion';
-import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
-import { Heading } from '@/components/ui/Heading';
-import { IconBadge } from '@/components/ui/IconBadge';
-import { ResourceCard } from '@/components/ui/ResourceCard';
-import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { ServiceCard } from '@/components/ui/ServiceCard';
-import { StepCard } from '@/components/ui/StepCard';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { getLocation } from '@/data/locations';
 import { primaryCta } from '@/data/navigation';
-import { getResource, type Resource } from '@/data/resources';
+import { getResource, resourceCategoryLabels, type Resource } from '@/data/resources';
 import { getService, type Service } from '@/data/services';
+import { serviceLucide } from '@/lib/lucideIcons';
 import {
   breadcrumbSchema,
   faqPageSchema,
   serviceSchema,
 } from '@/lib/schema';
-import { absoluteUrl } from '@/lib/utils';
-import type { ComponentType } from 'react';
+import { accentWord, absoluteUrl } from '@/lib/utils';
+import Link from 'next/link';
 
-const processIcons: Array<ComponentType<IconProps>> = [
-  IconDiscover,
-  IconStrategize,
-  IconExecute,
-  IconGrow,
+const includedIcons: LucideIcon[] = [
+  Search,
+  ClipboardList,
+  MapPin,
+  Settings,
+  LineChart,
+  Shield,
+  Check,
 ];
-
-const processColors = [
-  'var(--sbmc-navy)',
-  'var(--sbmc-teal)',
-  'var(--sbmc-orange)',
-  'var(--sbmc-sage)',
-];
-
-const resourceCategoryLabel: Record<Resource['category'], string> = {
-  seo: 'SEO',
-  ads: 'Ads',
-  websites: 'Websites',
-  ai: 'AI',
-  strategy: 'Strategy',
-};
 
 function paragraphs(text: string): string[] {
   return text
@@ -61,8 +44,13 @@ function paragraphs(text: string): string[] {
 }
 
 export function ServicePageContent({ service }: { service: Service }) {
-  const Icon = serviceIconMap[service.icon];
+  const Icon = serviceLucide(service.slug, service.icon);
   const problemParagraphs = paragraphs(service.problemFraming);
+  const chips = [
+    service.eyebrow,
+    'No Long-Term Contracts',
+    service.whatsIncluded[0]?.title,
+  ].filter((item): item is string => Boolean(item));
 
   const relatedServices = service.relatedServices
     .map((slug) => getService(slug))
@@ -117,202 +105,151 @@ export function ServicePageContent({ service }: { service: Service }) {
         ]}
       />
 
-      <Section className="bg-sbmc-cream-warm" padded={false}>
-        <Container className="py-8 md:py-12">
-          <Breadcrumbs items={crumbs} />
-          <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+      <PageHero
+        variant="split"
+        eyebrow={service.eyebrow}
+        title={service.h1}
+        accent={accentWord(service.h1)}
+        subhead={service.heroLede}
+        breadcrumbs={crumbs}
+        primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
+        secondaryCta={{ href: '/contact', label: 'Contact us' }}
+        chips={chips}
+        icon={Icon}
+      />
+
+      <Section bg="white">
+        <Reveal>
+          <Eyebrow>What you get</Eyebrow>
+          <Heading className="mt-4">What&apos;s included</Heading>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {service.whatsIncluded.map((item, index) => (
+              <Card key={item.title} className="p-7">
+                <IconCircle icon={includedIcons[index] ?? Check} />
+                <h3 className="mt-5 text-h3 text-navy">{item.title}</h3>
+                <p className="mt-3 text-stone">{item.body}</p>
+              </Card>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+
+      {service.process.length > 0 ? (
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow align="center">How it works</Eyebrow>
+            <Heading className="mt-4 text-center">Four steps, then we measure</Heading>
+            <Timeline
+              className="mt-12"
+              steps={service.process.map((step) => ({
+                title: step.title,
+                body: step.body,
+              }))}
+            />
+          </Reveal>
+        </Section>
+      ) : null}
+
+      <Section bg="white">
+        <Reveal>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
             <div>
-              <SectionEyebrow align="left">{service.eyebrow}</SectionEyebrow>
-              <Heading as="h1" size="xl" className="mt-4 max-w-3xl">
-                {service.h1}
-              </Heading>
-              <p className="measure-lede mt-6 text-body-lg text-sbmc-ink">
-                {service.heroLede}
+              <Eyebrow>The problem</Eyebrow>
+              <Prose className="mt-4">
+              <h2>What this work is actually for</h2>
+              {problemParagraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+              <h2>What you can expect</h2>
+              <ul>
+                {service.outcomes.map((outcome) => (
+                  <li key={outcome}>{outcome}</li>
+                ))}
+              </ul>
+              <p>
+                This is a description of the work, not a ranking or revenue promise.
+                Ads can produce calls once tracking is in place. A marketing site is
+                typically live in four to eight weeks if content arrives on time.
+                Local SEO usually takes three to six months before Map Pack movement
+                is meaningful. We will tell you which of those clocks applies before
+                you start.
               </p>
-              <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:w-auto">
-                <Button href={primaryCta.href} className="w-full sm:w-auto">
-                  {primaryCta.label}
-                </Button>
-                <Button
-                  variant="secondary"
-                  href="/contact"
-                  className="w-full sm:w-auto"
-                >
-                  Contact us
-                </Button>
-              </div>
+              {service.pricingNote ? (
+                <>
+                  <h2>What drives the number</h2>
+                  <p>{service.pricingNote}</p>
+                </>
+              ) : null}
+            </Prose>
             </div>
-            <IconBadge
-              background={service.iconBg}
-              size={88}
-              className="shrink-0"
-            >
-              <Icon />
-            </IconBadge>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <SectionEyebrow align="left">The problem</SectionEyebrow>
-          <Heading className="mt-4">What this work is actually for</Heading>
-          <div className="measure mt-8 space-y-5">
-            {problemParagraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)} className="text-body-lg text-sbmc-ink">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <SectionEyebrow>What you get</SectionEyebrow>
-          <Heading className="mt-4 text-center">What&apos;s included</Heading>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {service.whatsIncluded.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-[12px] border border-sbmc-border bg-sbmc-white p-7 shadow-card"
-              >
-                <h3 className="font-sans text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-body-sm text-sbmc-ink-muted">{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <SectionEyebrow>How it works</SectionEyebrow>
-          <Heading className="mt-4 text-center">Four steps, then we measure</Heading>
-          <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            {service.process.map((step, index) => {
-              const StepIcon = processIcons[index] ?? IconGrow;
-              const iconBg = processColors[index] ?? 'var(--sbmc-navy)';
-              return (
-                <StepCard
-                  key={step.title}
-                  title={`${String(step.step).padStart(2, '0')}  ${step.title}`}
-                  body={step.body}
-                  icon={<StepIcon size={22} />}
-                  iconBg={iconBg}
-                />
-              );
-            })}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <SectionEyebrow align="left">Outcomes</SectionEyebrow>
-          <Heading className="mt-4">What you can expect</Heading>
-          <ul className="mt-8 max-w-3xl space-y-4">
-            {service.outcomes.map((outcome) => (
-              <li
-                key={outcome}
-                className="border-l-2 border-sbmc-teal pl-5 text-body-lg text-sbmc-ink"
-              >
-                {outcome}
-              </li>
-            ))}
-          </ul>
-          <p className="measure mt-8 text-body-sm text-sbmc-ink-muted">
-            This is a description of the work, not a ranking or revenue promise.
-            Ads can produce calls once tracking is in place. A marketing site is
-            typically live in four to eight weeks if content arrives on time.
-            Local SEO usually takes three to six months before Map Pack movement
-            is meaningful. We will tell you which of those clocks applies before
-            you start.
-          </p>
-        </Container>
-      </Section>
-
-      {service.pricingNote ? (
-        <Section className="bg-sbmc-cream" padded={false}>
-          <Container className="py-16 md:py-20">
-            <aside className="rounded-[12px] border border-sbmc-border bg-sbmc-white p-8 shadow-card md:p-10">
-              <p className="text-eyebrow text-sbmc-teal">Pricing honesty</p>
-              <h2 className="mt-3 text-display-md">What drives the number</h2>
-              <p className="mt-5 text-body-lg text-sbmc-ink">{service.pricingNote}</p>
-            </aside>
-          </Container>
-        </Section>
-      ) : null}
-
-      {relatedServices.length > 0 ? (
-        <Section className="bg-sbmc-cream-warm">
-          <Container>
-            <SectionEyebrow>Related services</SectionEyebrow>
-            <Heading className="mt-4 text-center">Often hired next to this</Heading>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {relatedServices.map((related) => {
-                const RelatedIcon = serviceIconMap[related.icon];
-                return (
-                  <ServiceCard
-                    key={related.slug}
-                    title={related.shortName}
-                    href={`/services/${related.slug}`}
-                    blurb={related.cardBlurb}
-                    icon={<RelatedIcon size={26} />}
-                    iconBg={related.iconBg}
-                    variant="bordered"
-                  />
-                );
-              })}
+            <div className="space-y-6 lg:sticky lg:top-28">
+              {relatedServices.length > 0 ? (
+                <Card hover={false} className="p-6">
+                  <p className="text-eyebrow text-ocean">Related services</p>
+                  <ul className="mt-4 space-y-3">
+                    {relatedServices.map((related) => (
+                      <li key={related.slug}>
+                        <Link
+                          href={`/services/${related.slug}`}
+                          className="font-medium text-navy hover:text-ocean"
+                        >
+                          {related.shortName}
+                        </Link>
+                        <p className="mt-1 text-sm text-stone">{related.cardBlurb}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6">
+                    <Button variant="secondary" href="/contact">
+                      Contact us
+                    </Button>
+                  </div>
+                </Card>
+              ) : (
+                <Card hover={false} className="p-6">
+                  <Button variant="secondary" href="/contact">
+                    Contact us
+                  </Button>
+                </Card>
+              )}
             </div>
-          </Container>
-        </Section>
-      ) : null}
+          </div>
+        </Reveal>
+      </Section>
 
       {locationItems.length > 0 ? (
-        <Section className="bg-sbmc-cream">
-          <Container>
-            <SectionEyebrow>Where we do this</SectionEyebrow>
-            <Heading className="mt-4 text-center">
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Where we do this</Eyebrow>
+            <Heading className="mt-4">
               Santa Barbara County, named as it actually is
             </Heading>
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {locationItems.map(({ location, why }) => (
-                <article
-                  key={location.slug}
-                  className="flex h-full flex-col rounded-[12px] border border-sbmc-border bg-sbmc-white p-7 shadow-card"
-                >
-                  <h3 className="font-sans text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy">
-                    {location.city}
-                  </h3>
-                  <p className="mt-3 flex-1 text-body-sm text-sbmc-ink-muted">
-                    {why}
-                  </p>
+                <Card key={location.slug} className="flex h-full flex-col p-7">
+                  <h3 className="text-h3 text-navy">{location.city}</h3>
+                  <p className="mt-3 flex-1 text-stone">{why}</p>
                   <div className="mt-5">
-                    <Button variant="link" href={`/${location.slug}`}>
+                    <Button variant="ghost" href={`/${location.slug}`}>
                       {location.h1}
                     </Button>
                   </div>
-                </article>
+                </Card>
               ))}
             </div>
-          </Container>
+          </Reveal>
         </Section>
       ) : null}
 
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <SectionEyebrow>Questions</SectionEyebrow>
-            <Heading className="mt-4 text-center">
-              {service.shortName} FAQs
-            </Heading>
-            <Accordion className="mt-10" items={service.faqs} />
-          </div>
-        </Container>
-      </Section>
+      {service.faqs.length > 0 ? (
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Questions</Eyebrow>
+            <Heading className="mt-4">{service.shortName} FAQs</Heading>
+            <FAQAccordion className="mt-10" items={service.faqs} />
+          </Reveal>
+        </Section>
+      ) : null}
 
       <CtaBand
         heading={`Ready to talk about ${service.shortName.toLowerCase()}?`}
@@ -320,23 +257,29 @@ export function ServicePageContent({ service }: { service: Service }) {
       />
 
       {relatedResources.length > 0 ? (
-        <Section className="bg-sbmc-cream">
-          <Container>
-            <SectionEyebrow>Reading</SectionEyebrow>
-            <Heading className="mt-4 text-center">Related resources</Heading>
+        <Section bg="white">
+          <Reveal>
+            <Eyebrow>Reading</Eyebrow>
+            <Heading className="mt-4">Related resources</Heading>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {relatedResources.map((resource) => (
-                <ResourceCard
-                  key={resource.slug}
-                  title={resource.title}
-                  href={`/resources/${resource.slug}`}
-                  excerpt={resource.excerpt}
-                  category={resourceCategoryLabel[resource.category]}
-                  readTime={resource.readTime}
-                />
+                <Card key={resource.slug} className="flex h-full flex-col p-7">
+                  <p className="text-eyebrow text-ocean">
+                    {resourceCategoryLabels[resource.category]}
+                  </p>
+                  <h3 className="mt-3 text-h3 text-navy">
+                    <Link href={`/resources/${resource.slug}`}>{resource.title}</Link>
+                  </h3>
+                  <p className="mt-3 flex-1 text-stone">{resource.excerpt}</p>
+                  <div className="mt-5">
+                    <Button variant="ghost" href={`/resources/${resource.slug}`}>
+                      Read article
+                    </Button>
+                  </div>
+                </Card>
               ))}
             </div>
-          </Container>
+          </Reveal>
         </Section>
       ) : null}
     </>

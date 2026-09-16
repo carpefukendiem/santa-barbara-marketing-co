@@ -1,8 +1,6 @@
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Container } from '@/components/ui/Container';
-import { Heading } from '@/components/ui/Heading';
 import { Prose } from '@/components/ui/Prose';
 import { Section } from '@/components/ui/Section';
+import { PageHero } from '@/components/ui/PageHero';
 import { LegalCallout } from '@/components/legal/LegalCallout';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { site } from '@/data/site';
@@ -25,20 +23,17 @@ export default function PrivacyPolicyPage() {
           { name: 'Privacy Policy', path: '/privacy-policy' },
         ])}
       />
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Privacy Policy' },
-            ]}
-          />
-          <Heading as="h1" size="lg" className="mt-8">
-            Privacy Policy
-          </Heading>
-          <div className="mt-6 max-w-[65ch]">
-            <LegalCallout />
-          </div>
+      <PageHero
+        variant="simple"
+        title="Privacy Policy"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Privacy Policy' },
+        ]}
+      />
+      <Section bg="white">
+        <div className="mx-auto max-w-prose">
+          <LegalCallout />
           <Prose className="mt-10">
             <p>
               This policy describes how {site.name} (“we”) collects and uses
@@ -122,7 +117,7 @@ export default function PrivacyPolicyPage() {
               this site.
             </p>
           </Prose>
-        </Container>
+        </div>
       </Section>
     </>
   );

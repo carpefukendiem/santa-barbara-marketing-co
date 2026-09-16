@@ -65,12 +65,12 @@ export function ResourceFilter({ items }: { items: ResourceListItem[] }) {
         ))}
       </div>
       {visible.length === 0 ? (
-        <p className="mt-10 text-body-lg text-sbmc-ink-muted">
+        <p className="mt-10 text-lg text-stone">
           No published articles in this category yet. The SEO, ads, websites, and
           AI pieces are live. Strategy guides are on the roadmap.
         </p>
       ) : (
-        <ul className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-10 grid gap-6 md:grid-cols-2">
           {visible.map((item) => (
             <li key={item.slug}>
               <ResourceCard
@@ -106,12 +106,12 @@ function FilterButton({
       aria-pressed={active}
       className={
         active
-          ? 'rounded-full bg-sbmc-navy px-4 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-white'
-          : 'rounded-full border border-sbmc-border bg-sbmc-white px-4 py-2 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-sbmc-navy hover:border-sbmc-navy'
+          ? 'rounded-full bg-navy px-4 py-2 text-sm font-medium text-white'
+          : 'rounded-full border border-navy/15 bg-white px-4 py-2 text-sm font-medium text-navy hover:bg-navy hover:text-white'
       }
     >
       {label}
-      <span className={active ? 'ml-2 text-white/70' : 'ml-2 text-sbmc-ink-muted'}>
+      <span className={active ? 'ml-2 text-white/70' : 'ml-2 text-stone'}>
         {count}
       </span>
     </button>

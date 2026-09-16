@@ -1,8 +1,6 @@
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Container } from '@/components/ui/Container';
-import { Heading } from '@/components/ui/Heading';
 import { Prose } from '@/components/ui/Prose';
 import { Section } from '@/components/ui/Section';
+import { PageHero } from '@/components/ui/PageHero';
 import { LegalCallout } from '@/components/legal/LegalCallout';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { site } from '@/data/site';
@@ -25,20 +23,17 @@ export default function TermsPage() {
           { name: 'Terms', path: '/terms' },
         ])}
       />
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Terms' },
-            ]}
-          />
-          <Heading as="h1" size="lg" className="mt-8">
-            Terms of Use
-          </Heading>
-          <div className="mt-6 max-w-[65ch]">
-            <LegalCallout />
-          </div>
+      <PageHero
+        variant="simple"
+        title="Terms of Use"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Terms' },
+        ]}
+      />
+      <Section bg="white">
+        <div className="mx-auto max-w-prose">
+          <LegalCallout />
           <Prose className="mt-10">
             <p>
               These terms govern use of {site.url} and, when we send a written
@@ -113,7 +108,7 @@ export default function TermsPage() {
               not published.
             </p>
           </Prose>
-        </Container>
+        </div>
       </Section>
     </>
   );

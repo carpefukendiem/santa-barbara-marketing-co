@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { serviceIconMap } from '@/components/icons/maps';
+import { MapPin } from 'lucide-react';
 import { GrowthPlanForm } from '@/components/forms/GrowthPlanForm';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { Accordion } from '@/components/ui/Accordion';
+import { FAQAccordion } from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
-import { GrainOverlay } from '@/components/ui/GrainOverlay';
+import { Card } from '@/components/ui/Card';
+import { Chip } from '@/components/ui/Chip';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { LocationCard } from '@/components/ui/LocationCard';
+import { PageHero } from '@/components/ui/PageHero';
+import { Prose } from '@/components/ui/Prose';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { ServiceCard } from '@/components/ui/ServiceCard';
 import { getIndustry } from '@/data/industries';
-import { getLocation, type Location } from '@/data/locations';
+import { getLocation, overviewLocations, type Location } from '@/data/locations';
 import { primaryCta } from '@/data/navigation';
 import { getService } from '@/data/services';
 import { site } from '@/data/site';
@@ -27,7 +29,7 @@ import {
   serviceSchema,
 } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { absoluteUrl } from '@/lib/utils';
+import { accentWord, absoluteUrl } from '@/lib/utils';
 
 const santaBarbaraNav = [
   { slug: 'santa-barbara-digital-marketing', label: 'Overview' },
@@ -41,6 +43,13 @@ const serviceTypeLabel: Record<Location['pageType'], string> = {
   seo: 'Search Engine Optimization',
   'web-design': 'Web Design',
   'google-ads': 'Google Ads',
+};
+
+const taglines: Record<string, string> = {
+  'santa-barbara-digital-marketing': 'Local. Vibrant. Together.',
+  'goleta-digital-marketing': 'Businesses Build Community.',
+  'montecito-digital-marketing': 'Local Roots. Lasting Impact.',
+  'carpinteria-digital-marketing': 'Small Town. Big Opportunity.',
 };
 
 function paragraphs(text: string): string[] {
@@ -70,32 +79,26 @@ export function generateLocationMetadata(slug: string): Metadata {
 
 function SantaBarbaraSubnav({ currentSlug }: { currentSlug: string }) {
   return (
-    <nav
-      aria-label="Santa Barbara pages"
-      className="border-b border-sbmc-border bg-sbmc-cream-warm"
-    >
-      <Container>
-        <ul className="flex flex-wrap gap-2 py-3">
-          {santaBarbaraNav.map((item) => {
-            const current = item.slug === currentSlug;
-            return (
-              <li key={item.slug}>
-                <Link
-                  href={`/${item.slug}`}
-                  aria-current={current ? 'page' : undefined}
-                  className={
-                    current
-                      ? 'inline-flex rounded-full bg-sbmc-navy px-4 py-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.08em] text-white'
-                      : 'inline-flex rounded-full border border-sbmc-border bg-sbmc-white px-4 py-2 font-sans text-[0.7rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy hover:border-sbmc-navy'
-                  }
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </Container>
+    <nav aria-label="Santa Barbara pages" className="border-b border-line bg-sand">
+      <div className="mx-auto flex max-w-7xl flex-wrap gap-2 px-6 py-3">
+        {santaBarbaraNav.map((item) => {
+          const current = item.slug === currentSlug;
+          return (
+            <Link
+              key={item.slug}
+              href={`/${item.slug}`}
+              aria-current={current ? 'page' : undefined}
+              className={
+                current
+                  ? 'inline-flex rounded-full bg-navy px-4 py-2 text-sm text-white'
+                  : 'inline-flex rounded-full border border-navy/15 px-4 py-2 text-sm text-navy hover:bg-navy hover:text-white'
+              }
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 }
@@ -167,6 +170,8 @@ export function LocationPageContent({ slug }: { slug: string }) {
       Boolean(item),
     );
 
+  const otherAreas = overviewLocations.filter((item) => item.city !== location.city);
+
   return (
     <>
       <JsonLd
@@ -177,200 +182,148 @@ export function LocationPageContent({ slug }: { slug: string }) {
         ]}
       />
 
-      <div className="bg-sbmc-cream-warm py-4">
-        <Container>
-          <Breadcrumbs items={crumbItems} />
-        </Container>
-      </div>
-
       {isSantaBarbara ? <SantaBarbaraSubnav currentSlug={location.slug} /> : null}
 
-      <section className="relative min-h-[480px] overflow-hidden md:min-h-[560px]">
-        <Image
-          src={location.heroImage.src}
-          alt={location.heroImage.alt}
-          fill
-          priority
-          quality={78}
-          sizes="100vw"
-          className="photo-treatment object-cover"
-          style={{ objectPosition: location.heroImage.focalPoint }}
-        />
-        <GrainOverlay />
-        <div
-          className="absolute inset-0 z-[2] bg-[linear-gradient(to_bottom,rgb(5_33_54/0.78)_0%,rgb(5_33_54/0.62)_48%,rgb(5_33_54/0.78)_100%)]"
-          aria-hidden="true"
-        />
-        <div className="relative z-[3] mx-auto flex max-w-[1200px] flex-col justify-center px-5 py-16 md:px-8 lg:min-h-[560px] lg:px-10">
-          <p className="text-eyebrow text-sbmc-aqua">Serving {location.city}</p>
-          <h1 className="mt-4 max-w-3xl text-display-lg text-white md:text-display-xl">
-            {location.h1}
-          </h1>
-          <p className="mt-6 max-w-[40rem] text-body-lg text-white/85">
-            {location.heroLede}
-          </p>
-          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:w-auto">
-            <Button href={primaryCta.href} tone="dark" className="w-full sm:w-auto">
-              {primaryCta.label}
-            </Button>
-            <Button
-              variant="secondary"
-              href="/contact"
-              tone="dark"
-              className="w-full sm:w-auto"
-            >
-              Contact us
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="photo"
+        eyebrow={`Serving ${location.city}`}
+        title={location.h1}
+        accent={accentWord(location.h1)}
+        subhead={location.heroLede}
+        breadcrumbs={crumbItems}
+        image={location.heroImage}
+        primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
+        secondaryCta={{ href: '/contact', label: 'Contact us' }}
+      />
 
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <SectionEyebrow align="left">The market</SectionEyebrow>
-          <Heading className="mt-4">The {location.city} market</Heading>
-          <div className="measure mt-8 space-y-5">
-            {introParagraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)} className="text-body-lg text-sbmc-ink">
-                {paragraph}
-              </p>
-            ))}
-            {marketParagraphs.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 48)}
-                className="text-body-lg text-sbmc-ink-muted"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <SectionEyebrow>Neighborhoods</SectionEyebrow>
-          <Heading className="mt-4 text-center">
-            How {location.city} actually breaks apart
-          </Heading>
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2">
-            {location.neighborhoods.map((neighborhood) => (
-              <li
-                key={neighborhood.name}
-                className="rounded-[12px] border border-sbmc-border bg-sbmc-white p-6 shadow-card"
-              >
-                <p className="font-sans text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy">
-                  {neighborhood.name}
-                </p>
-                <p className="mt-2 text-body-sm text-sbmc-ink-muted">
-                  {neighborhood.context}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
-
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <SectionEyebrow>On the ground</SectionEyebrow>
-          <Heading className="mt-4 text-center">What works here</Heading>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {location.localChallenges.map((challenge) => (
-              <article
-                key={challenge.title}
-                className="rounded-[12px] border border-sbmc-border bg-sbmc-white p-7 shadow-card"
-              >
-                <h3 className="text-heading-sm">{challenge.title}</h3>
-                <p className="mt-3 text-body-sm text-sbmc-ink-muted">
-                  {challenge.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {locationServices.length > 0 ? (
-        <Section className="bg-sbmc-cream-warm">
-          <Container>
-            <SectionEyebrow>Services</SectionEyebrow>
-            <Heading className="mt-4 text-center">
-              Services for {location.city}
-            </Heading>
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {locationServices.map(({ service, why }) => {
-                const Icon = serviceIconMap[service.icon];
-                return (
-                  <ServiceCard
-                    key={service.slug}
-                    title={service.shortName}
-                    href={`/services/${service.slug}`}
-                    blurb={why}
-                    icon={<Icon size={26} />}
-                    iconBg={service.iconBg}
-                    variant="bordered"
-                  />
-                );
-              })}
+      <Section bg="white">
+        <Reveal>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+            <div>
+              <Eyebrow>The market</Eyebrow>
+              <Heading className="mt-4">The {location.city} market</Heading>
+              <Prose className="mt-8">
+                {introParagraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+                {marketParagraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+              </Prose>
             </div>
-          </Container>
+            {locationServices.length > 0 ? (
+              <Card hover={false} className="p-6 lg:sticky lg:top-28">
+                <p className="text-eyebrow text-ocean">Services</p>
+                <ul className="mt-4 space-y-3">
+                  {locationServices.map(({ service }) => (
+                    <li key={service.slug}>
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="font-medium text-navy hover:text-ocean"
+                      >
+                        {service.shortName}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ) : null}
+          </div>
+        </Reveal>
+      </Section>
+
+      {location.neighborhoods.length > 0 ? (
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Neighborhoods</Eyebrow>
+            <Heading className="mt-4">
+              How {location.city} actually breaks apart
+            </Heading>
+            <ul className="mt-12 grid gap-5 sm:grid-cols-2">
+              {location.neighborhoods.map((neighborhood) => (
+                <li key={neighborhood.name}>
+                  <Card className="h-full p-6">
+                    <IconCircle icon={MapPin} />
+                    <p className="mt-4 text-h3 text-navy">{neighborhood.name}</p>
+                    <p className="mt-2 text-stone">{neighborhood.context}</p>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </Section>
+      ) : null}
+
+      {location.localChallenges.length > 0 ? (
+        <Section bg="white">
+          <Reveal>
+            <Eyebrow>On the ground</Eyebrow>
+            <Heading className="mt-4">What works here</Heading>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {location.localChallenges.map((challenge) => (
+                <Card key={challenge.title} className="p-7">
+                  <IconCircle icon={MapPin} />
+                  <h3 className="mt-4 text-h3 text-navy">{challenge.title}</h3>
+                  <p className="mt-3 text-stone">{challenge.body}</p>
+                </Card>
+              ))}
+            </div>
+          </Reveal>
         </Section>
       ) : null}
 
       {locationIndustries.length > 0 ? (
-        <Section className="bg-sbmc-cream">
-          <Container>
-            <SectionEyebrow>Industries</SectionEyebrow>
-            <Heading className="mt-4 text-center">
-              Industries in {location.city}
-            </Heading>
-            <ul className="mt-10 flex flex-wrap justify-center gap-3">
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Industries</Eyebrow>
+            <Heading className="mt-4">Industries in {location.city}</Heading>
+            <ul className="mt-10 flex flex-wrap gap-3">
               {locationIndustries.map((industry) => (
                 <li key={industry.slug}>
-                  <Link
-                    href={`/industries/${industry.slug}`}
-                    className="inline-flex rounded-[12px] border border-sbmc-border bg-sbmc-white px-5 py-4 font-sans text-[0.78rem] font-bold uppercase tracking-[0.08em] text-sbmc-navy shadow-card transition-[box-shadow,transform] duration-300 ease-sbmc hover:-translate-y-0.5 hover:shadow-lift"
-                  >
-                    {industry.navLabel}
-                  </Link>
+                  <Chip href={`/industries/${industry.slug}`}>{industry.navLabel}</Chip>
                 </li>
               ))}
             </ul>
-          </Container>
+          </Reveal>
         </Section>
       ) : null}
 
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <SectionEyebrow>Questions</SectionEyebrow>
-            <Heading className="mt-4 text-center">
-              {location.city} FAQs
-            </Heading>
-            <Accordion className="mt-10" items={location.faqs} />
-          </div>
-        </Container>
-      </Section>
-
-      {location.nearbyLinks.length > 0 ? (
-        <Section className="bg-sbmc-aqua-light">
-          <Container>
-            <SectionEyebrow>Nearby</SectionEyebrow>
-            <Heading className="mt-4 text-center">Nearby areas</Heading>
-            <ul className="mt-10 flex flex-wrap justify-center gap-3">
-              {location.nearbyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-flex rounded-full border border-sbmc-border bg-sbmc-white px-5 py-2.5 text-body-sm text-sbmc-navy hover:border-sbmc-navy"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
+      {otherAreas.length > 0 ? (
+        <Section bg="white" id="community">
+          <Reveal>
+            <Eyebrow>Nearby</Eyebrow>
+            <Heading className="mt-4">Nearby areas</Heading>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {otherAreas.map((area) => (
+                <LocationCard
+                  key={area.slug}
+                  href={`/${area.slug}`}
+                  city={area.city}
+                  tagline={taglines[area.slug] ?? area.heroLede}
+                  image={area.heroImage}
+                />
               ))}
-            </ul>
-          </Container>
+            </div>
+            {location.nearbyLinks.length > 0 ? (
+              <ul className="mt-8 flex flex-wrap gap-3">
+                {location.nearbyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Chip href={link.href}>{link.label}</Chip>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </Reveal>
+        </Section>
+      ) : null}
+
+      {location.faqs.length > 0 ? (
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Questions</Eyebrow>
+            <Heading className="mt-4">{location.city} FAQs</Heading>
+            <FAQAccordion className="mt-10" items={location.faqs} />
+          </Reveal>
         </Section>
       ) : null}
 
@@ -379,14 +332,14 @@ export function LocationPageContent({ slug }: { slug: string }) {
         subline="A written 90-day plan for your pin, your category, and this city."
       />
 
-      <Section className="bg-sbmc-cream">
-        <Container>
+      <Section bg="white">
+        <Reveal>
           <div className="mx-auto max-w-xl">
-            <SectionEyebrow>Growth Plan</SectionEyebrow>
+            <Eyebrow align="center">Growth Plan</Eyebrow>
             <Heading className="mt-4 text-center">
               Request a Free 805 Growth Plan
             </Heading>
-            <p className="mt-4 text-center text-body-lg text-sbmc-ink-muted">
+            <p className="mt-4 text-center text-lg text-stone">
               Tell us the business and the city. A person writes the plan. No
               contract attached.
             </p>
@@ -394,7 +347,7 @@ export function LocationPageContent({ slug }: { slug: string }) {
               <GrowthPlanForm />
             </div>
           </div>
-        </Container>
+        </Reveal>
       </Section>
     </>
   );

@@ -37,6 +37,26 @@ export function absoluteUrl(path: string): string {
   return `${base}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
+export function accentWord(title: string): string | undefined {
+  return [
+    'Santa Barbara',
+    'Montecito',
+    'Carpinteria',
+    'Goleta',
+    'Growth',
+    'Stronger',
+  ].find((word) => title.includes(word));
+}
+
+export function readingTimeLabel(text: string): string {
+  const words = text
+    .replace(/<[^>]+>/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min`;
+}
+
 export function formatDate(iso: string): string {
   const date = new Date(`${iso}T12:00:00-07:00`);
   if (Number.isNaN(date.getTime())) return iso;

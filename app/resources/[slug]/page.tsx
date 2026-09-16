@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
-import { ResourceCard } from '@/components/ui/ResourceCard';
+import { PageHero } from '@/components/ui/PageHero';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { ResourceBody, headingId } from '@/components/resources/ResourceBody';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -17,7 +18,8 @@ import {
 import { site } from '@/data/site';
 import { articleSchema, breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { absoluteUrl, formatDate } from '@/lib/utils';
+import { absoluteUrl, formatDate, readingTimeLabel } from '@/lib/utils';
+import Link from 'next/link';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -38,6 +40,19 @@ export async function generateMetadata({ params }: Props) {
     description: resource.metaDescription,
     path: `/resources/${resource.slug}`,
   });
+}
+
+function resourceText(resource: Resource): string {
+  return resource.body
+    .map((block) => {
+      if (block.type === 'p') return block.html;
+      if (block.type === 'h2' || block.type === 'h3' || block.type === 'blockquote') {
+        return block.text;
+      }
+      if (block.type === 'ul' || block.type === 'takeaways') return block.items.join(' ');
+      return '';
+    })
+    .join(' ');
 }
 
 function relatedArticles(resource: Resource): Resource[] {
@@ -65,6 +80,7 @@ export default async function ResourceArticlePage({ params }: Props) {
   );
   const related = relatedArticles(resource);
   const url = absoluteUrl(`/resources/${resource.slug}`);
+  const readTime = readingTimeLabel(resourceText(resource));
 
   return (
     <>
@@ -84,45 +100,38 @@ export default async function ResourceArticlePage({ params }: Props) {
           }),
         ]}
       />
-      <Section className="bg-sbmc-cream pb-8 pt-10">
-        <Container>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Resources', href: '/resources' },
-              { label: resource.title },
-            ]}
-          />
-          <p className="mt-8 text-eyebrow text-sbmc-teal">
-            {resourceCategoryLabels[resource.category]} · {resource.readTime}
-          </p>
-          <Heading as="h1" size="lg" className="mt-4 max-w-4xl">
-            {resource.title}
-          </Heading>
-          <p className="mt-5 text-body-sm text-sbmc-ink-muted">
+      <PageHero
+        variant="simple"
+        eyebrow={`${resourceCategoryLabels[resource.category]} · ${readTime}`}
+        title={resource.title}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Resources', href: '/resources' },
+          { label: resource.title },
+        ]}
+      />
+      <Section bg="white" py="pb-20 lg:pb-28 pt-0">
+        <Reveal>
+          <p className="mb-10 text-stone">
             By {site.name} · Published {formatDate(resource.datePublished)}
             {resource.dateModified !== resource.datePublished
               ? ` · Updated ${formatDate(resource.dateModified)}`
               : ''}
           </p>
-        </Container>
-      </Section>
-      <Section className="bg-sbmc-cream pt-0">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start">
+          <div className="grid gap-12 xl:grid-cols-[minmax(0,1fr)_16rem] xl:items-start">
             <article>
               <ResourceBody blocks={resource.body} />
             </article>
             {toc.length > 0 ? (
-              <aside className="top-28 hidden lg:sticky lg:block">
-                <p className="text-eyebrow text-sbmc-teal">On this page</p>
+              <aside className="top-28 hidden xl:sticky xl:block">
+                <p className="text-eyebrow text-ocean">On this page</p>
                 <nav aria-label="Table of contents" className="mt-4">
-                  <ol className="space-y-2 border-l border-sbmc-border pl-4">
+                  <ol className="space-y-2 border-l border-line pl-4">
                     {toc.map((item) => (
                       <li key={item.id}>
                         <a
                           href={`#${item.id}`}
-                          className="text-body-sm text-sbmc-ink-muted hover:text-sbmc-teal"
+                          className="text-sm text-stone hover:text-ocean"
                         >
                           {item.text}
                         </a>
@@ -133,26 +142,32 @@ export default async function ResourceArticlePage({ params }: Props) {
               </aside>
             ) : null}
           </div>
-        </Container>
+        </Reveal>
       </Section>
       {related.length > 0 ? (
-        <Section className="bg-sbmc-white">
-          <Container>
-            <SectionEyebrow>Keep reading</SectionEyebrow>
-            <Heading className="mt-4 text-center">Related articles</Heading>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <Section bg="sand">
+          <Reveal>
+            <Eyebrow>Keep reading</Eyebrow>
+            <Heading className="mt-4">Related articles</Heading>
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
               {related.map((item) => (
-                <ResourceCard
-                  key={item.slug}
-                  title={item.title}
-                  href={`/resources/${item.slug}`}
-                  excerpt={item.excerpt}
-                  category={resourceCategoryLabels[item.category]}
-                  readTime={item.readTime}
-                />
+                <Card key={item.slug} className="flex h-full flex-col p-7">
+                  <p className="text-eyebrow text-ocean">
+                    {resourceCategoryLabels[item.category]}
+                  </p>
+                  <h3 className="mt-3 font-display text-h3 text-navy">
+                    <Link href={`/resources/${item.slug}`}>{item.title}</Link>
+                  </h3>
+                  <p className="mt-3 flex-1 text-stone">{item.excerpt}</p>
+                  <div className="mt-5">
+                    <Button variant="ghost" href={`/resources/${item.slug}`}>
+                      Read
+                    </Button>
+                  </div>
+                </Card>
               ))}
             </div>
-          </Container>
+          </Reveal>
         </Section>
       ) : null}
       <CtaBand
