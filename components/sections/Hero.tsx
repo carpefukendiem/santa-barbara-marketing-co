@@ -35,15 +35,16 @@ export function Hero() {
         </div>
       </div>
       <SealWatermark className="absolute -bottom-40 -left-24 h-[560px] w-[560px]" />
-      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-48 lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
-        <div className="lg:col-span-7">
-          <Eyebrow dark>Digital marketing for a stronger, local Santa Barbara</Eyebrow>
+      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-48 max-md:justify-start max-md:pb-8 max-md:pt-[calc(env(safe-area-inset-top,0px)+172px)] lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
+        <div className="flex flex-col lg:col-span-7 max-md:min-h-0 max-md:flex-1">
+          <Eyebrow dark>Digital marketing · Santa Barbara, CA</Eyebrow>
           <HeroHeadline />
-          <p className="mt-6 max-w-lg text-xl text-cream/70">
-            Strategy, websites, and marketing that help Santa Barbara businesses
-            get found, get chosen, and grow.
+          <p className="mt-6 max-w-lg text-xl text-cream/70 max-md:mt-5 max-md:line-clamp-3">
+            Local SEO, Google Ads, and websites that make the phone ring — for
+            businesses from Carpinteria to Goleta, built by someone who’ll meet
+            you for coffee.
           </p>
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col items-start gap-4 max-md:mt-auto max-md:pt-6 md:flex-row md:items-center">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
             <Button variant="ghost" tone="dark" href="/services">
               Our Services

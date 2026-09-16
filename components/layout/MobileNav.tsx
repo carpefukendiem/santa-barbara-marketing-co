@@ -16,11 +16,14 @@ import { telHref } from '@/lib/utils';
 export function MobileNav({
   open,
   onClose,
+  id,
 }: {
   open: boolean;
   onClose: () => void;
+  id?: string;
 }) {
-  const panelId = useId();
+  const generatedId = useId();
+  const panelId = id ?? generatedId;
   const closeRef = useRef<HTMLButtonElement>(null);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
     digital: true,

@@ -22,6 +22,7 @@ export function Header() {
   const servicesTriggerId = useId();
   const servicesPanelId = useId();
   const locationsTriggerId = useId();
+  const mobilePanelId = useId();
   const isMinimal = pathname === '/book-a-call';
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export function Header() {
       )}
       data-scrolled={scrolled ? '' : undefined}
     >
-      <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-6 lg:px-14">
+      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-center gap-4 px-6 md:justify-between lg:px-14">
         <Link
           href="/"
           className="shrink-0"
@@ -65,7 +66,7 @@ export function Header() {
               alt=""
               width={256}
               height={256}
-              sizes="160px"
+              sizes="(max-width: 767px) 112px, 160px"
               className="header-seal object-contain"
               priority
             />
@@ -73,7 +74,7 @@ export function Header() {
         </Link>
 
         {isMinimal ? (
-          <div className="flex items-center justify-end gap-4">
+          <div className="hidden items-center justify-end gap-4 md:flex">
             {site.phone ? (
               <a
                 href={telHref(site.phone)}
@@ -171,7 +172,7 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="flex items-center justify-end gap-3">
+            <div className="flex items-center justify-end gap-3 max-md:contents">
               {site.phone ? (
                 <a
                   href={telHref(site.phone)}
@@ -189,20 +190,57 @@ export function Header() {
               <button
                 type="button"
                 className={cn(
-                  'nav-link inline-flex items-center px-3.5 py-2.5 lg:hidden',
-                  overDark ? 'text-cream' : 'text-ink',
+                  'inline-flex min-h-11 min-w-11 items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.18em] backdrop-blur-sm lg:hidden',
+                  'max-md:absolute max-md:right-5 max-md:top-1/2 max-md:-translate-y-1/2',
+                  overDark
+                    ? 'border-cream/40 text-cream active:bg-cream/12'
+                    : 'border-navy/25 text-ink active:bg-navy/10',
                 )}
-                aria-label="Open menu"
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileOpen}
-                onClick={() => setMobileOpen(true)}
+                aria-controls={mobilePanelId}
+                onClick={() => setMobileOpen((value) => !value)}
               >
-                Menu
+                {mobileOpen ? <CloseGlyph /> : <MenuGlyph />}
+                <span>{mobileOpen ? 'Close' : 'Menu'}</span>
               </button>
             </div>
-            <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+            <MobileNav
+              id={mobilePanelId}
+              open={mobileOpen}
+              onClose={() => setMobileOpen(false)}
+            />
           </>
         )}
       </div>
     </header>
+  );
+}
+
+function MenuGlyph() {
+  return (
+    <svg
+      width="14"
+      height="10"
+      viewBox="0 0 14 10"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M0 1h14M0 9h10" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function CloseGlyph() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
   );
 }

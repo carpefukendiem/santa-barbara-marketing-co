@@ -239,6 +239,28 @@ header.site-header[data-scrolled] .header-seal {
   width: 112px;
 }
 
+@media (max-width: 767px) {
+  header.site-header {
+    height: auto;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
+    padding-bottom: 12px;
+  }
+
+  header.site-header[data-scrolled] {
+    height: auto;
+  }
+
+  .header-seal {
+    height: 112px;
+    width: 112px;
+  }
+
+  header.site-header[data-scrolled] .header-seal {
+    height: 104px;
+    width: 104px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   header.site-header,
   .header-seal {

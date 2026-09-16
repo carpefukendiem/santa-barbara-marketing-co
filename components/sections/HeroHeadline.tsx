@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const lines = [
-  { before: 'More Visibility.', accent: null },
-  { before: 'Better Customers.', accent: null },
-  { before: 'A ', accent: 'Stronger', after: ' Tomorrow.' },
+  { before: 'More calls.', accent: null, after: null },
+  { before: 'More customers.', accent: null, after: null },
+  { before: 'Less guessing.', accent: null, after: null },
 ];
 
 export function HeroHeadline() {
@@ -23,7 +23,7 @@ export function HeroHeadline() {
   }, []);
 
   return (
-    <h1 className="mt-5 text-h1 text-cream">
+    <h1 className="mt-5 text-h1 text-cream max-md:text-[2.75rem] max-md:leading-[1.05]">
       {lines.map((line, index) => (
         <span
           key={line.before + (line.accent ?? '')}
