@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import { Accordion } from '@/components/ui/Accordion';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { FAQAccordion } from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
-import { Heading } from '@/components/ui/Heading';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { PageHero } from '@/components/ui/PageHero';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { faqsByCategory, type FaqItem } from '@/data/faqs';
@@ -46,44 +45,34 @@ export default function FaqPage() {
           faqPageSchema(allFaqs),
         ]}
       />
-      <Section className="bg-sbmc-cream pb-8">
-        <Container>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'FAQ' },
-            ]}
-          />
-          <SectionEyebrow align="left" className="mt-8">
-            Questions
-          </SectionEyebrow>
-          <Heading as="h1" size="lg" className="mt-4 max-w-3xl">
-            Frequently asked questions
-          </Heading>
-          <p className="mt-6 max-w-[60ch] text-body-lg text-sbmc-ink">
-            How we start, how Local SEO and ads actually work in this county,
-            what a website engagement includes, and how we price and report.
-            If your question is about the free plan, it also lives on the{' '}
-            <Link href="/free-growth-plan" className="font-medium text-sbmc-teal">
-              Growth Plan page
-            </Link>
-            .
-          </p>
-          <div className="mt-8">
-            <Button href={primaryCta.href}>{primaryCta.label}</Button>
-          </div>
-        </Container>
+      <PageHero
+        variant="simple"
+        eyebrow="Questions"
+        title="Frequently asked questions"
+        subhead="How we start, how Local SEO and ads actually work in this county, what a website engagement includes, and how we price and report."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'FAQ' },
+        ]}
+      />
+      <Section bg="white" py="pt-0 pb-8">
+        <p className="max-w-[60ch] text-lg text-ink">
+          If your question is about the free plan, it also lives on the{' '}
+          <Link href="/free-growth-plan" className="font-medium text-ocean underline underline-offset-4">
+            Growth Plan page
+          </Link>
+          .
+        </p>
+        <div className="mt-8">
+          <Button href={primaryCta.href}>{primaryCta.label}</Button>
+        </div>
       </Section>
       {grouped.map((group) => (
-        <Section
-          key={group.category}
-          className="bg-sbmc-cream pt-8"
-          id={group.category}
-        >
-          <Container>
-            <h2 className="text-display-md">{group.title}</h2>
-            <Accordion className="mt-4" items={group.items} />
-          </Container>
+        <Section key={group.category} bg="white" id={group.category} py="py-10 lg:py-12">
+          <Reveal>
+            <Eyebrow>{group.title}</Eyebrow>
+            <FAQAccordion className="mt-4" items={group.items} />
+          </Reveal>
         </Section>
       ))}
       <CtaBand

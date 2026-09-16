@@ -1,26 +1,23 @@
-import { Accordion } from '@/components/ui/Accordion';
+import { FAQAccordion } from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { Container } from '@/components/ui/Container';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { PageHero } from '@/components/ui/PageHero';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
-import { ServiceCard } from '@/components/ui/ServiceCard';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { serviceIconMap } from '@/components/icons/maps';
 import { faqsByCategory } from '@/data/faqs';
 import { getService, services, type ServiceNavGroup } from '@/data/services';
 import { primaryCta } from '@/data/navigation';
 import { breadcrumbSchema, faqPageSchema } from '@/lib/schema';
+import { serviceLucide } from '@/lib/lucideIcons';
 
 const groupOrder: ServiceNavGroup[] = ['found', 'convert', 'systems'];
 
-const groupCopy: Record<
-  ServiceNavGroup,
-  { title: string; lede: string }
-> = {
+const groupCopy: Record<ServiceNavGroup, { title: string; lede: string }> = {
   found: {
     title: 'Get Found',
     lede: 'Search, Maps, and ads so a resident on the Mesa or a visitor on Cabrillo can actually find you.',
@@ -53,85 +50,6 @@ const scenarios = [
   },
 ] as const;
 
-const crumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'Services' },
-];
-
-function SystemFlowDiagram() {
-  return (
-    <svg
-      viewBox="0 0 800 168"
-      role="img"
-      aria-labelledby="system-flow-title system-flow-desc"
-      className="mt-12 w-full text-sbmc-navy"
-    >
-      <title id="system-flow-title">How the work connects</title>
-      <desc id="system-flow-desc">
-        Traffic reaches the site, follow-up catches the lead, and measurement
-        tells you which of those steps actually produced work.
-      </desc>
-      <line
-        x1="88"
-        y1="52"
-        x2="712"
-        y2="52"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        className="text-sbmc-border"
-      />
-      {[
-        { x: 88, label: 'Traffic', note: 'Search, Maps, ads', fill: '#052136' },
-        { x: 296, label: 'Site', note: 'The page that converts', fill: '#036c7d' },
-        { x: 504, label: 'Follow-up', note: 'Call, text, after hours', fill: '#c96637' },
-        { x: 712, label: 'Measurement', note: 'Calls and booked work', fill: '#6d8b79' },
-      ].map((node, index) => (
-        <g key={node.label}>
-          {index < 3 ? (
-            <polygon
-              points={`${node.x + 78},46 ${node.x + 90},52 ${node.x + 78},58`}
-              className="fill-sbmc-border"
-            />
-          ) : null}
-          <circle cx={node.x} cy="52" r="22" fill={node.fill} />
-          <text
-            x={node.x}
-            y="57"
-            textAnchor="middle"
-            fill="#f8f4ed"
-            fontSize="13"
-            fontFamily="var(--font-sans), system-ui, sans-serif"
-            fontWeight="700"
-          >
-            {index + 1}
-          </text>
-          <text
-            x={node.x}
-            y="104"
-            textAnchor="middle"
-            fill="#0c2539"
-            fontSize="15"
-            fontFamily="var(--font-fraunces), Georgia, serif"
-            fontWeight="600"
-          >
-            {node.label}
-          </text>
-          <text
-            x={node.x}
-            y="126"
-            textAnchor="middle"
-            fill="#4a5a66"
-            fontSize="12"
-            fontFamily="var(--font-sans), system-ui, sans-serif"
-          >
-            {node.note}
-          </text>
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 export function ServicesOverview() {
   const faqs = faqsByCategory('working-together');
 
@@ -146,22 +64,21 @@ export function ServicesOverview() {
           faqPageSchema(faqs),
         ]}
       />
-      <Section className="bg-sbmc-cream-warm" padded={false}>
-        <Container className="py-8 md:py-10">
-          <Breadcrumbs items={crumbs} />
-          <SectionEyebrow align="left" className="mt-10">
-            Services
-          </SectionEyebrow>
-          <Heading as="h1" size="xl" className="mt-4 max-w-4xl">
-            Full-Service Digital Marketing for Santa Barbara Businesses.
-          </Heading>
-          <p className="measure-lede mt-6 text-body-lg text-sbmc-ink">
-            Most 805 businesses do not need five vendors and a stack of
-            disconnected retainers. They need to get found, convert the visit,
-            and follow up when the lead actually arrives. We group the work that
-            way on purpose.
-          </p>
-          <p className="measure mt-4 text-body-lg text-sbmc-ink-muted">
+      <PageHero
+        variant="simple"
+        eyebrow="Services"
+        title="Full-Service Digital Marketing for Santa Barbara Businesses."
+        accent="Santa Barbara"
+        subhead="Most 805 businesses do not need five vendors and a stack of disconnected retainers. They need to get found, convert the visit, and follow up when the lead actually arrives. We group the work that way on purpose."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services' },
+        ]}
+      />
+
+      <Section bg="white">
+        <Reveal>
+          <p className="max-w-[65ch] text-lg text-stone">
             Get Found is search, Maps, and ads. Convert &amp; Grow is the site
             and the presence that turns a tap into a call. Systems is follow-up,
             measurement, and a plan so those pieces stay one job. You will not
@@ -171,11 +88,28 @@ export function ServicesOverview() {
           <div className="mt-8">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
           </div>
-        </Container>
+          <div className="mt-14 grid gap-4 lg:grid-cols-3">
+            {services.map((service) => {
+              const Icon = serviceLucide(service.slug, service.icon);
+              return (
+                <Card key={service.slug} className="p-6">
+                  <IconCircle icon={Icon} />
+                  <h3 className="mt-5 text-h3 text-navy">{service.shortName}</h3>
+                  <p className="mt-3 text-stone">{service.cardBlurb}</p>
+                  <div className="mt-5">
+                    <Button variant="ghost" href={`/services/${service.slug}`}>
+                      Learn more
+                    </Button>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </Reveal>
       </Section>
 
-      <Section className="bg-sbmc-cream pt-6">
-        <Container>
+      <Section bg="sand">
+        <Reveal>
           {groupOrder.map((groupId) => {
             const copy = groupCopy[groupId];
             const groupServices = services.filter(
@@ -187,58 +121,63 @@ export function ServicesOverview() {
                 aria-labelledby={`services-${groupId}`}
                 className="mt-16 first:mt-0"
               >
-                <h2
-                  id={`services-${groupId}`}
-                  className="text-display-md text-sbmc-navy-soft"
-                >
+                <h2 id={`services-${groupId}`} className="text-h2 text-navy">
                   {copy.title}
                 </h2>
-                <p className="measure mt-3 text-body-lg text-sbmc-ink-muted">
-                  {copy.lede}
-                </p>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {groupServices.map((service) => {
-                    const Icon = serviceIconMap[service.icon];
-                    return (
-                      <ServiceCard
-                        key={service.slug}
-                        title={service.shortName}
-                        href={`/services/${service.slug}`}
-                        blurb={service.cardBlurb}
-                        icon={<Icon size={26} />}
-                        iconBg={service.iconBg}
-                        variant="bordered"
-                      />
-                    );
-                  })}
-                </div>
+                <p className="mt-3 max-w-[65ch] text-lg text-stone">{copy.lede}</p>
+                <ul className="mt-6 flex flex-wrap gap-3">
+                  {groupServices.map((service) => (
+                    <li key={service.slug}>
+                      <Button variant="ghost" href={`/services/${service.slug}`}>
+                        {service.shortName}
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
               </section>
             );
           })}
-        </Container>
+        </Reveal>
       </Section>
 
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <SectionEyebrow>One system</SectionEyebrow>
+      <Section bg="white">
+        <Reveal>
+          <Eyebrow align="center">One system</Eyebrow>
           <Heading className="mt-4 text-center">
             Not five vendors. One sequence.
           </Heading>
-          <p className="measure-lede mx-auto mt-5 text-center text-body-lg text-sbmc-ink-muted">
+          <p className="mx-auto mt-5 max-w-[58ch] text-center text-lg text-stone">
             Traffic is wasted if the page cannot take the call. A fast page is
             wasted if nobody follows up after 5 p.m. Follow-up is guesswork if
             you cannot tell which search produced the job. We plan those four
             steps as one system, even when you only hire us for one of them.
           </p>
-          <SystemFlowDiagram />
-        </Container>
+          <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: 'Traffic', note: 'Search, Maps, ads' },
+              { label: 'Site', note: 'The page that converts' },
+              { label: 'Follow-up', note: 'Call, text, after hours' },
+              { label: 'Measurement', note: 'Calls and booked work' },
+            ].map((node, index) => (
+              <li key={node.label}>
+                <Card className="h-full p-6 text-center">
+                  <p className="font-display text-sm text-ocean">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="mt-2 text-h3 text-navy">{node.label}</h3>
+                  <p className="mt-2 text-sm text-stone">{node.note}</p>
+                </Card>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
       </Section>
 
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <SectionEyebrow>Where to start</SectionEyebrow>
+      <Section bg="sand">
+        <Reveal>
+          <Eyebrow align="center">Where to start</Eyebrow>
           <Heading className="mt-4 text-center">Which do I need?</Heading>
-          <p className="measure-lede mx-auto mt-5 text-center text-body-lg text-sbmc-ink-muted">
+          <p className="mx-auto mt-5 max-w-[58ch] text-center text-lg text-stone">
             Three common 805 situations, and the service we would usually open
             with. The Growth Plan is how we confirm that for your pin and your
             category, instead of selling the whole menu.
@@ -249,13 +188,11 @@ export function ServicesOverview() {
               if (!recommended) return null;
               return (
                 <Card key={scenario.title} className="flex h-full flex-col p-7">
-                  <h3 className="text-heading-sm">{scenario.title}</h3>
-                  <p className="mt-3 flex-1 text-body-sm text-sbmc-ink-muted">
-                    {scenario.body}
-                  </p>
-                  <p className="mt-6 text-eyebrow text-sbmc-teal">Start with</p>
+                  <h3 className="text-h3 text-navy">{scenario.title}</h3>
+                  <p className="mt-3 flex-1 text-stone">{scenario.body}</p>
+                  <p className="mt-6 text-eyebrow text-ocean">Start with</p>
                   <div className="mt-3">
-                    <Button variant="link" href={`/services/${recommended.slug}`}>
+                    <Button variant="ghost" href={`/services/${recommended.slug}`}>
                       {recommended.shortName}
                     </Button>
                   </div>
@@ -263,19 +200,15 @@ export function ServicesOverview() {
               );
             })}
           </div>
-        </Container>
+        </Reveal>
       </Section>
 
-      <Section className="bg-sbmc-cream-warm">
-        <Container>
-          <div className="mx-auto max-w-3xl">
-            <SectionEyebrow>Working together</SectionEyebrow>
-            <Heading className="mt-4 text-center">
-              Questions before you pick a service
-            </Heading>
-            <Accordion className="mt-10" items={faqs} />
-          </div>
-        </Container>
+      <Section bg="white">
+        <Reveal>
+          <Eyebrow>Working together</Eyebrow>
+          <Heading className="mt-4">Questions before you pick a service</Heading>
+          <FAQAccordion className="mt-10" items={faqs} />
+        </Reveal>
       </Section>
 
       <CtaBand

@@ -1,20 +1,24 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { Layers, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
+import { Card } from '@/components/ui/Card';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 import { GrainOverlay } from '@/components/ui/GrainOverlay';
 import { Heading } from '@/components/ui/Heading';
+import { IconCircle } from '@/components/ui/IconCircle';
+import { PageHero } from '@/components/ui/PageHero';
+import { Prose } from '@/components/ui/Prose';
+import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SectionEyebrow } from '@/components/ui/SectionEyebrow';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { IconCompass, IconHeart, IconWaves } from '@/components/icons';
 import { photos } from '@/data/images';
 import { primaryCta } from '@/data/navigation';
 import { site } from '@/data/site';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
+import type { LucideIcon } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'About Santa Barbara Marketing Co.',
@@ -23,20 +27,20 @@ export const metadata = buildMetadata({
   path: '/about',
 });
 
-const pillars = [
+const pillars: Array<{ title: string; icon: LucideIcon; body: string }> = [
   {
     title: 'Local by residence',
-    icon: IconWaves,
+    icon: MapPin,
     body: 'We live in the 805. A Funk Zone tasting room, a Goleta HVAC company, and a Coast Village Road practice have three different search problems. We plan around that.',
   },
   {
     title: 'Proof over promises',
-    icon: IconHeart,
+    icon: Shield,
     body: 'No invented numbers, no first-page guarantee, no vanity dashboards. Reporting in English, tied to calls, forms, and booked work.',
   },
   {
     title: 'One system',
-    icon: IconCompass,
+    icon: Layers,
     body: 'Getting found, getting chosen, and getting followed up with are one connected problem. We build all three so leads stop leaking between vendors.',
   },
 ];
@@ -50,66 +54,59 @@ export default function AboutPage() {
           { name: 'About', path: '/about' },
         ])}
       />
-      <Section className="bg-sbmc-cream pb-0">
-        <Container>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'About' },
-            ]}
-          />
-          <SectionEyebrow align="left" className="mt-8">
-            About the agency
-          </SectionEyebrow>
-          <Heading as="h1" size="lg" className="mt-4 max-w-3xl">
-            A Santa Barbara agency that shows its work
-          </Heading>
-          <p className="mt-6 max-w-[60ch] text-body-lg text-sbmc-ink-muted">
-            Founded in {site.founded}. Local by residence. Proof over promises.
-            One system for getting found, getting chosen, and getting followed
-            up with.
-          </p>
-        </Container>
-        <div className="mt-12 grid lg:grid-cols-2">
-          <div className="relative min-h-[280px] lg:min-h-[420px]">
+      <PageHero
+        variant="simple"
+        eyebrow="About the agency"
+        title="A Santa Barbara agency that shows its work"
+        accent="Santa Barbara"
+        subhead={`Founded in ${site.founded}. Local by residence. Proof over promises. One system for getting found, getting chosen, and getting followed up with.`}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'About' },
+        ]}
+      />
+
+      <section className="bg-white px-6 pb-8">
+        <Reveal>
+          <div className="relative mx-auto min-h-[420px] max-w-7xl overflow-hidden rounded-3xl">
             <Image
               src={photos.localStreet.src}
               alt={photos.localStreet.alt}
               fill
               quality={78}
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="100vw"
               className="photo-treatment object-cover"
               style={{ objectPosition: photos.localStreet.focalPoint }}
             />
             <GrainOverlay />
-          </div>
-          <div className="flex items-center bg-sbmc-navy-deep px-5 py-12 md:px-12">
-            <p className="font-display max-w-[28ch] text-2xl text-white italic md:text-3xl">
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-transparent"
+              aria-hidden="true"
+            />
+            <p className="absolute inset-x-8 bottom-8 max-w-[28ch] font-display text-2xl text-white md:text-3xl">
               Local People. Local Businesses. A Stronger 805.
             </p>
           </div>
-        </div>
-      </Section>
+        </Reveal>
+      </section>
 
-      <Section className="bg-sbmc-white">
-        <Container>
+      <Section bg="white">
+        <Reveal>
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="rounded-[12px] border border-sbmc-border p-6">
-                <span className="text-sbmc-teal">
-                  <pillar.icon size={22} />
-                </span>
-                <h2 className="mt-4 text-heading-sm">{pillar.title}</h2>
-                <p className="mt-3 text-body-sm text-sbmc-ink-muted">{pillar.body}</p>
-              </div>
+              <Card key={pillar.title} className="p-6">
+                <IconCircle icon={pillar.icon} />
+                <h2 className="mt-4 text-h3 text-navy">{pillar.title}</h2>
+                <p className="mt-3 text-stone">{pillar.body}</p>
+              </Card>
             ))}
           </div>
-        </Container>
+        </Reveal>
       </Section>
 
-      <Section className="bg-sbmc-cream">
-        <Container>
-          <article className="measure space-y-6 text-body-lg text-sbmc-ink">
+      <Section bg="sand">
+        <Reveal>
+          <Prose>
             <p>
               Santa Barbara Marketing Co. is a digital marketing agency for
               businesses in Santa Barbara, Goleta, Montecito, and Carpinteria.
@@ -128,9 +125,7 @@ export default function AboutPage() {
               what it can prove, measures the work in calls and booked jobs, and
               treats search, the website, and follow-up as one system.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">
-              Local by residence, not by landing page
-            </h2>
+            <h2>Local by residence, not by landing page</h2>
             <p>
               A Funk Zone tasting room, a Goleta HVAC company, and a Coast
               Village Road practice do not have the same search problem.
@@ -151,24 +146,19 @@ export default function AboutPage() {
               actually win, not a wish list of every neighborhood from Hope
               Ranch to Summerland.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">
-              Proof over promises
-            </h2>
+            <h2>Proof over promises</h2>
             <p>
               We will not invent testimonials, star ratings, client names, or
               case-study numbers. We will not promise a first-page ranking.
               Where we do not have a published result yet, we say so. Our{' '}
-              <Link href="/work" className="font-medium text-sbmc-teal">
-                Work
-              </Link>{' '}
-              page is empty on purpose. A case study from this agency will name
-              the client (with permission), the industry, the location, the
-              services used, the challenge, the approach, what we built,
-              screenshots we are allowed to show, metrics we can verify, a
-              timeline, and an outcome. If we cannot verify a number, it does
-              not go on the page. That is slower than writing a testimonial
-              carousel. It is also the reason a serious owner should trust the
-              rest of the site.
+              <Link href="/work">Work</Link> page is empty on purpose. A case
+              study from this agency will name the client (with permission), the
+              industry, the location, the services used, the challenge, the
+              approach, what we built, screenshots we are allowed to show,
+              metrics we can verify, a timeline, and an outcome. If we cannot
+              verify a number, it does not go on the page. That is slower than
+              writing a testimonial carousel. It is also the reason a serious
+              owner should trust the rest of the site.
             </p>
             <p>
               Reporting is in English. You should be able to see which campaigns
@@ -176,7 +166,7 @@ export default function AboutPage() {
               need a fourteen-tab dashboard to find out whether the month was
               useful. If something is down, we say so and what we are changing.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">One system</h2>
+            <h2>One system</h2>
             <p>
               Most 805 businesses do not fail because they lacked a fifth
               vendor. They leak. The Google Business Profile is incomplete, the
@@ -184,16 +174,12 @@ export default function AboutPage() {
               carousel, and the form fill waits until Tuesday. Getting found,
               getting chosen, and getting followed up with are one connected
               problem. We work across{' '}
-              <Link href="/services" className="font-medium text-sbmc-teal">
-                Local SEO, websites, Google Ads, and follow-up
-              </Link>{' '}
+              <Link href="/services">Local SEO, websites, Google Ads, and follow-up</Link>{' '}
               so those pieces agree with each other. You can hire us for one of
               them. We will still tell you if the first dollar belongs somewhere
               else.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">
-              Honesty as a differentiator
-            </h2>
+            <h2>Honesty as a differentiator</h2>
             <p>
               Fabricated proof is common in this market. Invented names on
               templated location pages. Awards that cannot be found. Years in
@@ -210,9 +196,7 @@ export default function AboutPage() {
               partnerships here mean month-to-month or defined project terms,
               spelled out before an invoice, not a lock-in buried in a PDF.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">
-              Who this is for
-            </h2>
+            <h2>Who this is for</h2>
             <p>
               We work with one-location shops, clinics, restaurants,
               contractors, professional firms, and property businesses that sell
@@ -221,12 +205,9 @@ export default function AboutPage() {
               good fit if you want a plan you can read, a site that loads on a
               phone, and reporting that names the phone.
             </p>
-            <h2 className="text-display-md text-sbmc-navy-soft">How to start</h2>
+            <h2>How to start</h2>
             <p>
-              Request a{' '}
-              <Link href="/free-growth-plan" className="font-medium text-sbmc-teal">
-                Free 805 Growth Plan
-              </Link>
+              Request a <Link href="/free-growth-plan">Free 805 Growth Plan</Link>
               . We review how you show up in Search and Maps, look at competitors
               in your category, list the gaps, and send a prioritized 90-day
               plan {site.growthPlanTurnaround}. A person writes it. We walk
@@ -234,11 +215,11 @@ export default function AboutPage() {
               document. If the plan is useful, we talk about what to run first.
               If it is not, you keep it.
             </p>
-            <div className="pt-2">
-              <Button href={primaryCta.href}>{primaryCta.label}</Button>
-            </div>
-          </article>
-        </Container>
+          </Prose>
+          <div className="mt-8">
+            <Button href={primaryCta.href}>{primaryCta.label}</Button>
+          </div>
+        </Reveal>
       </Section>
       <CtaBand
         heading="Let's look at your market."
