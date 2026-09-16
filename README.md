@@ -40,9 +40,9 @@ Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so c
 | `NEXT_PUBLIC_PHONE` | No | If unset, no tel links render. `NEXT_PUBLIC_CONTACT_PHONE` is an alias. |
 | `NEXT_PUBLIC_GTM_ID` | No | Loads GTM when set |
 | `NEXT_PUBLIC_GA_ID` | No | Loads GA4 only when GTM is unset |
-| `GHL_PRIVATE_TOKEN` | Yes in production | Private Integration token for contacts/opportunities |
-| `GHL_LOCATION_ID` | Yes in production | GoHighLevel subaccount location ID |
-| `NEXT_PUBLIC_GHL_CALENDAR_ID` | Yes in production | Booking widget calendar ID |
+| `GHL_PRIVATE_TOKEN` | For CRM sync | Private Integration token for contacts/opportunities |
+| `GHL_LOCATION_ID` | For CRM sync | GoHighLevel subaccount location ID |
+| `NEXT_PUBLIC_GHL_CALENDAR_ID` | For booking | Booking widget calendar ID |
 | `GHL_PIPELINE_ID` | No | Opportunity pipeline |
 | `GHL_PIPELINE_STAGE_ID` | No | Default opportunity stage |
 | `GHL_PRINT_STAGE_ID` | No | Print-tagged leads use this stage when set |
@@ -51,7 +51,7 @@ Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so c
 | `LEAD_WEBHOOK_URL` | If webhook | JSON POST destination |
 | `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` | If resend | Stub until implemented |
 
-Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. Production builds fail if the three required GHL keys are missing.
+Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. Booking and CRM sync stay optional until those three keys are set in Vercel.
 
 See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/ANALYTICS.md).
 

@@ -6,7 +6,7 @@ Never log emails, phone numbers, or messages in production. Provider API keys st
 
 ## GoHighLevel (primary)
 
-Production builds fail if `GHL_PRIVATE_TOKEN`, `GHL_LOCATION_ID`, or `NEXT_PUBLIC_GHL_CALENDAR_ID` are missing (`VERCEL_ENV=production`).
+Set `GHL_PRIVATE_TOKEN`, `GHL_LOCATION_ID`, and `NEXT_PUBLIC_GHL_CALENDAR_ID` in Vercel for booking and CRM sync. If they are missing, the calendar embed falls back to the contact email and form submissions use `LEAD_PROVIDER`.
 
 On submit, the API upserts a contact at `POST https://services.leadconnectorhq.com/contacts/upsert` (Version `2021-07-28`) and creates an opportunity on the pipeline.
 

@@ -1,7 +1,4 @@
 import type { NextConfig } from 'next';
-import { assertProductionGhlEnv } from './lib/env';
-
-assertProductionGhlEnv();
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
