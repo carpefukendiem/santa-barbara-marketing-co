@@ -1,17 +1,20 @@
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { site } from '@/data/site';
+import { locations } from '@/data/locations';
 import {
-  companyLinks,
   locationLinks,
   megaColumns,
   primaryCta,
+  primaryNav,
 } from '@/data/navigation';
-import { telHref } from '@/lib/utils';
+
+const topLevelLinks = primaryNav.filter(
+  (item) => item.label !== 'Services' && item.label !== 'Locations',
+);
 
 export function MobileNav({
   open,
@@ -26,8 +29,8 @@ export function MobileNav({
   const panelId = id ?? generatedId;
   const closeRef = useRef<HTMLButtonElement>(null);
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
-    digital: true,
-    print: true,
+    services: false,
+    locations: false,
   });
 
   useEffect(() => {
@@ -46,6 +49,10 @@ export function MobileNav({
   }, [open, onClose]);
 
   if (!open) return null;
+
+  const toggleGroup = (key: string) => {
+    setOpenGroups((current) => ({ ...current, [key]: !current[key] }));
+  };
 
   return (
     <div
@@ -67,59 +74,68 @@ export function MobileNav({
           <X size={22} />
         </button>
       </div>
-      <div className="flex-1 overflow-y-auto px-6 pb-8">
-        <p className="text-xs tracking-[0.18em] text-white/50 uppercase">Services</p>
-        <div className="mt-3">
-          {megaColumns.map((column) => {
-            const groupOpen = openGroups[column.id] ?? true;
-            const buttonId = `${panelId}-${column.id}`;
-            const regionId = `${panelId}-${column.id}-links`;
-            return (
-              <div key={column.id} className="border-b border-white/15">
-                <button
-                  type="button"
-                  id={buttonId}
-                  aria-expanded={groupOpen}
-                  aria-controls={regionId}
-                  className="flex w-full items-center justify-between py-4 text-left font-mono text-xs tracking-[0.18em] text-white/70 uppercase"
-                  onClick={() =>
-                    setOpenGroups((current) => ({
-                      ...current,
-                      [column.id]: !groupOpen,
-                    }))
-                  }
-                >
-                  <span>{column.title}</span>
-                  <span aria-hidden="true">{groupOpen ? '−' : '+'}</span>
-                </button>
-                {groupOpen ? (
-                  <ul id={regionId} role="region" aria-labelledby={buttonId}>
-                    {column.links.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          href={link.href}
-                          className="block border-t border-white/10 py-4 font-display text-3xl text-white"
-                          onClick={onClose}
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
-            );
-          })}
-        </div>
-        <p className="mt-8 text-xs tracking-[0.18em] text-white/50 uppercase">
-          Locations
-        </p>
-        <ul className="mt-3 space-y-1">
-          {locationLinks.map((link) => (
+      <nav className="flex-1 overflow-y-auto px-6 pb-8" aria-label="Primary">
+        <Accordion
+          id={`${panelId}-services`}
+          label="Services"
+          open={openGroups.services}
+          onToggle={() => toggleGroup('services')}
+        >
+          {megaColumns.map((column) => (
+            <div key={column.id} className="pb-6">
+              <p className="text-eyebrow text-cream/50">{column.title}</p>
+              <ul className="mt-3">
+                {column.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="block py-2.5 text-lg text-white/90 hover:text-white"
+                      onClick={onClose}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </Accordion>
+
+        <Accordion
+          id={`${panelId}-locations`}
+          label="Locations"
+          open={openGroups.locations}
+          onToggle={() => toggleGroup('locations')}
+        >
+          <ul>
+            {locationLinks.map((link) => {
+              const location = locations.find(
+                (entry) => `/${entry.slug}` === link.href,
+              );
+              return (
+                <li key={link.href} className="border-t border-white/10">
+                  <Link href={link.href} className="block py-4" onClick={onClose}>
+                    <span className="font-display text-2xl text-white">
+                      {link.label}
+                    </span>
+                    {location ? (
+                      <span className="mt-1 block line-clamp-2 text-sm text-white/60">
+                        {location.heroLede}
+                      </span>
+                    ) : null}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </Accordion>
+
+        <ul className="border-t border-white/15">
+          {topLevelLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block py-2 font-display text-2xl text-white"
+                className="block border-b border-white/15 py-4 font-display text-3xl text-white"
                 onClick={onClose}
               >
                 {link.label}
@@ -127,33 +143,50 @@ export function MobileNav({
             </li>
           ))}
         </ul>
-        <ul className="mt-8 space-y-1 border-t border-white/10 pt-6">
-          {companyLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="block py-2 font-display text-2xl text-white"
-                onClick={onClose}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      </nav>
       <div className="border-t border-white/10 px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
         <Button href={primaryCta.href} className="w-full" onClick={onClose}>
           {primaryCta.label}
         </Button>
-        <p className="mt-3 text-sm text-white/70">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
-        {site.phone ? (
-          <p className="mt-1 text-sm text-white/70">
-            <a href={telHref(site.phone)}>{site.phone}</a>
-          </p>
-        ) : null}
       </div>
+    </div>
+  );
+}
+
+function Accordion({
+  id,
+  label,
+  open,
+  onToggle,
+  children,
+}: {
+  id: string;
+  label: string;
+  open: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+}) {
+  const regionId = `${id}-panel`;
+  return (
+    <div className="border-b border-white/15">
+      <button
+        type="button"
+        id={id}
+        aria-expanded={open}
+        aria-controls={regionId}
+        className="flex w-full items-center justify-between py-4 text-left font-display text-3xl text-white"
+        onClick={onToggle}
+      >
+        <span>{label}</span>
+        <span className="font-sans text-xl font-light text-white/50" aria-hidden="true">
+          {open ? '−' : '+'}
+        </span>
+      </button>
+      {open ? (
+        <div id={regionId} role="region" aria-labelledby={id} className="pb-2">
+          {children}
+        </div>
+      ) : null}
     </div>
   );
 }
