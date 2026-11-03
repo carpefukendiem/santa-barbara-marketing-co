@@ -9,6 +9,7 @@ import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
 import { BookCallProvider } from '@/components/booking/BookCallModal';
 import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
+import { booking } from '@/lib/booking';
 import './globals.css';
 
 const sourceSerif = Source_Serif_4({
@@ -59,6 +60,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sourceSerif.variable} ${inter.variable} ${jetbrains.variable}`}>
+      <head>
+        <link rel="preconnect" href={booking.origin} crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href={booking.origin} />
+        <link rel="preload" as="script" href={booking.scriptSrc} />
+      </head>
       <body className="font-sans antialiased">
         <BookCallProvider>
           <JsonLd data={[organizationSchema(), websiteSchema()]} />

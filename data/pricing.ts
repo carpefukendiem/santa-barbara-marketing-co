@@ -13,8 +13,9 @@ export type PricingExtra = {
 export const pricingPlan = {
   name: 'The 805 System',
   badge: 'Most used',
-  monthlyAmount: 497,
-  annualMonthlyAmount: 397,
+  monthlyAmount: 297,
+  annualAmount: 3597,
+  annualBonus: '+12 weeks FREE',
   included: [
     {
       title: 'Marketing website',

@@ -42,7 +42,9 @@ export function Header() {
     setLocationsOpen(false);
   }, [pathname]);
 
-  const overDark = !scrolled;
+  const lightTop =
+    pathname === '/work' || pathname.startsWith('/work/');
+  const overDark = !scrolled && !lightTop;
   const navItemClass = cn(
     'nav-link px-3 py-2',
     overDark ? 'text-cream' : 'text-ink',
@@ -52,16 +54,16 @@ export function Header() {
     <header
       className={cn(
         'site-header fixed inset-x-0 top-0 z-40',
-        scrolled
+        scrolled || lightTop
           ? 'border-b border-rule bg-cream/95 text-ink backdrop-blur'
           : 'border-b border-transparent bg-transparent text-cream',
       )}
       data-scrolled={scrolled ? '' : undefined}
     >
-      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-14">
+      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-5 py-2 lg:px-14">
         <Link
           href="/"
-          className="shrink-0"
+          className="shrink-0 py-1 pr-6"
           aria-label="Santa Barbara Marketing Co. home"
         >
           <Wordmark inverted={overDark} priority />

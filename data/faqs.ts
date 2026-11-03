@@ -124,7 +124,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'The 805 System is one monthly rate for the bundled website, Local SEO, review requests, and follow-up. Prepaid annual billing lowers the monthly equivalent. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
+      'The 805 System is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $3597/yr and you get 12 weeks free. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
   },
   {
     category: 'working-together',

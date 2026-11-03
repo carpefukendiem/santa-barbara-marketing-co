@@ -35,7 +35,7 @@ export function Button({
   'aria-busy': ariaBusy,
 }: ButtonProps) {
   const inDark = useDark();
-  const { openModal } = useBookCall();
+  const { openModal, warm } = useBookCall();
   const resolvedTone: ButtonTone = tone ?? (inDark ? 'dark' : 'light');
   const visual = variant === 'link' ? 'ghost' : variant;
 
@@ -91,11 +91,18 @@ export function Button({
         </a>
       );
     }
-    return (
-      <Link href={href} className={classes} aria-label={ariaLabel} onClick={handleClick}>
-        {content}
-      </Link>
-    );
+      return (
+        <Link
+          href={href}
+          className={classes}
+          aria-label={ariaLabel}
+          onClick={handleClick}
+          onMouseEnter={href === '/book-a-call' ? warm : undefined}
+          onFocus={href === '/book-a-call' ? warm : undefined}
+        >
+          {content}
+        </Link>
+      );
   }
 
   return (

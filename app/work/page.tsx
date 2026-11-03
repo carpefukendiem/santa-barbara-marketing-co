@@ -48,13 +48,14 @@ export default function WorkPage() {
           { name: 'Work', path: '/work' },
         ])}
       />
-      <Section bg="cream" padded={false} className="pt-32 pb-20">
+      <Section bg="cream" padded={false} className="pt-44 pb-20">
         <Reveal>
           <Breadcrumbs
             items={[
               { label: 'Home', href: '/' },
               { label: 'Work' },
             ]}
+            className="pt-4"
           />
           <Eyebrow className="mt-8">Our work</Eyebrow>
           <Heading as="h1" className="mt-4" accent="prove them.">

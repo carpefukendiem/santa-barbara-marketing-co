@@ -84,7 +84,7 @@ export default async function CaseStudyPage({ params }: Props) {
           },
         ]}
       />
-      <Section className="bg-cream pb-12 pt-32">
+      <Section className="bg-cream pb-12 pt-44">
         <Container>
           <Breadcrumbs
             items={[
@@ -92,6 +92,7 @@ export default async function CaseStudyPage({ params }: Props) {
               { label: 'Work', href: '/work' },
               { label: study.client },
             ]}
+            className="pt-4"
           />
           <p className="mt-8">
             <Link href="/work" className="text-sm text-ink hover:text-tile">

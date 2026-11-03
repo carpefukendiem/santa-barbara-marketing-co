@@ -46,7 +46,7 @@ export function PageHero({
     <section
       className={cn(
         'relative overflow-hidden bg-navy',
-        compact ? 'pt-28' : 'min-h-[56vh] pt-32',
+        compact ? 'pt-40' : 'min-h-[56vh] pt-44',
       )}
     >
       {showPhoto && image ? (
@@ -76,7 +76,7 @@ export function PageHero({
         )}
       >
         <Reveal className="lg:col-span-7">
-          <Breadcrumbs items={breadcrumbs} light />
+          <Breadcrumbs items={breadcrumbs} light className="pt-4" />
           {eyebrow ? (
             <Eyebrow dark className="mt-6">
               {eyebrow}

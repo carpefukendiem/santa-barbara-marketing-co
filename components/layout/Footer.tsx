@@ -51,8 +51,8 @@ export function Footer() {
         </p>
         <div className="mt-12 grid gap-12 xl:grid-cols-[16rem_minmax(0,1fr)]">
           <div>
-            <Link href="/" className="inline-block max-w-[280px]">
-              <Wordmark inverted className="!h-20 !max-w-[280px]" />
+            <Link href="/" className="inline-block max-w-[320px]">
+              <Wordmark inverted className="!h-24 !max-w-[320px]" />
             </Link>
             <p className="mt-4 font-display text-xl text-cream/80">
               {site.tagline}

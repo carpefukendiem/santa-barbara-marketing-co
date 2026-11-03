@@ -78,8 +78,8 @@ export function generateLocationMetadata(slug: string): Metadata {
 
 function SantaBarbaraSubnav({ currentSlug }: { currentSlug: string }) {
   return (
-    <nav aria-label="Santa Barbara pages" className="border-b border-line bg-sand">
-      <div className="mx-auto flex max-w-7xl flex-wrap gap-2 px-6 py-3">
+    <nav aria-label="Santa Barbara pages" className="border-b border-rule bg-cream">
+      <div className="mx-auto flex max-w-[1440px] flex-wrap gap-2 px-6 py-4 lg:px-14">
         {santaBarbaraNav.map((item) => {
           const current = item.slug === currentSlug;
           return (
@@ -181,8 +181,6 @@ export function LocationPageContent({ slug }: { slug: string }) {
         ]}
       />
 
-      {isSantaBarbara ? <SantaBarbaraSubnav currentSlug={location.slug} /> : null}
-
       <PageHero
         variant="photo"
         eyebrow={`Serving ${location.city}`}
@@ -194,6 +192,8 @@ export function LocationPageContent({ slug }: { slug: string }) {
         primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
         secondaryCta={{ href: '/services', label: 'Our Services' }}
       />
+
+      {isSantaBarbara ? <SantaBarbaraSubnav currentSlug={location.slug} /> : null}
 
       <Section bg="white">
         <Reveal>

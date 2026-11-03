@@ -9,16 +9,57 @@ const BookCallContext = createContext<{
   open: boolean;
   openModal: () => void;
   closeModal: () => void;
-}>({ open: false, openModal: () => undefined, closeModal: () => undefined });
+  warm: () => void;
+}>({
+  open: false,
+  openModal: () => undefined,
+  closeModal: () => undefined,
+  warm: () => undefined,
+});
 
 export function useBookCall() {
   return useContext(BookCallContext);
 }
 
+function warmBookingAssets() {
+  if (typeof document === 'undefined') return;
+  if (!document.head.querySelector(`link[href="${booking.origin}"]`)) {
+    const preconnect = document.createElement('link');
+    preconnect.rel = 'preconnect';
+    preconnect.href = booking.origin;
+    preconnect.crossOrigin = 'anonymous';
+    document.head.appendChild(preconnect);
+    const dns = document.createElement('link');
+    dns.rel = 'dns-prefetch';
+    dns.href = booking.origin;
+    document.head.appendChild(dns);
+  }
+  if (!document.querySelector(`script[src="${booking.scriptSrc}"]`)) {
+    const script = document.createElement('script');
+    script.src = booking.scriptSrc;
+    script.async = true;
+    document.body.appendChild(script);
+  }
+  void fetch(booking.embedSrc, { mode: 'no-cors', credentials: 'omit' });
+}
+
 export function BookCallProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  const openModal = useCallback(() => setOpen(true), []);
+  const openModal = useCallback(() => {
+    warmBookingAssets();
+    setOpen(true);
+  }, []);
   const closeModal = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    const run = () => warmBookingAssets();
+    const idle = window.requestIdleCallback?.(run);
+    const timeout = window.setTimeout(run, 600);
+    return () => {
+      if (idle != null) window.cancelIdleCallback?.(idle);
+      window.clearTimeout(timeout);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -34,7 +75,7 @@ export function BookCallProvider({ children }: { children: React.ReactNode }) {
   }, [open, closeModal]);
 
   return (
-    <BookCallContext.Provider value={{ open, openModal, closeModal }}>
+    <BookCallContext.Provider value={{ open, openModal, closeModal, warm: warmBookingAssets }}>
       {children}
       {open ? <BookCallModal onClose={closeModal} /> : null}
     </BookCallContext.Provider>
@@ -58,7 +99,7 @@ export function GhlCalendarEmbed({
         title="Book a free call"
         allow="payment"
         scrolling="no"
-        loading="lazy"
+        loading="eager"
         className={className ?? 'w-full min-h-[880px] border-0'}
         style={{ overflow: 'hidden' }}
       />
@@ -124,6 +165,8 @@ export function BookCallButton({
       type="button"
       className={className}
       data-variant={variant}
+      onMouseEnter={warmBookingAssets}
+      onFocus={warmBookingAssets}
       onClick={() => {
         if (typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches) {
           openModal();

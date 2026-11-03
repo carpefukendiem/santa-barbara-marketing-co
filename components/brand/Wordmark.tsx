@@ -18,7 +18,7 @@ export function Wordmark({
       alt={mark.alt}
       width={mark.width}
       height={mark.height}
-      sizes="(max-width: 767px) 200px, 280px"
+      sizes="(max-width: 767px) 224px, 320px"
       className={cn('header-wordmark object-contain object-left', className)}
       priority={priority}
     />

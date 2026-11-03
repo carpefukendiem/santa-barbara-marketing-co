@@ -9,11 +9,6 @@ import { cn } from '@/lib/utils';
 
 export function PricingCard() {
   const [annual, setAnnual] = useState(true);
-  const amount = annual
-    ? pricingPlan.annualMonthlyAmount
-    : pricingPlan.monthlyAmount;
-  const savings =
-    pricingPlan.monthlyAmount - pricingPlan.annualMonthlyAmount;
 
   return (
     <div className="mx-auto max-w-md">
@@ -27,7 +22,7 @@ export function PricingCard() {
           onClick={() => setAnnual((value) => !value)}
           className={cn(
             'relative h-7 w-12 rounded-full transition-colors',
-            annual ? 'bg-ochre' : 'bg-navy/20',
+            annual ? 'bg-tile' : 'bg-navy/20',
           )}
         >
           <span
@@ -37,31 +32,41 @@ export function PricingCard() {
             )}
           />
         </button>
-        <span className={cn(annual ? 'text-ink' : 'text-stone')}>Prepaid</span>
+        <span className={cn(annual ? 'text-ink' : 'text-stone')}>Annually</span>
       </div>
       <p className="mt-2 text-center text-xs text-stone">
         {annual
-          ? `Pay a year up front. ${savings > 0 ? `$${savings}/mo less than month-to-month.` : ''}`
-          : 'Billed every month. Switch to prepaid to lower the monthly equivalent.'}
+          ? `Pay $${pricingPlan.annualAmount} once. ${pricingPlan.annualBonus.replace('+', '')}.`
+          : 'Billed every month. Switch to annually for 12 weeks free.'}
       </p>
 
-      <div className="mt-8 rounded-2xl bg-ochre px-8 py-10 text-navy">
-        <p className="text-center text-xs font-medium tracking-[0.18em] text-tile uppercase">
+      <div className="mt-8 rounded-2xl bg-navy px-8 py-10 text-cream">
+        <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
           {pricingPlan.badge}
         </p>
-        <h2 className="mt-3 text-center font-display text-4xl text-navy">
+        <h2 className="mt-3 text-center font-display text-4xl text-cream">
           {pricingPlan.name}
         </h2>
-        <p className="mt-4 text-center font-display text-5xl font-light text-navy">
-          ${amount}
-          <span className="text-2xl">/mo</span>
-        </p>
-        <ul className="mt-8 divide-y divide-navy/15 border-y border-navy/15">
+        {annual ? (
+          <p className="mt-4 text-center font-display font-light leading-tight text-cream">
+            <span className="text-5xl">${pricingPlan.annualAmount}</span>
+            <span className="text-2xl">/yr</span>
+            <span className="mt-2 block font-sans text-xl font-semibold tracking-tight text-tile">
+              {pricingPlan.annualBonus}
+            </span>
+          </p>
+        ) : (
+          <p className="mt-4 text-center font-display text-5xl font-light text-cream">
+            ${pricingPlan.monthlyAmount}
+            <span className="text-2xl">/mo</span>
+          </p>
+        )}
+        <ul className="mt-8 divide-y divide-cream/15 border-y border-cream/15">
           {pricingPlan.included.map((item) => (
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="block py-3 text-center text-sm text-navy hover:text-tile"
+                className="block py-3 text-center text-sm text-cream/80 hover:text-ochre"
               >
                 {item.title}
               </Link>
@@ -69,9 +74,7 @@ export function PricingCard() {
           ))}
         </ul>
         <div className="mt-8 flex justify-center">
-          <Button href={primaryCta.href} className="!bg-cream !text-navy">
-            {primaryCta.label}
-          </Button>
+          <Button href={primaryCta.href}>{primaryCta.label}</Button>
         </div>
       </div>
     </div>
