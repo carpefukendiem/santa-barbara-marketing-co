@@ -78,7 +78,7 @@ export function MobileNav({
         <Accordion
           id={`${panelId}-services`}
           label="Services"
-          open={openGroups.services}
+          open={Boolean(openGroups.services)}
           onToggle={() => toggleGroup('services')}
         >
           {megaColumns.map((column) => (
@@ -104,7 +104,7 @@ export function MobileNav({
         <Accordion
           id={`${panelId}-locations`}
           label="Locations"
-          open={openGroups.locations}
+          open={Boolean(openGroups.locations)}
           onToggle={() => toggleGroup('locations')}
         >
           <ul>

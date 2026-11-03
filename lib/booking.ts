@@ -1,3 +1,5 @@
+// Santa Barbara Marketing Co. GHL location `yDnbD2jIOGjslYuMeUok`.
+// Widgets are served on the Ranking SB agency domain until this location has its own booking host.
 const ORIGIN = 'https://link.rankingsb.com';
 const DEFAULT_CALENDAR_ID = 'Zzp5TRRTwptdDEdra1wZ';
 const DEFAULT_SCHEDULING_PATH = '/widget/bookings/discovery-call-8649';

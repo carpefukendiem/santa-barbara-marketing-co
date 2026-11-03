@@ -6,7 +6,7 @@ Never log emails, phone numbers, or messages in production. Provider API keys st
 
 ## GoHighLevel (primary)
 
-Set `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` in Vercel for CRM sync. Booking uses the Ranking SB calendar widget (`link.rankingsb.com`) with calendar id `Zzp5TRRTwptdDEdra1wZ`. Override with `NEXT_PUBLIC_GHL_CALENDAR_ID` / `NEXT_PUBLIC_GHL_BOOKING_URL` if the calendar is replaced. If the iframe fails, the page links to the public scheduling URL and the contact email. Form submissions still use `LEAD_PROVIDER` when the GHL API is unset.
+Set `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` in Vercel for CRM sync. The Santa Barbara Marketing Co. location id is `yDnbD2jIOGjslYuMeUok`. Booking uses that location’s Discovery Call calendar (`Zzp5TRRTwptdDEdra1wZ`), served on the agency widget host `link.rankingsb.com`. Override with `NEXT_PUBLIC_GHL_CALENDAR_ID` / `NEXT_PUBLIC_GHL_BOOKING_URL` if the calendar is replaced. If the iframe fails, the page links to the public scheduling URL and the contact email. Form submissions still use `LEAD_PROVIDER` when the GHL API is unset.
 
 On submit, the API upserts a contact at `POST https://services.leadconnectorhq.com/contacts/upsert` (Version `2021-07-28`) and creates an opportunity on the pipeline.
 

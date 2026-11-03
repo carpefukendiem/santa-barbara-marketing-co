@@ -42,7 +42,7 @@ Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so c
 | `NEXT_PUBLIC_GA_ID` | No | Loads GA4 only when GTM is unset |
 | `GHL_PRIVATE_TOKEN` | For CRM sync | Private Integration token for contacts/opportunities |
 | `GHL_LOCATION_ID` | For CRM sync | GoHighLevel subaccount location ID |
-| `NEXT_PUBLIC_GHL_CALENDAR_ID` | No | Booking widget id; defaults to the live Ranking SB calendar |
+| `NEXT_PUBLIC_GHL_CALENDAR_ID` | No | Booking widget id; defaults to the Santa Barbara Marketing Co. Discovery Call calendar |
 | `NEXT_PUBLIC_GHL_BOOKING_URL` | No | Public scheduling URL; used as an iframe fallback |
 | `GHL_PIPELINE_ID` | No | Opportunity pipeline |
 | `GHL_PIPELINE_STAGE_ID` | No | Default opportunity stage |
@@ -52,7 +52,7 @@ Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so c
 | `LEAD_WEBHOOK_URL` | If webhook | JSON POST destination |
 | `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` | If resend | Stub until implemented |
 
-Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. The booking calendar is embedded from `link.rankingsb.com`. CRM sync stays optional until `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` are set in Vercel.
+Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. Booking uses the Santa Barbara Marketing Co. calendar (widget hosted on `link.rankingsb.com`). CRM sync stays optional until `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` are set in Vercel.
 
 See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/ANALYTICS.md).
 
