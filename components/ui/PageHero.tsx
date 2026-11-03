@@ -46,7 +46,7 @@ export function PageHero({
     <section
       className={cn(
         'relative overflow-hidden bg-navy',
-        compact ? 'pt-40' : 'min-h-[56vh] pt-48',
+        compact ? 'pt-28' : 'min-h-[56vh] pt-32',
       )}
     >
       {showPhoto && image ? (

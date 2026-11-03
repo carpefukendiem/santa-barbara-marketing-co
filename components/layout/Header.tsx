@@ -1,13 +1,12 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
+import { Wordmark } from '@/components/brand/Wordmark';
 import { MegaMenu } from '@/components/layout/MegaMenu';
 import { MobileNav } from '@/components/layout/MobileNav';
-import { brand } from '@/data/images';
 import { site } from '@/data/site';
 import { locationLinks, primaryCta, primaryNav } from '@/data/navigation';
 import { locations } from '@/data/locations';
@@ -26,7 +25,7 @@ export function Header() {
   const isMinimal = pathname === '/book-a-call';
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -40,7 +39,7 @@ export function Header() {
 
   const overDark = !scrolled;
   const navItemClass = cn(
-    'nav-link px-3.5 py-2.5',
+    'nav-link px-3 py-2',
     overDark ? 'text-cream' : 'text-ink',
   );
 
@@ -54,23 +53,13 @@ export function Header() {
       )}
       data-scrolled={scrolled ? '' : undefined}
     >
-      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-center gap-4 px-6 md:justify-between lg:px-14">
+      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-14">
         <Link
           href="/"
           className="shrink-0"
           aria-label="Santa Barbara Marketing Co. home"
         >
-          <span className="inline-flex rounded-full bg-cream p-1 ring-1 ring-rule">
-            <Image
-              src={brand.logo.src}
-              alt=""
-              width={256}
-              height={256}
-              sizes="(max-width: 767px) 112px, 160px"
-              className="header-seal object-contain"
-              priority
-            />
-          </span>
+          <Wordmark inverted={overDark} priority />
         </Link>
 
         {isMinimal ? (
@@ -86,7 +75,7 @@ export function Header() {
           </div>
         ) : (
           <>
-            <nav className="hidden items-center justify-center gap-3 lg:flex" aria-label="Primary">
+            <nav className="hidden items-center justify-center gap-1 xl:gap-2 lg:flex" aria-label="Primary">
               {primaryNav.map((item) => {
                 if (item.label === 'Services') {
                   return (
@@ -134,32 +123,34 @@ export function Header() {
                         Locations
                       </button>
                       {locationsOpen ? (
-                        <div className="absolute left-1/2 top-full z-50 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 border-t border-rule bg-cream p-8">
-                          <ul className="grid gap-4">
-                            {locationLinks.map((link) => {
-                              const location = locations.find(
-                                (entry) => `/${entry.slug}` === link.href,
-                              );
-                              return (
-                                <li key={link.href}>
-                                  <Link
-                                    href={link.href}
-                                    className="block"
-                                    onClick={() => setLocationsOpen(false)}
-                                  >
-                                    <span className="font-display text-2xl text-ink">
-                                      {link.label}
-                                    </span>
-                                    {location ? (
-                                      <span className="mt-1 block text-sm text-stone">
-                                        {location.heroLede}
+                        <div className="absolute left-1/2 top-full z-50 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 pt-3">
+                          <div className="rounded-2xl bg-cream p-8 shadow-[0_24px_80px_rgb(11_31_51_/_0.18)] ring-1 ring-rule">
+                            <ul className="grid gap-4">
+                              {locationLinks.map((link) => {
+                                const location = locations.find(
+                                  (entry) => `/${entry.slug}` === link.href,
+                                );
+                                return (
+                                  <li key={link.href}>
+                                    <Link
+                                      href={link.href}
+                                      className="block"
+                                      onClick={() => setLocationsOpen(false)}
+                                    >
+                                      <span className="font-display text-2xl text-ink">
+                                        {link.label}
                                       </span>
-                                    ) : null}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
+                                      {location ? (
+                                        <span className="mt-1 block text-sm text-stone">
+                                          {location.heroLede}
+                                        </span>
+                                      ) : null}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
                         </div>
                       ) : null}
                     </div>
@@ -172,7 +163,7 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="flex items-center justify-end gap-3 max-md:contents">
+            <div className="flex items-center justify-end gap-3">
               {site.phone ? (
                 <a
                   href={telHref(site.phone)}
@@ -191,7 +182,6 @@ export function Header() {
                 type="button"
                 className={cn(
                   'inline-flex min-h-11 min-w-11 items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.18em] backdrop-blur-sm lg:hidden',
-                  'max-md:absolute max-md:right-5 max-md:top-1/2 max-md:-translate-y-1/2',
                   overDark
                     ? 'border-cream/40 text-cream active:bg-cream/12'
                     : 'border-navy/25 text-ink active:bg-navy/10',

@@ -2,7 +2,31 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
 import Link from 'next/link';
-import { megaColumns } from '@/data/navigation';
+import {
+  Globe,
+  Phone,
+  Printer,
+  Inbox,
+  Megaphone,
+  MapPin,
+  Star,
+  Share2,
+  Search,
+  type LucideIcon,
+} from 'lucide-react';
+import { megaFeatures, type MegaFeatureIcon } from '@/data/navigation';
+
+const ICONS: Record<MegaFeatureIcon, LucideIcon> = {
+  globe: Globe,
+  phone: Phone,
+  printer: Printer,
+  inbox: Inbox,
+  ads: Megaphone,
+  map: MapPin,
+  star: Star,
+  share: Share2,
+  search: Search,
+};
 
 export function MegaMenu({
   open,
@@ -68,28 +92,41 @@ export function MegaMenu({
       id={panelId}
       role="region"
       aria-labelledby={triggerId}
-      className="absolute top-full z-50 max-w-[min(56rem,calc(100vw-2rem))] pt-2"
+      className="absolute top-full z-50 max-w-[min(56rem,calc(100vw-2rem))] pt-3"
     >
-      <div className="border-t border-rule bg-cream p-8">
-        <div className="grid grid-cols-2 gap-10">
-          {megaColumns.map((column) => (
-            <div key={column.id}>
-              <p className="text-eyebrow text-stone">{column.title}</p>
-              <ul className="mt-5 space-y-1">
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="block py-1.5 text-sm text-ink hover:text-tile"
-                      onClick={onClose}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="rounded-2xl bg-cream p-6 shadow-[0_24px_80px_rgb(11_31_51_/_0.18)] ring-1 ring-rule sm:p-8">
+        <p className="text-eyebrow text-stone">Services</p>
+        <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {megaFeatures.map((item) => {
+            const Icon = ICONS[item.icon];
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex gap-3 rounded-xl p-3 hover:bg-navy/5"
+                onClick={onClose}
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy text-cream">
+                  <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-medium text-ink">{item.label}</span>
+                  <span className="mt-0.5 block text-xs leading-snug text-stone">
+                    {item.blurb}
+                  </span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+        <div className="mt-4 border-t border-rule pt-4">
+          <Link
+            href="/services"
+            className="text-sm text-ink underline-offset-4 hover:text-tile hover:underline"
+            onClick={onClose}
+          >
+            See all services
+          </Link>
         </div>
       </div>
     </div>

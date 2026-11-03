@@ -9,6 +9,24 @@ export type MegaColumn = {
   links: NavLink[];
 };
 
+export type MegaFeatureIcon =
+  | 'globe'
+  | 'phone'
+  | 'printer'
+  | 'inbox'
+  | 'ads'
+  | 'map'
+  | 'star'
+  | 'share'
+  | 'search';
+
+export type MegaFeature = {
+  label: string;
+  href: string;
+  blurb: string;
+  icon: MegaFeatureIcon;
+};
+
 export type ServiceNavItem = NavLink & {
   group: MegaColumn['id'];
 };
@@ -44,10 +62,68 @@ export const megaColumns: MegaColumn[] = [
   },
 ];
 
+export const megaFeatures: MegaFeature[] = [
+  {
+    label: 'Web Design & Development',
+    href: '/services/web-design',
+    blurb: 'A site that can take the call on a phone.',
+    icon: 'globe',
+  },
+  {
+    label: 'Missed-call follow-up',
+    href: '/services/ai-automation',
+    blurb: 'Text back when a call is missed.',
+    icon: 'phone',
+  },
+  {
+    label: 'Print & Apparel',
+    href: '/services/print-and-apparel',
+    blurb: 'Uniforms, print, and promo in the same plan.',
+    icon: 'printer',
+  },
+  {
+    label: 'Marketing Automation',
+    href: '/services/marketing-automation',
+    blurb: 'Forms, texts, and follow-up in one path.',
+    icon: 'inbox',
+  },
+  {
+    label: 'Google Ads',
+    href: '/services/google-ads',
+    blurb: 'Hire-intent search, tracked to the phone.',
+    icon: 'ads',
+  },
+  {
+    label: 'Local SEO',
+    href: '/services/local-seo',
+    blurb: 'Show up in Maps when locals are ready to buy.',
+    icon: 'map',
+  },
+  {
+    label: 'Google Business Profile',
+    href: '/services/google-business-profile',
+    blurb: 'Reviews, photos, and a listing that matches the door.',
+    icon: 'star',
+  },
+  {
+    label: 'Social Media',
+    href: '/services/social-media',
+    blurb: 'A cadence you can keep, tied to real work.',
+    icon: 'share',
+  },
+  {
+    label: 'SEO',
+    href: '/services/seo',
+    blurb: 'Pages that match how people search in the 805.',
+    icon: 'search',
+  },
+];
+
 export const primaryNav: NavLink[] = [
   { label: 'Services', href: '/services' },
   { label: 'Locations', href: '/#community' },
   { label: 'Work', href: '/work' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
@@ -76,6 +152,7 @@ export const companyLinks: NavLink[] = [
 
 export const getStartedLinks: NavLink[] = [
   { label: 'Book a Free Call', href: '/book-a-call' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
 ];
 

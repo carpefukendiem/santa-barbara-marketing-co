@@ -48,7 +48,7 @@ export default function WorkPage() {
           { name: 'Work', path: '/work' },
         ])}
       />
-      <Section bg="cream" padded={false} className="pt-48 pb-20">
+      <Section bg="cream" padded={false} className="pt-32 pb-20">
         <Reveal>
           <Breadcrumbs
             items={[

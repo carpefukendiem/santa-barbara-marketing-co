@@ -102,6 +102,22 @@ export const brand = {
     focalPoint: '50% 50%',
     needsHighRes: false,
   },
+  wordmarkNavy: {
+    src: '/images/brand/sbmc-wordmark-navy.webp',
+    alt: 'Santa Barbara Marketing Co.',
+    width: 1024,
+    height: 341,
+    focalPoint: '50% 50%',
+    needsHighRes: false,
+  },
+  wordmarkWhite: {
+    src: '/images/brand/sbmc-wordmark-white.webp',
+    alt: 'Santa Barbara Marketing Co.',
+    width: 1024,
+    height: 341,
+    focalPoint: '50% 50%',
+    needsHighRes: false,
+  },
   ogDefault: {
     src: '/images/brand/og-default.png',
     alt: 'Santa Barbara Marketing Co.',

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { locations } from '@/data/locations';
 import {
   locationLinks,
-  megaColumns,
+  megaFeatures,
   primaryCta,
   primaryNav,
 } from '@/data/navigation';
@@ -81,24 +81,29 @@ export function MobileNav({
           open={Boolean(openGroups.services)}
           onToggle={() => toggleGroup('services')}
         >
-          {megaColumns.map((column) => (
-            <div key={column.id} className="pb-6">
-              <p className="text-eyebrow text-cream/50">{column.title}</p>
-              <ul className="mt-3">
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="block py-2.5 text-lg text-white/90 hover:text-white"
-                      onClick={onClose}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul>
+            {megaFeatures.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block border-t border-white/10 py-3"
+                  onClick={onClose}
+                >
+                  <span className="block text-lg text-white">{item.label}</span>
+                  <span className="mt-0.5 block text-sm text-white/60">{item.blurb}</span>
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/services"
+                className="block border-t border-white/10 py-3 text-sm text-white/70"
+                onClick={onClose}
+              >
+                See all services
+              </Link>
+            </li>
+          </ul>
         </Accordion>
 
         <Accordion

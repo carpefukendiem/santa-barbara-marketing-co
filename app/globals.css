@@ -214,7 +214,7 @@ body {
 }
 
 header.site-header {
-  height: 176px;
+  height: 112px;
   overflow: visible;
   transition:
     height 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
@@ -224,46 +224,48 @@ header.site-header {
 }
 
 header.site-header[data-scrolled] {
-  height: 128px;
+  height: 88px;
 }
 
-.header-seal {
-  height: 160px;
-  width: 160px;
+.header-wordmark {
+  height: 80px;
+  width: auto;
+  max-width: 280px;
   transition: height 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    width 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    max-width 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-header.site-header[data-scrolled] .header-seal {
-  height: 112px;
-  width: 112px;
+header.site-header[data-scrolled] .header-wordmark {
+  height: 64px;
+  max-width: 232px;
 }
 
 @media (max-width: 767px) {
   header.site-header {
     height: auto;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
-    padding-bottom: 12px;
+    min-height: 88px;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 10px);
+    padding-bottom: 10px;
   }
 
   header.site-header[data-scrolled] {
     height: auto;
   }
 
-  .header-seal {
-    height: 112px;
-    width: 112px;
+  .header-wordmark {
+    height: 60px;
+    max-width: 200px;
   }
 
-  header.site-header[data-scrolled] .header-seal {
-    height: 104px;
-    width: 104px;
+  header.site-header[data-scrolled] .header-wordmark {
+    height: 52px;
+    max-width: 180px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   header.site-header,
-  .header-seal {
+  .header-wordmark {
     transition: none;
   }
 

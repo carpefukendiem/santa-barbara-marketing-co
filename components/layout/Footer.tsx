@@ -1,9 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { brand } from '@/data/images';
+import { Wordmark } from '@/components/brand/Wordmark';
 import { site } from '@/data/site';
 import {
   digitalServiceLinks,
@@ -52,16 +51,8 @@ export function Footer() {
         </p>
         <div className="mt-12 grid gap-12 xl:grid-cols-[16rem_minmax(0,1fr)]">
           <div>
-            <Link href="/" className="inline-flex items-center gap-4">
-              <span className="inline-flex rounded-full bg-cream p-1.5 ring-1 ring-rule">
-                <Image
-                  src={brand.logo.src}
-                  alt={brand.logo.alt}
-                  width={176}
-                  height={176}
-                  className="h-[88px] w-[88px] object-contain"
-                />
-              </span>
+            <Link href="/" className="inline-block max-w-[280px]">
+              <Wordmark inverted className="!h-20 !max-w-[280px]" />
             </Link>
             <p className="mt-4 font-display text-xl italic text-cream/80">
               {site.tagline}

@@ -124,7 +124,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'By scope. A website, a Local SEO engagement, and an ads account are different jobs. We send a written range after we understand the market, the current site, and the tracking you already have. If a starting range is published on a service page, that is a floor, not a surprise later. If a range is not listed, it is because it depends on the account, and we will not invent a number to look decisive.',
+      'The 805 System is one monthly rate for the bundled website, Local SEO, review requests, and follow-up. Prepaid annual billing lowers the monthly equivalent. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
   },
   {
     category: 'working-together',

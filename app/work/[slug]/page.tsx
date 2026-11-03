@@ -84,7 +84,7 @@ export default async function CaseStudyPage({ params }: Props) {
           },
         ]}
       />
-      <Section className="bg-cream pb-12 pt-48">
+      <Section className="bg-cream pb-12 pt-32">
         <Container>
           <Breadcrumbs
             items={[
