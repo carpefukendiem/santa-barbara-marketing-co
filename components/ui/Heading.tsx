@@ -25,7 +25,7 @@ function withAccent(children: React.ReactNode, accent?: string) {
   return (
     <>
       {children.slice(0, index)}
-      <em className="font-light italic text-tile">{accent}</em>
+      <em className="font-normal not-italic text-tile">{accent}</em>
       {children.slice(index + accent.length)}
     </>
   );

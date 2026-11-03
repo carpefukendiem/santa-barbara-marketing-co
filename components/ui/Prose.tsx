@@ -17,7 +17,7 @@ export function Prose({
         '[&>ul]:mt-5 [&>ul]:list-disc [&>ul]:pl-6 [&_ul]:marker:text-tile',
         '[&>ol]:mt-5 [&>ol]:list-decimal [&>ol]:pl-6 [&_ol]:marker:text-tile',
         '[&>li]:mt-2 [&>li]:text-lg [&>li]:leading-[1.6]',
-        '[&>blockquote]:mt-8 [&>blockquote]:border-l-4 [&>blockquote]:border-tile [&>blockquote]:pl-6 [&>blockquote]:font-display [&>blockquote]:italic',
+        '[&>blockquote]:mt-8 [&>blockquote]:border-l-4 [&>blockquote]:border-tile [&>blockquote]:pl-6 [&>blockquote]:font-display',
         '[&>table]:mt-8 [&>table]:w-full [&>table]:border-collapse [&>table]:text-left [&>table]:text-body-sm',
         '[&>table_th]:border-b [&>table_th]:border-rule [&>table_th]:py-2 [&>table_th]:pr-4',
         '[&>table_td]:border-b [&>table_td]:border-rule [&>table_td]:py-2 [&>table_td]:pr-4',

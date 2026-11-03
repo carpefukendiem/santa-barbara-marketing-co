@@ -8,8 +8,12 @@ import { Wordmark } from '@/components/brand/Wordmark';
 import { MegaMenu } from '@/components/layout/MegaMenu';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { site } from '@/data/site';
-import { locationLinks, primaryCta, primaryNav } from '@/data/navigation';
-import { locations } from '@/data/locations';
+import {
+  locationFeatures,
+  megaFeatures,
+  primaryCta,
+  primaryNav,
+} from '@/data/navigation';
 import { cn, telHref } from '@/lib/utils';
 
 export function Header() {
@@ -21,6 +25,7 @@ export function Header() {
   const servicesTriggerId = useId();
   const servicesPanelId = useId();
   const locationsTriggerId = useId();
+  const locationsPanelId = useId();
   const mobilePanelId = useId();
   const isMinimal = pathname === '/book-a-call';
 
@@ -101,6 +106,10 @@ export function Header() {
                         onClose={() => setServicesOpen(false)}
                         triggerId={servicesTriggerId}
                         panelId={servicesPanelId}
+                        eyebrow="Services"
+                        items={megaFeatures}
+                        footerHref="/services"
+                        footerLabel="See all services"
                       />
                     </div>
                   );
@@ -117,42 +126,24 @@ export function Header() {
                         id={locationsTriggerId}
                         type="button"
                         aria-expanded={locationsOpen}
+                        aria-haspopup="true"
+                        aria-controls={locationsPanelId}
                         className={navItemClass}
                         onClick={() => setLocationsOpen((value) => !value)}
                       >
                         Locations
                       </button>
-                      {locationsOpen ? (
-                        <div className="absolute left-1/2 top-full z-50 w-[min(720px,calc(100vw-2rem))] -translate-x-1/2 pt-3">
-                          <div className="rounded-2xl bg-cream p-8 shadow-[0_24px_80px_rgb(11_31_51_/_0.18)] ring-1 ring-rule">
-                            <ul className="grid gap-4">
-                              {locationLinks.map((link) => {
-                                const location = locations.find(
-                                  (entry) => `/${entry.slug}` === link.href,
-                                );
-                                return (
-                                  <li key={link.href}>
-                                    <Link
-                                      href={link.href}
-                                      className="block"
-                                      onClick={() => setLocationsOpen(false)}
-                                    >
-                                      <span className="font-display text-2xl text-ink">
-                                        {link.label}
-                                      </span>
-                                      {location ? (
-                                        <span className="mt-1 block text-sm text-stone">
-                                          {location.heroLede}
-                                        </span>
-                                      ) : null}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        </div>
-                      ) : null}
+                      <MegaMenu
+                        open={locationsOpen}
+                        onClose={() => setLocationsOpen(false)}
+                        triggerId={locationsTriggerId}
+                        panelId={locationsPanelId}
+                        eyebrow="Locations"
+                        items={locationFeatures}
+                        footerHref="/#community"
+                        footerLabel="See all locations"
+                        columns={2}
+                      />
                     </div>
                   );
                 }

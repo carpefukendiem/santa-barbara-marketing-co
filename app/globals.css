@@ -33,7 +33,7 @@
   --color-sbmc-ink-muted: #5f6670;
   --color-sbmc-border: rgb(11 31 51 / 0.14);
 
-  --font-display: var(--font-fraunces), ui-serif, Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-source-serif), ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-jb), ui-monospace, 'SFMono-Regular', monospace;
 

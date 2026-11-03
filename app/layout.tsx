@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { Inter_Tight, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
@@ -11,12 +11,11 @@ import { BookCallProvider } from '@/components/booking/BookCallModal';
 import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
 import './globals.css';
 
-const fraunces = Fraunces({
+const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-fraunces',
-  axes: ['opsz'],
-  style: ['normal', 'italic'],
+  variable: '--font-source-serif',
+  style: ['normal'],
   preload: true,
 });
 
@@ -59,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${sourceSerif.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body className="font-sans antialiased">
         <BookCallProvider>
           <JsonLd data={[organizationSchema(), websiteSchema()]} />

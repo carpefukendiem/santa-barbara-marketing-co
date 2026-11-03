@@ -4,9 +4,8 @@ import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { locations } from '@/data/locations';
 import {
-  locationLinks,
+  locationFeatures,
   megaFeatures,
   primaryCta,
   primaryNav,
@@ -113,25 +112,27 @@ export function MobileNav({
           onToggle={() => toggleGroup('locations')}
         >
           <ul>
-            {locationLinks.map((link) => {
-              const location = locations.find(
-                (entry) => `/${entry.slug}` === link.href,
-              );
-              return (
-                <li key={link.href} className="border-t border-white/10">
-                  <Link href={link.href} className="block py-4" onClick={onClose}>
-                    <span className="font-display text-2xl text-white">
-                      {link.label}
-                    </span>
-                    {location ? (
-                      <span className="mt-1 block line-clamp-2 text-sm text-white/60">
-                        {location.heroLede}
-                      </span>
-                    ) : null}
-                  </Link>
-                </li>
-              );
-            })}
+            {locationFeatures.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block border-t border-white/10 py-3"
+                  onClick={onClose}
+                >
+                  <span className="block text-lg text-white">{item.label}</span>
+                  <span className="mt-0.5 block text-sm text-white/60">{item.blurb}</span>
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/#community"
+                className="block border-t border-white/10 py-3 text-sm text-white/70"
+                onClick={onClose}
+              >
+                See all locations
+              </Link>
+            </li>
           </ul>
         </Accordion>
 

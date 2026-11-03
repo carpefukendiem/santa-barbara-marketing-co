@@ -12,9 +12,14 @@ import {
   Star,
   Share2,
   Search,
+  Waves,
+  Building2,
+  Trees,
+  Anchor,
   type LucideIcon,
 } from 'lucide-react';
-import { megaFeatures, type MegaFeatureIcon } from '@/data/navigation';
+import { type MegaFeature, type MegaFeatureIcon } from '@/data/navigation';
+import { cn } from '@/lib/utils';
 
 const ICONS: Record<MegaFeatureIcon, LucideIcon> = {
   globe: Globe,
@@ -26,6 +31,10 @@ const ICONS: Record<MegaFeatureIcon, LucideIcon> = {
   star: Star,
   share: Share2,
   search: Search,
+  waves: Waves,
+  building: Building2,
+  trees: Trees,
+  anchor: Anchor,
 };
 
 export function MegaMenu({
@@ -33,11 +42,21 @@ export function MegaMenu({
   onClose,
   triggerId,
   panelId,
+  eyebrow,
+  items,
+  footerHref,
+  footerLabel,
+  columns = 3,
 }: {
   open: boolean;
   onClose: () => void;
   triggerId: string;
   panelId: string;
+  eyebrow: string;
+  items: MegaFeature[];
+  footerHref: string;
+  footerLabel: string;
+  columns?: 2 | 3;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +81,10 @@ export function MegaMenu({
 
     const place = () => {
       const margin = 16;
-      const maxW = Math.min(56 * 16, window.innerWidth - margin * 2);
+      const maxW = Math.min(
+        columns === 2 ? 40 * 16 : 56 * 16,
+        window.innerWidth - margin * 2,
+      );
       panel.style.width = `${maxW}px`;
       const triggerRect = trigger.getBoundingClientRect();
       const overflowsRight = triggerRect.left + maxW > window.innerWidth - margin;
@@ -82,7 +104,7 @@ export function MegaMenu({
     place();
     window.addEventListener('resize', place);
     return () => window.removeEventListener('resize', place);
-  }, [open, triggerId]);
+  }, [open, triggerId, columns]);
 
   if (!open) return null;
 
@@ -95,9 +117,14 @@ export function MegaMenu({
       className="absolute top-full z-50 max-w-[min(56rem,calc(100vw-2rem))] pt-3"
     >
       <div className="rounded-2xl bg-cream p-6 shadow-[0_24px_80px_rgb(11_31_51_/_0.18)] ring-1 ring-rule sm:p-8">
-        <p className="text-eyebrow text-stone">Services</p>
-        <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {megaFeatures.map((item) => {
+        <p className="text-eyebrow text-stone">{eyebrow}</p>
+        <div
+          className={cn(
+            'mt-5 grid gap-2 sm:grid-cols-2',
+            columns === 3 && 'lg:grid-cols-3',
+          )}
+        >
+          {items.map((item) => {
             const Icon = ICONS[item.icon];
             return (
               <Link
@@ -121,11 +148,11 @@ export function MegaMenu({
         </div>
         <div className="mt-4 border-t border-rule pt-4">
           <Link
-            href="/services"
+            href={footerHref}
             className="text-sm text-ink underline-offset-4 hover:text-tile hover:underline"
             onClick={onClose}
           >
-            See all services
+            {footerLabel}
           </Link>
         </div>
       </div>

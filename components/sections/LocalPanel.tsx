@@ -28,7 +28,7 @@ export function LocalPanel() {
                 style={{ objectPosition: photos.localStreet.focalPoint }}
               />
             </div>
-            <blockquote className="mt-8 border-l-4 border-tile pl-6 font-display text-3xl font-light italic text-ink">
+            <blockquote className="mt-8 border-l-4 border-tile pl-6 font-display text-3xl font-light text-ink">
               Local People. Local Businesses. A Stronger 805.
             </blockquote>
           </Reveal>

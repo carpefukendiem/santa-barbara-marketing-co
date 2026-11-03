@@ -16,7 +16,9 @@ function Row({ item, last }: { item: NumberedListItem; last: boolean }) {
         {String(item.index).padStart(2, '0')}
       </span>
       <span>
-        <span className="block font-display text-4xl leading-none">{item.name}</span>
+        <span className="block font-display text-4xl leading-none group-hover:text-cream">
+          {item.name}
+        </span>
         <span className="mt-3 block text-base text-stone group-hover:text-cream/80">
           {item.description}
         </span>
@@ -30,8 +32,7 @@ function Row({ item, last }: { item: NumberedListItem; last: boolean }) {
     </>
   );
   const classes = cn(
-    'group grid grid-cols-[4rem_1fr_3rem] items-baseline border-t border-rule py-9 transition-colors duration-200',
-    item.href && 'hover:bg-tile hover:text-cream',
+    'group grid grid-cols-[4rem_1fr_3rem] items-baseline border-t border-rule py-9 transition-colors duration-200 hover:bg-tile hover:text-cream',
     last && 'border-b',
   );
   if (item.href) {

@@ -18,7 +18,11 @@ export type MegaFeatureIcon =
   | 'map'
   | 'star'
   | 'share'
-  | 'search';
+  | 'search'
+  | 'waves'
+  | 'building'
+  | 'trees'
+  | 'anchor';
 
 export type MegaFeature = {
   label: string;
@@ -134,6 +138,33 @@ export const locationLinks: NavLink[] = [
   { label: 'Goleta', href: '/goleta-digital-marketing' },
   { label: 'Montecito', href: '/montecito-digital-marketing' },
   { label: 'Carpinteria', href: '/carpinteria-digital-marketing' },
+];
+
+export const locationFeatures: MegaFeature[] = [
+  {
+    label: 'Santa Barbara',
+    href: '/santa-barbara-digital-marketing',
+    blurb: 'Residents and visitors, two search jobs.',
+    icon: 'waves',
+  },
+  {
+    label: 'Goleta',
+    href: '/goleta-digital-marketing',
+    blurb: 'West-side pins, UCSB-adjacent demand.',
+    icon: 'building',
+  },
+  {
+    label: 'Montecito',
+    href: '/montecito-digital-marketing',
+    blurb: 'Low volume, high consideration.',
+    icon: 'trees',
+  },
+  {
+    label: 'Carpinteria',
+    href: '/carpinteria-digital-marketing',
+    blurb: 'Linden Avenue and beach-day intent.',
+    icon: 'anchor',
+  },
 ];
 
 export const santaBarbaraServiceLinks: NavLink[] = [

@@ -35,7 +35,7 @@ export function HeroHeadline() {
         >
           {line.before}
           {line.accent ? (
-            <em className="font-display font-light italic text-tile">
+            <em className="font-display font-normal not-italic text-tile">
               {line.accent}
             </em>
           ) : null}
