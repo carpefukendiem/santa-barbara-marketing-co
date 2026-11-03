@@ -7,6 +7,7 @@ import { SealWatermark } from '@/components/ui/SealWatermark';
 import { Breadcrumbs, type Crumb } from '@/components/layout/Breadcrumbs';
 import type { SiteImage } from '@/data/images';
 import { primaryCta as siteCta } from '@/data/navigation';
+import { cn } from '@/lib/utils';
 
 type Cta = { href: string; label: string };
 
@@ -18,8 +19,9 @@ type PageHeroProps = {
   subhead?: string;
   breadcrumbs: Crumb[];
   image?: SiteImage;
-  primaryCta?: Cta;
+  primaryCta?: Cta | null;
   secondaryCta?: Cta;
+  compact?: boolean;
   chips?: string[];
   icon?: unknown;
 };
@@ -32,14 +34,21 @@ export function PageHero({
   subhead,
   breadcrumbs,
   image,
-  primaryCta = siteCta,
+  primaryCta,
   secondaryCta,
+  compact = false,
 }: PageHeroProps) {
+  const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
   const lastWord = accent ?? title.trim().split(/\s+/).pop();
 
   return (
-    <section className="relative min-h-[56vh] overflow-hidden bg-navy pt-48">
+    <section
+      className={cn(
+        'relative overflow-hidden bg-navy',
+        compact ? 'pt-40' : 'min-h-[56vh] pt-48',
+      )}
+    >
       {showPhoto && image ? (
         <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-5/12">
           <Image
@@ -60,7 +69,12 @@ export function PageHero({
       ) : (
         <SealWatermark className="absolute -right-20 top-10 h-[420px] w-[420px] opacity-[0.06]" />
       )}
-      <div className="relative z-[1] mx-auto grid min-h-[56vh] max-w-[1440px] items-end px-6 pb-16 lg:grid-cols-12 lg:px-14">
+      <div
+        className={cn(
+          'relative z-[1] mx-auto grid max-w-[1440px] items-end px-6 lg:grid-cols-12 lg:px-14',
+          compact ? 'pb-10' : 'min-h-[56vh] pb-16',
+        )}
+      >
         <Reveal className="lg:col-span-7">
           <Breadcrumbs items={breadcrumbs} light />
           {eyebrow ? (
@@ -74,16 +88,18 @@ export function PageHero({
           {subhead ? (
             <p className="mt-5 max-w-xl text-lg text-cream/70">{subhead}</p>
           ) : null}
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            {primaryCta ? (
-              <Button href={primaryCta.href}>{primaryCta.label}</Button>
-            ) : null}
-            {secondaryCta ? (
-              <Button variant="ghost" tone="dark" href={secondaryCta.href}>
-                {secondaryCta.label}
-              </Button>
-            ) : null}
-          </div>
+          {resolvedCta || secondaryCta ? (
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              {resolvedCta ? (
+                <Button href={resolvedCta.href}>{resolvedCta.label}</Button>
+              ) : null}
+              {secondaryCta ? (
+                <Button variant="ghost" tone="dark" href={secondaryCta.href}>
+                  {secondaryCta.label}
+                </Button>
+              ) : null}
+            </div>
+          ) : null}
         </Reveal>
       </div>
     </section>

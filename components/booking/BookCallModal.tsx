@@ -2,6 +2,7 @@
 
 import Script from 'next/script';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { booking } from '@/lib/booking';
 import { site } from '@/data/site';
 
 const BookCallContext = createContext<{
@@ -40,25 +41,43 @@ export function BookCallProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function GhlCalendarEmbed({ className }: { className?: string }) {
-  const calendarId = process.env.NEXT_PUBLIC_GHL_CALENDAR_ID;
-  if (!calendarId) {
-    return (
-      <p className={className}>
-        Calendar is not configured. Email {site.email} to book a call.
-      </p>
-    );
-  }
+export function GhlCalendarEmbed({
+  className,
+  fallback = true,
+}: {
+  className?: string;
+  fallback?: boolean;
+}) {
+  const iframeId = `${booking.calendarId}_booking`;
+
   return (
-    <>
+    <div className="bg-cream">
       <iframe
-        src={`https://api.leadconnectorhq.com/widget/booking/${calendarId}`}
+        id={iframeId}
+        src={booking.embedSrc}
         title="Book a free call"
-        className={className ?? 'w-full min-h-[760px] border-0'}
+        allow="payment"
+        scrolling="no"
         loading="lazy"
+        className={className ?? 'w-full min-h-[880px] border-0'}
+        style={{ overflow: 'hidden' }}
       />
-      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
-    </>
+      <Script src={booking.scriptSrc} strategy="afterInteractive" />
+      {fallback ? (
+        <p className="border-t border-rule px-6 py-4 text-sm text-stone">
+          If the calendar does not load,{' '}
+          <a
+            href={booking.schedulingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink underline underline-offset-4 hover:text-tile"
+          >
+            open it in a new tab
+          </a>
+          {` or email ${site.email}.`}
+        </p>
+      ) : null}
+    </div>
   );
 }
 
@@ -83,7 +102,7 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
             Close
           </button>
         </div>
-        <GhlCalendarEmbed />
+        <GhlCalendarEmbed fallback={false} />
       </div>
     </div>
   );

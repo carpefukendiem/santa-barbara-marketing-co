@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Section';
 import { GhlCalendarEmbed } from '@/components/booking/BookCallModal';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { primaryCta } from '@/data/navigation';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Book a Free Call | Santa Barbara Marketing Co.',
@@ -32,8 +30,6 @@ const points = [
 ];
 
 export default function BookACallPage() {
-  const calendarId = process.env.NEXT_PUBLIC_GHL_CALENDAR_ID;
-
   return (
     <>
       <JsonLd
@@ -51,10 +47,11 @@ export default function BookACallPage() {
           { href: '/', label: 'Home' },
           { label: 'Book a Free Call' },
         ]}
-        primaryCta={primaryCta}
+        primaryCta={null}
+        compact
       />
       <Section bg="navy">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
             <ul className="space-y-8">
               {points.map((point) => (
@@ -67,23 +64,8 @@ export default function BookACallPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-cream lg:col-span-7">
-            {calendarId ? (
-              <>
-                <iframe
-                  src={`https://api.leadconnectorhq.com/widget/booking/${calendarId}`}
-                  title="Book a free call"
-                  className="w-full min-h-[760px] border-0"
-                  loading="lazy"
-                />
-                <Script
-                  src="https://link.msgsndr.com/js/form_embed.js"
-                  strategy="lazyOnload"
-                />
-              </>
-            ) : (
-              <GhlCalendarEmbed />
-            )}
+          <div className="overflow-hidden lg:col-span-7">
+            <GhlCalendarEmbed />
           </div>
         </div>
       </Section>
