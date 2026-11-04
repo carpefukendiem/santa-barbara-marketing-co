@@ -40,11 +40,12 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
         ]}
         primaryCta={null}
         compact
+        rightSlot={
+          <div className="lg:sticky lg:top-8">
+            <PricingCard variant="checkout" cancelled={checkout === 'cancelled'} />
+          </div>
+        }
       />
-
-      <Section bg="cream">
-        <PricingCard variant="checkout" cancelled={checkout === 'cancelled'} />
-      </Section>
 
       <Section bg="navy">
         <p className="text-eyebrow text-cream/50">What you get</p>
