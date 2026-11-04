@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Heading } from '@/components/ui/Heading';
@@ -24,6 +25,7 @@ type PageHeroProps = {
   compact?: boolean;
   chips?: string[];
   icon?: unknown;
+  rightSlot?: ReactNode;
 };
 
 export function PageHero({
@@ -37,6 +39,7 @@ export function PageHero({
   primaryCta,
   secondaryCta,
   compact = false,
+  rightSlot,
 }: PageHeroProps) {
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
@@ -101,6 +104,11 @@ export function PageHero({
             </div>
           ) : null}
         </Reveal>
+        {rightSlot ? (
+          <div className="mt-10 lg:mt-0 lg:col-span-5 lg:col-start-8">
+            {rightSlot}
+          </div>
+        ) : null}
       </div>
     </section>
   );
