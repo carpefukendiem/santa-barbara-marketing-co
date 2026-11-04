@@ -60,11 +60,14 @@ export default function TermsPage() {
             <h2>Payment</h2>
             <p>
               Fees, media spend, and payment schedule are stated in the
-              proposal. Media spend for advertising platforms is billed by
-              those platforms to you unless we agree otherwise in writing. Our
-              fee is for management and production, not a markup we hide.
-              Invoices are due as stated. Work may pause if invoices remain
-              unpaid. A free call does not require a credit card.
+              proposal or, for the 805 System, on the Get Started page at checkout.
+              Media spend for advertising platforms is billed by those
+              platforms to you unless we agree otherwise in writing. Our fee is
+              for management and production, not a markup we hide. The 805
+              System billed through this site is a subscription: monthly at the
+              published monthly rate, or annually at the published yearly rate.
+              It renews until you cancel. A free call does not require a credit
+              card. Work may pause if invoices remain unpaid.
             </p>
             <h2>Intellectual property</h2>
             <p>

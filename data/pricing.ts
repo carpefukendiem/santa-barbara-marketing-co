@@ -14,8 +14,8 @@ export const pricingPlan = {
   name: 'The 805 System',
   badge: 'Most used',
   monthlyAmount: 297,
-  annualAmount: 3597,
-  annualBonus: '+12 weeks FREE',
+  annualAmount: 2970,
+  annualBonus: '+2 months FREE',
   included: [
     {
       title: 'Marketing website',
@@ -66,8 +66,8 @@ export const pricingPlan = {
   ] satisfies PricingExtra[],
   steps: [
     {
-      title: 'Free call (30 min)',
-      body: 'We look at your listing, your site, and where the work should start. No credit card.',
+      title: 'Talk first, or start now',
+      body: 'Book a free call and we look at your listing and site. Already decided? Get Started is the pay-and-enroll page.',
     },
     {
       title: 'We build the system',
@@ -75,7 +75,7 @@ export const pricingPlan = {
     },
     {
       title: 'Launch',
-      body: 'We walk through what is live, what you have to do, and how we will report. Monthly is typical after that.',
+      body: 'We walk through what is live, what you have to do, and how we will report. Monthly or annual billing continues until you cancel.',
     },
   ],
 } as const;

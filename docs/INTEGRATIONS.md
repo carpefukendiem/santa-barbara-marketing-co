@@ -27,6 +27,35 @@ If the GHL API errors, the lead is still acknowledged to the visitor (`{ ok: tru
 
 Booking uses the GoHighLevel iframe on `/book-a-call` and in the desktop modal (`https://link.rankingsb.com/widget/booking/...` plus `form_embed.js` for height). Set calendar colors in GHL to navy `#0B1F33` and terracotta `#C4472E`.
 
+## Stripe Checkout (805 System)
+
+`POST /api/checkout` creates a Stripe Checkout Session (`mode: subscription`) for monthly (`$297`) or annual (`$2,970`) billing. The Get Started page (`/get-started`) sends the visitor to Stripe-hosted checkout. The main pricing page stays on Book a Free Call. Fulfillment is **not** the success page. `/api/stripe/webhook` enrolls the contact in GoHighLevel when payment succeeds.
+
+In Stripe Dashboard:
+
+1. Add a restricted API key (`rk_`) with Checkout Sessions, Products, Prices, Customers, Subscriptions, Invoices, and Charges read/write as needed. Store it as the Vercel sensitive env var `STRIPE_SECRET_KEY`.
+2. Add a webhook endpoint `https://santabarbaramarketingco.com/api/stripe/webhook` for:
+   - `checkout.session.completed`
+   - `checkout.session.async_payment_succeeded`
+   - `checkout.session.async_payment_failed`
+   - `invoice.paid`
+   - `invoice.payment_failed`
+   - `customer.subscription.deleted`
+   - `charge.refunded`
+   - `charge.dispute.created`
+   - `radar.early_fraud_warning.created`
+3. Put the signing secret in `STRIPE_WEBHOOK_SECRET`.
+4. Enable the [Customer Portal](https://dashboard.stripe.com/settings/billing/portal) so receipts and cancellation work from Stripe’s email.
+5. If you will charge across states, set up [Stripe Tax registrations](https://docs.stripe.com/billing/taxes/collect-taxes.md) before turning tax on. This integration does not enable `automatic_tax` until that is done.
+
+Optional env:
+
+- `STRIPE_PRICE_MONTHLY` / `STRIPE_PRICE_ANNUAL` — pin existing Price ids. If unset, the first checkout creates one Product (“The 805 System”) with monthly and annual Prices (`lookup_key` `805_system_monthly` / `805_system_annual`).
+- `GHL_PAID_WORKFLOW_ID` — workflow to start after a successful first payment
+- `GHL_PAID_STAGE_ID` — pipeline stage for the paid opportunity
+
+Paid contacts receive tags `website-client`, `805-system`, `805-system-monthly` or `805-system-annual`, and `805-system-paid` (or `failed` / `cancelled` / `refunded` / `disputed`).
+
 ## Fallback `LEAD_PROVIDER`
 
 | Value | Class | Required env |

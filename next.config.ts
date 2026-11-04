@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
         destination: '/book-a-call',
         permanent: true,
       },
+      {
+        source: '/pricing/started',
+        destination: '/get-started/started',
+        permanent: false,
+      },
     ];
   },
   async headers() {

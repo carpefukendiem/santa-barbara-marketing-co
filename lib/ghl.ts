@@ -124,6 +124,103 @@ export async function createGhlOpportunity(
   });
 }
 
+export type PaidEnrollment = {
+  name: string;
+  email: string;
+  phone?: string;
+  businessName: string;
+  interval: 'month' | 'year';
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  status: 'paid' | 'failed' | 'cancelled' | 'refunded' | 'disputed';
+};
+
+export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void> {
+  const locationId = process.env.GHL_LOCATION_ID;
+  if (!process.env.GHL_PRIVATE_TOKEN || !locationId) {
+    console.info('[ghl] skipping paid enroll — GHL env not set');
+    return;
+  }
+
+  const { firstName, lastName } = splitName(enrollment.name || '805 System client');
+  const intervalTag =
+    enrollment.interval === 'year' ? '805-system-annual' : '805-system-monthly';
+  const statusTag = `805-system-${enrollment.status}`;
+  const tags = ['website-client', '805-system', intervalTag, statusTag];
+
+  const result = await ghlFetch<{ contact?: { id?: string }; id?: string }>(
+    '/contacts/upsert',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        locationId,
+        firstName,
+        lastName,
+        email: enrollment.email,
+        ...(enrollment.phone ? { phone: enrollment.phone } : {}),
+        companyName: enrollment.businessName,
+        source: 'Website — /get-started',
+        tags,
+      }),
+    },
+  );
+  const contactId = result.contact?.id ?? result.id;
+  if (!contactId) return;
+
+  const intervalLabel = enrollment.interval === 'year' ? 'annual' : 'monthly';
+  const noteParts = [
+    `805 System ${intervalLabel} — ${enrollment.status}.`,
+    enrollment.stripeCustomerId ? `Stripe customer ${enrollment.stripeCustomerId}.` : '',
+    enrollment.stripeSubscriptionId
+      ? `Subscription ${enrollment.stripeSubscriptionId}.`
+      : '',
+  ].filter(Boolean);
+
+  try {
+    await ghlFetch(`/contacts/${contactId}/notes`, {
+      method: 'POST',
+      body: JSON.stringify({ body: noteParts.join(' ') }),
+    });
+  } catch (error) {
+    console.error('[ghl] paid note failed', error);
+  }
+
+  if (enrollment.status !== 'paid') return;
+
+  const workflowId = process.env.GHL_PAID_WORKFLOW_ID;
+  if (workflowId) {
+    try {
+      await ghlFetch(`/contacts/${contactId}/workflow/${workflowId}`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+      });
+    } catch (error) {
+      console.error('[ghl] workflow enroll failed', error);
+    }
+  }
+
+  const pipelineId = process.env.GHL_PIPELINE_ID;
+  const paidStage = process.env.GHL_PAID_STAGE_ID;
+  if (pipelineId && paidStage) {
+    try {
+      await ghlFetch('/opportunities/', {
+        method: 'POST',
+        body: JSON.stringify({
+          locationId,
+          pipelineId,
+          pipelineStageId: paidStage,
+          contactId,
+          name: `${enrollment.businessName || firstName} — 805 System ${intervalLabel}`,
+          status: 'open',
+          source: 'website-checkout',
+        }),
+      });
+    } catch (error) {
+      console.error('[ghl] paid opportunity failed', error);
+    }
+  }
+}
+
 export async function submitWebsiteLead(
   lead: ContactInput,
   pagePath: string,

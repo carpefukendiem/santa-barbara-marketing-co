@@ -128,6 +128,7 @@ export const primaryNav: NavLink[] = [
   { label: 'Locations', href: '/#community' },
   { label: 'Work', href: '/work' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Get Started', href: '/get-started' },
   { label: 'About', href: '/about' },
   { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
@@ -183,6 +184,7 @@ export const companyLinks: NavLink[] = [
 
 export const getStartedLinks: NavLink[] = [
   { label: 'Book a Free Call', href: '/book-a-call' },
+  { label: 'Get Started', href: '/get-started' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -206,4 +208,9 @@ export const allServiceLinks: NavLink[] = megaColumns.flatMap(
 export const primaryCta = {
   label: 'Book a Free Call',
   href: '/book-a-call',
+} as const;
+
+export const checkoutCta = {
+  label: 'Get Started',
+  href: '/get-started',
 } as const;

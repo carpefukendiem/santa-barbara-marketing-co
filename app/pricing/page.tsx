@@ -14,7 +14,7 @@ import { primaryCta } from '@/data/navigation';
 export const metadata: Metadata = buildMetadata({
   title: 'Pricing | Santa Barbara Marketing Co.',
   description:
-    'One monthly rate for the 805 System — website, Local SEO, follow-up, and missed-call text back. $297/mo, or $3597/yr with 12 weeks free. Book a free call.',
+    'One monthly rate for the 805 System — website, Local SEO, follow-up, and missed-call text back. $297/mo, or $2,970/yr with 2 months free. Book a free call to start.',
   path: '/pricing',
 });
 
@@ -31,7 +31,7 @@ export default function PricingPage() {
         variant="simple"
         eyebrow="Pricing"
         title="One rate for the system."
-        subhead="Website, Local SEO, review requests, and follow-up under one monthly number. $297/mo, or $3597/yr with 12 weeks free. Google Ads media and print production stay separate, and we will say so before you start."
+        subhead="Website, Local SEO, review requests, and follow-up under one monthly number. $297/mo, or $2,970/yr with 2 months free. Book a free call and we will look at your listing and site. Google Ads media and print production stay separate."
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { label: 'Pricing' },

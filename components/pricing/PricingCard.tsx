@@ -4,11 +4,44 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { pricingPlan } from '@/data/pricing';
-import { primaryCta } from '@/data/navigation';
-import { cn } from '@/lib/utils';
+import { checkoutCta, primaryCta } from '@/data/navigation';
+import { cn, formatUsd } from '@/lib/utils';
 
-export function PricingCard() {
+export function PricingCard({
+  variant = 'consult',
+  cancelled = false,
+}: {
+  variant?: 'consult' | 'checkout';
+  cancelled?: boolean;
+}) {
   const [annual, setAnnual] = useState(true);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(
+    cancelled ? 'Checkout was cancelled. Start again when you are ready.' : null,
+  );
+  const checkout = variant === 'checkout';
+
+  async function startCheckout() {
+    setBusy(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ interval: annual ? 'year' : 'month' }),
+      });
+      const data = (await response.json()) as { url?: string; error?: string };
+      if (data.url) {
+        window.location.href = data.url;
+        return;
+      }
+      setError(data.error ?? 'Checkout could not start.');
+    } catch {
+      setError('Checkout could not start.');
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <div className="mx-auto max-w-md">
@@ -36,8 +69,8 @@ export function PricingCard() {
       </div>
       <p className="mt-2 text-center text-xs text-stone">
         {annual
-          ? `Pay $${pricingPlan.annualAmount} once. ${pricingPlan.annualBonus.replace('+', '')}.`
-          : 'Billed every month. Switch to annually for 12 weeks free.'}
+          ? `Pay ${formatUsd(pricingPlan.annualAmount)} once a year. 2 months free.`
+          : `Billed ${formatUsd(pricingPlan.monthlyAmount)} every month. Switch to annually for 2 months free.`}
       </p>
 
       <div className="mt-8 rounded-2xl bg-navy px-8 py-10 text-cream">
@@ -49,7 +82,7 @@ export function PricingCard() {
         </h2>
         {annual ? (
           <p className="mt-4 text-center font-display font-light leading-tight text-cream">
-            <span className="text-5xl">${pricingPlan.annualAmount}</span>
+            <span className="text-5xl">{formatUsd(pricingPlan.annualAmount)}</span>
             <span className="text-2xl">/yr</span>
             <span className="mt-2 block font-sans text-xl font-semibold tracking-tight text-tile">
               {pricingPlan.annualBonus}
@@ -57,7 +90,7 @@ export function PricingCard() {
           </p>
         ) : (
           <p className="mt-4 text-center font-display text-5xl font-light text-cream">
-            ${pricingPlan.monthlyAmount}
+            {formatUsd(pricingPlan.monthlyAmount)}
             <span className="text-2xl">/mo</span>
           </p>
         )}
@@ -73,10 +106,41 @@ export function PricingCard() {
             </li>
           ))}
         </ul>
-        <div className="mt-8 flex justify-center">
-          <Button href={primaryCta.href}>{primaryCta.label}</Button>
+        {error ? (
+          <p className="mt-6 text-center text-sm text-ochre" role="alert">
+            {error}
+          </p>
+        ) : null}
+        <div className="mt-8 flex flex-col items-center gap-4">
+          {checkout ? (
+            <>
+              <button
+                type="button"
+                onClick={startCheckout}
+                disabled={busy}
+                className="inline-flex items-center justify-center rounded-full bg-tile px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60"
+              >
+                {busy ? 'Starting checkout…' : 'Start now'}
+              </button>
+              <Button variant="ghost" tone="dark" href={primaryCta.href}>
+                Prefer to talk first? {primaryCta.label}
+              </Button>
+            </>
+          ) : (
+            <Button href={primaryCta.href}>{primaryCta.label}</Button>
+          )}
         </div>
       </div>
+      {checkout ? null : (
+        <p className="mt-5 text-center">
+          <Link
+            href={checkoutCta.href}
+            className="inline-flex items-center justify-center rounded-full border border-navy/15 px-3 py-1.5 text-[11px] font-medium tracking-[0.16em] text-stone uppercase transition-colors hover:border-navy/35 hover:text-ink"
+          >
+            Action Takers
+          </Link>
+        </p>
+      )}
     </div>
   );
 }

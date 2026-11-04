@@ -29,6 +29,14 @@ export function telHref(phone: string): string {
   return `tel:+${digits.length === 10 ? `1${digits}` : digits}`;
 }
 
+export function formatUsd(amount: number): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
 export function absoluteUrl(path: string): string {
   const base = (
     process.env.NEXT_PUBLIC_SITE_URL ?? 'https://santabarbaramarketingco.com'
