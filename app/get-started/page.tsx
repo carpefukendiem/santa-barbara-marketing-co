@@ -7,6 +7,9 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { pricingPlan } from '@/data/pricing';
+import { CancelBanner } from '@/components/get-started/CancelBanner';
+import { StickyEnrollBar } from '@/components/get-started/StickyEnrollBar';
+import { primaryCta } from '@/data/navigation';
 
 type GetStartedPageProps = {
   searchParams: Promise<{ checkout?: string }>;
@@ -23,6 +26,7 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
   const { checkout } = await searchParams;
   return (
     <>
+      {checkout === 'cancelled' ? <CancelBanner href={primaryCta.href} /> : null}
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Home', path: '/' },
@@ -61,6 +65,7 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
           ))}
         </ul>
       </Section>
+      <StickyEnrollBar targetId="pricing-card-checkout" ctaHref={primaryCta.href} />
     </>
   );
 }
