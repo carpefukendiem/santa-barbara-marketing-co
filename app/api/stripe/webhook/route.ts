@@ -11,6 +11,12 @@ function intervalFrom(
   return value === 'year' ? 'year' : 'month';
 }
 
+function intervalFromRecurring(
+  value: Stripe.Price.Recurring.Interval | null | undefined,
+): CheckoutInterval {
+  return value === 'year' ? 'year' : 'month';
+}
+
 function customBusinessName(session: Stripe.Checkout.Session): string {
   const field = session.custom_fields?.find((item) => item.key === 'business_name');
   const text = field?.text?.value?.trim();
@@ -46,18 +52,52 @@ async function enrollFromSession(
   });
 }
 
-async function sessionFromInvoice(
+async function loadCustomerDetails(
   stripe: Stripe,
   invoice: Stripe.Invoice,
-): Promise<Stripe.Checkout.Session | null> {
+): Promise<{ customerId?: string; email?: string; name?: string; phone?: string }> {
+  const invoiceCustomer = invoice.customer;
   const customerId =
-    typeof invoice.customer === 'string' ? invoice.customer : invoice.customer?.id;
-  if (!customerId) return null;
-  const sessions = await stripe.checkout.sessions.list({
-    customer: customerId,
-    limit: 1,
-  });
-  return sessions.data[0] ?? null;
+    typeof invoiceCustomer === 'string' ? invoiceCustomer : invoiceCustomer?.id;
+  let email =
+    invoice.customer_email ||
+    (invoiceCustomer &&
+    typeof invoiceCustomer === 'object' &&
+    !invoiceCustomer.deleted
+      ? invoiceCustomer.email ?? undefined
+      : undefined);
+  let name = invoice.customer_name || email;
+  let phone: string | undefined = undefined;
+  if ((!email || !name || !phone) && customerId) {
+    const customer = await stripe.customers.retrieve(customerId);
+    if (!customer.deleted && 'email' in customer) {
+      email = email || customer.email || undefined;
+      name = name || customer.name || email || undefined;
+      phone = (customer as { phone?: string }).phone || undefined;
+    }
+  }
+  return { customerId, email, name, phone };
+}
+
+async function invoiceInterval(
+  stripe: Stripe,
+  invoice: Stripe.Invoice,
+): Promise<CheckoutInterval> {
+  const line = invoice.lines?.data?.[0] as unknown as { price?: { recurring?: { interval?: Stripe.Price.Recurring.Interval } } } | undefined;
+  const priceRecurring = line?.price?.recurring?.interval ?? null;
+  if (priceRecurring) return intervalFromRecurring(priceRecurring);
+  // fallback to subscription metadata if needed
+  const invAny = invoice as unknown as { subscription?: string | { id?: string } | null };
+  const subId =
+    typeof invAny.subscription === 'string'
+      ? invAny.subscription
+      : invAny.subscription?.id;
+  if (!subId) return 'month';
+  const subscription = await stripe.subscriptions.retrieve(subId);
+  const fromMeta = intervalFrom(subscription.metadata?.interval);
+  if (fromMeta) return fromMeta;
+  const subItem = subscription.items.data[0];
+  return intervalFromRecurring(subItem?.price?.recurring?.interval ?? null);
 }
 
 export async function POST(request: Request) {
@@ -97,28 +137,37 @@ export async function POST(request: Request) {
       case 'invoice.paid': {
         const invoice = event.data.object as Stripe.Invoice;
         if (invoice.billing_reason !== 'subscription_cycle') break;
-        const session = await sessionFromInvoice(stripe, invoice);
-        if (session) await enrollFromSession(session, 'paid');
+        const { customerId, email, name, phone } = await loadCustomerDetails(stripe, invoice);
+        const interval = await invoiceInterval(stripe, invoice);
+        const subscriptionId =
+          typeof (invoice as any).subscription === 'string'
+            ? (invoice as any).subscription
+            : (invoice as any).subscription?.id;
+        if (email) {
+          await enrollPaidClient({
+            name: name || email,
+            email,
+            phone,
+            businessName: name || email,
+            interval,
+            stripeCustomerId: customerId,
+            stripeSubscriptionId: subscriptionId,
+            status: 'paid',
+          });
+        }
         break;
       }
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice;
-        const invoiceCustomer = invoice.customer;
-        const email =
-          invoice.customer_email ||
-          (invoiceCustomer &&
-          typeof invoiceCustomer === 'object' &&
-          !invoiceCustomer.deleted
-            ? invoiceCustomer.email
-            : undefined);
+        const { customerId, email, name } = await loadCustomerDetails(stripe, invoice);
+        const interval = await invoiceInterval(stripe, invoice);
         if (!email) break;
         await enrollPaidClient({
-          name: invoice.customer_name || email,
+          name: name || email,
           email,
-          businessName: invoice.customer_name || email,
-          interval: 'month',
-          stripeCustomerId:
-            typeof invoice.customer === 'string' ? invoice.customer : invoice.customer?.id,
+          businessName: name || email,
+          interval,
+          stripeCustomerId: customerId,
           status: 'failed',
         });
         break;
@@ -147,11 +196,25 @@ export async function POST(request: Request) {
         const charge = event.data.object as Stripe.Charge;
         const email = charge.billing_details.email;
         if (!email) break;
+        let interval: CheckoutInterval = 'month';
+        try {
+          const chAny = charge as unknown as { invoice?: string | { id?: string } | null };
+          if (chAny.invoice) {
+            const invoiceId =
+              typeof chAny.invoice === 'string' ? chAny.invoice : chAny.invoice.id;
+            if (invoiceId) {
+              const invoice = await stripe.invoices.retrieve(invoiceId);
+              interval = await invoiceInterval(stripe, invoice);
+            }
+          }
+        } catch {
+          // keep default
+        }
         await enrollPaidClient({
           name: charge.billing_details.name || email,
           email,
           businessName: charge.billing_details.name || email,
-          interval: 'month',
+          interval,
           stripeCustomerId:
             typeof charge.customer === 'string' ? charge.customer : charge.customer?.id,
           status: 'refunded',
@@ -167,11 +230,25 @@ export async function POST(request: Request) {
         const charge = await stripe.charges.retrieve(chargeId);
         const email = charge.billing_details.email;
         if (!email) break;
+        let interval: CheckoutInterval = 'month';
+        try {
+          const chAny = (charge as Stripe.Response<Stripe.Charge>) as unknown as { invoice?: string | { id?: string } | null };
+          if (chAny.invoice) {
+            const invoiceId =
+              typeof chAny.invoice === 'string' ? chAny.invoice : chAny.invoice.id;
+            if (invoiceId) {
+              const invoice = await stripe.invoices.retrieve(invoiceId);
+              interval = await invoiceInterval(stripe, invoice);
+            }
+          }
+        } catch {
+          // keep default
+        }
         await enrollPaidClient({
           name: charge.billing_details.name || email,
           email,
           businessName: charge.billing_details.name || email,
-          interval: 'month',
+          interval,
           stripeCustomerId:
             typeof charge.customer === 'string' ? charge.customer : charge.customer?.id,
           status: 'disputed',
