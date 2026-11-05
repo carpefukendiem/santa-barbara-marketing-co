@@ -10,6 +10,11 @@ export type PricingExtra = {
   note?: string;
 };
 
+export const pricingTestimonial = {
+  text: '',
+  author: '',
+} as const;
+
 export const pricingPlan = {
   name: 'The 805 System',
   badge: 'Most used',

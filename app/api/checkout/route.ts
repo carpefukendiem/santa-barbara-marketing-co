@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { clientIp, rateLimit } from '@/lib/rateLimit';
 import { checkoutInterval, getOrCreatePriceId, getStripe } from '@/lib/stripe';
 import { absoluteUrl } from '@/lib/utils';
+import { recordCheckoutStart } from '@/lib/ghl';
+import { z } from 'zod';
 
 export const runtime = 'nodejs';
 
@@ -34,6 +36,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'Invalid request.' }, { status: 400 });
   }
 
+  const bodySchema = z.object({
+    interval: z.enum(['month', 'year']),
+    name: z.string().trim().min(2).max(120),
+    email: z.string().trim().email(),
+    phone: z.string().trim().max(40).optional().or(z.literal('')),
+  });
+  const parse = bodySchema.safeParse(json);
   const interval = checkoutInterval(
     json && typeof json === 'object' && 'interval' in json
       ? (json as { interval?: unknown }).interval
@@ -42,9 +51,22 @@ export async function POST(request: Request) {
   if (!interval) {
     return NextResponse.json({ ok: false, error: 'Choose monthly or annually.' }, { status: 400 });
   }
+  if (!parse.success) {
+    return NextResponse.json(
+      { ok: false, error: 'Enter your name and a valid email.' },
+      { status: 400 },
+    );
+  }
+  const { name, email, phone } = parse.data;
 
   try {
     const priceId = await getOrCreatePriceId(stripe, interval);
+    // Best-effort GHL upsert; never blocks checkout
+    try {
+      await recordCheckoutStart({ name, email, phone: phone || undefined });
+    } catch {
+      // logged in the helper; continue to Stripe
+    }
     const origin = absoluteUrl('/');
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
@@ -61,9 +83,10 @@ export async function POST(request: Request) {
           optional: true,
         },
       ],
-      metadata: { plan: '805-system', interval },
+      customer_email: email,
+      metadata: { plan: '805-system', interval, pre_name: name, pre_phone: phone || '' },
       subscription_data: {
-        metadata: { plan: '805-system', interval },
+        metadata: { plan: '805-system', interval, pre_name: name, pre_phone: phone || '' },
       },
       client_reference_id: `805-system-${interval}`,
       integration_identifier: INTEGRATION_IDENTIFIER,

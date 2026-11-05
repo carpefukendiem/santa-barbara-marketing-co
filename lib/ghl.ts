@@ -37,23 +37,46 @@ function headers(): HeadersInit {
 }
 
 async function ghlFetch<T>(path: string, init: RequestInit): Promise<T> {
-  const response = await fetch(`${GHL_BASE}${path}`, {
-    ...init,
-    headers: { ...headers(), ...init.headers },
-  });
-  const text = await response.text();
-  let json: unknown = null;
-  try {
-    json = text ? JSON.parse(text) : null;
-  } catch {
-    json = { raw: text };
+  const url = `${GHL_BASE}${path}`;
+  let attempt = 0;
+  // simple retry once on 5xx/429
+  while (true) {
+    const response = await fetch(url, {
+      ...init,
+      headers: { ...headers(), ...init.headers },
+    });
+    const text = await response.text();
+    let json: unknown = null;
+    try {
+      json = text ? JSON.parse(text) : null;
+    } catch {
+      json = { raw: text };
+    }
+    if (response.ok) {
+      return json as T;
+    }
+    const status = response.status;
+    const shouldRetry = (status === 429 || (status >= 500 && status <= 599)) && attempt < 1;
+    console.error('[ghl] request failed', {
+      path,
+      status,
+      method: (init.method || 'GET').toString(),
+      bodyPreview:
+        typeof init.body === 'string'
+          ? init.body.slice(0, 200)
+          : init.body
+          ? '[non-string body]'
+          : '',
+      response: json,
+      attempt,
+      willRetry: shouldRetry,
+    });
+    if (!shouldRetry) {
+      throw new Error(`GHL ${path} failed (${status})`);
+    }
+    attempt += 1;
+    await new Promise((r) => setTimeout(r, 350));
   }
-  if (!response.ok) {
-    const err = new Error(`GHL ${path} failed (${response.status})`);
-    console.error('[ghl]', path, response.status, json);
-    throw err;
-  }
-  return json as T;
 }
 
 export async function upsertGhlContact(
@@ -241,5 +264,36 @@ export async function submitWebsiteLead(
     await getLeadProvider().send({ type: 'contact', ...lead });
   } catch (error) {
     console.error('[lead] fallback provider failed', error);
+  }
+}
+
+export async function recordCheckoutStart(input: {
+  name: string;
+  email: string;
+  phone?: string;
+}): Promise<void> {
+  const locationId = process.env.GHL_LOCATION_ID;
+  if (!process.env.GHL_PRIVATE_TOKEN || !locationId) {
+    // skip silently when not configured
+    console.info('[ghl] skipping checkout-start — GHL env not set');
+    return;
+  }
+  const { firstName, lastName } = splitName(input.name);
+  const tags = ['website-lead', '805-system', '805-system-checkout-started', pageSlug('/get-started')];
+  try {
+    await ghlFetch('/contacts/upsert', {
+      method: 'POST',
+      body: JSON.stringify({
+        locationId,
+        firstName,
+        lastName,
+        email: input.email,
+        ...(input.phone ? { phone: input.phone } : {}),
+        source: 'Website — /get-started',
+        tags,
+      }),
+    });
+  } catch (error) {
+    console.error('[ghl] checkout-start upsert failed', error);
   }
 }
