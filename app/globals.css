@@ -202,6 +202,14 @@ body {
   image-rendering: auto;
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
 .cta-noise {
   opacity: 0;
 }

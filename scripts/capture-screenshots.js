@@ -26,6 +26,7 @@ async function main() {
   const beforeStart = 'https://santa-barbara-marketing-co.vercel.app/get-started';
   const afterHome = 'http://localhost:3000/';
   const afterStart = 'http://localhost:3000/get-started';
+  const afterDeep = 'http://localhost:3000/resources/google-business-profile-optimization';
 
   const outDir = '/opt/cursor/artifacts';
   const shots = [
@@ -37,6 +38,8 @@ async function main() {
     { url: beforeStart, file: `${outDir}/get-started-before-mobile-390x844.png`, w: 390, h: 844 },
     { url: afterStart, file: `${outDir}/get-started-after-desktop-1440x900.png`, w: 1440, h: 900 },
     { url: afterStart, file: `${outDir}/get-started-after-mobile-390x844.png`, w: 390, h: 844 },
+    { url: afterDeep, file: `${outDir}/resources-after-desktop-1440x900.png`, w: 1440, h: 900 },
+    { url: afterDeep, file: `${outDir}/resources-after-mobile-390x844.png`, w: 390, h: 844 },
   ];
 
   for (const s of shots) {
