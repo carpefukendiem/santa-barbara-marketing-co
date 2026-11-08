@@ -21,7 +21,7 @@ export function OfferPanel({ className }: { className?: string }) {
       <p className="mt-1 text-center text-xs text-stone">
         Or {formatUsd(pricingPlan.annualAmount)}/yr — 2 months free
       </p>
-      <ul className="mt-6 space-y-2 text-sm text-ink">
+      <ul className="mt-6 hidden space-y-2 text-sm text-ink sm:block">
         {pricingPlan.included.slice(0, 4).map((item) => (
           <li key={item.title} className="flex items-start gap-2">
             <span className="mt-[6px] inline-block h-1.5 w-1.5 flex-none rounded-full bg-ocean" />
@@ -29,7 +29,7 @@ export function OfferPanel({ className }: { className?: string }) {
           </li>
         ))}
       </ul>
-      <div className="mt-6 flex flex-col items-stretch gap-3">
+      <div className="mt-5 flex flex-col items-stretch gap-3">
         <Button
           onClick={() => trackEvent('home_enroll_click', { location: 'home_hero' })}
           href="/get-started#pricing-card-checkout"
@@ -41,7 +41,7 @@ export function OfferPanel({ className }: { className?: string }) {
           Prefer to talk first? {primaryCta.label}
         </Button>
       </div>
-      <div className="mt-4 space-y-2 text-center">
+      <div className="mt-4 hidden space-y-2 text-center sm:block">
         <p className="text-[11px] text-stone">Secure checkout by Stripe</p>
         <div className="flex items-center justify-center gap-3 text-[10px] text-stone">
           <span className="inline-flex items-center gap-1">
