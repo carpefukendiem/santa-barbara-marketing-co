@@ -10,7 +10,7 @@ import { OfferPanel } from '@/components/offer/OfferPanel';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] bg-navy">
+    <section className="relative bg-navy">
       <div className="absolute inset-0 lg:grid lg:grid-cols-12">
         <div className="hidden lg:col-span-7 lg:block" />
         <div className="absolute inset-0 lg:relative lg:col-span-5">
@@ -35,17 +35,17 @@ export function Hero() {
           />
         </div>
       </div>
-      <SealWatermark className="absolute -bottom-40 -left-24 h-[560px] w-[560px]" />
-      <div className="relative z-[2] mx-auto grid min-h-[100svh] max-w-[1440px] grid-cols-1 items-end gap-10 px-6 pb-24 pt-40 max-md:pt-[calc(env(safe-area-inset-top,0px)+112px)] lg:grid-cols-12 lg:px-14 lg:pb-28">
+      <SealWatermark className="absolute -bottom-40 -left-24 h-[480px] w-[480px]" />
+      <div className="relative z-[2] mx-auto grid min-h-[72svh] max-w-[1440px] grid-cols-1 items-center gap-8 px-6 pb-16 pt-28 max-md:pt-[calc(env(safe-area-inset-top,0px)+84px)] lg:min-h-[82svh] lg:grid-cols-12 lg:px-14 lg:pb-20 lg:pt-32">
         <div className="flex flex-col lg:col-span-7 max-md:min-h-0">
           <Eyebrow dark>Digital marketing · Santa Barbara, CA</Eyebrow>
           <HeroHeadline />
-          <p className="mt-6 max-w-lg text-xl text-cream/70 max-md:mt-5 max-md:line-clamp-3">
+          <p className="mt-4 max-w-lg text-lg text-cream/75 max-md:line-clamp-3">
             Local SEO, Google Ads, and websites that make the phone ring — for
             businesses from Carpinteria to Goleta, built by someone who’ll meet
             you for coffee.
           </p>
-          <div className="mt-8 flex flex-col items-start gap-4 max-md:mt-auto max-md:pt-6 md:flex-row md:items-center">
+          <div className="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
             <Button variant="ghost" tone="dark" href="/services">
               Our Services
