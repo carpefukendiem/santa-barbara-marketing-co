@@ -37,7 +37,7 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
         variant="simple"
         eyebrow="Get Started"
         title="Enroll in the 805 System."
-        subhead="Pay here if you already know you want the system. $297/mo, or $2,970/yr with 2 months free. Prefer a conversation first? Book a free call from the next screen or the header."
+        subhead="Website, Local SEO, review requests, and missed‑call text back. $297/mo, or $2,970/yr with 2 months free. Prefer a conversation first? Book a free call from the next screen or the header."
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { label: 'Get Started' },

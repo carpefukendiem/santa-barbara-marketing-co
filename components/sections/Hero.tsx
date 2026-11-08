@@ -6,6 +6,7 @@ import { SealWatermark } from '@/components/ui/SealWatermark';
 import { photos } from '@/data/images';
 import { primaryCta } from '@/data/navigation';
 import { trustCapabilities } from '@/data/trust';
+import { OfferPanel } from '@/components/offer/OfferPanel';
 
 export function Hero() {
   return (
@@ -35,8 +36,8 @@ export function Hero() {
         </div>
       </div>
       <SealWatermark className="absolute -bottom-40 -left-24 h-[560px] w-[560px]" />
-      <div className="relative z-[2] mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-40 max-md:justify-start max-md:pb-8 max-md:pt-[calc(env(safe-area-inset-top,0px)+112px)] lg:grid lg:grid-cols-12 lg:items-end lg:px-14 lg:pb-28">
-        <div className="flex flex-col lg:col-span-7 max-md:min-h-0 max-md:flex-1">
+      <div className="relative z-[2] mx-auto grid min-h-[100svh] max-w-[1440px] grid-cols-1 items-end gap-10 px-6 pb-24 pt-40 max-md:pt-[calc(env(safe-area-inset-top,0px)+112px)] lg:grid-cols-12 lg:px-14 lg:pb-28">
+        <div className="flex flex-col lg:col-span-7 max-md:min-h-0">
           <Eyebrow dark>Digital marketing · Santa Barbara, CA</Eyebrow>
           <HeroHeadline />
           <p className="mt-6 max-w-lg text-xl text-cream/70 max-md:mt-5 max-md:line-clamp-3">
@@ -50,6 +51,9 @@ export function Hero() {
               Our Services
             </Button>
           </div>
+        </div>
+        <div className="lg:col-span-5 lg:col-start-8">
+          <OfferPanel className="lg:sticky lg:top-8" />
         </div>
       </div>
       <div className="relative z-[2] border-t border-cream/20">

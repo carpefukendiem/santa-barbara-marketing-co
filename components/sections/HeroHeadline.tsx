@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const lines = [
-  { before: 'More calls.', accent: null, after: null },
-  { before: 'More customers.', accent: null, after: null },
-  { before: 'Less guessing.', accent: null, after: null },
+  { before: 'Local businesses in the 805.', accent: null, after: null },
+  { before: 'Website, Local SEO, reviews, follow‑up.', accent: null, after: null },
+  { before: 'One system — $297/mo.', accent: null, after: null },
 ];
 
 export function HeroHeadline() {
