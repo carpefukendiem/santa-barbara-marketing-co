@@ -11,7 +11,7 @@ type StickyEnrollBarProps = {
 };
 
 export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -20,7 +20,9 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
     // Immediate first-read visibility (before IO callback fires)
     try {
       const rect = target.getBoundingClientRect();
-      setVisible(rect.top >= (window.innerHeight || 0));
+      const vh = window.innerHeight || 0;
+      const fullyInView = rect.top >= 0 && rect.bottom <= vh;
+      setVisible(!fullyInView);
     } catch {
       // ignore
     }
@@ -28,9 +30,11 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
-        setVisible(!entry.isIntersecting);
+        const fullyVisible =
+          entry.isIntersecting && (entry as IntersectionObserverEntry).intersectionRatio >= 0.99;
+        setVisible(!fullyVisible);
       },
-      { rootMargin: '0px 0px -20% 0px', threshold: [0, 0.01, 0.5, 1] },
+      { rootMargin: '0px', threshold: [1.0] },
     );
     observerRef.current.observe(target);
     return () => {

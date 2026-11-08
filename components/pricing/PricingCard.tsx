@@ -189,6 +189,7 @@ export function PricingCard({
                 onClick={startCheckout}
                 disabled={busy}
                 className="inline-flex items-center justify-center rounded-full bg-tile px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60"
+                id="pricing-start-cta"
               >
                 {busy
                   ? 'Starting checkout…'
