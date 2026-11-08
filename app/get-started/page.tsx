@@ -68,7 +68,7 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
           ))}
         </ul>
       </Section>
-      <StickyEnrollBar targetId="pricing-card-checkout" ctaHref={primaryCta.href} />
+      <StickyEnrollBar targetId="pricing-start-cta" ctaHref={primaryCta.href} />
     </>
   );
 }
