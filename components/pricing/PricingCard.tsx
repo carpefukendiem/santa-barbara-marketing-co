@@ -63,6 +63,8 @@ export function PricingCard({
 
   return (
     <div className="mx-auto max-w-md" id={checkout ? 'pricing-card-checkout' : undefined}>
+      {/* Dynamic label for primary CTA reflects selected interval */}
+      {/**/}
       <div className="flex items-center justify-center gap-3 text-sm">
         <span className={cn(!annual ? 'text-ink' : 'text-stone')}>Monthly</span>
         <button
@@ -188,7 +190,11 @@ export function PricingCard({
                 disabled={busy}
                 className="inline-flex items-center justify-center rounded-full bg-tile px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60"
               >
-                {busy ? 'Starting checkout…' : 'Start the 805 System — $297/mo'}
+                {busy
+                  ? 'Starting checkout…'
+                  : annual
+                  ? `Start the 805 System — ${formatUsd(pricingPlan.annualAmount)}/yr`
+                  : `Start the 805 System — ${formatUsd(pricingPlan.monthlyAmount)}/mo`}
               </button>
               <Button variant="ghost" tone="dark" href={primaryCta.href}>
                 Prefer to talk first? {primaryCta.label}
