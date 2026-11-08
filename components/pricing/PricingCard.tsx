@@ -98,9 +98,11 @@ export function PricingCard({
       ) : null}
 
       <div className="mt-8 rounded-2xl bg-navy px-8 py-10 text-cream">
-        <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
-          {pricingPlan.badge}
-        </p>
+        {pricingPlan.badge ? (
+          <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
+            {pricingPlan.badge}
+          </p>
+        ) : null}
         <h2 className="mt-3 text-center font-display text-4xl text-cream">
           {pricingPlan.name}
         </h2>
