@@ -21,7 +21,7 @@ export const site = {
     linkedin: null as string | null,
     youtube: null as string | null,
   },
-  founded: '2024',
+  founded: '2026',
 } as const;
 
 export type Site = typeof site;
