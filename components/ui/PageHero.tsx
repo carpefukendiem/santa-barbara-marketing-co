@@ -50,6 +50,9 @@ export function PageHero({
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
   const lastWord = accent ?? title.trim().split(/\s+/).pop();
+  const lastCrumb = breadcrumbs[breadcrumbs.length - 1]?.label?.trim().toLowerCase();
+  const showEyebrow =
+    Boolean(eyebrow) && eyebrow!.trim().toLowerCase() !== (lastCrumb || '');
 
   return (
     <section
@@ -88,7 +91,7 @@ export function PageHero({
         {disableReveal ? (
           <div className="lg:col-span-7">
             <Breadcrumbs items={breadcrumbs} light className="pt-4" />
-            {eyebrow ? (
+            {showEyebrow ? (
               <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
                 {eyebrow}
               </Eyebrow>
@@ -126,7 +129,7 @@ export function PageHero({
         ) : (
           <Reveal className="lg:col-span-7">
           <Breadcrumbs items={breadcrumbs} light className="pt-4" />
-          {eyebrow ? (
+          {showEyebrow ? (
             <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
               {eyebrow}
             </Eyebrow>
