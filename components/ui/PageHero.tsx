@@ -28,6 +28,7 @@ type PageHeroProps = {
   rightSlot?: ReactNode;
   disableReveal?: boolean;
   align?: 'start' | 'end';
+  tightMobile?: boolean;
 };
 
 export function PageHero({
@@ -44,6 +45,7 @@ export function PageHero({
   rightSlot,
   disableReveal = false,
   align = 'end',
+  tightMobile = false,
 }: PageHeroProps) {
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
@@ -53,7 +55,7 @@ export function PageHero({
     <section
       className={cn(
         'relative overflow-hidden bg-navy',
-        compact ? 'pt-40' : 'min-h-[56vh] pt-44',
+        compact ? 'pt-28 md:pt-40' : 'md:min-h-[56vh] pt-32 md:pt-44',
       )}
     >
       {showPhoto && image ? (
@@ -87,15 +89,26 @@ export function PageHero({
           <div className="lg:col-span-7">
             <Breadcrumbs items={breadcrumbs} light className="pt-4" />
             {eyebrow ? (
-              <Eyebrow dark className="mt-6">
+              <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
                 {eyebrow}
               </Eyebrow>
             ) : null}
-            <Heading as="h1" className="mt-4 !text-cream" accent={lastWord}>
+            <Heading
+              as="h1"
+              className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
+              accent={lastWord}
+            >
               {title}
             </Heading>
             {subhead ? (
-              <p className="mt-5 max-w-xl text-lg text-cream/70">{subhead}</p>
+              <p
+                className={cn(
+                  'max-w-xl text-lg text-cream/70',
+                  tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
+                )}
+              >
+                {subhead}
+              </p>
             ) : null}
             {resolvedCta || secondaryCta ? (
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -114,15 +127,26 @@ export function PageHero({
           <Reveal className="lg:col-span-7">
           <Breadcrumbs items={breadcrumbs} light className="pt-4" />
           {eyebrow ? (
-            <Eyebrow dark className="mt-6">
+            <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
               {eyebrow}
             </Eyebrow>
           ) : null}
-          <Heading as="h1" className="mt-4 !text-cream" accent={lastWord}>
+          <Heading
+            as="h1"
+            className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
+            accent={lastWord}
+          >
             {title}
           </Heading>
           {subhead ? (
-            <p className="mt-5 max-w-xl text-lg text-cream/70">{subhead}</p>
+            <p
+              className={cn(
+                'max-w-xl text-lg text-cream/70',
+                tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
+              )}
+            >
+              {subhead}
+            </p>
           ) : null}
           {resolvedCta || secondaryCta ? (
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
