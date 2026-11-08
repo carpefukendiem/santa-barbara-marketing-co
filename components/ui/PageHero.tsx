@@ -26,6 +26,9 @@ type PageHeroProps = {
   chips?: string[];
   icon?: unknown;
   rightSlot?: ReactNode;
+  disableReveal?: boolean;
+  align?: 'start' | 'end';
+  tightMobile?: boolean;
 };
 
 export function PageHero({
@@ -40,16 +43,22 @@ export function PageHero({
   secondaryCta,
   compact = false,
   rightSlot,
+  disableReveal = false,
+  align = 'end',
+  tightMobile = false,
 }: PageHeroProps) {
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
   const lastWord = accent ?? title.trim().split(/\s+/).pop();
+  const lastCrumb = breadcrumbs[breadcrumbs.length - 1]?.label?.trim().toLowerCase();
+  const showEyebrow =
+    Boolean(eyebrow) && eyebrow!.trim().toLowerCase() !== (lastCrumb || '');
 
   return (
     <section
       className={cn(
         'relative overflow-hidden bg-navy',
-        compact ? 'pt-40' : 'min-h-[56vh] pt-44',
+        compact ? 'pt-28 md:pt-40' : 'md:min-h-[56vh] pt-32 md:pt-44',
       )}
     >
       {showPhoto && image ? (
@@ -74,22 +83,73 @@ export function PageHero({
       )}
       <div
         className={cn(
-          'relative z-[1] mx-auto grid max-w-[1440px] items-end px-6 lg:grid-cols-12 lg:px-14',
+          'relative z-[1] mx-auto grid max-w-[1440px] px-6 lg:grid-cols-12 lg:px-14',
+          align === 'start' ? 'items-start' : 'items-end',
           compact ? 'pb-10' : 'min-h-[56vh] pb-16',
         )}
       >
-        <Reveal className="lg:col-span-7">
+        {disableReveal ? (
+          <div className="lg:col-span-7">
+            <Breadcrumbs items={breadcrumbs} light className="pt-4" />
+            {showEyebrow ? (
+              <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
+                {eyebrow}
+              </Eyebrow>
+            ) : null}
+            <Heading
+              as="h1"
+              className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
+              accent={lastWord}
+            >
+              {title}
+            </Heading>
+            {subhead ? (
+              <p
+                className={cn(
+                  'max-w-xl text-lg text-cream/70',
+                  tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
+                )}
+              >
+                {subhead}
+              </p>
+            ) : null}
+            {resolvedCta || secondaryCta ? (
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                {resolvedCta ? (
+                  <Button href={resolvedCta.href}>{resolvedCta.label}</Button>
+                ) : null}
+                {secondaryCta ? (
+                  <Button variant="ghost" tone="dark" href={secondaryCta.href}>
+                    {secondaryCta.label}
+                  </Button>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        ) : (
+          <Reveal className="lg:col-span-7">
           <Breadcrumbs items={breadcrumbs} light className="pt-4" />
-          {eyebrow ? (
-            <Eyebrow dark className="mt-6">
+          {showEyebrow ? (
+            <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
               {eyebrow}
             </Eyebrow>
           ) : null}
-          <Heading as="h1" className="mt-4 !text-cream" accent={lastWord}>
+          <Heading
+            as="h1"
+            className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
+            accent={lastWord}
+          >
             {title}
           </Heading>
           {subhead ? (
-            <p className="mt-5 max-w-xl text-lg text-cream/70">{subhead}</p>
+            <p
+              className={cn(
+                'max-w-xl text-lg text-cream/70',
+                tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
+              )}
+            >
+              {subhead}
+            </p>
           ) : null}
           {resolvedCta || secondaryCta ? (
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -104,6 +164,7 @@ export function PageHero({
             </div>
           ) : null}
         </Reveal>
+        )}
         {rightSlot ? (
           <div className="mt-10 lg:mt-0 lg:col-span-5 lg:col-start-8">
             {rightSlot}

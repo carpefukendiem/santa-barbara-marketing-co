@@ -200,7 +200,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2024; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what a free call is for.`,
+        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2026; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what a free call is for.`,
       },
       {
         type: 'takeaways',
@@ -686,7 +686,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2024; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what a free call starts.`,
+        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2026; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what a free call starts.`,
       },
       {
         type: 'takeaways',
@@ -840,7 +840,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2024; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, a free call can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
+        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2026; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, a free call can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
       },
       {
         type: 'takeaways',
@@ -991,7 +991,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `Google will keep changing how Overviews look. Other chat tools will keep changing what they cite. The durable work stays the same: a business that is easy to identify, pages that tell the truth, a listing that is maintained, and reviews that sound like customers. Santa Barbara Marketing Co. was founded in 2024. We do not have a museum of AI awards. We will update our advice when the products change in a way that alters the work. We will not update it every time a national blog invents a new acronym.`,
+        html: `Google will keep changing how Overviews look. Other chat tools will keep changing what they cite. The durable work stays the same: a business that is easy to identify, pages that tell the truth, a listing that is maintained, and reviews that sound like customers. Santa Barbara Marketing Co. was founded in 2026. We do not have a museum of AI awards. We will update our advice when the products change in a way that alters the work. We will not update it every time a national blog invents a new acronym.`,
       },
       {
         type: 'p',

@@ -63,6 +63,8 @@ export function PricingCard({
 
   return (
     <div className="mx-auto max-w-md" id={checkout ? 'pricing-card-checkout' : undefined}>
+      {/* Dynamic label for primary CTA reflects selected interval */}
+      {/**/}
       <div className="flex items-center justify-center gap-3 text-sm">
         <span className={cn(!annual ? 'text-ink' : 'text-stone')}>Monthly</span>
         <button
@@ -98,9 +100,11 @@ export function PricingCard({
       ) : null}
 
       <div className="mt-8 rounded-2xl bg-navy px-8 py-10 text-cream">
-        <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
-          {pricingPlan.badge}
-        </p>
+        {pricingPlan.badge ? (
+          <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
+            {pricingPlan.badge}
+          </p>
+        ) : null}
         <h2 className="mt-3 text-center font-display text-4xl text-cream">
           {pricingPlan.name}
         </h2>
@@ -118,18 +122,20 @@ export function PricingCard({
             <span className="text-2xl">/mo</span>
           </p>
         )}
-        <ul className="mt-8 divide-y divide-cream/15 border-y border-cream/15">
-          {pricingPlan.included.map((item) => (
-            <li key={item.title}>
-              <Link
-                href={item.href}
-                className="block py-3 text-center text-sm text-cream/80 hover:text-ochre"
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {checkout ? null : (
+          <ul className="mt-8 divide-y divide-cream/15 border-y border-cream/15">
+            {pricingPlan.included.map((item) => (
+              <li key={item.title}>
+                <Link
+                  href={item.href}
+                  className="block py-3 text-center text-sm text-cream/80 hover:text-ochre"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
         {error ? (
           <p className="mt-6 text-center text-sm text-ochre" role="alert">
             {error}
@@ -183,8 +189,13 @@ export function PricingCard({
                 onClick={startCheckout}
                 disabled={busy}
                 className="inline-flex items-center justify-center rounded-full bg-tile px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60"
+                id="pricing-start-cta"
               >
-                {busy ? 'Starting checkout…' : 'Start the 805 System — $297/mo'}
+                {busy
+                  ? 'Starting checkout…'
+                  : annual
+                  ? `Start the 805 System — ${formatUsd(pricingPlan.annualAmount)}/yr`
+                  : `Start the 805 System — ${formatUsd(pricingPlan.monthlyAmount)}/mo`}
               </button>
               <Button variant="ghost" tone="dark" href={primaryCta.href}>
                 Prefer to talk first? {primaryCta.label}
@@ -220,6 +231,19 @@ export function PricingCard({
                   </blockquote>
                 ) : null}
               </div>
+              {/* Included items after CTA for checkout, compact on small screens */}
+              <ul className="mt-6 hidden divide-y divide-cream/15 border-y border-cream/15 md:block">
+                {pricingPlan.included.slice(0, 4).map((item) => (
+                  <li key={item.title}>
+                    <Link
+                      href={item.href}
+                      className="block py-2.5 text-center text-sm text-cream/80 hover:text-ochre"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </>
           ) : (
             <Button href={primaryCta.href}>{primaryCta.label}</Button>

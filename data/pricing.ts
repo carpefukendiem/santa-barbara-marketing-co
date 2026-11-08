@@ -17,7 +17,7 @@ export const pricingTestimonial = {
 
 export const pricingPlan = {
   name: 'The 805 System',
-  badge: 'Most used',
+  badge: '',
   monthlyAmount: 297,
   annualAmount: 2970,
   annualBonus: '+2 months FREE',

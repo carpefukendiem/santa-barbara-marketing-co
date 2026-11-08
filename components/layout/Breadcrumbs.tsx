@@ -20,16 +20,16 @@ export function Breadcrumbs({
     <nav
       aria-label="Breadcrumb"
       className={cn(
-        'font-mono text-[11px] uppercase tracking-[0.16em]',
+        'font-mono text-[11px] uppercase tracking-[0.16em] max-w-full overflow-x-auto no-scrollbar',
         light ? 'text-ochre' : 'text-stone',
         className,
       )}
     >
-      <ol className="flex flex-wrap items-center gap-1.5">
+      <ol className="flex flex-nowrap items-center gap-1.5 whitespace-nowrap">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={`${item.label}-${index}`} className="flex items-center gap-1.5">
+            <li key={`${item.label}-${index}`} className="flex items-center gap-1.5 shrink-0">
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
