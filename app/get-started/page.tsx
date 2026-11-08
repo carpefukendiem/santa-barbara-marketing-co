@@ -44,6 +44,8 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
         ]}
         primaryCta={null}
         compact
+        disableReveal
+        align="start"
         rightSlot={
           <div className="lg:sticky lg:top-8">
             <PricingCard variant="checkout" cancelled={checkout === 'cancelled'} />

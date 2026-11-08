@@ -27,6 +27,7 @@ type PageHeroProps = {
   icon?: unknown;
   rightSlot?: ReactNode;
   disableReveal?: boolean;
+  align?: 'start' | 'end';
 };
 
 export function PageHero({
@@ -42,6 +43,7 @@ export function PageHero({
   compact = false,
   rightSlot,
   disableReveal = false,
+  align = 'end',
 }: PageHeroProps) {
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
@@ -76,7 +78,8 @@ export function PageHero({
       )}
       <div
         className={cn(
-          'relative z-[1] mx-auto grid max-w-[1440px] items-end px-6 lg:grid-cols-12 lg:px-14',
+          'relative z-[1] mx-auto grid max-w-[1440px] px-6 lg:grid-cols-12 lg:px-14',
+          align === 'start' ? 'items-start' : 'items-end',
           compact ? 'pb-10' : 'min-h-[56vh] pb-16',
         )}
       >

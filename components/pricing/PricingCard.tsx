@@ -120,18 +120,20 @@ export function PricingCard({
             <span className="text-2xl">/mo</span>
           </p>
         )}
-        <ul className="mt-8 divide-y divide-cream/15 border-y border-cream/15">
-          {pricingPlan.included.map((item) => (
-            <li key={item.title}>
-              <Link
-                href={item.href}
-                className="block py-3 text-center text-sm text-cream/80 hover:text-ochre"
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {checkout ? null : (
+          <ul className="mt-8 divide-y divide-cream/15 border-y border-cream/15">
+            {pricingPlan.included.map((item) => (
+              <li key={item.title}>
+                <Link
+                  href={item.href}
+                  className="block py-3 text-center text-sm text-cream/80 hover:text-ochre"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
         {error ? (
           <p className="mt-6 text-center text-sm text-ochre" role="alert">
             {error}
@@ -222,6 +224,19 @@ export function PricingCard({
                   </blockquote>
                 ) : null}
               </div>
+              {/* Included items after CTA for checkout, compact on small screens */}
+              <ul className="mt-6 hidden divide-y divide-cream/15 border-y border-cream/15 md:block">
+                {pricingPlan.included.slice(0, 4).map((item) => (
+                  <li key={item.title}>
+                    <Link
+                      href={item.href}
+                      className="block py-2.5 text-center text-sm text-cream/80 hover:text-ochre"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </>
           ) : (
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
