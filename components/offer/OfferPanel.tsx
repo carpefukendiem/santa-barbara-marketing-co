@@ -10,9 +10,11 @@ import { trackEvent } from '@/lib/analytics';
 export function OfferPanel({ className }: { className?: string }) {
   return (
     <aside className={cn('rounded-2xl bg-cream p-6 shadow-lg ring-1 ring-navy/10', className)}>
-      <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
-        {pricingPlan.badge}
-      </p>
+      {pricingPlan.badge ? (
+        <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
+          {pricingPlan.badge}
+        </p>
+      ) : null}
       <h3 className="mt-2 text-center font-display text-2xl text-navy">{pricingPlan.name}</h3>
       <p className="mt-2 text-center font-display text-4xl text-navy">
         {formatUsd(pricingPlan.monthlyAmount)}
