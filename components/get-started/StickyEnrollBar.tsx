@@ -17,6 +17,13 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
   useEffect(() => {
     const target = document.getElementById(targetId);
     if (!target) return;
+    // Immediate first-read visibility (before IO callback fires)
+    try {
+      const rect = target.getBoundingClientRect();
+      setVisible(rect.top >= (window.innerHeight || 0));
+    } catch {
+      // ignore
+    }
     observerRef.current = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
