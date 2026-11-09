@@ -36,16 +36,19 @@ export function Hero() {
         </div>
       </div>
       <SealWatermark className="absolute -bottom-40 -left-24 h-[480px] w-[480px]" />
-      <div className="relative z-[2] mx-auto grid min-h-[72svh] max-w-[1440px] grid-cols-1 items-center gap-8 px-6 pb-16 pt-28 max-md:pt-[calc(env(safe-area-inset-top,0px)+108px)] lg:min-h-[78svh] lg:grid-cols-12 lg:px-14 lg:pb-20 lg:pt-32">
+      <div className="relative z-[2] mx-auto grid max-w-[1440px] grid-cols-1 items-start gap-6 px-6 pb-10 pt-24 max-md:pt-[calc(env(safe-area-inset-top,0px)+84px)] lg:min-h-[78svh] lg:grid-cols-12 lg:items-center lg:gap-8 lg:px-14 lg:pb-20 lg:pt-32">
         <div className="flex flex-col lg:col-span-7 max-md:min-h-0">
           <Eyebrow dark>Digital marketing · Santa Barbara, CA</Eyebrow>
           <HeroHeadline />
-          <p className="mt-4 max-w-lg text-lg text-cream/75 max-md:line-clamp-3">
-            Local SEO, Google Ads, and websites that make the phone ring — for
-            businesses from Carpinteria to Goleta, built by someone who’ll meet
-            you for coffee.
+          {/* Mobile: shorter description without ellipsis; Desktop: fuller version */}
+          <p className="mt-3 max-w-lg text-base text-cream/80 sm:hidden">
+            Local SEO, Google Ads, and websites that make the phone ring in the 805.
           </p>
-          <div className="mt-6 flex items-start">
+          <p className="mt-4 hidden max-w-lg text-lg text-cream/75 sm:block">
+            Local SEO, Google Ads, and websites that make the phone ring — for businesses from Carpinteria to Goleta, built by someone who’ll meet you for coffee.
+          </p>
+          {/* Keep call as a quieter secondary on desktop only */}
+          <div className="mt-5 hidden items-start lg:flex">
             <Button variant="ghost" tone="dark" href={primaryCta.href}>
               {primaryCta.label}
             </Button>

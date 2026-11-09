@@ -9,14 +9,21 @@ import { trackEvent } from '@/lib/analytics';
 
 export function OfferPanel({ className }: { className?: string }) {
   return (
-    <aside className={cn('rounded-2xl bg-cream p-6 shadow-lg ring-1 ring-navy/10', className)}>
+    <aside
+      className={cn(
+        'rounded-2xl bg-cream px-5 py-6 shadow-lg ring-1 ring-navy/10 sm:px-8 sm:py-10',
+        className,
+      )}
+    >
       {pricingPlan.badge ? (
         <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
           {pricingPlan.badge}
         </p>
       ) : null}
-      <h3 className="mt-2 text-center font-display text-2xl text-navy">{pricingPlan.name}</h3>
-      <p className="mt-2 text-center font-display text-4xl text-navy">
+      <h3 className="mt-1 text-center font-display text-xl text-navy sm:mt-2 sm:text-2xl">
+        {pricingPlan.name}
+      </h3>
+      <p className="mt-2 text-center font-display text-3xl text-navy sm:text-4xl">
         {formatUsd(pricingPlan.monthlyAmount)}
         <span className="text-2xl">/mo</span>
       </p>
@@ -31,7 +38,7 @@ export function OfferPanel({ className }: { className?: string }) {
           </li>
         ))}
       </ul>
-      <div className="mt-5 flex flex-col items-stretch gap-3">
+      <div className="mt-4 flex flex-col items-stretch gap-3 sm:mt-5">
         <Button
           onClick={() => trackEvent('home_enroll_click', { location: 'home_hero' })}
           href="/get-started#pricing-card-checkout"
