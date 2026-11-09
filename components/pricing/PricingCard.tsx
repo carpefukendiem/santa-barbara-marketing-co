@@ -197,8 +197,13 @@ export function PricingCard({
                   ? `Start the 805 System — ${formatUsd(pricingPlan.annualAmount)}/yr`
                   : `Start the 805 System — ${formatUsd(pricingPlan.monthlyAmount)}/mo`}
               </button>
-              <Button variant="ghost" tone="dark" href={primaryCta.href}>
-                Prefer to talk first? {primaryCta.label}
+              <Button
+                variant="ghost"
+                tone="dark"
+                href={primaryCta.href}
+                className="whitespace-nowrap text-[13px] sm:text-sm"
+              >
+                Prefer to talk first? Book a call
               </Button>
               <div className="mt-4 space-y-2 text-center">
                 <p className="text-[11px] text-cream/70">Secure checkout by Stripe</p>
