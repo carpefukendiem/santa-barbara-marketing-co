@@ -10,7 +10,7 @@ import { OfferPanel } from '@/components/offer/OfferPanel';
 
 export function Hero() {
   return (
-    <section className="relative bg-navy">
+    <section className="relative overflow-hidden bg-navy">
       <div className="absolute inset-0 lg:grid lg:grid-cols-12">
         <div className="hidden lg:col-span-7 lg:block" />
         <div className="absolute inset-0 lg:relative lg:col-span-5">
