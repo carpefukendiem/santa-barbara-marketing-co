@@ -73,6 +73,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Prevent decorative absolutes from causing page-level horizontal scrollbars */
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 ::selection {
