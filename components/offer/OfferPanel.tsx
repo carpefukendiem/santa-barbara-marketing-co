@@ -46,8 +46,12 @@ export function OfferPanel({ className }: { className?: string }) {
         >
           Start the 805 System — {formatUsd(pricingPlan.monthlyAmount)}/mo
         </Button>
-        <Button variant="ghost" href={primaryCta.href} className="justify-center">
-          Prefer to talk first? {primaryCta.label}
+        <Button
+          variant="ghost"
+          href={primaryCta.href}
+          className="justify-center whitespace-nowrap text-[13px] sm:text-sm"
+        >
+          Prefer to talk first? Book a call
         </Button>
       </div>
       <div className="mt-4 hidden space-y-2 text-center sm:block">
