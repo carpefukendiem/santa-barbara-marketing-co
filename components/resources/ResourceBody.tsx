@@ -41,12 +41,13 @@ function ResourceBlocks({
   blocks: ResourceBlock[];
   enableDropCap?: boolean;
 }) {
-  let firstParagraph = Boolean(enableDropCap);
+  const firstParagraphIndex = enableDropCap
+    ? blocks.findIndex((block) => block.type === 'p')
+    : -1;
   return (
     <>
       {blocks.map((block, index) => {
-        const dropCap = block.type === 'p' && firstParagraph;
-        if (block.type === 'p') firstParagraph = false;
+        const dropCap = index === firstParagraphIndex;
         return (
           <ResourceBlockView
             key={`${block.type}-${index}`}

@@ -29,12 +29,14 @@ Booking uses the GoHighLevel iframe on `/book-a-call` and in the desktop modal (
 
 ## Stripe Checkout (805 System)
 
-`POST /api/checkout` creates a Stripe Checkout Session (`mode: subscription`) for monthly (`$297`) or annual (`$2,970`) billing. The Get Started page (`/get-started`) sends the visitor to Stripe-hosted checkout. The main pricing page stays on Book a Free Call. Fulfillment is **not** the success page. `/api/stripe/webhook` enrolls the contact in GoHighLevel when payment succeeds.
+`POST /api/checkout` creates a Stripe Checkout Session (`mode: subscription`) for the Local Lead Plan: monthly (`$297`, `price_1UYAa9CxPOau7mkvKDQqCtw0`) or annual (`$2,970`, `price_1UYAYnCxPOau7mkv23BByTvT`). Optional Voice AI (`$99/mo`) and Chat AI (`$29/mo`) are separate from that price. Monthly checkouts put the selected add-ons on the same subscription. Annual checkouts charge only the annual price in Checkout, because Stripe cannot mix intervals. After `checkout.session.completed`, the webhook creates a second monthly subscription for the selected add-ons on the same customer and payment method (`idempotencyKey` `addon-sub-{session id}`). The Get Started page (`/get-started`) sends the visitor to Stripe-hosted checkout. `success_url` is `https://www.sbmc.io/get-started/started?session_id={CHECKOUT_SESSION_ID}` and `cancel_url` is `https://www.sbmc.io/get-started?checkout=cancelled`. Fulfillment is **not** the success page. `/api/stripe/webhook` enrolls the contact when payment succeeds.
+
+Checkout Session `metadata` and `subscription_data.metadata` include `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid`, and `first_landing_page`. The same keys are sent as CRM contact custom fields on the book-a-call/contact form, on checkout start (tag `805-system-checkout-started`), and on the paid webhook. Selected add-ons are also tagged `voice-ai-addon` and `chat-ai-addon`. An unset add-on price id hides that add-on.
 
 In Stripe Dashboard:
 
 1. Add a restricted API key (`rk_`) with Checkout Sessions, Products, Prices, Customers, Subscriptions, Invoices, and Charges read/write as needed. Store it as the Vercel sensitive env var `STRIPE_SECRET_KEY`.
-2. Add a webhook endpoint `https://santabarbaramarketingco.com/api/stripe/webhook` for:
+2. Add a webhook endpoint `https://www.sbmc.io/api/stripe/webhook` for:
    - `checkout.session.completed`
    - `checkout.session.async_payment_succeeded`
    - `checkout.session.async_payment_failed`

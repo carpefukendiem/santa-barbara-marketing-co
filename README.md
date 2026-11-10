@@ -1,6 +1,6 @@
 # Santa Barbara Marketing Co.
 
-Production website for [santabarbaramarketingco.com](https://santabarbaramarketingco.com) — a full-service digital marketing agency serving Santa Barbara, Goleta, Montecito, and Carpinteria.
+Production website for [www.sbmc.io](https://www.sbmc.io) — a full-service digital marketing agency serving Santa Barbara, Goleta, Montecito, and Carpinteria. The live canonical host is `https://www.sbmc.io`.
 
 ## Stack
 
@@ -29,17 +29,17 @@ npm start
 
 ## Deploy to Vercel
 
-Import the GitHub repo. Set `NEXT_PUBLIC_SITE_URL` to the production domain so canonicals and Open Graph URLs are correct. Add the other env vars from `.env.example` as you enable analytics and a lead provider. Do not commit `.env*.local`.
+Import the GitHub repo. Canonical and Open Graph URLs use `https://www.sbmc.io` from `SITE_URL`. `NEXT_PUBLIC_SITE_URL` is not read. Add the env vars from `.env.example` as you enable analytics and a lead provider. Do not commit `.env*.local`.
 
 ## Environment variables
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Yes for production | Canonical and OG base URL |
+| `NEXT_PUBLIC_SITE_URL` | No | Not read. Canonicals use `SITE_URL` (`https://www.sbmc.io`). Set this in Vercel to the same origin if you keep the variable. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No | Overrides `hello@santabarbaramarketingco.com` |
 | `NEXT_PUBLIC_PHONE` | No | If unset, no tel links render. `NEXT_PUBLIC_CONTACT_PHONE` is an alias. |
+| `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | No | Loads GA4 when set. Unset loads nothing and event calls no-op. |
 | `NEXT_PUBLIC_GTM_ID` | No | Loads GTM when set |
-| `NEXT_PUBLIC_GA_ID` | No | Loads GA4 only when GTM is unset |
 | `GHL_PRIVATE_TOKEN` | For CRM sync | Private Integration token for contacts/opportunities |
 | `GHL_LOCATION_ID` | For CRM sync | GoHighLevel subaccount location ID |
 | `NEXT_PUBLIC_GHL_CALENDAR_ID` | No | Booking widget id; defaults to the Santa Barbara Marketing Co. Discovery Call calendar |

@@ -7,6 +7,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { pricingPlan } from '@/data/pricing';
+import { publicAddons } from '@/lib/addons';
 import { CancelBanner } from '@/components/get-started/CancelBanner';
 import { StickyEnrollBar } from '@/components/get-started/StickyEnrollBar';
 import { primaryCta } from '@/data/navigation';
@@ -18,7 +19,7 @@ type GetStartedPageProps = {
 export const metadata: Metadata = buildMetadata({
   title: 'Get Started | Santa Barbara Marketing Co.',
   description:
-    'Enroll in the 805 System from this page. $297/mo, or $2,970/yr with 2 months free. Payment enrolls you automatically.',
+    'Enroll in the Local Lead Plan from this page. $297/mo, or $2,970/yr with 2 months free. Optional Voice AI and Chat AI are separate. Payment enrolls you automatically.',
   path: '/get-started',
 });
 
@@ -36,8 +37,8 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
       <PageHero
         variant="simple"
         eyebrow="Get Started"
-        title="Enroll in the 805 System."
-        subhead="Website, Local SEO, review requests, and missed‑call text back. $297/mo, or $2,970/yr with 2 months free. Prefer a conversation first? Book a free call from the next screen or the header."
+        title="Enroll in the Local Lead Plan."
+        subhead="Website, Local SEO, review requests, and missed-call text back. $297/mo, or $2,970/yr with 2 months free. Add-ons are optional and not included. Rather talk first? Book a call."
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { label: 'Get Started' },
@@ -49,7 +50,11 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
         tightMobile
         rightSlot={
           <div className="lg:sticky lg:top-8">
-            <PricingCard variant="checkout" cancelled={checkout === 'cancelled'} />
+            <PricingCard
+              variant="checkout"
+              cancelled={checkout === 'cancelled'}
+              addons={publicAddons()}
+            />
           </div>
         }
       />

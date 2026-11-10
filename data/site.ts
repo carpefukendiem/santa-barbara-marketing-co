@@ -1,7 +1,9 @@
+import { SITE_URL } from '@/lib/siteUrl'
+
 export const site = {
   name: 'Santa Barbara Marketing Co.',
   shortName: 'SBMC',
-  url: 'https://santabarbaramarketingco.com',
+  url: SITE_URL,
   tagline: 'Local Businesses. Lasting Growth.',
   description:
     'Santa Barbara Marketing Co. is a full-service digital marketing agency serving Santa Barbara, Goleta, Montecito, and Carpinteria. Local SEO, websites, Google Ads, and follow-up systems for 805 businesses.',

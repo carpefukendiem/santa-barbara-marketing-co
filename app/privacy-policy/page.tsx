@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
             <h2>Third parties</h2>
             <p>
               Depending on configuration, we may share form submissions with a
-              CRM (such as GoHighLevel or HubSpot), an email provider (such as
+              CRM, an email provider (such as
               Resend), or a webhook you control. Hosting and content delivery
               may be provided by Vercel or a similar host. Google may process
               analytics or ads conversion data if those products are turned on.

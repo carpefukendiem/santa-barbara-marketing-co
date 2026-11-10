@@ -495,7 +495,7 @@ export const services: Service[] = [
       {
         title: 'Launch, redirects, and analytics handoff',
         body:
-          'Old URLs redirect. Search Console and analytics get connected. You get a walkthrough of how to request a change without breaking the build. If GoHighLevel or booking needs to sit behind a form, we plan that in the sitemap rather than bolting a widget on at the end and watching INP collapse.',
+          'Old URLs redirect. Search Console and analytics get connected. You get a walkthrough of how to request a change without breaking the build. If the full CRM or booking needs to sit behind a form, we plan that in the sitemap rather than bolting a widget on at the end and watching INP collapse.',
       },
     ],
     process: [
@@ -751,7 +751,7 @@ export const services: Service[] = [
       {
         title: 'Form and thank-you surgery',
         body:
-          'Fields cut to what you will actually use. Spam traps that do not punish humans. Thank-you pages that fire conversions for ads. If GoHighLevel or another CRM is in play, the form has to land in a pipeline someone watches, or we have only decorated a leak.',
+          'Fields cut to what you will actually use. Spam traps that do not punish humans. Thank-you pages that fire conversions for ads. If the full CRM is in play, the form has to land in a pipeline someone watches, or we have only decorated a leak.',
       },
       {
         title: 'Speed and stability on templates that get traffic',
@@ -1010,7 +1010,7 @@ export const services: Service[] = [
       {
         title: 'CRM and pipeline that match how you sell',
         body:
-          'Stages named after real steps, not agency jargon. Owners, estimators, and front-desk roles see the same board. We would rather have five honest stages than fifteen that nobody updates. If you already live in GoHighLevel or another CRM, we work there instead of forcing a migration for sport.',
+          'Stages named after real steps, not agency jargon. Owners, estimators, and front-desk roles see the same board. We would rather have five honest stages than fifteen that nobody updates. If you already live in the full CRM or another system, we work there instead of forcing a migration for sport.',
       },
       {
         title: 'Lead capture into one inbox of record',
@@ -1081,9 +1081,9 @@ export const services: Service[] = [
       },
       {
         category: 'working-together',
-        question: 'Do I have to switch to GoHighLevel?',
+        question: 'Do I have to switch CRMs?',
         answer:
-          'Not as a religion. This agency uses GHL for many 805 service businesses because it holds CRM, forms, and SMS in one place. If you already run something staff will actually open, we will automate there when it is capable. A migration only happens when the current tool cannot do the job. We will not move you to collect a setup fee.',
+          'Not as a religion. This agency uses the full CRM for many 805 service businesses because it holds contacts, forms, and texts in one place. If you already run something staff will actually open, we will automate there when it is capable. A migration only happens when the current tool cannot do the job. We will not move you to collect a setup fee.',
       },
       {
         category: 'working-together',

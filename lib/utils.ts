@@ -1,3 +1,5 @@
+import { SITE_URL } from './siteUrl'
+
 export function cn(
   ...inputs: Array<string | false | null | undefined>
 ): string {
@@ -38,9 +40,7 @@ export function formatUsd(amount: number): string {
 }
 
 export function absoluteUrl(path: string): string {
-  const base = (
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://santabarbaramarketingco.com'
-  ).replace(/\/$/, '');
+  const base = SITE_URL.replace(/\/$/, '')
   if (!path || path === '/') return base;
   return `${base}${path.startsWith('/') ? path : `/${path}`}`;
 }
