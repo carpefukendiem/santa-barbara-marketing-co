@@ -44,7 +44,7 @@ export function OfferPanel({ className }: { className?: string }) {
           href="/get-started#pricing-card-checkout"
           className="justify-center"
         >
-          Start the 805 System — {formatUsd(pricingPlan.monthlyAmount)}/mo
+          Start The Local Lead Plan — {formatUsd(pricingPlan.monthlyAmount)}/mo
         </Button>
         <Button
           variant="ghost"

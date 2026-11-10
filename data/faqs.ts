@@ -124,7 +124,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'The 805 System is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a free call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
+      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a free call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
   },
   {
     category: 'working-together',
