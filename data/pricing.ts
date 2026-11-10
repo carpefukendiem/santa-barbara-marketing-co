@@ -80,7 +80,7 @@ export const pricingPlan = {
     },
     {
       title: 'Launch',
-      body: 'We walk through what is live, what you have to do, and how we will report. Monthly or annual billing continues until you cancel.',
+      body: 'We walk through what is live, what you have to do, and how we will report. Monthly or annual billing continues until you cancel with 30-day written notice.',
     },
   ],
 } as const;

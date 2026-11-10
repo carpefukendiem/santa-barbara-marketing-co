@@ -350,7 +350,7 @@ export function PricingCard({
                     Discover
                   </span>
                 </div>
-                <p className="text-[11px] text-cream/60">Cancel anytime</p>
+                <p className="text-xs leading-snug text-cream/85">Cancel with 30-day written notice.</p>
                 {pricingTestimonial?.text ? (
                   <blockquote className="mt-2 text-xs text-cream/80">
                     “{pricingTestimonial.text}”

@@ -82,7 +82,7 @@ export default async function GetStartedCompletePage({ searchParams }: StartedPa
             <p className="mt-2 font-display text-3xl">Receipts live in email</p>
             <p className="mt-3 text-stone">
               Stripe sends the receipt. Billing continues monthly or annually until you
-              cancel. Questions go to {site.email}.
+              cancel with 30-day written notice. Questions go to {site.email}.
             </p>
           </li>
         </ol>

@@ -86,7 +86,7 @@ export function OfferPanel({ className }: { className?: string }) {
             Discover
           </span>
         </div>
-        <p className="text-[11px] text-stone">Cancel anytime</p>
+        <p className="text-[11px] text-stone">Cancel with 30-day written notice.</p>
       </div>
     </aside>
   );
