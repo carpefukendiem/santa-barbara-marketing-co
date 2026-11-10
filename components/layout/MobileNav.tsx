@@ -55,7 +55,7 @@ export function MobileNav({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col bg-navy text-white lg:hidden"
+      className="fixed inset-0 z-50 flex flex-col bg-navy text-white min-[1100px]:hidden"
       id={panelId}
       role="dialog"
       aria-modal="true"

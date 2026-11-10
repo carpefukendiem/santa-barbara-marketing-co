@@ -40,6 +40,15 @@
   --radius-card: 0;
   --radius-input: 0;
   --radius-pill: 9999px;
+
+  --breakpoint-desk: 68.75rem;
+
+  --color-navy-2: #10294a;
+  --color-tile-ink: #b8432b;
+  --color-tile-2: #c84e30;
+  --color-tile-hover: #b23f28;
+  --color-save-ink: #7a5410;
+  --color-paper: #ffffff;
 }
 
 :root {
@@ -53,6 +62,37 @@
   --stone: #5f6670;
   --line: rgba(11, 31, 51, 0.14);
   --rule: rgba(11, 31, 51, 0.14);
+
+  --navy-2: #10294a;
+  --white: #ffffff;
+  --tile-ink: #b8432b;
+  --tile-2: #c84e30;
+  --tile-hover: #b23f28;
+  --save-ink: #7a5410;
+  --cream-90: rgba(247, 241, 230, 0.9);
+  --cream-86: rgba(247, 241, 230, 0.86);
+  --cream-82: rgba(247, 241, 230, 0.82);
+  --cream-78: rgba(247, 241, 230, 0.78);
+  --cream-75: rgba(247, 241, 230, 0.75);
+  --cream-72: rgba(247, 241, 230, 0.72);
+  --cream-62: rgba(247, 241, 230, 0.62);
+  --cream-60: rgba(247, 241, 230, 0.6);
+  --cream-55: rgba(247, 241, 230, 0.55);
+  --cream-40: rgba(247, 241, 230, 0.4);
+  --cream-35: rgba(247, 241, 230, 0.35);
+  --cream-32: rgba(247, 241, 230, 0.32);
+  --cream-22: rgba(247, 241, 230, 0.22);
+  --cream-16: rgba(247, 241, 230, 0.16);
+  --cream-10: rgba(247, 241, 230, 0.1);
+  --cream-055: rgba(247, 241, 230, 0.055);
+  --cream-05: rgba(247, 241, 230, 0.05);
+  --ochre-75: rgba(217, 164, 65, 0.75);
+  --ochre-35: rgba(217, 164, 65, 0.35);
+  --ochre-22: rgba(217, 164, 65, 0.22);
+  --navy-22: rgba(11, 31, 51, 0.22);
+  --sh-panel: 0 30px 70px rgba(0, 0, 0, 0.45);
+  --sh-card-m: 0 18px 40px rgba(0, 0, 0, 0.4);
+  --sh-cta: 0 10px 24px rgba(196, 71, 46, 0.35);
 }
 
 html {
@@ -63,6 +103,10 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+html {
+  overflow-x: clip;
 }
 
 body {
@@ -180,7 +224,13 @@ body {
 .site-container {
   margin-inline: auto;
   max-width: 1440px;
+  min-width: 0;
   padding-inline: 1.5rem;
+}
+
+.site-container > .grid,
+.site-container .grid > * {
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
@@ -225,7 +275,7 @@ body {
 }
 
 header.site-header {
-  height: 128px;
+  height: 76px;
   overflow: visible;
   transition:
     height 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
@@ -235,42 +285,98 @@ header.site-header {
 }
 
 header.site-header[data-scrolled] {
-  height: 96px;
+  height: 64px;
+}
+
+.header-logo {
+  display: block;
+  width: 150px;
+  flex: none;
 }
 
 .header-wordmark {
-  height: 92px;
-  width: auto;
-  max-width: 320px;
-  transition: height 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    max-width 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  width: 100%;
+  height: auto;
+  max-width: none;
 }
 
-header.site-header[data-scrolled] .header-wordmark {
-  height: 72px;
-  max-width: 256px;
+header.site-header[data-scrolled] .header-logo {
+  width: 120px;
 }
 
-@media (max-width: 767px) {
+header.site-header .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+header.site-header[data-over-dark] .nav-link {
+  color: var(--white);
+}
+
+header.site-header .nav-link:hover,
+header.site-header .nav-link[aria-expanded='true'] {
+  color: var(--ochre);
+  text-decoration: none;
+}
+
+header.site-header a.header-book {
+  box-shadow: none;
+  gap: 0;
+  min-height: 44px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: var(--tile);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+header.site-header a.header-book:hover {
+  background: var(--tile-hover);
+  box-shadow: none;
+}
+
+@media (min-width: 1100px) {
   header.site-header {
-    height: auto;
-    min-height: 96px;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
-    padding-bottom: 12px;
+    height: 112px;
   }
 
   header.site-header[data-scrolled] {
-    height: auto;
+    height: 80px;
   }
 
-  .header-wordmark {
-    height: 68px;
-    max-width: 224px;
+  .header-logo {
+    width: 220px;
   }
 
-  header.site-header[data-scrolled] .header-wordmark {
-    height: 56px;
-    max-width: 196px;
+  header.site-header[data-scrolled] .header-logo {
+    width: 180px;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1399px) {
+  .header-logo,
+  header.site-header[data-scrolled] .header-logo {
+    width: 168px;
+  }
+
+  header.site-header .nav-link {
+    font-size: 14px;
+  }
+
+  header.site-header nav[aria-label='Primary'] {
+    gap: 14px;
+    margin-right: 16px;
   }
 }
 
