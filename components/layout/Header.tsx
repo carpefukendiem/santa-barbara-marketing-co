@@ -152,7 +152,12 @@ export function Header() {
                   );
                 }
                 return (
-                  <Link key={item.href} href={item.href} className={navItemClass}>
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={navItemClass}
+                    aria-current={pathname === item.href ? 'page' : undefined}
+                  >
                     {item.label}
                   </Link>
                 );

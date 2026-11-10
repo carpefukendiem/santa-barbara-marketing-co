@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import {
@@ -24,6 +25,7 @@ export function MobileNav({
   onClose: () => void;
   id?: string;
 }) {
+  const pathname = usePathname();
   const generatedId = useId();
   const panelId = id ?? generatedId;
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -142,6 +144,7 @@ export function MobileNav({
               <Link
                 href={link.href}
                 className="block border-b border-white/15 py-4 font-display text-3xl text-white"
+                aria-current={pathname === link.href ? 'page' : undefined}
                 onClick={onClose}
               >
                 {link.label}
