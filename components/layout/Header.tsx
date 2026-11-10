@@ -28,6 +28,13 @@ export function Header() {
   const locationsPanelId = useId();
   const mobilePanelId = useId();
   const isMinimal = pathname === '/book-a-call';
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMobileOpen(false);
+    setServicesOpen(false);
+    setLocationsOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,12 +42,6 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setServicesOpen(false);
-    setLocationsOpen(false);
-  }, [pathname]);
 
   const lightTop =
     pathname === '/work' || pathname.startsWith('/work/');

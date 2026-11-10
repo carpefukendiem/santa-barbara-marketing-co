@@ -3,18 +3,27 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { pricingPlan } from '@/data/pricing';
+import { pricingPlan, pricingTestimonial } from '@/data/pricing';
 import { checkoutCta, primaryCta } from '@/data/navigation';
+import { ADDONS, chargePlan, type AddonId, type PublicAddon } from '@/lib/addons';
+import { readClientAttribution } from '@/lib/attribution';
+import { trackEvent, trackGa4 } from '@/lib/analytics';
 import { cn, formatUsd } from '@/lib/utils';
-import { trackEvent } from '@/lib/analytics';
-import { pricingTestimonial } from '@/data/pricing';
+
+const CHECKOUT_PLAN_NAME = 'The Local Lead Plan';
+
+function openStripeCheckout(url: string) {
+  window.location.assign(url);
+}
 
 export function PricingCard({
   variant = 'consult',
   cancelled = false,
+  addons = [],
 }: {
   variant?: 'consult' | 'checkout';
   cancelled?: boolean;
+  addons?: PublicAddon[];
 }) {
   const [annual, setAnnual] = useState(true);
   const [busy, setBusy] = useState(false);
@@ -24,7 +33,31 @@ export function PricingCard({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [selectedAddons, setSelectedAddons] = useState<AddonId[]>([]);
   const checkout = variant === 'checkout';
+  const interval = annual ? 'year' : 'month';
+  const charges = chargePlan(interval, selectedAddons);
+  const planName = checkout ? CHECKOUT_PLAN_NAME : pricingPlan.name;
+
+  function toggleAddon(id: AddonId) {
+    setSelectedAddons((current) => {
+      const selected = current.includes(id);
+      const addon = ADDONS[id];
+      trackGa4(selected ? 'remove_from_cart' : 'add_to_cart', {
+        currency: 'USD',
+        value: addon.monthlyAmount,
+        items: [
+          {
+            item_id: id,
+            item_name: addon.name,
+            price: addon.monthlyAmount,
+            quantity: 1,
+          },
+        ],
+      });
+      return selected ? current.filter((item) => item !== id) : [...current, id];
+    });
+  }
 
   async function startCheckout() {
     // basic client-side validation
@@ -36,21 +69,43 @@ export function PricingCard({
     setBusy(true);
     setError(null);
     try {
-      trackEvent('checkout_click', { interval: annual ? 'year' : 'month' });
+      trackEvent('checkout_click', { interval });
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          interval: annual ? 'year' : 'month',
+          interval,
           name: name.trim(),
           email: email.trim(),
           phone: phone.trim(),
+          addons: selectedAddons,
+          attribution: readClientAttribution(),
         }),
       });
       const data = (await response.json()) as { url?: string; error?: string };
       if (data.url) {
-        trackEvent('checkout_started', { interval: annual ? 'year' : 'month' });
-        window.location.href = data.url;
+        trackEvent('checkout_started', { interval });
+        trackGa4('begin_checkout', {
+          currency: 'USD',
+          value: charges.dueToday,
+          plan: 'local_lead_plan',
+          billing_interval: interval,
+          items: [
+            {
+              item_id: 'local_lead_plan',
+              item_name: CHECKOUT_PLAN_NAME,
+              price: annual ? pricingPlan.annualAmount : pricingPlan.monthlyAmount,
+              quantity: 1,
+            },
+            ...selectedAddons.map((id) => ({
+              item_id: id,
+              item_name: ADDONS[id].name,
+              price: ADDONS[id].monthlyAmount,
+              quantity: 1,
+            })),
+          ],
+        });
+        openStripeCheckout(data.url);
         return;
       }
       setError(data.error ?? 'Checkout could not start.');
@@ -106,7 +161,7 @@ export function PricingCard({
           </p>
         ) : null}
         <h2 className="mt-3 text-center font-display text-4xl text-cream">
-          {pricingPlan.name}
+          {planName}
         </h2>
         {annual ? (
           <p className="mt-4 text-center font-display font-light leading-tight text-cream">
@@ -144,6 +199,41 @@ export function PricingCard({
         <div className="mt-8 flex flex-col items-stretch gap-4">
           {checkout ? (
             <>
+              {addons.length > 0 ? (
+                <fieldset className="space-y-2 text-left">
+                  <legend className="text-xs text-cream/70">
+                    Optional add-ons. Not included in the {formatUsd(pricingPlan.monthlyAmount)}. Billed monthly either way.
+                  </legend>
+                  {addons.map((addon) => {
+                    const checked = selectedAddons.includes(addon.id);
+                    return (
+                      <label
+                        key={addon.id}
+                        className="flex cursor-pointer items-start gap-3 rounded-xl border border-cream/15 px-3 py-3"
+                      >
+                        <input
+                          type="checkbox"
+                          className="mt-1"
+                          checked={checked}
+                          onChange={() => toggleAddon(addon.id)}
+                        />
+                        <span>
+                          <span className="block text-sm text-cream">
+                            {addon.name} · {formatUsd(addon.monthlyAmount)}/mo
+                          </span>
+                          <span className="mt-1 block text-xs text-cream/60">{addon.blurb}</span>
+                        </span>
+                      </label>
+                    );
+                  })}
+                </fieldset>
+              ) : null}
+              <p className="text-center text-sm text-cream">
+                Due today: {formatUsd(charges.dueToday)}
+                {interval === 'year' && selectedAddons.length > 0
+                  ? `. ${formatUsd(pricingPlan.annualAmount)} for the year, plus the first month of each add-on.`
+                  : '.'}
+              </p>
               <div className="grid grid-cols-1 gap-3">
                 <label className="block text-xs text-cream/70">
                   Name
@@ -193,9 +283,7 @@ export function PricingCard({
               >
                 {busy
                   ? 'Starting checkout…'
-                  : annual
-                  ? `Start the 805 System — ${formatUsd(pricingPlan.annualAmount)}/yr`
-                  : `Start the 805 System — ${formatUsd(pricingPlan.monthlyAmount)}/mo`}
+                  : `Start the Local Lead Plan — ${formatUsd(charges.dueToday)} today`}
               </button>
               <Button
                 variant="ghost"
@@ -203,7 +291,7 @@ export function PricingCard({
                 href={primaryCta.href}
                 className="whitespace-nowrap text-[13px] sm:text-sm"
               >
-                Prefer to talk first? Book a call
+                Rather talk first? Book a call
               </Button>
               <div className="mt-4 space-y-2 text-center">
                 <p className="text-[11px] text-cream/70">Secure checkout by Stripe</p>

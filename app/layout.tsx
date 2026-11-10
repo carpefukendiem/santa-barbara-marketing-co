@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { Inter_Tight, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -7,6 +8,8 @@ import { StickyMobileCta } from '@/components/layout/StickyMobileCta';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
+import { AttributionCapture } from '@/components/analytics/AttributionCapture';
+import { SITE_URL } from '@/lib/siteUrl';
 import { BookCallProvider } from '@/components/booking/BookCallModal';
 import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
 import { booking } from '@/lib/booking';
@@ -36,9 +39,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://santabarbaramarketingco.com',
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
@@ -73,6 +74,9 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
           <StickyMobileCta />
+          <Suspense fallback={null}>
+            <AttributionCapture />
+          </Suspense>
           <AnalyticsScripts />
           <GhlChatWidget />
         </BookCallProvider>

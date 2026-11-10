@@ -18,14 +18,12 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
     const target = document.getElementById(targetId);
     if (!target) return;
     // Immediate first-read visibility (before IO callback fires)
-    try {
+    const frame = window.requestAnimationFrame(() => {
       const rect = target.getBoundingClientRect();
       const vh = window.innerHeight || 0;
       const fullyInView = rect.top >= 0 && rect.bottom <= vh;
       setVisible(!fullyInView);
-    } catch {
-      // ignore
-    }
+    });
     observerRef.current = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -38,6 +36,7 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
     );
     observerRef.current.observe(target);
     return () => {
+      window.cancelAnimationFrame(frame);
       observerRef.current?.disconnect();
     };
   }, [targetId]);

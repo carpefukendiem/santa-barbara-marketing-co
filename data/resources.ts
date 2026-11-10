@@ -614,7 +614,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `A contact form into email is cheap. A form into a CRM, with routing, SMS, and booking, is a systems project. Ecommerce, member logins, insurance forms, and inventory are their own products. If a proposal hides those as “just a website,” the change orders will show up later. Name the integrations: Google Analytics, Search Console, call tracking, scheduling, GoHighLevel or another CRM. Each one is time.`,
+        html: `A contact form into email is cheap. A form into a CRM, with routing, SMS, and booking, is a systems project. Ecommerce, member logins, insurance forms, and inventory are their own products. If a proposal hides those as “just a website,” the change orders will show up later. Name the integrations: Google Analytics, Search Console, call tracking, scheduling, the full CRM, or another system. Each one is time.`,
       },
       {
         type: 'h3',
@@ -1118,7 +1118,7 @@ export const resources: Resource[] = [
     body: [],
   },
   {
-    slug: 'home-services-marketing-805',
+    slug: 'home-services-marketing',
     title: 'Home Services Marketing in the 805',
     metaTitle: 'Home Services Marketing in the 805',
     metaDescription:

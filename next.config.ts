@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   trailingSlash: false,
+  skipTrailingSlashRedirect: true,
   turbopack: {
     root: process.cwd(),
   },

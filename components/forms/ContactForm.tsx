@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/Button';
 import { FormField, Honeypot, inputClass } from '@/components/forms/FormField';
 import { FormStatus } from '@/components/forms/FormStatus';
 import { contactSchema, type ContactInput } from '@/lib/schemas';
-import { track } from '@/lib/analytics';
+import { track, trackGa4 } from '@/lib/analytics';
+import { readClientAttribution } from '@/lib/attribution';
 
 const INTEREST_OPTIONS: Array<{ value: ContactInput['interest']; label: string }> = [
   { value: 'digital', label: 'Digital marketing' },
@@ -42,7 +43,11 @@ export function ContactForm() {
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, pagePath: pathname }),
+        body: JSON.stringify({
+          ...values,
+          pagePath: pathname,
+          attribution: readClientAttribution(),
+        }),
       });
       const json = (await response.json()) as { ok: boolean; error?: string };
       if (!response.ok || !json.ok) {
@@ -52,6 +57,9 @@ export function ContactForm() {
       }
       setStatus('success');
       track('lead_submit', { page: pathname, interest: values.interest });
+      trackGa4('generate_lead', {
+        form_name: pathname === '/book-a-call' ? 'book_a_call' : 'contact',
+      });
     } catch {
       setError('Could not send.');
       setStatus('error');

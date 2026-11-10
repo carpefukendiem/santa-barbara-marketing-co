@@ -1,10 +1,15 @@
 import { z } from 'zod';
+import { ATTRIBUTION_FIELDS } from '@/lib/attribution';
 
 const honeypot = z.object({
   company_website: z.string().max(0).optional().or(z.literal('')),
 });
 
 export const interestSchema = z.enum(['digital', 'print', 'both', 'unsure']);
+
+const attributionShape = Object.fromEntries(
+  ATTRIBUTION_FIELDS.map((key) => [key, z.string().max(480).optional()]),
+) as Record<(typeof ATTRIBUTION_FIELDS)[number], z.ZodOptional<z.ZodString>>;
 
 export const contactSchema = z
   .object({
@@ -16,6 +21,7 @@ export const contactSchema = z
     interest: interestSchema,
     pagePath: z.string().trim().max(200).optional().or(z.literal('')),
     startedAt: z.number().int().positive(),
+    attribution: z.object(attributionShape).optional(),
   })
   .merge(honeypot);
 

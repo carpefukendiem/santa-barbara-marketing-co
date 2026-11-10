@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { resolveAttribution } from '@/lib/attribution';
 import { contactSchema } from '@/lib/schemas';
 import { clientIp, rateLimit } from '@/lib/rateLimit';
 import { submitWebsiteLead } from '@/lib/ghl';
@@ -36,6 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'Please take a moment and try again.' }, { status: 400 });
   }
 
-  await submitWebsiteLead(lead, lead.pagePath || '/');
+  const attribution = resolveAttribution(request.headers.get('cookie'), lead.attribution);
+  await submitWebsiteLead({ ...lead, attribution }, lead.pagePath || '/');
   return NextResponse.json({ ok: true });
 }

@@ -1,3 +1,9 @@
+import { addonTags, type AddonId } from '@/lib/addons';
+import {
+  attributionCustomFields,
+  emptyAttribution,
+  type Attribution,
+} from '@/lib/attribution';
 import { getLeadProvider } from '@/lib/leads';
 import type { ContactInput } from '@/lib/schemas';
 
@@ -106,7 +112,10 @@ export async function upsertGhlContact(
     companyName: lead.businessName,
     source: `Website — ${pagePath || '/'}`,
     tags,
-    customFields: [{ key: 'message', field_value: lead.message }],
+    customFields: [
+      { key: 'message', field_value: lead.message },
+      ...attributionCustomFields(lead.attribution),
+    ],
   };
 
   const result = await ghlFetch<{ contact?: { id?: string }; id?: string }>(
@@ -156,6 +165,8 @@ export type PaidEnrollment = {
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
   status: 'paid' | 'failed' | 'cancelled' | 'refunded' | 'disputed';
+  addons?: AddonId[];
+  attribution?: Attribution;
 };
 
 export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void> {
@@ -165,11 +176,11 @@ export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void
     return;
   }
 
-  const { firstName, lastName } = splitName(enrollment.name || '805 System client');
+  const { firstName, lastName } = splitName(enrollment.name || 'Local Lead Plan client');
   const intervalTag =
     enrollment.interval === 'year' ? '805-system-annual' : '805-system-monthly';
   const statusTag = `805-system-${enrollment.status}`;
-  const tags = ['website-client', '805-system', intervalTag, statusTag];
+  const tags = ['website-client', '805-system', intervalTag, statusTag, ...addonTags(enrollment.addons ?? [])];
 
   const result = await ghlFetch<{ contact?: { id?: string }; id?: string }>(
     '/contacts/upsert',
@@ -184,6 +195,7 @@ export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void
         companyName: enrollment.businessName,
         source: 'Website — /get-started',
         tags,
+        customFields: attributionCustomFields(enrollment.attribution ?? emptyAttribution()),
       }),
     },
   );
@@ -191,8 +203,12 @@ export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void
   if (!contactId) return;
 
   const intervalLabel = enrollment.interval === 'year' ? 'annual' : 'monthly';
+  const addonNote = enrollment.addons?.length
+    ? `Add-ons: ${enrollment.addons.join(', ')}.`
+    : '';
   const noteParts = [
-    `805 System ${intervalLabel} — ${enrollment.status}.`,
+    `Local Lead Plan ${intervalLabel} — ${enrollment.status}.`,
+    addonNote,
     enrollment.stripeCustomerId ? `Stripe customer ${enrollment.stripeCustomerId}.` : '',
     enrollment.stripeSubscriptionId
       ? `Subscription ${enrollment.stripeSubscriptionId}.`
@@ -233,7 +249,7 @@ export async function enrollPaidClient(enrollment: PaidEnrollment): Promise<void
           pipelineId,
           pipelineStageId: paidStage,
           contactId,
-          name: `${enrollment.businessName || firstName} — 805 System ${intervalLabel}`,
+          name: `${enrollment.businessName || firstName} — Local Lead Plan ${intervalLabel}`,
           status: 'open',
           source: 'website-checkout',
         }),
@@ -271,15 +287,22 @@ export async function recordCheckoutStart(input: {
   name: string;
   email: string;
   phone?: string;
+  addons?: AddonId[];
+  attribution?: Attribution;
 }): Promise<void> {
   const locationId = process.env.GHL_LOCATION_ID;
   if (!process.env.GHL_PRIVATE_TOKEN || !locationId) {
-    // skip silently when not configured
     console.info('[ghl] skipping checkout-start — GHL env not set');
     return;
   }
   const { firstName, lastName } = splitName(input.name);
-  const tags = ['website-lead', '805-system', '805-system-checkout-started', pageSlug('/get-started')];
+  const tags = [
+    'website-lead',
+    '805-system',
+    '805-system-checkout-started',
+    pageSlug('/get-started'),
+    ...addonTags(input.addons ?? []),
+  ];
   try {
     await ghlFetch('/contacts/upsert', {
       method: 'POST',
@@ -291,6 +314,7 @@ export async function recordCheckoutStart(input: {
         ...(input.phone ? { phone: input.phone } : {}),
         source: 'Website — /get-started',
         tags,
+        customFields: attributionCustomFields(input.attribution ?? emptyAttribution()),
       }),
     });
   } catch (error) {

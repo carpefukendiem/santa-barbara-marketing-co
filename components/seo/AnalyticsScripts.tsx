@@ -1,8 +1,9 @@
 import Script from 'next/script';
+import { ga4MeasurementId } from '@/lib/ga4';
 
 export function AnalyticsScripts() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const ga4Id = ga4MeasurementId();
 
   return (
     <>
@@ -26,18 +27,18 @@ export function AnalyticsScripts() {
           </noscript>
         </>
       ) : null}
-      {gaId && !gtmId ? (
+      {ga4Id ? (
         <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            strategy="afterInteractive"
-          />
           <Script
             id="ga4"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
-              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`,
+              __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${ga4Id}');`,
             }}
+          />
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+            strategy="afterInteractive"
           />
         </>
       ) : null}

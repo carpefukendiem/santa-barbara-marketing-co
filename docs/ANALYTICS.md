@@ -1,6 +1,18 @@
 # Analytics events
 
-`lib/analytics.ts` pushes to `window.dataLayer` when it exists and no-ops otherwise. GTM loads only if `NEXT_PUBLIC_GTM_ID` is set. GA4 (`NEXT_PUBLIC_GA_ID`) loads only if GTM is not set.
+`NEXT_PUBLIC_GA4_MEASUREMENT_ID` loads GA4 with `next/script` (`afterInteractive`). If it is unset or not a `G-` id, no tag is loaded and `trackGa4` is a no-op.
+
+| Event | When | Parameters |
+| --- | --- | --- |
+| `generate_lead` | Contact form success, or a booking confirmation from the calendar | `form_name` (`book_a_call` or `contact`) |
+| `begin_checkout` | Checkout session created on `/get-started` | `value`, `currency` `USD`, `plan` `local_lead_plan`, `billing_interval` `month` or `year`, `items` |
+| `add_to_cart` | An add-on is selected | `value` `99` or `29`, `currency` `USD`, `items` with `item_id` `voice_ai` or `chat_ai` |
+| `remove_from_cart` | An add-on is cleared | same shape as `add_to_cart` |
+| `purchase` | Checkout success page, once per Stripe session id | `transaction_id` (Checkout session id), `value` (amount charged today), `currency` `USD`, `items`, `addons`, `billing_interval` |
+
+`lib/analytics.ts` still pushes the older click events to `window.dataLayer` when it exists.
+
+GTM loads only if `NEXT_PUBLIC_GTM_ID` is set. Do not also install a second GA4 tag in GTM for the same measurement id.
 
 ## Events
 

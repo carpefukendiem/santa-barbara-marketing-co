@@ -12,8 +12,8 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(
     const node = ref.current;
     if (!node) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setVisible(true);
-      return;
+      const id = window.requestAnimationFrame(() => setVisible(true));
+      return () => window.cancelAnimationFrame(id);
     }
     const fallback = window.setTimeout(() => setVisible(true), 900);
     const observer = new IntersectionObserver(

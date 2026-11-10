@@ -184,6 +184,7 @@ export const companyLinks: NavLink[] = [
 
 export const getStartedLinks: NavLink[] = [
   { label: 'Book a Free Call', href: '/book-a-call' },
+  { label: 'Local Lead Plan', href: '/local-lead-plan' },
   { label: 'Get Started', href: '/get-started' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },

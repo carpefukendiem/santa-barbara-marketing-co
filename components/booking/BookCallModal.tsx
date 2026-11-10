@@ -3,6 +3,8 @@
 import Script from 'next/script';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { booking } from '@/lib/booking';
+import { isBookingConfirmedMessage } from '@/lib/bookingEvents';
+import { trackGa4 } from '@/lib/analytics';
 import { site } from '@/data/site';
 
 const BookCallContext = createContext<{
@@ -50,6 +52,22 @@ export function BookCallProvider({ children }: { children: React.ReactNode }) {
     setOpen(true);
   }, []);
   const closeModal = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== booking.origin) return;
+      if (!isBookingConfirmedMessage(event.data)) return;
+      try {
+        if (window.sessionStorage.getItem('sbmc_generate_lead_book_a_call')) return;
+        window.sessionStorage.setItem('sbmc_generate_lead_book_a_call', '1');
+      } catch {
+        // Still record the lead if storage is blocked.
+      }
+      trackGa4('generate_lead', { form_name: 'book_a_call' });
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
 
   useEffect(() => {
     const run = () => warmBookingAssets();

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import type Stripe from 'stripe';
+import { ensureSeparateAddonSubscription, addonIdsFromMetadata } from '@/lib/addonSubscription';
+import { attributionFromUnknown } from '@/lib/attribution';
 import { enrollPaidClient, type PaidEnrollment } from '@/lib/ghl';
 import { getStripe, type CheckoutInterval } from '@/lib/stripe';
 
@@ -20,10 +22,11 @@ function intervalFromRecurring(
 function customBusinessName(session: Stripe.Checkout.Session): string {
   const field = session.custom_fields?.find((item) => item.key === 'business_name');
   const text = field?.text?.value?.trim();
-  return text || session.customer_details?.name || 'New 805 System client';
+  return text || session.customer_details?.name || 'New Local Lead Plan client';
 }
 
 async function enrollFromSession(
+  stripe: Stripe,
   session: Stripe.Checkout.Session,
   status: PaidEnrollment['status'],
 ): Promise<void> {
@@ -41,15 +44,20 @@ async function enrollFromSession(
     typeof session.customer === 'string' ? session.customer : session.customer?.id;
 
   await enrollPaidClient({
-    name: session.customer_details?.name || email,
+    name: session.customer_details?.name || session.metadata?.pre_name || email,
     email,
-    phone: session.customer_details?.phone || undefined,
+    phone: session.customer_details?.phone || session.metadata?.pre_phone || undefined,
     businessName: customBusinessName(session),
     interval: intervalFrom(session.metadata?.interval),
     stripeCustomerId: customerId,
     stripeSubscriptionId: subscriptionId,
     status,
+    addons: addonIdsFromMetadata(session.metadata),
+    attribution: attributionFromUnknown(session.metadata),
   });
+  if (status === 'paid') {
+    await ensureSeparateAddonSubscription(stripe, session);
+  }
 }
 
 async function loadCustomerDetails(
@@ -77,6 +85,25 @@ async function loadCustomerDetails(
     }
   }
   return { customerId, email, name, phone };
+}
+
+function subscriptionIdFromInvoice(invoice: Stripe.Invoice): string | undefined {
+  const withLegacy = invoice as Stripe.Invoice & {
+    subscription?: string | { id?: string | null } | null;
+  };
+  const subscription = withLegacy.subscription;
+  if (typeof subscription === 'string') return subscription;
+  if (subscription && typeof subscription.id === 'string') return subscription.id;
+
+  const parent = invoice.parent;
+  if (!parent || parent.type !== 'subscription_details') return undefined;
+  const details = parent.subscription_details;
+  const fromParent = details?.subscription;
+  if (typeof fromParent === 'string') return fromParent;
+  if (fromParent && typeof fromParent === 'object' && 'id' in fromParent && typeof fromParent.id === 'string') {
+    return fromParent.id;
+  }
+  return undefined;
 }
 
 async function invoiceInterval(
@@ -126,12 +153,12 @@ export async function POST(request: Request) {
       case 'checkout.session.completed':
       case 'checkout.session.async_payment_succeeded': {
         const session = event.data.object as Stripe.Checkout.Session;
-        await enrollFromSession(session, 'paid');
+        await enrollFromSession(stripe, session, 'paid');
         break;
       }
       case 'checkout.session.async_payment_failed': {
         const session = event.data.object as Stripe.Checkout.Session;
-        await enrollFromSession(session, 'failed');
+        await enrollFromSession(stripe, session, 'failed');
         break;
       }
       case 'invoice.paid': {
@@ -139,10 +166,7 @@ export async function POST(request: Request) {
         if (invoice.billing_reason !== 'subscription_cycle') break;
         const { customerId, email, name, phone } = await loadCustomerDetails(stripe, invoice);
         const interval = await invoiceInterval(stripe, invoice);
-        const subscriptionId =
-          typeof (invoice as any).subscription === 'string'
-            ? (invoice as any).subscription
-            : (invoice as any).subscription?.id;
+        const subscriptionId = subscriptionIdFromInvoice(invoice);
         if (email) {
           await enrollPaidClient({
             name: name || email,
