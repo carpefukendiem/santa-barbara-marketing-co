@@ -120,8 +120,21 @@ export function PricingCard({
     <div className="mx-auto max-w-md" id={checkout ? 'pricing-card-checkout' : undefined}>
       {/* Dynamic label for primary CTA reflects selected interval */}
       {/**/}
-      <div className="flex items-center justify-center gap-3 text-sm">
-        <span className={cn(!annual ? 'text-ink' : 'text-stone')}>Monthly</span>
+      <div className="flex items-center justify-center gap-3">
+        <span
+          className={cn(
+            'text-base font-semibold',
+            checkout
+              ? !annual
+                ? 'text-cream'
+                : 'text-cream/75'
+              : !annual
+                ? 'text-ink'
+                : 'text-stone',
+          )}
+        >
+          Monthly
+        </span>
         <button
           type="button"
           role="switch"
@@ -130,7 +143,7 @@ export function PricingCard({
           onClick={() => setAnnual((value) => !value)}
           className={cn(
             'relative h-7 w-12 rounded-full transition-colors',
-            annual ? 'bg-tile' : 'bg-navy/20',
+            annual ? 'bg-tile' : checkout ? 'bg-cream/35' : 'bg-navy/20',
           )}
         >
           <span
@@ -140,15 +153,38 @@ export function PricingCard({
             )}
           />
         </button>
-        <span className={cn(annual ? 'text-ink' : 'text-stone')}>Annually</span>
+        <span
+          className={cn(
+            'text-base font-semibold',
+            checkout
+              ? annual
+                ? 'text-cream'
+                : 'text-cream/75'
+              : annual
+                ? 'text-ink'
+                : 'text-stone',
+          )}
+        >
+          Annually
+        </span>
       </div>
-      <p className="mt-2 text-center text-xs text-stone">
+      <p
+        className={cn(
+          'mt-3 text-center leading-snug',
+          checkout ? 'text-base text-cream' : 'text-sm text-ink',
+        )}
+      >
         {annual
           ? `Pay ${formatUsd(pricingPlan.annualAmount)} once a year. 2 months free.`
           : `Billed ${formatUsd(pricingPlan.monthlyAmount)} every month. Switch to annually for 2 months free.`}
       </p>
       {annual ? (
-        <p className="mt-1 text-center text-[11px] text-stone">
+        <p
+          className={cn(
+            'mt-1.5 text-center leading-snug',
+            checkout ? 'text-sm text-cream' : 'text-sm text-ink',
+          )}
+        >
           ({formatUsd(pricingPlan.monthlyAmount)}×12 = {formatUsd(pricingPlan.monthlyAmount * 12)} vs{' '}
           {formatUsd(pricingPlan.annualAmount)} annual — {formatUsd(pricingPlan.monthlyAmount * 12 - pricingPlan.annualAmount)} saved)
         </p>

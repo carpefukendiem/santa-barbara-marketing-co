@@ -7,7 +7,7 @@ export const site = {
   tagline: 'Local Businesses. Lasting Growth.',
   description:
     'Santa Barbara Marketing Co. is a full-service digital marketing agency serving Santa Barbara, Goleta, Montecito, and Carpinteria. Local SEO, websites, Google Ads, and follow-up systems for 805 businesses.',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@santabarbaramarketingco.com',
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'info@sbmc.io',
   phone: process.env.NEXT_PUBLIC_PHONE ?? process.env.NEXT_PUBLIC_CONTACT_PHONE ?? null,
   areaServed: [
     'Santa Barbara',
