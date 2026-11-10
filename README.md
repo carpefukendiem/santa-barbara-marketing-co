@@ -48,11 +48,11 @@ Import the GitHub repo. Canonical and Open Graph URLs use `https://www.sbmc.io` 
 | `GHL_PIPELINE_STAGE_ID` | No | Default opportunity stage |
 | `GHL_PRINT_STAGE_ID` | No | Print-tagged leads use this stage when set |
 | `NEXT_PUBLIC_GHL_CHAT_WIDGET_ID` | No | Chat widget; omitted when unset |
-| `STRIPE_SECRET_KEY` | For checkout | Restricted Stripe key (`rk_`) for 805 System subscriptions |
+| `STRIPE_SECRET_KEY` | For checkout | Restricted Stripe key (`rk_`) for Local Lead Plan subscriptions |
 | `STRIPE_WEBHOOK_SECRET` | For checkout | Webhook signing secret for `/api/stripe/webhook` |
 | `STRIPE_PRICE_MONTHLY` / `STRIPE_PRICE_ANNUAL` | No | Pin Price ids; otherwise created on first checkout |
 | `GHL_PAID_WORKFLOW_ID` | No | Workflow started after a successful payment |
-| `GHL_PAID_STAGE_ID` | No | Pipeline stage for paid 805 System opportunities |
+| `GHL_PAID_STAGE_ID` | No | Pipeline stage for paid Local Lead Plan opportunities |
 | `LEAD_PROVIDER` | No | Fallback if GHL fails: `console`, `webhook`, `resend` |
 | `LEAD_WEBHOOK_URL` | If webhook | JSON POST destination |
 | `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` | If resend | Stub until implemented |

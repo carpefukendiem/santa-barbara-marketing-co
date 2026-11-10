@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { primaryCta } from '@/data/navigation';
 
-const HIDDEN_ON = ['/', '/book-a-call', '/contact', '/get-started'];
+const HIDDEN_ON = ['/', '/book-a-call', '/contact', '/get-started', '/pricing'];
 
 export function StickyMobileCta() {
   const pathname = usePathname();

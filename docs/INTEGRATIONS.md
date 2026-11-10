@@ -27,7 +27,7 @@ If the GHL API errors, the lead is still acknowledged to the visitor (`{ ok: tru
 
 Booking uses the GoHighLevel iframe on `/book-a-call` and in the desktop modal (`https://link.rankingsb.com/widget/booking/...` plus `form_embed.js` for height). Set calendar colors in GHL to navy `#0B1F33` and terracotta `#C4472E`.
 
-## Stripe Checkout (805 System)
+## Stripe Checkout (The Local Lead Plan)
 
 `POST /api/checkout` creates a Stripe Checkout Session (`mode: subscription`) for the Local Lead Plan: monthly (`$297`, `price_1UYAa9CxPOau7mkvKDQqCtw0`) or annual (`$2,970`, `price_1UYAYnCxPOau7mkv23BByTvT`). Optional Voice AI (`$99/mo`) and Chat AI (`$29/mo`) are separate from that price. Monthly checkouts put the selected add-ons on the same subscription. Annual checkouts charge only the annual price in Checkout, because Stripe cannot mix intervals. After `checkout.session.completed`, the webhook creates a second monthly subscription for the selected add-ons on the same customer and payment method (`idempotencyKey` `addon-sub-{session id}`). The Get Started page (`/get-started`) sends the visitor to Stripe-hosted checkout. `success_url` is `https://www.sbmc.io/get-started/started?session_id={CHECKOUT_SESSION_ID}` and `cancel_url` is `https://www.sbmc.io/get-started?checkout=cancelled`. Fulfillment is **not** the success page. `/api/stripe/webhook` enrolls the contact when payment succeeds.
 
@@ -52,7 +52,7 @@ In Stripe Dashboard:
 
 Optional env:
 
-- `STRIPE_PRICE_MONTHLY` / `STRIPE_PRICE_ANNUAL` — pin existing Price ids. If unset, the first checkout creates one Product (“The 805 System”) with monthly and annual Prices (`lookup_key` `805_system_monthly` / `805_system_annual`).
+- `STRIPE_PRICE_MONTHLY` / `STRIPE_PRICE_ANNUAL` — pin existing Price ids. If unset, the first checkout creates one Product for The Local Lead Plan with monthly and annual Prices (`lookup_key` `805_system_monthly` / `805_system_annual`).
 - `GHL_PAID_WORKFLOW_ID` — workflow to start after a successful first payment
 - `GHL_PAID_STAGE_ID` — pipeline stage for the paid opportunity
 

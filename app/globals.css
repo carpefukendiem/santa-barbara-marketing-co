@@ -49,6 +49,10 @@
   --color-tile-hover: #b23f28;
   --color-save-ink: #7a5410;
   --color-paper: #ffffff;
+  --color-cream-2: #efe6d4;
+  --color-ink-2: #3e4652;
+  --color-kick-on-cream-2: #a63b25;
+  --color-tgs-ink: #6e4b0e;
 }
 
 :root {
@@ -69,26 +73,36 @@
   --tile-2: #c84e30;
   --tile-hover: #b23f28;
   --save-ink: #7a5410;
+  --cream-2: #efe6d4;
+  --ink-2: #3e4652;
+  --kick-on-cream-2: #a63b25;
+  --tgs-ink: #6e4b0e;
   --cream-90: rgba(247, 241, 230, 0.9);
   --cream-86: rgba(247, 241, 230, 0.86);
   --cream-82: rgba(247, 241, 230, 0.82);
+  --cream-80: rgba(247, 241, 230, 0.8);
   --cream-78: rgba(247, 241, 230, 0.78);
   --cream-75: rgba(247, 241, 230, 0.75);
   --cream-72: rgba(247, 241, 230, 0.72);
   --cream-62: rgba(247, 241, 230, 0.62);
   --cream-60: rgba(247, 241, 230, 0.6);
   --cream-55: rgba(247, 241, 230, 0.55);
+  --cream-45: rgba(247, 241, 230, 0.45);
   --cream-40: rgba(247, 241, 230, 0.4);
   --cream-35: rgba(247, 241, 230, 0.35);
   --cream-32: rgba(247, 241, 230, 0.32);
   --cream-22: rgba(247, 241, 230, 0.22);
   --cream-16: rgba(247, 241, 230, 0.16);
+  --cream-12: rgba(247, 241, 230, 0.12);
   --cream-10: rgba(247, 241, 230, 0.1);
   --cream-055: rgba(247, 241, 230, 0.055);
   --cream-05: rgba(247, 241, 230, 0.05);
   --ochre-75: rgba(217, 164, 65, 0.75);
   --ochre-35: rgba(217, 164, 65, 0.35);
+  --ochre-28: rgba(217, 164, 65, 0.28);
   --ochre-22: rgba(217, 164, 65, 0.22);
+  --navy-28: rgba(11, 31, 51, 0.28);
+  --navy-25: rgba(11, 31, 51, 0.25);
   --navy-22: rgba(11, 31, 51, 0.22);
   --sh-panel: 0 30px 70px rgba(0, 0, 0, 0.45);
   --sh-card-m: 0 18px 40px rgba(0, 0, 0, 0.4);
@@ -318,6 +332,10 @@ header.site-header .nav-link {
 
 header.site-header[data-over-dark] .nav-link {
   color: var(--white);
+}
+
+header.site-header .nav-link[aria-current='page'] {
+  color: var(--ochre);
 }
 
 header.site-header .nav-link:hover,

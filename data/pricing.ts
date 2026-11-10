@@ -16,7 +16,7 @@ export const pricingTestimonial = {
 } as const;
 
 export const pricingPlan = {
-  name: 'The 805 System',
+  name: 'The Local Lead Plan',
   badge: '',
   monthlyAmount: 297,
   annualAmount: 2970,
