@@ -66,7 +66,7 @@ export default function TermsPage() {
               for management and production, not a markup we hide. The 805
               System billed through this site is a subscription: monthly at the
               published monthly rate, or annually at the published yearly rate.
-              It renews until you cancel. A free call does not require a credit
+              It renews until you cancel with 30-day written notice to {site.email}. A free call does not require a credit
               card. Work may pause if invoices remain unpaid.
             </p>
             <h2>Intellectual property</h2>
