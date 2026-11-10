@@ -19,7 +19,7 @@ const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-source-serif',
-  style: ['normal'],
+  style: ['normal', 'italic'],
   preload: true,
 });
 

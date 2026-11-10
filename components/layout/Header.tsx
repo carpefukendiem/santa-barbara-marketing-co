@@ -47,8 +47,8 @@ export function Header() {
     pathname === '/work' || pathname.startsWith('/work/');
   const overDark = !scrolled && !lightTop;
   const navItemClass = cn(
-    'nav-link px-3 py-2',
-    overDark ? 'text-cream' : 'text-ink',
+    'nav-link',
+    overDark ? 'text-[var(--white)]' : 'text-ink',
   );
 
   return (
@@ -60,18 +60,19 @@ export function Header() {
           : 'border-b border-transparent bg-transparent text-cream',
       )}
       data-scrolled={scrolled ? '' : undefined}
+      data-over-dark={overDark ? '' : undefined}
     >
-      <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between gap-4 px-5 py-2 lg:px-14">
+      <div className="relative mx-auto flex h-full w-full max-w-[1440px] items-center px-5 min-[1100px]:pr-14 min-[1100px]:pl-20">
         <Link
           href="/"
-          className="shrink-0 py-1 pr-6"
+          className="header-logo"
           aria-label="Santa Barbara Marketing Co. home"
         >
           <Wordmark inverted={overDark} priority />
         </Link>
 
         {isMinimal ? (
-          <div className="hidden items-center justify-end gap-4 md:flex">
+          <div className="ml-auto hidden items-center justify-end gap-4 md:flex">
             {site.phone ? (
               <a
                 href={telHref(site.phone)}
@@ -83,7 +84,7 @@ export function Header() {
           </div>
         ) : (
           <>
-            <nav className="hidden items-center justify-center gap-1 xl:gap-2 lg:flex" aria-label="Primary">
+            <nav className="ml-auto mr-[34px] hidden items-center gap-[30px] min-[1100px]:flex" aria-label="Primary">
               {primaryNav.map((item) => {
                 if (item.label === 'Services') {
                   return (
@@ -157,28 +158,30 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="flex items-center justify-end gap-3">
+            <div className="ml-auto flex items-center justify-end gap-3 min-[1100px]:ml-0">
               {site.phone ? (
                 <a
                   href={telHref(site.phone)}
                   className={cn(
-                    'hidden font-mono text-xs tracking-[0.16em] uppercase md:inline lg:hidden',
+                    'hidden font-mono text-xs tracking-[0.16em] uppercase md:inline min-[1100px]:hidden',
                     overDark ? 'text-cream' : 'text-ink',
                   )}
                 >
                   {site.phone}
                 </a>
               ) : null}
-              <span className="hidden lg:inline-flex">
-                <Button href={primaryCta.href}>{primaryCta.label}</Button>
+              <span className="hidden min-[1100px]:inline-flex">
+                <Button href={primaryCta.href} className="header-book">
+                  {primaryCta.label}
+                </Button>
               </span>
               <button
                 type="button"
                 className={cn(
-                  'inline-flex min-h-11 min-w-11 items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.18em] backdrop-blur-sm lg:hidden',
+                  'inline-flex min-h-11 items-center gap-2 rounded-full border px-[15px] py-[9px] text-[12.5px] font-semibold uppercase tracking-[0.14em] min-[1100px]:hidden',
                   overDark
-                    ? 'border-cream/40 text-cream active:bg-cream/12'
-                    : 'border-navy/25 text-ink active:bg-navy/10',
+                    ? 'border-[rgba(247,241,230,0.45)] text-[var(--white)]'
+                    : 'border-navy/25 text-ink',
                 )}
                 aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={mobileOpen}
@@ -203,14 +206,8 @@ export function Header() {
 
 function MenuGlyph() {
   return (
-    <svg
-      width="14"
-      height="10"
-      viewBox="0 0 14 10"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path d="M0 1h14M0 9h10" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden="true">
+      <path d="M0 .8h14M0 6.9h14" stroke="currentColor" strokeWidth="1.6" />
     </svg>
   );
 }
