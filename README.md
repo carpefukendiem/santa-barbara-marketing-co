@@ -36,7 +36,7 @@ Import the GitHub repo. Canonical and Open Graph URLs use `https://www.sbmc.io` 
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | No | Not read. Canonicals use `SITE_URL` (`https://www.sbmc.io`). Set this in Vercel to the same origin if you keep the variable. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | No | Overrides `hello@santabarbaramarketingco.com` |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No | Overrides `info@sbmc.io` |
 | `NEXT_PUBLIC_PHONE` | No | If unset, no tel links render. `NEXT_PUBLIC_CONTACT_PHONE` is an alias. |
 | `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | No | Loads GA4 when set. Unset loads nothing and event calls no-op. |
 | `NEXT_PUBLIC_GTM_ID` | No | Loads GTM when set |
