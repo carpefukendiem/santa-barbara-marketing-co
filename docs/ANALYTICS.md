@@ -1,6 +1,8 @@
 # Analytics events
 
-`NEXT_PUBLIC_GA4_MEASUREMENT_ID` loads GA4 with `next/script` (`afterInteractive`). If it is unset or not a `G-` id, no tag is loaded and `trackGa4` is a no-op.
+GTM container `GTM-5FK5H5BS` is installed on every page (`gtm.js` plus a `gtag` helper on `dataLayer`). Override with `NEXT_PUBLIC_GTM_ID` only if you replace the container. Canonical host is `https://www.sbmc.io`.
+
+`NEXT_PUBLIC_GA4_MEASUREMENT_ID` adds `gtag('config', …)` for a `G-` id. If it is unset, `trackGa4` is a no-op. Prefer firing GA4 from this GTM container instead of a second gtag.js snippet.
 
 | Event | When | Parameters |
 | --- | --- | --- |
@@ -12,7 +14,7 @@
 
 `lib/analytics.ts` still pushes the older click events to `window.dataLayer` when it exists.
 
-GTM loads only if `NEXT_PUBLIC_GTM_ID` is set. Do not also install a second GA4 tag in GTM for the same measurement id.
+Do not also load a second copy of `gtm.js` or a duplicate GA4 tag for the same measurement id.
 
 ## Events
 

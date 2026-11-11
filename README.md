@@ -39,7 +39,7 @@ Import the GitHub repo. Canonical and Open Graph URLs use `https://www.sbmc.io` 
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No | Overrides `info@sbmc.io` |
 | `NEXT_PUBLIC_PHONE` | No | If unset, no tel links render. `NEXT_PUBLIC_CONTACT_PHONE` is an alias. |
 | `NEXT_PUBLIC_GA4_MEASUREMENT_ID` | No | Loads GA4 when set. Unset loads nothing and event calls no-op. |
-| `NEXT_PUBLIC_GTM_ID` | No | Loads GTM when set |
+| `NEXT_PUBLIC_GTM_ID` | No | Defaults to `GTM-5FK5H5BS` (installed on www.sbmc.io). Set only to swap containers. |
 | `GHL_PRIVATE_TOKEN` | For CRM sync | Private Integration token for contacts/opportunities |
 | `GHL_LOCATION_ID` | For CRM sync | GoHighLevel subaccount location ID |
 | `NEXT_PUBLIC_GHL_CALENDAR_ID` | No | Booking widget id; defaults to the Santa Barbara Marketing Co. Discovery Call calendar |

@@ -67,6 +67,7 @@ export default function RootLayout({
         <link rel="preload" as="script" href={booking.scriptSrc} />
       </head>
       <body className="font-sans antialiased">
+        <AnalyticsScripts />
         <BookCallProvider>
           <JsonLd data={[organizationSchema(), websiteSchema()]} />
           <SkipLink />
@@ -77,7 +78,6 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <AttributionCapture />
           </Suspense>
-          <AnalyticsScripts />
           <GhlChatWidget />
         </BookCallProvider>
       </body>
