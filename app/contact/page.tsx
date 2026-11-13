@@ -11,7 +11,7 @@ import { buildMetadata } from '@/lib/seo';
 import { formatPhone, telHref } from '@/lib/utils';
 
 export const metadata = buildMetadata({
-  title: 'Contact Santa Barbara Marketing Co.',
+  title: 'Contact Us',
   description:
     'Contact Santa Barbara Marketing Co. for Local SEO, websites, and Google Ads in the 805. Email us or request a free call. No spam, no drip.',
   path: '/contact',

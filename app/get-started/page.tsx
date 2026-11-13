@@ -17,7 +17,7 @@ type GetStartedPageProps = {
 };
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Get Started | Santa Barbara Marketing Co.',
+  title: 'Get Started',
   description:
     'Enroll in the Local Lead Plan from this page. $297/mo, or $2,970/yr with 2 months free. Optional Voice AI and Chat AI are separate. Payment enrolls you automatically.',
   path: '/get-started',

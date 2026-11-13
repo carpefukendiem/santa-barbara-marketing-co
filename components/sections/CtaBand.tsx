@@ -19,7 +19,7 @@ export function CtaBand({
     <section className="relative overflow-hidden bg-tile py-24 lg:py-36">
       <SealWatermark
         size={600}
-        className="absolute -right-24 top-1/2 h-[600px] w-[600px] -translate-y-1/2 opacity-[0.08]"
+        className="absolute top-1/2 right-0 h-[600px] w-[min(600px,100%)] max-w-full -translate-y-1/2 opacity-[0.08]"
       />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-14">
         <Reveal>

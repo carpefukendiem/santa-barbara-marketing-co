@@ -79,7 +79,7 @@ export function PageHero({
           />
         </div>
       ) : (
-        <SealWatermark className="absolute -right-20 top-10 h-[420px] w-[420px] opacity-[0.06]" />
+        <SealWatermark className="absolute top-10 right-0 h-[420px] w-[min(420px,100%)] max-w-full opacity-[0.06]" />
       )}
       <div
         className={cn(
@@ -89,7 +89,7 @@ export function PageHero({
         )}
       >
         {disableReveal ? (
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <Breadcrumbs items={breadcrumbs} light className="pt-4" />
             {showEyebrow ? (
               <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
@@ -127,7 +127,7 @@ export function PageHero({
             ) : null}
           </div>
         ) : (
-          <Reveal className="lg:col-span-7">
+          <Reveal className="min-w-0 lg:col-span-7">
           <Breadcrumbs items={breadcrumbs} light className="pt-4" />
           {showEyebrow ? (
             <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
@@ -166,7 +166,7 @@ export function PageHero({
         </Reveal>
         )}
         {rightSlot ? (
-          <div className="mt-10 lg:mt-0 lg:col-span-5 lg:col-start-8">
+          <div className="mt-10 min-w-0 lg:mt-0 lg:col-span-5 lg:col-start-8">
             {rightSlot}
           </div>
         ) : null}

@@ -20,7 +20,7 @@ import { buildMetadata } from '@/lib/seo';
 import type { LucideIcon } from 'lucide-react';
 
 export const metadata = buildMetadata({
-  title: 'About Santa Barbara Marketing Co.',
+  title: 'About Us',
   description:
     "We're a Santa Barbara digital marketing agency founded in 2024. Local by residence, proof over promises, one system. Book a Free Call.",
   path: '/about',

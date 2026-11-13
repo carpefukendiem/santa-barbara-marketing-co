@@ -913,6 +913,29 @@
   color: var(--cream);
 }
 
+.final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background: url(/images/brand/badge-mono-cream.svg) no-repeat right -150px top -30px /
+    420px 420px;
+}
+
+@media (min-width: 901px) {
+  .final::before {
+    background-position: right -140px center;
+    background-size: 680px 680px;
+  }
+}
+
+.final > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
 .finalGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
