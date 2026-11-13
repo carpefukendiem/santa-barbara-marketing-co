@@ -14,27 +14,31 @@ export type FaqItem = {
 export const faqs: FaqItem[] = [
   {
     category: 'homepage',
-    question: 'How long does it take to see results?',
-    answer:
-      'It depends on the work. A Google Ads campaign can start sending calls in days if tracking is set up correctly. A new website is usually live in four to eight weeks, depending on content and reviews. Local SEO is slower: most businesses see movement in three to six months, not because we are stalling, but because Google needs consistent signals. We will tell you which timeline applies before you start, and we will not sell a 30-day ranking promise.',
+    question: 'How fast is my site live?',
+    answer: 'In 3 to 6 weeks.',
   },
   {
     category: 'homepage',
-    question: 'Do you work with small businesses?',
+    question: 'What does it cost?',
     answer:
-      'Yes. Most of the 805 is small and mid-size businesses, and that is who this agency is built for. If you are a one-location shop, a clinic, a restaurant, or a contractor with a truck and a Google Business Profile, you are the right size. We are not a good fit if you need a 20-person brand team or a national media buy. We are a good fit if you want a clear plan, a site that loads on a phone, and reporting you can read without a decoder.',
+      'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free).',
   },
   {
     category: 'homepage',
-    question: 'What makes you different from other agencies?',
+    question: 'What’s not included?',
     answer:
-      'We live in the 805, we publish what we can prove, and we treat getting found, getting chosen, and getting followed up with as one system. A lot of local sites invent testimonials and hide pricing. We will not invent reviews, star ratings, or client names. Where we do not have a case study yet, we say so and explain how we will measure the work. That is an intentional difference, not a gap we paper over.',
+      'Ad spend, Google Business Profile rebuilds, and print. They are quoted separately if you want them.',
   },
   {
     category: 'homepage',
-    question: 'How do we get started?',
+    question: 'How do I cancel?',
+    answer: 'Cancel anytime with 30-day written notice.',
+  },
+  {
+    category: 'homepage',
+    question: 'Do I need to be tech-savvy?',
     answer:
-      'Book a free call. We ask about the business, look at your current visibility before we talk, and come to the call with a short list of what we would do first. If it makes sense to work together, we send a proposal. If not, you leave with the list. No contract, no pressure.',
+      'No. We set it up under your name, train you in person, and handle it for you.',
   },
   {
     category: 'getting-started',
@@ -46,7 +50,7 @@ export const faqs: FaqItem[] = [
     category: 'getting-started',
     question: 'Do I have to sign a contract after the call?',
     answer:
-      'No. The plan is the deliverable. If we work together after that, we agree on a scope in writing. We do not use long-term lock-ins as a default. Month-to-month or defined project terms are the norm, spelled out before any invoice.',
+      'No. The plan is the deliverable. If we work together after that, we agree on a scope in writing. Cancel anytime with 30-day written notice.',
   },
   {
     category: 'getting-started',
@@ -106,7 +110,7 @@ export const faqs: FaqItem[] = [
     category: 'websites',
     question: 'How long does a new website take?',
     answer:
-      'Four to eight weeks is typical for a marketing site with a clear sitemap, provided content arrives on time. Custom features, booking, or a large photo library add time. We will give you a dated outline, not a vague “soon.” If you are waiting on us, you will know. If we are waiting on copy or logins, we will say that too.',
+      '3 to 6 weeks is typical for a marketing site with a clear sitemap, provided content arrives on time. Custom features, booking, or a large photo library add time. We will give you a dated outline, not a vague “soon.” If you are waiting on us, you will know. If we are waiting on copy or logins, we will say that too.',
   },
   {
     category: 'websites',

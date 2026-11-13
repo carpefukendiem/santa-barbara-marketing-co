@@ -28,7 +28,7 @@ export function OfferPanel({ className }: { className?: string }) {
         <span className="text-2xl">/mo</span>
       </p>
       <p className="mt-1 text-center text-xs text-stone">
-        Or {formatUsd(pricingPlan.annualAmount)}/yr — 2 months free
+        Or {formatUsd(pricingPlan.annualAmount)}/yr, 2 months free
       </p>
       <ul className="mt-6 hidden space-y-2 text-sm text-ink sm:block">
         {pricingPlan.included.slice(0, 4).map((item) => (
@@ -44,7 +44,7 @@ export function OfferPanel({ className }: { className?: string }) {
           href="/get-started#pricing-card-checkout"
           className="justify-center"
         >
-          Start The Local Lead Plan — {formatUsd(pricingPlan.monthlyAmount)}/mo
+          Start The Local Lead Plan, {formatUsd(pricingPlan.monthlyAmount)}/mo
         </Button>
         <Button
           variant="ghost"
@@ -86,7 +86,7 @@ export function OfferPanel({ className }: { className?: string }) {
             Discover
           </span>
         </div>
-        <p className="text-[11px] text-stone">Cancel with 30-day written notice.</p>
+        <p className="text-[11px] text-stone">Cancel anytime with 30-day written notice.</p>
       </div>
     </aside>
   );

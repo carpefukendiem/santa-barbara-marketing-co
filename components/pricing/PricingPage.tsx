@@ -45,7 +45,7 @@ const quoted = [
 ] as const;
 
 const faqs = [
-  ['Is there a long-term contract?', 'No. The Local Lead Plan is billed monthly or annually and continues until you cancel with 30-day written notice.'],
+  ['Is there a long-term contract?', 'No. The Local Lead Plan is billed monthly or annually. Cancel anytime with 30-day written notice.'],
   ['How does the annual option work?', 'Pay $2,970 once a year instead of $297 a month. That’s 2 months free, and you save $594 vs. monthly.'],
   ['Is Voice AI or Chat AI in the $297?', 'No. They’re optional add-ons: Voice AI is $99/mo and Chat AI is $29/mo. Add either, both, or neither. Website chat is already included in the plan.'],
   ['Is Google Ads spend included?', 'No. Google Ads management is quoted separately, and ad spend is billed by Google.'],
@@ -140,8 +140,8 @@ function PlanCard({
   const yearRef = useRef<HTMLButtonElement>(null);
   const amount = annual ? '$2,970' : '$297';
   const unit = annual ? '/yr' : '/mo';
-  const orLine = annual ? 'Or $297/mo' : 'Or $2,970/yr — 2 months free';
-  const cta = annual ? 'Start The Local Lead Plan — $2,970/yr' : 'Start The Local Lead Plan — $297/mo';
+  const orLine = annual ? 'Or $297/mo' : 'Or $2,970/yr, 2 months free';
+  const cta = annual ? 'Start The Local Lead Plan, $2,970/yr' : 'Start The Local Lead Plan, $297/mo';
   const label = variant === 'mid' ? 'All of this, one plan' : 'The Local Lead Plan';
 
   function select(next: boolean) {
@@ -207,7 +207,7 @@ function PlanCard({
             <span className={styles.sep} aria-hidden="true">
               ·
             </span>
-            <span>Cancel with 30-day written notice · No long-term contract</span>
+            <span>Cancel anytime with 30-day written notice</span>
           </p>
           <ul className={styles.brands} aria-label="Accepted cards">
             <li className={styles.brand}>Visa</li>
@@ -262,18 +262,17 @@ export function PricingPage() {
             </h1>
             <p className={styles.support}>
               <span className={styles.long}>
-                A custom website, your own full CRM, follow-up, reporting, and training — from a local team that will come meet you.
+                A custom website, your own full CRM, follow-up, reporting, and training, from a local team that will come meet you.
               </span>
               <span className={styles.short}>
-                Website, full CRM, follow-up, reporting, and training — from a local team that will come meet you.
+                Website, full CRM, follow-up, reporting, and training, from a local team that will come meet you.
               </span>
             </p>
             <div className={styles.chips}>
               <span className={styles.chip}>
                 <LockIcon /> Secure checkout by Stripe
               </span>
-              <span className={styles.chip}>Cancel with 30-day written notice</span>
-              <span className={styles.chip}>No long-term contract</span>
+              <span className={styles.chip}>Cancel anytime with 30-day written notice</span>
               <span className={styles.chip}>
                 <PinIcon /> We’ll come meet you
               </span>
@@ -401,13 +400,13 @@ export function PricingPage() {
                 <span className={`${styles.tag} ${styles.mono}`}>Optional · not in $297</span>
               </div>
               <p>
-                Voice AI answers calls when you can’t — <strong>$99/mo</strong>. Chat AI handles chats when you can’t — <strong>$29/mo</strong>. Add either, both, or neither.
+                Voice AI answers calls when you can’t, <strong>$99/mo</strong>. Chat AI handles chats when you can’t, <strong>$29/mo</strong>. Add either, both, or neither.
               </p>
             </li>
             <li className={styles.step}>
               <b className={styles.badge}>4</b>
               <h3>We set it all up.</h3>
-              <p>Website, full CRM, follow-up, and the app — then we train you.</p>
+              <p>Website, full CRM, follow-up, and the app, then we train you.</p>
             </li>
           </ol>
         </div>
@@ -455,7 +454,7 @@ export function PricingPage() {
                 Stop letting good leads go cold. <em>$297/mo.</em>
               </h2>
               <p className={styles.support}>
-                Website, full CRM, follow-up, reporting, and training — from a local team that will come meet you.
+                Website, full CRM, follow-up, reporting, and training, from a local team that will come meet you.
               </p>
               <p className={styles.contact}>
                 <a href="tel:+18053077600">

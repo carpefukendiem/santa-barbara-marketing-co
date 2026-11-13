@@ -530,7 +530,7 @@ export const services: Service[] = [
       'Engineering habits you can inspect on this agency site: static rendering where it helps, reserved image space, WCAG AA practices.',
       'Core Web Vitals treated as launch criteria on templates that receive traffic, with LCP as a design constraint rather than a later surprise.',
       'Redirects and analytics connected so SEO equity and measurement survive the migration.',
-      'A dated build window, typically four to eight weeks when content arrives on time, with honesty when the calendar slips.',
+      'A dated build window, typically 3 to 6 weeks when content arrives on time, with honesty when the calendar slips.',
     ],
     faqs: [
       {

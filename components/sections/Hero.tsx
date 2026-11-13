@@ -315,7 +315,7 @@ function PriceBlock({ variant }: { variant: 'top' | 'end' | 'panel' }) {
         <span className={styles.trustSep} aria-hidden="true">
           ·
         </span>
-        <span className={styles.trustRest}>Cancel with 30-day written notice · No long-term contract</span>
+        <span className={styles.trustRest}>Cancel anytime with 30-day written notice</span>
       </p>
       <ul className={styles.brands} aria-label="Accepted cards">
         <li>Visa</li>
@@ -373,8 +373,7 @@ export function Hero() {
                 <LockIcon />
                 Secure checkout by Stripe
               </li>
-              <li>Cancel with 30-day written notice</li>
-              <li>No long-term contract</li>
+              <li>Cancel anytime with 30-day written notice</li>
               <li>
                 <PinIcon />
                 We’ll come meet you
@@ -457,7 +456,7 @@ export function Hero() {
           Santa Barbara · Goleta · Montecito · Carpinteria{'\u00A0·\u00A0'}
           One local system{'\u00A0·\u00A0'}
           Plain-English reporting{'\u00A0·\u00A0'}
-          No long-term contracts
+          Cancel anytime with 30-day written notice
         </p>
       </div>
     </section>
