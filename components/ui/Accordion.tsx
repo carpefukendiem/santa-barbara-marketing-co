@@ -38,7 +38,7 @@ export function FAQAccordion({
                 )}
                 onClick={() => setOpen(isOpen ? null : index)}
               >
-                <span>{item.question}</span>
+                <span className="min-w-0 break-words">{item.question}</span>
                 <span
                   className={cn(
                     'font-mono text-lg transition-transform duration-200',

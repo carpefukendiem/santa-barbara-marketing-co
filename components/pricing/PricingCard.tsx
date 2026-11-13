@@ -117,7 +117,7 @@ export function PricingCard({
   }
 
   return (
-    <div className="mx-auto max-w-md" id={checkout ? 'pricing-card-checkout' : undefined}>
+    <div className="mx-auto w-full min-w-0 max-w-md" id={checkout ? 'pricing-card-checkout' : undefined}>
       {/* Dynamic label for primary CTA reflects selected interval */}
       {/**/}
       <div className="flex items-center justify-center gap-3">
@@ -181,7 +181,7 @@ export function PricingCard({
       {annual ? (
         <p
           className={cn(
-            'mt-1.5 text-center leading-snug',
+            'mt-1.5 text-center leading-snug break-words',
             checkout ? 'text-sm text-cream' : 'text-sm text-ink',
           )}
         >
@@ -190,13 +190,13 @@ export function PricingCard({
         </p>
       ) : null}
 
-      <div className="mt-8 rounded-2xl bg-navy px-8 py-10 text-cream">
+      <div className="mt-8 rounded-2xl bg-navy px-5 py-10 text-cream sm:px-8">
         {pricingPlan.badge ? (
           <p className="text-center text-xs font-medium tracking-[0.18em] text-ochre uppercase">
             {pricingPlan.badge}
           </p>
         ) : null}
-        <h2 className="mt-3 text-center font-display text-4xl text-cream">
+        <h2 className="mt-3 text-center font-display text-[clamp(1.75rem,8vw,2.25rem)] text-cream sm:text-4xl">
           {planName}
         </h2>
         {annual ? (
@@ -271,7 +271,7 @@ export function PricingCard({
                   : '.'}
               </p>
               <div className="grid grid-cols-1 gap-3">
-                <label className="block text-xs text-cream/70">
+                <label className="block min-w-0 text-xs text-cream/70">
                   Name
                   <input
                     type="text"
@@ -279,12 +279,12 @@ export function PricingCard({
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
+                    className="mt-1 w-full min-w-0 rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
                     placeholder="Jane Smith"
                     required
                   />
                 </label>
-                <label className="block text-xs text-cream/70">
+                <label className="block min-w-0 text-xs text-cream/70">
                   Email
                   <input
                     type="email"
@@ -292,12 +292,12 @@ export function PricingCard({
                     autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
+                    className="mt-1 w-full min-w-0 rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
                     placeholder="you@example.com"
                     required
                   />
                 </label>
-                <label className="block text-xs text-cream/70">
+                <label className="block min-w-0 text-xs text-cream/70">
                   Phone (optional)
                   <input
                     type="tel"
@@ -305,7 +305,7 @@ export function PricingCard({
                     autoComplete="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="mt-1 w-full rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
+                    className="mt-1 w-full min-w-0 rounded-md border border-cream/20 bg-transparent px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre/60 focus:outline-none"
                     placeholder="(805) 555‑1234"
                   />
                 </label>
@@ -314,7 +314,7 @@ export function PricingCard({
                 type="button"
                 onClick={startCheckout}
                 disabled={busy}
-                className="inline-flex items-center justify-center rounded-full bg-tile px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60"
+                className="inline-flex max-w-full items-center justify-center rounded-full bg-tile px-5 py-3.5 text-center text-sm font-medium whitespace-normal text-cream transition-colors hover:bg-[#a83b27] disabled:pointer-events-none disabled:opacity-60 sm:px-7"
                 id="pricing-start-cta"
               >
                 {busy
@@ -325,7 +325,7 @@ export function PricingCard({
                 variant="ghost"
                 tone="dark"
                 href={primaryCta.href}
-                className="whitespace-nowrap text-[13px] sm:text-sm"
+                className="max-w-full text-[13px] whitespace-normal sm:text-sm sm:whitespace-nowrap"
               >
                 Rather talk first? Book a call
               </Button>

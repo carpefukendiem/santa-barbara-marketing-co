@@ -14,7 +14,7 @@ import { loadPurchaseSummary } from '@/lib/loadPurchaseSummary';
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: 'You are in | Santa Barbara Marketing Co.',
+    title: 'You are in',
     description:
       'Payment received for the Local Lead Plan. We enroll you from the payment, then email next steps.',
     path: '/get-started/started',

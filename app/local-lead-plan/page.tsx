@@ -12,7 +12,7 @@ import { primaryCta } from '@/data/navigation';
 import { formatUsd } from '@/lib/utils';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'The Local Lead Plan | Santa Barbara Marketing Co.',
+  title: 'The Local Lead Plan',
   description:
     'The Local Lead Plan is $297/mo, or $2,970/yr with 2 months free. Website, Local SEO, review requests, and follow-up for Santa Barbara businesses. Optional add-ons are separate.',
   path: '/local-lead-plan',

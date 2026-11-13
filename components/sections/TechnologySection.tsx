@@ -47,14 +47,14 @@ export function TechnologySection() {
               </Button>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-x-12 gap-y-16 lg:col-span-6 lg:col-start-7">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-16 lg:col-span-6 lg:col-start-7 lg:gap-x-12">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="min-w-0">
                 <p
                   className={
                     stat.giant
-                      ? 'font-display text-[7.5rem] leading-none font-light text-cream'
-                      : 'font-display text-6xl leading-none font-light text-cream'
+                      ? 'font-display text-[clamp(3.5rem,18vw,7.5rem)] leading-none font-light text-cream lg:text-[7.5rem]'
+                      : 'font-display text-[clamp(2.5rem,11vw,3.75rem)] leading-none font-light text-cream lg:text-6xl'
                   }
                 >
                   {stat.node}

@@ -44,11 +44,14 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden bg-navy pb-24 text-cream lg:pb-0">
-      <div className="mx-auto max-w-[1440px] px-6 py-16 lg:px-14">
-        <p className="border-b border-cream/20 pb-10 font-display text-[clamp(3rem,8vw,7.5rem)] font-light leading-[0.95] text-cream lg:whitespace-nowrap">
-          Santa Barbara Marketing Co.
-        </p>
+    <footer className="footer-badge relative overflow-hidden bg-navy pb-24 text-cream lg:pb-0">
+      <div className="relative mx-auto max-w-[1440px] px-6 py-16 lg:px-14">
+        <div className="footer-wordmark-wrap border-b border-cream/20 pb-10">
+          <p className="footer-wordmark font-display font-light leading-[0.95] text-cream">
+            <span className="footer-wordmark-line">Santa Barbara</span>{' '}
+            <span className="footer-wordmark-line">Marketing Co.</span>
+          </p>
+        </div>
         <div className="mt-12 grid gap-12 xl:grid-cols-[16rem_minmax(0,1fr)]">
           <div>
             <Link href="/" className="inline-block max-w-[320px]">
@@ -107,7 +110,9 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-3 border-t border-cream/20 pt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+      </div>
+      <div className="relative bg-navy">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-cream/20 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/60 sm:flex-row sm:items-center sm:justify-between lg:px-14">
           <p>
             © {year} Santa Barbara Marketing Co. · Santa Barbara, California · Est.{' '}
             {site.founded}
