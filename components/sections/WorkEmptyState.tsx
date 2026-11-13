@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { primaryCta } from '@/data/navigation';
+import { site } from '@/data/site';
 
 const fields = [
   {
@@ -66,7 +67,7 @@ export function WorkEmptyState() {
         variant="simple"
         eyebrow="Our work"
         title="We will publish case studies when the numbers are real."
-        subhead="Santa Barbara Marketing Co. was founded in 2024. We do not have a drawer of invented testimonials, and we will not fill this page with composite clients, rounded-up percentages, or screenshots from a demo account. When a client gives permission and we can verify the figures, the study will live here. Until then, this page is the standard those studies have to meet."
+        subhead={`Santa Barbara Marketing Co. was founded in ${site.founded}. We do not have a drawer of invented testimonials, and we will not fill this page with composite clients, rounded-up percentages, or screenshots from a demo account. When a client gives permission and we can verify the figures, the study will live here. Until then, this page is the standard those studies have to meet.`}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Work' },
