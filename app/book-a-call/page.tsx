@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Section';
-import { GhlCalendarEmbed } from '@/components/booking/BookCallModal';
+import { BookingCalendarEmbed } from '@/components/booking/BookCallModal';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
@@ -65,7 +65,7 @@ export default function BookACallPage() {
             </ul>
           </div>
           <div className="overflow-hidden lg:col-span-7">
-            <GhlCalendarEmbed />
+            <BookingCalendarEmbed />
           </div>
         </div>
       </Section>

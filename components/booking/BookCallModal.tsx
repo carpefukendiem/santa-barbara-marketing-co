@@ -100,7 +100,7 @@ export function BookCallProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function GhlCalendarEmbed({
+export function BookingCalendarEmbed({
   className,
   fallback = true,
 }: {
@@ -161,7 +161,7 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
             Close
           </button>
         </div>
-        <GhlCalendarEmbed fallback={false} />
+        <BookingCalendarEmbed fallback={false} />
       </div>
     </div>
   );

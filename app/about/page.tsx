@@ -22,7 +22,7 @@ import type { LucideIcon } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'About Us',
   description:
-    "We're a Santa Barbara digital marketing agency founded in 2024. Local by residence, proof over promises, one system. Book a Free Call.",
+    "We're a Santa Barbara digital marketing agency founded in 2026. Local by residence, proof over promises, one system. Book a Free Call.",
   path: '/about',
 });
 
@@ -190,9 +190,9 @@ export default function AboutPage() {
             </p>
             <p>
               That posture is how we write service pages, location pages, and
-              this About page. It is also how we will write your site. Long-term
-              partnerships here mean month-to-month or defined project terms,
-              spelled out before an invoice, not a lock-in buried in a PDF.
+              this About page. It is also how we will write your site. Cancel
+              anytime with 30-day written notice, spelled out before an invoice,
+              not a lock-in buried in a PDF.
             </p>
             <h2>Who this is for</h2>
             <p>

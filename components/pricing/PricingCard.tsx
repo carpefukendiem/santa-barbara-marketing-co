@@ -186,7 +186,7 @@ export function PricingCard({
           )}
         >
           ({formatUsd(pricingPlan.monthlyAmount)}×12 = {formatUsd(pricingPlan.monthlyAmount * 12)} vs{' '}
-          {formatUsd(pricingPlan.annualAmount)} annual — {formatUsd(pricingPlan.monthlyAmount * 12 - pricingPlan.annualAmount)} saved)
+          {formatUsd(pricingPlan.annualAmount)} annual, {formatUsd(pricingPlan.monthlyAmount * 12 - pricingPlan.annualAmount)} saved)
         </p>
       ) : null}
 
@@ -319,7 +319,7 @@ export function PricingCard({
               >
                 {busy
                   ? 'Starting checkout…'
-                  : `Start the Local Lead Plan — ${formatUsd(charges.dueToday)} today`}
+                  : `Start the Local Lead Plan, ${formatUsd(charges.dueToday)} today`}
               </button>
               <Button
                 variant="ghost"
@@ -350,12 +350,12 @@ export function PricingCard({
                     Discover
                   </span>
                 </div>
-                <p className="text-xs leading-snug text-cream/85">Cancel with 30-day written notice.</p>
+                <p className="text-xs leading-snug text-cream/85">Cancel anytime with 30-day written notice.</p>
                 {pricingTestimonial?.text ? (
                   <blockquote className="mt-2 text-xs text-cream/80">
                     “{pricingTestimonial.text}”
                     {pricingTestimonial.author ? (
-                      <span className="ml-2 text-cream/60">— {pricingTestimonial.author}</span>
+                      <span className="ml-2 text-cream/60">, {pricingTestimonial.author}</span>
                     ) : null}
                   </blockquote>
                 ) : null}

@@ -148,7 +148,7 @@ export function ServicePageContent({ service }: { service: Service }) {
               <p>
                 This is a description of the work, not a ranking or revenue promise.
                 Ads can produce calls once tracking is in place. A marketing site is
-                typically live in four to eight weeks if content arrives on time.
+                typically live in 3 to 6 weeks if content arrives on time.
                 Local SEO usually takes three to six months before Map Pack movement
                 is meaningful. We will tell you which of those clocks applies before
                 you start.

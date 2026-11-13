@@ -1,21 +1,9 @@
 import { buildMetadata } from '@/lib/seo';
 import { Hero } from '@/components/sections/Hero';
-import { ServicesGrid } from '@/components/sections/ServicesGrid';
-import { HowWeWork } from '@/components/sections/HowWeWork';
-import { LocalPanel } from '@/components/sections/LocalPanel';
-import { CommunityGrid } from '@/components/sections/CommunityGrid';
-import { LocalSeoSection } from '@/components/sections/LocalSeoSection';
-import { TechnologySection } from '@/components/sections/TechnologySection';
-import { CaseStudyFeature } from '@/components/sections/CaseStudyFeature';
-import { IndustriesStrip } from '@/components/sections/IndustriesStrip';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { CtaBand } from '@/components/sections/CtaBand';
-import { FaqContact } from '@/components/sections/FaqContact';
+import { HomeTrim } from '@/components/sections/HomeTrim';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { faqPageSchema, professionalServiceSchema } from '@/lib/schema';
 import { homepageFaqs } from '@/data/faqs';
-import { caseStudies } from '@/data/caseStudies';
-import { testimonials } from '@/data/testimonials';
 import { site } from '@/data/site';
 import { absoluteUrl } from '@/lib/utils';
 
@@ -43,17 +31,7 @@ export default function HomePage() {
         ]}
       />
       <Hero />
-      <ServicesGrid />
-      <HowWeWork />
-      <LocalPanel />
-      <CommunityGrid />
-      <LocalSeoSection />
-      <TechnologySection />
-      <CaseStudyFeature items={caseStudies} />
-      <IndustriesStrip />
-      <Testimonials items={testimonials} />
-      <CtaBand />
-      <FaqContact />
+      <HomeTrim />
     </>
   );
 }

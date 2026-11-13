@@ -76,11 +76,11 @@ export const pricingPlan = {
     },
     {
       title: 'We build the system',
-      body: 'A website is typically four to eight weeks when content arrives on time. Automations and the listing follow the same plan.',
+      body: 'A website is typically 3 to 6 weeks when content arrives on time. Automations and the listing follow the same plan.',
     },
     {
       title: 'Launch',
-      body: 'We walk through what is live, what you have to do, and how we will report. Monthly or annual billing continues until you cancel with 30-day written notice.',
+      body: 'We walk through what is live, what you have to do, and how we will report. Monthly or annual billing continues until you cancel. Cancel anytime with 30-day written notice.',
     },
   ],
 } as const;
