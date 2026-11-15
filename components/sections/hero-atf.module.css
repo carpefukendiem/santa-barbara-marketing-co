@@ -1000,3 +1000,132 @@
     text-transform: uppercase;
   }
 }
+
+/* Slim direct-response hero (homepage rewrite) */
+.heroSlim {
+  max-width: 760px;
+  padding: 28px 20px 40px;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 22px;
+  width: min(100%, 420px);
+}
+
+.heroSlim .heroCta,
+.heroSlim .heroSecondary {
+  display: flex;
+}
+
+.heroSlim .heroCta {
+  width: 100%;
+  margin-top: 0;
+  padding: 15px 20px;
+  font-size: clamp(0.9688rem, 0.8875rem + 0.3333vw, 1.125rem);
+  white-space: normal;
+  text-align: center;
+  box-shadow: var(--sh-cta);
+}
+
+.heroSlim .heroCta svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.heroSlim .heroSecondary {
+  width: 100%;
+  color: var(--cream);
+  font-size: clamp(0.875rem, 0.8286rem + 0.1905vw, 1rem);
+  font-weight: 600;
+  justify-content: center;
+}
+
+.heroSlim .support {
+  max-width: 42em;
+}
+
+.heroSlim .h1 {
+  font-size: clamp(1.625rem, 1.1rem + 2.2vw, 2.75rem);
+}
+
+.riskStrip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 42em;
+}
+
+.riskStrip li {
+  position: relative;
+  padding-left: 1.1em;
+  color: var(--cream-86);
+  font-size: clamp(0.8438rem, 0.7973rem + 0.1905vw, 0.9688rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.riskStrip li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ochre);
+}
+
+@media (min-width: 1100px) {
+  .heroSlim {
+    padding: 48px clamp(40px, 5.556vw, 80px) 72px;
+  }
+
+  .heroActions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: auto;
+    max-width: none;
+    gap: 14px 22px;
+  }
+
+  .heroSlim .heroCta {
+    width: auto;
+    min-width: 280px;
+    padding: 19px 28px;
+    white-space: nowrap;
+  }
+
+  .heroSlim .heroSecondary {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .riskStrip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 28px;
+  }
+
+  .riskStrip li {
+    padding: 8px 14px 8px 1.85em;
+    border: 1px solid var(--cream-22);
+    border-radius: 999px;
+    background: var(--cream-05);
+  }
+
+  .riskStrip li::before {
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

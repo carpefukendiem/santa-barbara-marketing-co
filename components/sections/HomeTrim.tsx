@@ -3,51 +3,22 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import Link from 'next/link';
 import pricingStyles from '@/components/pricing/pricing-page.module.css';
+import {
+  ANCHOR_PRICES,
+  SHOW_WEBSITE_GUARANTEE,
+  SPOTS_PER_MONTH,
+  addOns,
+  finalCta,
+  guarantee,
+  homepageFaqCopy,
+  howItWorks,
+  painSection,
+  scarcityCopy,
+  serviceArea,
+  stackItems,
+  valueAnchor,
+} from '@/data/homepage';
 import styles from './home-trim.module.css';
-
-const crmPrimary = [
-  ['Full CRM', 'Contacts, conversations, and customer history in one place, set up under your name.'],
-  ['Pipelines', 'See every lead and where they stand.'],
-  ['Booking and calendars', 'Customers can schedule with you.'],
-  ['Email marketing', 'Plus automated email follow-ups.'],
-  ['Texting and missed-call text-back', 'If you miss a call, they get a text.'],
-] as const;
-
-const crmExtra = [
-  ['Website chat', 'Visitors can message you from the site.'],
-  ['Forms', 'Capture leads on the site.'],
-  ['Automations', 'Follow-up that runs without you chasing it.'],
-  ['Review requests', 'Ask happy customers for reviews.'],
-  ['Reporting', 'See activity from your own account.'],
-  ['Mobile app', 'We set it up and train you.'],
-] as const;
-
-const doneForYou = [
-  ['Custom website', 'Fast, mobile-first website, fully integrated and connected to the CRM.'],
-  ['First review request or offer blast', 'Sent to your customer list.'],
-  ['Monthly reporting', 'We walk you through what’s working.'],
-  ['Local SEO', 'Show up locally.'],
-] as const;
-
-const faqs = [
-  ['How fast is my site live?', 'In 3 to 6 weeks.'],
-  ['What does it cost?', 'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free).'],
-  ['What’s not included?', 'Ad spend, Google Business Profile rebuilds, and print. They are quoted separately if you want them.'],
-  ['How do I cancel?', 'Cancel anytime with 30-day written notice.'],
-  ['Do I need to be tech-savvy?', 'No. We set it up under your name, train you in person, and handle it for you.'],
-] as const;
-
-const cities = ['Santa Barbara', 'Goleta', 'Carpinteria', 'Montecito'] as const;
-
-function CheckDot() {
-  return (
-    <span className={styles.incDot} aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#0B1F33" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 12.5l4.2 4.2L19 7.5" />
-      </svg>
-    </span>
-  );
-}
 
 function ArrowIcon() {
   return (
@@ -99,8 +70,8 @@ function HomePriceCard() {
   const unit = annual ? '/yr' : '/mo';
   const orLine = annual ? 'Or $297/mo' : 'Or $2,970/yr, 2 months free';
   const cta = annual
-    ? 'Start The Local Lead Plan, $2,970/yr'
-    : 'Start The Local Lead Plan, $297/mo';
+    ? 'Start The Local Lead Plan — $2,970/yr'
+    : 'Start The Local Lead Plan — $297/mo';
 
   function select(next: boolean) {
     setAnnual(next);
@@ -180,172 +151,80 @@ function HomePriceCard() {
         <li className={pricingStyles.brand}>AmEx</li>
         <li className={pricingStyles.brand}>Discover</li>
       </ul>
-      <p className={styles.notIncluded}>
-        <strong>Not included:</strong> ad spend, GBP rebuilds, print.
-      </p>
     </div>
   );
 }
 
 export function HomeTrim() {
-  const [expanded, setExpanded] = useState(false);
+  const anchorPrices = ANCHOR_PRICES;
+  const spotsPerMonth = SPOTS_PER_MONTH;
+  const showAnchor = anchorPrices != null && anchorPrices.length > 0;
+  const showScarcity = typeof spotsPerMonth === 'number' && spotsPerMonth > 0;
 
   return (
-    <div className={`${styles.root}${expanded ? ` ${styles.expanded}` : ''}`}>
-      <section className={styles.sec} id="included" aria-labelledby="inc-title">
+    <div className={styles.root}>
+      <section className={styles.sec} id="pain" aria-labelledby="pain-title">
         <div className={styles.wrap}>
-          <div className={styles.head}>
-            <div>
-              <p className={styles.kicker}>What’s included</p>
-              <h2 className={styles.h2} id="inc-title">
-                Your full CRM, and the work we do for you.
-              </h2>
-            </div>
-            <p className={styles.lede}>
-              All in The Local Lead Plan, for one monthly price. Set up under your name.
-            </p>
-          </div>
-
-          <div className={styles.incGrid}>
-            <div className={styles.incCard}>
-              <div className={styles.incCardH}>
-                <span className={styles.lab}>Your full CRM</span>
-                <span className={styles.sub}>What the system does</span>
-              </div>
-              <p className={styles.incSubh}>Catch every lead and follow up until it books.</p>
-              <ul className={styles.incList}>
-                {crmPrimary.map(([name, outcome]) => (
-                  <li key={name}>
-                    <CheckDot />
-                    <span>
-                      <span className={styles.incName}>{name}</span>
-                      <span className={styles.incOut}>{outcome}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <ul className={styles.incList}>
-                {crmExtra.map(([name, outcome]) => (
-                  <li key={name} className={styles.crmExtra}>
-                    <CheckDot />
-                    <span>
-                      <span className={styles.incName}>{name}</span>
-                      <span className={styles.incOut}>{outcome}</span>
-                    </span>
-                  </li>
-                ))}
-                <li className={styles.crmExtra}>
-                  <span className={`${styles.incDot} ${styles.incDotPlus}`} aria-hidden="true">
-                    +
-                  </span>
-                  <span>
-                    <span className={styles.incName}>Plus the other built-in tools.</span>
-                  </span>
-                </li>
-              </ul>
-              <button
-                type="button"
-                className={styles.seeAll}
-                aria-expanded={expanded}
-                onClick={() => setExpanded((value) => !value)}
-              >
-                <span className={styles.whenClosed}>See everything included</span>
-                <span className={styles.whenOpen}>Show less</span>
-              </button>
-            </div>
-
-            <div className={`${styles.incCard} ${styles.incCardNavy}`}>
-              <div className={styles.incCardH}>
-                <span className={styles.lab}>Done for you</span>
-                <span className={styles.sub}>Also included</span>
-              </div>
-              <p className={styles.incSubh}>Built and run by us, so your hours stay on paying work.</p>
-              <ul className={styles.incList}>
-                {doneForYou.map(([name, outcome]) => (
-                  <li key={name}>
-                    <CheckDot />
-                    <span>
-                      <span className={styles.incName}>{name}</span>
-                      <span className={styles.incOut}>{outcome}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <h2 className={styles.h2} id="pain-title">
+            {painSection.h2}
+          </h2>
+          <ul className={styles.painList}>
+            {painSection.bullets.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+          <p className={styles.painCloser}>{painSection.closer}</p>
         </div>
       </section>
 
-      <section className={`${styles.sec} ${styles.secNavy}`} id="how-it-starts" aria-labelledby="how-title">
+      <section className={`${styles.sec} ${styles.secNavy}`} id="stack" aria-labelledby="stack-title">
         <div className={styles.wrap}>
-          <div className={styles.head}>
-            <div>
-              <p className={styles.kicker}>How it starts</p>
-              <h2 className={styles.h2} id="how-title">
-                From first call to a system that works while you work.
-              </h2>
-            </div>
-            <p className={styles.lede}>
-              The same four steps as above. A local team sets it up with you in person, then trains you to run it.
-            </p>
-          </div>
-          <ol className={styles.steps}>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>1</span>
-              <div>
-                <p className={styles.stepTitle}>Start the plan or book a call.</p>
-                <p className={styles.stepBody}>Secure checkout by Stripe, or talk it through first.</p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>2</span>
-              <div>
-                <p className={styles.stepTitle}>We come meet you.</p>
-                <p className={styles.stepBody}>A local team, in person, to learn the business.</p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>3</span>
-              <div>
-                <p className={styles.stepTitle}>Optional add-ons, if you want them.</p>
-                <p className={styles.stepBody}>
-                  <span className={styles.stepTag}>Optional · not in $297</span>
-                  <br />
-                  Voice AI answers calls when you can’t, $99/mo. Chat AI handles chats when you can’t, $29/mo. Add
-                  either, both, or neither. Website chat is included.
-                </p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>4</span>
-              <div>
-                <p className={styles.stepTitle}>We set it all up.</p>
-                <p className={styles.stepBody}>Website, full CRM, follow-up, and the app, then we train you.</p>
-              </div>
-            </li>
+          <h2 className={styles.h2} id="stack-title">
+            Here’s Exactly What You Get
+          </h2>
+          <ol className={styles.stackList}>
+            {stackItems.map((item, index) => (
+              <li key={item.title} className={styles.stackItem}>
+                <span className={styles.stackNum} aria-hidden="true">
+                  {index + 1}
+                </span>
+                <div className={styles.stackBody}>
+                  <div className={styles.stackTitleRow}>
+                    <h3 className={styles.stackTitle}>{item.title}</h3>
+                    {item.tag ? <span className={styles.stackTag}>{item.tag}</span> : null}
+                  </div>
+                  <p className={styles.stackDesc}>{item.description}</p>
+                </div>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
 
-      <section className={styles.sec} id="local" aria-labelledby="local-title">
-        <div className={styles.wrap}>
-          <p className={styles.kicker}>Santa Barbara and nearby</p>
-          <h2 className={styles.h2} id="local-title">
-            We come to you.
-          </h2>
-          <p className={styles.localNote}>
-            In-person setup and training in Santa Barbara, Goleta, Carpinteria, and Montecito.
-          </p>
-          <div className={styles.localCities} aria-label="Cities we come to">
-            {cities.map((city) => (
-              <span key={city} className={styles.localCity}>
-                <i aria-hidden="true" />
-                {city}
-              </span>
-            ))}
+      {showAnchor && anchorPrices ? (
+        <section className={styles.sec} id="value-anchor" aria-labelledby="anchor-title">
+          <div className={styles.wrap}>
+            <h2 className={styles.h2} id="anchor-title">
+              {valueAnchor.h2}
+            </h2>
+            <div className={styles.anchorTableWrap}>
+              <table className={styles.anchorTable}>
+                <caption className={styles.srOnly}>{valueAnchor.h2}</caption>
+                <tbody>
+                  {anchorPrices.map((row) => (
+                    <tr key={row.label} className={row.isTotal ? styles.anchorTotal : undefined}>
+                      <th scope="row">{row.label}</th>
+                      <td>{row.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className={styles.anchorPrice}>{valueAnchor.yourPrice}</p>
+            <p className={styles.anchorAnnual}>{valueAnchor.annualLine}</p>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className={`${styles.sec} ${styles.secPrice}`} id="price" aria-labelledby="price-title">
         <div className={styles.priceShell}>
@@ -359,6 +238,89 @@ export function HomeTrim() {
         </div>
       </section>
 
+      <section className={styles.sec} id="guarantee" aria-labelledby="guarantee-title">
+        <div className={styles.wrapNarrow}>
+          <h2 className={styles.h2} id="guarantee-title">
+            {guarantee.h2}
+          </h2>
+          <p className={styles.guaranteePrimary}>{guarantee.primary}</p>
+          {SHOW_WEBSITE_GUARANTEE ? <p className={styles.guaranteeSecondary}>{guarantee.website}</p> : null}
+        </div>
+      </section>
+
+      {showScarcity && spotsPerMonth != null ? (
+        <section className={`${styles.sec} ${styles.secNavy}`} id="scarcity" aria-labelledby="scarcity-title">
+          <div className={styles.wrapNarrow}>
+            <h2 className={styles.h2} id="scarcity-title">
+              {scarcityCopy.h2}
+            </h2>
+            <p className={styles.lede}>{scarcityCopy.body(spotsPerMonth)}</p>
+            <div className={styles.closeActions}>
+              <Link className={styles.closeBtn} href="/get-started">
+                {scarcityCopy.primaryCta} <CloseArrow />
+              </Link>
+              <Link className={`${styles.closeBtn} ${styles.closeBtnSec}`} href="/book-a-call">
+                {scarcityCopy.secondaryCta} <CloseArrow />
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className={styles.sec} id="add-ons" aria-labelledby="addons-title">
+        <div className={styles.wrap}>
+          <h2 className={styles.h2} id="addons-title">
+            {addOns.h2}
+          </h2>
+          <ul className={styles.addonList}>
+            {addOns.items.map((item) => (
+              <li key={item.title} className={styles.addonItem}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className={styles.addonNote}>{addOns.note}</p>
+        </div>
+      </section>
+
+      <section className={`${styles.sec} ${styles.secNavy}`} id="how-it-works" aria-labelledby="how-title">
+        <div className={styles.wrap}>
+          <h2 className={styles.h2} id="how-title">
+            {howItWorks.h2}
+          </h2>
+          <ol className={styles.steps}>
+            {howItWorks.steps.map((step, index) => (
+              <li key={step.title} className={styles.step}>
+                <span className={styles.stepNum}>{index + 1}</span>
+                <div>
+                  <p className={styles.stepTitle}>{step.title}</p>
+                  <p className={styles.stepBody}>{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className={styles.sec} id="local" aria-labelledby="local-title">
+        <div className={styles.wrap}>
+          <p className={styles.kicker}>{serviceArea.kicker}</p>
+          <h2 className={styles.h2} id="local-title">
+            {serviceArea.h2}
+          </h2>
+          <p className={styles.localNote}>{serviceArea.note}</p>
+          <div className={styles.localCities} aria-label="Cities we come to">
+            {serviceArea.cities.map((city) => (
+              <span key={city} className={styles.localCity}>
+                <i aria-hidden="true" />
+                {city}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className={styles.sec} id="faq" aria-labelledby="faq-title">
         <div className={styles.wrap}>
           <p className={styles.kicker}>Questions</p>
@@ -366,10 +328,10 @@ export function HomeTrim() {
             A few straight answers.
           </h2>
           <div className={styles.faqList}>
-            {faqs.map(([question, answer]) => (
-              <div key={question} className={styles.faqItem}>
-                <h3>{question}</h3>
-                <p>{answer}</p>
+            {homepageFaqCopy.map((item) => (
+              <div key={item.question} className={styles.faqItem}>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
               </div>
             ))}
           </div>
@@ -380,15 +342,15 @@ export function HomeTrim() {
         <div className={styles.wrap}>
           <p className={styles.kicker}>The Local Lead Plan</p>
           <h2 className={styles.h2} id="close-title">
-            Start the plan, or book a free call.
+            {finalCta.h2}
           </h2>
-          <p className={styles.lede}>$297/mo, or $2,970/yr. Cancel anytime with 30-day written notice.</p>
+          <p className={styles.lede}>{finalCta.sub}</p>
           <div className={styles.closeActions}>
             <Link className={styles.closeBtn} href="/get-started">
-              Start the plan <CloseArrow />
+              {finalCta.primary} <CloseArrow />
             </Link>
             <Link className={`${styles.closeBtn} ${styles.closeBtnSec}`} href="/book-a-call">
-              Book a free call <CloseArrow />
+              {finalCta.secondary} <CloseArrow />
             </Link>
           </div>
           <p className={styles.closeContact}>

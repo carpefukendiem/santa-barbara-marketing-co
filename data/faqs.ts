@@ -14,31 +14,34 @@ export type FaqItem = {
 export const faqs: FaqItem[] = [
   {
     category: 'homepage',
-    question: 'How fast is my site live?',
-    answer: 'In 3 to 6 weeks.',
+    question: 'Do I need to be tech-savvy?',
+    answer: 'No. We set it up under your name, train you in person, and handle the rest.',
+  },
+  {
+    category: 'homepage',
+    question: 'How fast is the text-back live?',
+    answer: 'Within 7 days of your setup meeting.',
+  },
+  {
+    category: 'homepage',
+    question: 'How fast is my website live?',
+    answer: '3 to 6 weeks.',
   },
   {
     category: 'homepage',
     question: 'What does it cost?',
-    answer:
-      'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free).',
+    answer: 'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free).',
   },
   {
     category: 'homepage',
     question: 'What’s not included?',
     answer:
-      'Ad spend, Google Business Profile rebuilds, and print. They are quoted separately if you want them.',
+      'Ad spend, Google Business Profile rebuilds, and print. These are quoted separately.',
   },
   {
     category: 'homepage',
     question: 'How do I cancel?',
-    answer: 'Cancel anytime with 30-day written notice.',
-  },
-  {
-    category: 'homepage',
-    question: 'Do I need to be tech-savvy?',
-    answer:
-      'No. We set it up under your name, train you in person, and handle it for you.',
+    answer: 'Anytime, with 30-day written notice.',
   },
   {
     category: 'getting-started',
