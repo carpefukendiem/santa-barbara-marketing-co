@@ -13,7 +13,14 @@ export type DemoSlug =
   | 'maya-income-tax-co'
   | 'ocean-nails-spa'
   | 'star-nails-spa'
-  | 'ambiance-nail-care-services';
+  | 'ambiance-nail-care-services'
+  | 'fernandos-smog-check'
+  | 'airport-motors'
+  | 'atlas-muffler-brakes'
+  | 'fairview-motors-brakes-alignment'
+  | 'economy-muffler-brake'
+  | 'kamilas-garage'
+  | 'hiens-auto-repair';
 
 export type DemoHourRow = {
   day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';

@@ -1,0 +1,89 @@
+/* scoped demo styles for .d-airport */
+.d-airport, .d-airport * {box-sizing:border-box}
+.d-airport {-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+.d-airport img {display:block;max-width:100%}
+.d-airport a {color:inherit}
+.d-airport h1,.d-airport h2,.d-airport h3,.d-airport p,.d-airport ul,.d-airport li,.d-airport blockquote,.d-airport cite {margin:0;padding:0}
+.d-airport .map iframe{width:100%;height:100%;min-height:240px;border:0;display:block}
+.d-airport{-webkit-text-size-adjust:100%}.d-airport img{display:block;max-width:100%}.d-airport a{color:inherit}
+.d-airport{--paper:#F4EDE0;--p2:#EAE0CD;--navy:#1F2A5C;--red:#B5232F;--ink:#1B2140;--mut:#545a73;--line:#D8CCB4}
+.d-airport{background:var(--paper);color:var(--ink);font:400 16px/1.6 "Libre Franklin",system-ui,sans-serif}
+.d-airport .w{max-width:1180px;margin:0 auto;padding:0 20px}
+.d-airport .serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+.d-airport .stripe{height:14px;background:linear-gradient(var(--navy) 0 5px,var(--paper) 5px 7px,var(--red) 7px 11px,var(--paper) 11px 12px,var(--navy) 12px)}
+.d-airport header{background:var(--paper);border-bottom:1px solid var(--line)}
+.d-airport .hd{display:flex;align-items:center;justify-content:space-between;height:76px}
+.d-airport .hd .lg{display:flex;align-items:center;min-height:48px}.d-airport .hd .lg img{height:52px;width:auto}
+.d-airport .nav{display:none}
+.d-airport .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;font:700 15px/1 "Libre Franklin";letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:2px solid var(--navy);border-radius:4px}
+.d-airport .btn.n{background:var(--navy);color:#fff}.d-airport .btn.r{background:var(--red);border-color:var(--red);color:#fff}.d-airport .btn.o{color:var(--navy)}
+.d-airport .hd .btn{min-height:44px;padding:0 14px;font-size:14px}
+.d-airport .hero{text-align:center;padding:40px 0 30px}
+.d-airport .est{display:inline-flex;align-items:center;gap:12px;font:700 13px/1 "Libre Franklin";letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.d-airport .est::before, .d-airport .est::after{content:"";width:28px;height:2px;background:var(--red)}
+.d-airport .hero h1{font:400 50px/1.02 "DM Serif Display",serif;color:var(--navy);margin:18px auto 16px;max-width:15ch}
+.d-airport .hero h1 em{color:var(--red)}
+.d-airport .hero .lead{max-width:40ch;margin:0 auto;color:var(--mut);font-size:17px}
+.d-airport .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:24px 0 14px}
+.d-airport .rating{font-size:14px;color:var(--mut)}.d-airport .rating b{color:var(--navy);font-size:16px}
+.d-airport .print{margin:34px auto 0;max-width:460px;background:#fff;padding:12px 12px 16px;box-shadow:0 18px 40px rgba(31,42,92,.18),0 2px 0 var(--line);transform:rotate(-1.2deg);position:relative}
+.d-airport .print img{width:100%;height:auto}
+.d-airport .print figcaption{font:400 italic 18px/1.3 "DM Serif Display",serif;color:var(--navy);margin-top:12px}
+.d-airport .print small{display:block;font:500 13px/1.4 "Libre Franklin";color:var(--mut);margin-top:4px;font-style:normal}
+.d-airport .seal{position:absolute;right:6px;top:-22px;width:92px;height:92px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font:400 30px/0.9 "DM Serif Display";box-shadow:0 6px 16px rgba(0,0,0,.2);transform:rotate(8deg)}
+.d-airport .seal small{display:block;font:700 13px/1 "Libre Franklin";letter-spacing:.14em;margin-bottom:4px}
+.d-airport section{padding:64px 0}
+.d-airport .kick{font:700 13px/1 "Libre Franklin";letter-spacing:.22em;text-transform:uppercase;color:var(--red);text-align:center}
+.d-airport h2{font:400 40px/1.05 "DM Serif Display",serif;color:var(--navy);text-align:center;margin:14px auto 16px;max-width:18ch}
+.d-airport .c{text-align:center;max-width:52ch;margin:0 auto;color:var(--mut)}
+.d-airport .time{position:relative;margin:40px auto 0;max-width:760px}
+.d-airport .time::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--line);transform:translateX(-1px)}
+.d-airport .ev{position:relative;background:var(--paper);text-align:center;padding:10px 0 34px}
+.d-airport .ev .yr{display:inline-block;font:400 56px/1 "DM Serif Display";color:var(--navy);background:var(--paper);padding:0 12px}
+.d-airport .ev .yr.r{color:var(--red)}
+.d-airport .ev h3{font:800 14px/1.2 "Libre Franklin";letter-spacing:.16em;text-transform:uppercase;margin:8px 0 8px;background:var(--paper);display:inline-block;padding:0 8px}
+.d-airport .ev p{max-width:40ch;margin:0 auto;color:var(--mut);background:var(--paper);font-size:16px}
+.d-airport .ev blockquote{max-width:38ch;margin:8px auto 0;font:400 italic 21px/1.35 "DM Serif Display";color:var(--navy);background:var(--paper)}
+.d-airport .svc{background:var(--navy);color:#EEF0F7}
+.d-airport .svc .kick{color:#F0B9BE}.d-airport .svc h2{color:#fff}.d-airport .svc .c{color:#C3C8DC}
+.d-airport .list{margin:34px auto 0;max-width:860px;columns:1;column-gap:48px}
+.d-airport .li{break-inside:avoid;display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid #36427A}
+.d-airport .li b{font:400 22px/1.2 "DM Serif Display";color:#fff}.d-airport .li span{font-size:14px;color:#AEB5D0;margin-left:auto;text-align:right}
+.d-airport .li i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--red);transform:translateY(-2px)}
+.d-airport .svc .fine{margin:22px auto 0;max-width:60ch;text-align:center;font-size:15px;color:#C3C8DC}
+.d-airport .q{display:grid;gap:16px;margin-top:34px}
+.d-airport .q blockquote{background:#fff;border:1px solid var(--line);padding:24px;position:relative;font-size:16px}
+.d-airport .q blockquote::before{content:"\201C";position:absolute;top:-6px;left:16px;font:400 72px/1 "DM Serif Display";color:var(--red)}
+.d-airport .q blockquote p{margin-top:24px}
+.d-airport .q cite{display:block;margin-top:14px;font:600 13px/1.3 "Libre Franklin";font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.d-airport .big{text-align:center;margin-top:8px}.d-airport .big b{font:400 88px/1 "DM Serif Display";color:var(--navy)}.d-airport .big span{display:block;font-size:14px;color:var(--mut);margin-top:6px}
+.d-airport .visit{background:var(--p2)}
+.d-airport .vg{display:grid;gap:18px;margin-top:30px}
+.d-airport .ticket{background:#fff;border:2px solid var(--navy);padding:24px;position:relative}
+.d-airport .ticket .addr{font:400 28px/1.15 "DM Serif Display";color:var(--navy);margin-bottom:16px}
+.d-airport table{width:100%;border-collapse:collapse}.d-airport td{padding:11px 0;border-bottom:1px dashed var(--line)}.d-airport td:last-child{text-align:right;font-weight:600}
+.d-airport tr.today td{color:var(--red);font-weight:800}
+.d-airport .flag{font-size:13px;color:var(--mut);margin-top:12px}
+.d-airport .map{display:block;border:2px solid var(--navy);background:#fff;padding:8px}.d-airport .map img{width:100%;height:auto}
+.d-airport footer{background:var(--navy);color:#C3C8DC;text-align:center;padding:34px 0 26px;font-size:14px}
+.d-airport footer img{height:64px;width:auto;margin:0 auto 14px}
+.d-airport footer a{display:inline-flex;align-items:center;min-height:44px;color:#fff}
+@media(min-width:960px){
+ .d-airport .w{padding:0 40px}
+ .d-airport .hd{height:96px;display:grid;grid-template-columns:1fr auto 1fr}.d-airport .hd .lg img{height:66px}
+ .d-airport .nav{display:flex;gap:26px;font:700 13px/1 "Libre Franklin";letter-spacing:.14em;text-transform:uppercase}.d-airport .nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+ .d-airport .hd .btn{justify-self:end}
+ .d-airport .hero{padding:72px 0 60px}.d-airport .hero h1{font-size:92px;max-width:13ch}.d-airport .hero .lead{font-size:20px}
+ .d-airport .heroG{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;text-align:left}
+ .d-airport .heroG h1, .d-airport .heroG .lead{margin-left:0}.d-airport .heroG .ctas{justify-content:flex-start}.d-airport .heroG .est::before{display:none}
+ .d-airport .print{margin:0;max-width:none}.d-airport .seal{width:120px;height:120px;font-size:40px;right:-30px;top:-34px}
+ .d-airport section{padding:100px 0}.d-airport h2{font-size:62px}
+ .d-airport .list{columns:2}
+ .d-airport .time{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:none;margin-top:56px}.d-airport .time::before{top:30px;left:8%;right:8%;bottom:auto;width:auto;height:2px;transform:none}.d-airport .ev .yr{font-size:64px}.d-airport .ev blockquote{font-size:22px}
+ .d-airport .q{grid-template-columns:repeat(3,1fr)}
+ .d-airport .vg{grid-template-columns:1fr 1.25fr}
+}
+
+.d-airport .bar{position:sticky;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#111214;color:#e9e9ea;font:500 13px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;border-top:1px solid #2a2b2e}
+.d-airport .bar p{margin:0;max-width:62ch}.d-airport .bar .mim{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:#fff;color:#111;font-weight:700;font-size:14px;text-decoration:none}
+@media(min-width:900px){.d-airport .bar{justify-content:center;gap:20px}}
