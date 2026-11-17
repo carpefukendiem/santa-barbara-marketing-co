@@ -1,6 +1,14 @@
 'use client';
 
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
+import type { DemoChromeLocale } from '@/data/demos/types';
 import { telHref } from '@/lib/utils';
 
 const FALLBACK_PHONE = '(805) 307-7600';
@@ -11,9 +19,121 @@ type DemoPreviewChromeProps = {
   /** Exact CRM deal name sent as business_name in the lead payload. */
   crmName: string;
   businessSlug: string;
+  locale?: DemoChromeLocale;
 };
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
+
+type Copy = {
+  barAria: string;
+  barText: (name: string) => string;
+  cta: ReactNode;
+  dismissAria: string;
+  title: ReactNode;
+  closeAria: string;
+  lead: (name: string) => ReactNode;
+  success: ReactNode;
+  name: ReactNode;
+  phone: ReactNode;
+  bestTime: ReactNode;
+  select: string;
+  morning: string;
+  afternoon: string;
+  evening: string;
+  anytime: string;
+  note: ReactNode;
+  companyWebsite: string;
+  requiredError: string;
+  sendError: string;
+  sending: string;
+  send: string;
+};
+
+const EN: Copy = {
+  barAria: 'Demo preview',
+  barText: (name) =>
+    `Free preview built for ${name} by Santa Barbara Marketing Co.`,
+  cta: 'Make it mine',
+  dismissAria: 'Dismiss preview bar',
+  title: 'Make this site yours',
+  closeAria: 'Close',
+  lead: (name) => <>Tell us how to reach you about {name}.</>,
+  success: <>Thanks, we&apos;ll reach out soon.</>,
+  name: 'Name',
+  phone: 'Phone',
+  bestTime: 'Best time to reach you',
+  select: 'Select…',
+  morning: 'Morning',
+  afternoon: 'Afternoon',
+  evening: 'Evening',
+  anytime: 'Anytime',
+  note: 'Note (optional)',
+  companyWebsite: 'Company website',
+  requiredError: 'Name and phone are required.',
+  sendError: `Couldn't send. Call or text ${FALLBACK_PHONE}.`,
+  sending: 'Sending…',
+  send: 'Send',
+};
+
+const ES: Copy = {
+  barAria: 'Vista previa del demo',
+  barText: (name) =>
+    `Vista previa gratis hecha para ${name} por Santa Barbara Marketing Co.`,
+  cta: (
+    <>
+      Hazla mía<small lang="en">Make it mine</small>
+    </>
+  ),
+  dismissAria: 'Cerrar la barra de vista previa',
+  title: (
+    <>
+      Haz tuyo este sitio <small lang="en">Make this site yours</small>
+    </>
+  ),
+  closeAria: 'Cerrar',
+  lead: (name) => (
+    <>
+      Dinos cómo contactarte sobre {name}.{' '}
+      <span lang="en">Tell us how to reach you about {name}.</span>
+    </>
+  ),
+  success: (
+    <>
+      Gracias, te contactaremos pronto.{' '}
+      <span lang="en">Thanks, we&apos;ll reach out soon.</span>
+    </>
+  ),
+  name: (
+    <>
+      Nombre <small lang="en">Name</small>
+    </>
+  ),
+  phone: (
+    <>
+      Teléfono <small lang="en">Phone</small>
+    </>
+  ),
+  bestTime: (
+    <>
+      Mejor hora para llamarte <small lang="en">Best time to reach you</small>
+    </>
+  ),
+  select: 'Elegir…',
+  morning: 'Mañana / Morning',
+  afternoon: 'Tarde / Afternoon',
+  evening: 'Noche / Evening',
+  anytime: 'Cuando sea / Anytime',
+  note: (
+    <>
+      Nota (opcional) <small lang="en">Note (optional)</small>
+    </>
+  ),
+  companyWebsite: 'Sitio web de la empresa',
+  requiredError: 'Nombre y teléfono son obligatorios. / Name and phone are required.',
+  sendError: `No se pudo enviar. Llama o escribe al ${FALLBACK_PHONE}.`,
+  sending: 'Enviando…',
+  send: 'Enviar',
+};
 
 function storageKey(slug: string) {
   return `sbmc-demo-bar-dismissed:${slug}`;
@@ -23,7 +143,9 @@ export function DemoPreviewChrome({
   businessName,
   crmName,
   businessSlug,
+  locale = 'en',
 }: DemoPreviewChromeProps) {
+  const copy = locale === 'es' ? ES : EN;
   const [visible, setVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [formState, setFormState] = useState<FormState>('idle');
@@ -103,7 +225,7 @@ export function DemoPreviewChrome({
 
     if (!name || !phone) {
       setFormState('error');
-      setErrorMessage('Name and phone are required.');
+      setErrorMessage(copy.requiredError);
       return;
     }
 
@@ -129,16 +251,14 @@ export function DemoPreviewChrome({
 
       if (!res.ok) {
         setFormState('error');
-        setErrorMessage(
-          `Couldn't send. Call or text ${FALLBACK_PHONE}.`,
-        );
+        setErrorMessage(copy.sendError);
         return;
       }
 
       setFormState('success');
     } catch {
       setFormState('error');
-      setErrorMessage(`Couldn't send. Call or text ${FALLBACK_PHONE}.`);
+      setErrorMessage(copy.sendError);
     }
   }
 
@@ -146,10 +266,13 @@ export function DemoPreviewChrome({
 
   return (
     <>
-      <div className="sbmc-demo-bar" role="region" aria-label="Demo preview">
-        <p className="sbmc-demo-bar__text">
-          Free preview built for {businessName} by Santa Barbara Marketing Co.
-        </p>
+      <div
+        className="sbmc-demo-bar"
+        role="region"
+        aria-label={copy.barAria}
+        lang={locale}
+      >
+        <p className="sbmc-demo-bar__text">{copy.barText(businessName)}</p>
         <div className="sbmc-demo-bar__actions">
           <button
             type="button"
@@ -160,12 +283,12 @@ export function DemoPreviewChrome({
               setModalOpen(true);
             }}
           >
-            Make it mine
+            {copy.cta}
           </button>
           <button
             type="button"
             className="sbmc-demo-bar__dismiss"
-            aria-label="Dismiss preview bar"
+            aria-label={copy.dismissAria}
             onClick={dismiss}
           >
             <span aria-hidden="true">×</span>
@@ -176,6 +299,7 @@ export function DemoPreviewChrome({
       <dialog
         ref={dialogRef}
         className="sbmc-demo-modal"
+        lang={locale}
         aria-labelledby={titleId}
         aria-describedby={descId}
         onClose={() => {
@@ -193,11 +317,11 @@ export function DemoPreviewChrome({
       >
         <div className="sbmc-demo-modal__panel">
           <div className="sbmc-demo-modal__head">
-            <h2 id={titleId}>Make this site yours</h2>
+            <h2 id={titleId}>{copy.title}</h2>
             <button
               type="button"
               className="sbmc-demo-modal__close"
-              aria-label="Close"
+              aria-label={copy.closeAria}
               onClick={() => {
                 setModalOpen(false);
                 setFormState('idle');
@@ -208,17 +332,17 @@ export function DemoPreviewChrome({
             </button>
           </div>
           <p id={descId} className="sbmc-demo-modal__lead">
-            Tell us how to reach you about {businessName}.
+            {copy.lead(businessName)}
           </p>
 
           {formState === 'success' ? (
             <p className="sbmc-demo-modal__success" role="status">
-              Thanks, we&apos;ll reach out soon.
+              {copy.success}
             </p>
           ) : (
             <form className="sbmc-demo-modal__form" onSubmit={onSubmit} noValidate>
               <label>
-                <span>Name</span>
+                <span>{copy.name}</span>
                 <input
                   ref={firstFieldRef}
                   name="name"
@@ -229,7 +353,7 @@ export function DemoPreviewChrome({
                 />
               </label>
               <label>
-                <span>Phone</span>
+                <span>{copy.phone}</span>
                 <input
                   name="phone"
                   type="tel"
@@ -239,17 +363,17 @@ export function DemoPreviewChrome({
                 />
               </label>
               <label>
-                <span>Best time to reach you</span>
+                <span>{copy.bestTime}</span>
                 <select name="best_time" disabled={formState === 'submitting'} defaultValue="">
-                  <option value="">Select…</option>
-                  <option value="Morning">Morning</option>
-                  <option value="Afternoon">Afternoon</option>
-                  <option value="Evening">Evening</option>
-                  <option value="Anytime">Anytime</option>
+                  <option value="">{copy.select}</option>
+                  <option value="Morning">{copy.morning}</option>
+                  <option value="Afternoon">{copy.afternoon}</option>
+                  <option value="Evening">{copy.evening}</option>
+                  <option value="Anytime">{copy.anytime}</option>
                 </select>
               </label>
               <label>
-                <span>Note (optional)</span>
+                <span>{copy.note}</span>
                 <textarea
                   name="note"
                   rows={3}
@@ -257,7 +381,7 @@ export function DemoPreviewChrome({
                 />
               </label>
               <label className="sbmc-demo-hp" aria-hidden="true">
-                <span>Company website</span>
+                <span>{copy.companyWebsite}</span>
                 <input
                   name="company_website"
                   type="text"
@@ -276,7 +400,7 @@ export function DemoPreviewChrome({
                 className="sbmc-demo-modal__submit"
                 disabled={formState === 'submitting'}
               >
-                {formState === 'submitting' ? 'Sending…' : 'Send'}
+                {formState === 'submitting' ? copy.sending : copy.send}
               </button>
             </form>
           )}

@@ -15,6 +15,7 @@ type DemoMarkupPageProps = {
   /** Mockup body HTML with tokens (__TEL__, __PHONE__, __ADDRESS__, __MAPS_URL__, MAP_TOKEN). */
   markup: string;
   stripDayPrefix?: boolean;
+  lang?: string;
 };
 
 export function addressKicker(address: string): string {
@@ -43,8 +44,14 @@ export function applyDemoMarkup(markup: string, demo: DemoData): string {
   out = out.replaceAll('__ADDRESS_SHORT__', addressKicker(demo.address));
   out = out.replaceAll('__MAPS_URL__', demo.googleMapsUrl);
   out = out.replaceAll('__NAME__', demo.name);
+  if (demo.saturdayHours) {
+    out = out.replaceAll('__SATURDAY_HOURS__', demo.saturdayHours);
+  }
+  if (demo.weekdayHours) {
+    out = out.replaceAll('__WEEKDAY_HOURS__', demo.weekdayHours);
+  }
   out = out.replace(
-    /src="(?!https?:|\/|data:)([^"]+\.(?:jpg|jpeg|png|webp))"/gi,
+    /src="(?!https?:|\/|data:)([^"]+\.(?:jpg|jpeg|png|webp|svg))"/gi,
     `src="/demos/${demo.slug}/$1"`,
   );
   out = out.replaceAll(MAP_TOKEN, mapEmbedHtml(demo.address));
@@ -56,11 +63,16 @@ export function DemoMarkupPage({
   rootClassName,
   markup,
   stripDayPrefix = true,
+  lang,
 }: DemoMarkupPageProps) {
   const html = useMemo(() => applyDemoMarkup(markup, demo), [markup, demo]);
+  const rootLang = lang ?? demo.lang;
 
   return (
-    <div className={`sbmc-demo-page ${rootClassName}`}>
+    <div
+      className={`sbmc-demo-page ${rootClassName}`}
+      {...(rootLang ? { lang: rootLang } : {})}
+    >
       <DemoViewTracker slug={demo.slug} />
       <HoursToday hours={demo.hours} stripDayPrefix={stripDayPrefix} />
       {/* eslint-disable-next-line react/no-danger */}
@@ -69,6 +81,7 @@ export function DemoMarkupPage({
         businessName={demo.name}
         crmName={demo.crmName}
         businessSlug={demo.slug}
+        locale={demo.chromeLocale ?? 'en'}
       />
     </div>
   );

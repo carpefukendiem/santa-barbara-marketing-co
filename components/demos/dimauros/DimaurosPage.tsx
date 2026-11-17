@@ -22,8 +22,11 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
         <div className="wrap hdr">
           <DemoLogo
             logo={demo.logo}
+            tone="dark"
             name={demo.name}
             className="logo"
+            width={180}
+            height={60}
             wordmark={
               <>
                 <b>DIMAURO&apos;S</b>
@@ -261,16 +264,15 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
 
       <footer>
         <div className="wrap">
-          {demo.logo ? (
-            <DemoLogo
-              logo={demo.logo}
-              name={demo.name}
-              className="logo"
-              wordmark={null}
-            />
-          ) : (
-            <b>{demo.name}</b>
-          )}
+          <DemoLogo
+            logo={demo.logo}
+            tone="dark"
+            name={demo.name}
+            className="logo"
+            width={180}
+            height={60}
+            wordmark={<b>{demo.name}</b>}
+          />
           {demo.address} · {demo.phone}
           <div className="credit">Demo site by Santa Barbara Marketing Co</div>
         </div>

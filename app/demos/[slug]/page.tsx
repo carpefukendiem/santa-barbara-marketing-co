@@ -4,9 +4,14 @@ import { getAllDemoSlugs, getDemo } from '@/data/demos';
 import type { DemoSlug } from '@/data/demos';
 import { CoastalPage } from '@/components/demos/coastal/CoastalPage';
 import { DimaurosPage } from '@/components/demos/dimauros/DimaurosPage';
+import { DomingosPage } from '@/components/demos/domingos/DomingosPage';
 import { FairviewPage } from '@/components/demos/fairview/FairviewPage';
+import { GoletaBakeryPage } from '@/components/demos/goleta-bakery/GoletaBakeryPage';
 import { JaviersPage } from '@/components/demos/javiers/JaviersPage';
+import { JewelryMartPage } from '@/components/demos/jewelry-mart/JewelryMartPage';
 import { LaGuerreritaPage } from '@/components/demos/la-guerrerita/LaGuerreritaPage';
+import { MarysPage } from '@/components/demos/marys/MarysPage';
+import { MayaPage } from '@/components/demos/maya/MayaPage';
 import { PrecisionPage } from '@/components/demos/precision/PrecisionPage';
 import { ShearEnvyPage } from '@/components/demos/shear-envy/ShearEnvyPage';
 
@@ -29,6 +34,16 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap',
   'fairview-mattress-furniture':
     'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap',
+  'domingos-cafe':
+    'https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Yellowtail&family=Work+Sans:wght@400;500;600&display=swap',
+  'goleta-bakery':
+    'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500;12..96,75..100,700;12..96,75..100,800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@500&display=swap',
+  'jewelry-mart':
+    'https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap',
+  'marys-beauty-center':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&family=Figtree:wght@400;500;600;700&display=swap',
+  'maya-income-tax-co':
+    'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap',
 };
 
 export function generateStaticParams() {
@@ -78,6 +93,21 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'fairview-mattress-furniture':
       page = <FairviewPage demo={demo} />;
+      break;
+    case 'domingos-cafe':
+      page = <DomingosPage demo={demo} />;
+      break;
+    case 'goleta-bakery':
+      page = <GoletaBakeryPage demo={demo} />;
+      break;
+    case 'jewelry-mart':
+      page = <JewelryMartPage demo={demo} />;
+      break;
+    case 'marys-beauty-center':
+      page = <MarysPage demo={demo} />;
+      break;
+    case 'maya-income-tax-co':
+      page = <MayaPage demo={demo} />;
       break;
     default: {
       const _exhaustive: never = demo.slug;
