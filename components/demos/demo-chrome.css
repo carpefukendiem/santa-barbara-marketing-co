@@ -240,21 +240,26 @@ html[data-demo-bar='on'] {
   max-width: 78px;
 }
 
-/* Dimauro's: ~3:1 full-color badge; ~32–40px tall, ~180px wide on mobile */
+/* Dimauro's: ~3:1 badge; desktop ~48px tall (Ruben), mobile ~52px */
 .d-dimauros .demo-logo-img-wrap {
-  max-height: 44px;
+  max-height: 52px;
 }
 
 .d-dimauros .demo-logo-img {
-  height: 36px !important;
+  height: 48px !important;
   max-width: 180px;
 }
 
 @media (max-width: 480px) {
+  /* DiMauro's only: ~30% bigger mobile logo (40px to 52px tall). */
+  .d-dimauros .demo-logo-img-wrap {
+    max-height: 56px;
+  }
+
   .d-dimauros .demo-logo-img {
-    width: 180px !important;
-    height: auto !important;
-    max-height: 40px;
+    width: auto !important;
+    height: 52px !important;
+    max-width: none;
   }
 
   .d-precision .demo-logo-img {

@@ -17,77 +17,77 @@
 .d-dimauros .contact svg{width:22px;height:22px;flex:none}.d-dimauros .contact small{display:block;font-size:14px;opacity:.75}
 @media (min-width:900px){.d-dimauros .bar{display:none}}
 
-.d-dimauros{--char:#17191c;--steel:#2a2e33;--red:#d42a1f;--paper:#f2efe9;--line:#d8d2c7;--muted:#5c5f63}
+.d-dimauros{--char:#142C64;--steel:#0F2250;--red:#80AAC4;--paper:#EFE7D8;--line:#D9CDB6;--muted:#4B5670;--navy:#142C64;--sky:#80AAC4;--blue:#22618F;--tan:#B8A690;--cream:#F6F4F0;--card:#1C3A7A}
 .d-dimauros{font-family:Archivo,system-ui,sans-serif;background:var(--paper);color:var(--char)}
 .d-dimauros h1,.d-dimauros h2,.d-dimauros h3{font-family:Archivo;font-weight:800;letter-spacing:-.02em;line-height:.98;font-stretch:85%}
 .d-dimauros .mono{font-family:"IBM Plex Mono",monospace}
 .d-dimauros .wrap{padding:0 20px;max-width:1200px;margin:0 auto}
-.d-dimauros .k{font-family:"IBM Plex Mono";font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.d-dimauros .k{font-family:"IBM Plex Mono";font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
 .d-dimauros header{background:var(--char);color:#fff;border-bottom:4px solid var(--red)}
-.d-dimauros .hdr{display:flex;justify-content:space-between;align-items:center;min-height:66px;gap:10px}
-.d-dimauros .logo{text-decoration:none;min-height:44px;display:flex;flex-direction:column;justify-content:center;line-height:1}
+.d-dimauros .hdr{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:12px}
+.d-dimauros .logo{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center;line-height:1}
 .d-dimauros .logo b{font-weight:800;font-size:22px;letter-spacing:-.01em;font-stretch:85%}
-.d-dimauros .logo small{font-family:"IBM Plex Mono";font-size:13px;color:#b9bcc0;margin-top:3px}
-.d-dimauros .hc{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:15px}.d-dimauros .hc svg{width:16px;height:16px}
+.d-dimauros .logo small{font-family:"IBM Plex Mono";font-size:13px;color:#B9C7D8;margin-top:3px}
+.d-dimauros .hc{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700;font-size:15px}.d-dimauros .hc svg{width:16px;height:16px}
 .d-dimauros .nav{display:none}
 .d-dimauros .hero{background:var(--char);color:#fff;position:relative;overflow:hidden}
 .d-dimauros .hero .ph{height:300px;position:relative}
-.d-dimauros .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 50%;filter:contrast(1.05)}
-.d-dimauros .hero .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,25,28,0) 50%,var(--char))}
-.d-dimauros .stamp{position:absolute;top:16px;left:16px;z-index:2;border:2.5px solid #fff;padding:8px 12px;font-family:"IBM Plex Mono";font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-3deg);background:rgba(23,25,28,.5)}
+.d-dimauros .hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;filter:contrast(1.05) saturate(.95)}
+.d-dimauros .hero .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,44,100,0) 45%,var(--char)),linear-gradient(rgba(15,34,80,.28),rgba(15,34,80,.28))}
+.d-dimauros .stamp{position:absolute;top:16px;left:16px;z-index:2;border:2.5px solid #fff;padding:8px 12px;font-family:"IBM Plex Mono";font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-3deg);background:rgba(20,44,100,.88)}
 .d-dimauros .hero .copy{padding:6px 20px 36px}
 .d-dimauros .hero h1{font-size:50px;margin:12px 0 14px;text-transform:uppercase}
 .d-dimauros .hero h1 span{color:var(--red)}
-.d-dimauros .lead{font-size:18px;color:#cfd2d6;max-width:36ch}
+.d-dimauros .lead{font-size:18px;color:#D3DCE8;max-width:36ch}
 .d-dimauros .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.d-dimauros .cta .btn{flex:1 1 150px}
-.d-dimauros .b1{background:var(--red);color:#fff}.d-dimauros .b2{background:#fff;color:var(--char)}
-.d-dimauros .meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#3a3e44;margin-top:24px;border:1px solid #3a3e44}
+.d-dimauros .b1{background:var(--sky);color:var(--navy)}.d-dimauros .b2{background:var(--cream);color:var(--navy)}
+.d-dimauros .meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2B4A86;margin-top:24px;border:1px solid #2B4A86}
 .d-dimauros .meta div{background:var(--char);padding:12px 14px}
 .d-dimauros .meta b{display:block;font-size:21px;font-weight:800;font-stretch:85%}
-.d-dimauros .meta span{font-family:"IBM Plex Mono";font-size:13px;color:#b9bcc0;text-transform:uppercase;letter-spacing:.04em}
+.d-dimauros .meta span{font-family:"IBM Plex Mono";font-size:13px;color:#B9C7D8;text-transform:uppercase;letter-spacing:.04em}
 .d-dimauros section{padding:56px 0}
 .d-dimauros .h2{font-size:40px;margin:10px 0 14px;text-transform:uppercase}
 .d-dimauros .sheet{margin-top:22px;background:#fff;border:1.5px solid var(--char)}
 .d-dimauros .sheet .hd{display:flex;justify-content:space-between;background:var(--char);color:#fff;padding:10px 14px;font-family:"IBM Plex Mono";font-size:13px;letter-spacing:.06em;text-transform:uppercase}
 .d-dimauros .job{display:flex;gap:14px;padding:16px 14px;border-bottom:1px dashed var(--line);align-items:flex-start}
 .d-dimauros .job:last-child{border:0}
-.d-dimauros .job .no{font-family:"IBM Plex Mono";font-weight:600;color:var(--red);font-size:15px;min-width:30px;padding-top:2px}
+.d-dimauros .job .no{font-family:"IBM Plex Mono";font-weight:600;color:var(--blue);font-size:15px;min-width:30px;padding-top:2px}
 .d-dimauros .job h3{font-size:22px;text-transform:uppercase}
 .d-dimauros .job p{font-size:16px;color:var(--muted);margin-top:4px}
-.d-dimauros .dealer{background:var(--red);color:#fff}
-.d-dimauros .dealer .k{color:#ffd6d2}
-.d-dimauros .dealer .h2{color:#fff}
+.d-dimauros .dealer{background:var(--tan);color:var(--navy)}
+.d-dimauros .dealer .k{color:var(--navy)}
+.d-dimauros .dealer .h2{color:var(--navy)}
 .d-dimauros .dealer blockquote{font-size:21px;line-height:1.4;font-weight:500;margin-top:8px}
-.d-dimauros .dealer cite{display:block;font-style:normal;font-family:"IBM Plex Mono";font-size:14px;margin-top:12px;color:#ffe1de}
+.d-dimauros .dealer cite{display:block;font-style:normal;font-family:"IBM Plex Mono";font-size:14px;margin-top:12px;color:var(--navy)}
 .d-dimauros .rob{background:var(--steel);color:#fff}
 .d-dimauros .rob .h2{color:#fff}
-.d-dimauros .rob p{color:#cfd2d6;font-size:18px;max-width:40ch}
-.d-dimauros .rob img{width:100%;height:220px;object-fit:cover;margin-top:24px;filter:grayscale(.3)}
+.d-dimauros .rob p{color:#D3DCE8;font-size:18px;max-width:40ch}
+.d-dimauros .rob img{width:100%;height:220px;object-fit:cover;margin-top:24px;filter:saturate(.9)}
 .d-dimauros .qs{display:grid;gap:12px;margin-top:22px}
-.d-dimauros .qc{background:#202327;border-left:4px solid var(--red);padding:18px 16px}
+.d-dimauros .qc{background:var(--card);border-left:4px solid var(--sky);padding:18px 16px}
 .d-dimauros .qc p{font-size:17px}
-.d-dimauros .qc cite{display:block;font-style:normal;font-family:"IBM Plex Mono";font-size:14px;color:#b9bcc0;margin-top:10px}
+.d-dimauros .qc cite{display:block;font-style:normal;font-family:"IBM Plex Mono";font-size:14px;color:#B9C7D8;margin-top:10px}
 .d-dimauros .score{display:flex;align-items:center;gap:16px;margin-top:20px;border:1.5px solid var(--char);background:#fff;padding:16px}
 .d-dimauros .score b{font-size:64px;font-weight:800;line-height:.9;font-stretch:85%}
-.d-dimauros .score .s{color:var(--red);font-size:20px;letter-spacing:2px}
+.d-dimauros .score .s{color:var(--blue);font-size:20px;letter-spacing:2px}
 .d-dimauros .score small{display:block;font-family:"IBM Plex Mono";font-size:14px;color:var(--muted)}
 .d-dimauros .rv{margin-top:14px;background:#fff;border:1px solid var(--line);padding:18px 16px}
 .d-dimauros .rv p{font-size:17px}.d-dimauros .rv cite{display:block;font-style:normal;font-family:"IBM Plex Mono";font-size:14px;color:var(--muted);margin-top:10px}
 .d-dimauros .visit .hours{margin-top:22px;background:#fff;border:1.5px solid var(--char);font-family:"IBM Plex Mono";font-size:16px}
 .d-dimauros .hours li{border-bottom:1px dashed var(--line)}.d-dimauros .hours li:last-child{border:0}
-.d-dimauros .hours li.today{background:var(--char);color:#fff}.d-dimauros .hours .tag{background:var(--red);color:#fff}
-.d-dimauros .hours li.closed > span:last-child{color:#9a9a9a}
+.d-dimauros .hours li.today{background:var(--char);color:#fff}.d-dimauros .hours .tag{background:var(--sky);color:var(--navy)}
+.d-dimauros .hours li.closed > span:last-child{color:#5E6679}
 .d-dimauros .map{margin-top:14px;border:1.5px solid var(--char);filter:grayscale(.55) contrast(1.05)}
-.d-dimauros .contact{margin-top:14px}.d-dimauros .contact a{background:#fff;border:1px solid var(--line)}.d-dimauros .contact svg{color:var(--red)}
-.d-dimauros footer{background:var(--char);color:#b9bcc0;padding:32px 0;font-size:15px}
+.d-dimauros .contact{margin-top:14px}.d-dimauros .contact a{background:#fff;border:1px solid var(--line)}.d-dimauros .contact svg{color:var(--blue)}
+.d-dimauros footer{background:var(--char);color:#B9C7D8;padding:32px 0;font-size:15px}
 .d-dimauros footer b{color:#fff;font-size:19px;display:block;margin-bottom:6px}
-.d-dimauros .credit{margin-top:16px;padding-top:12px;border-top:1px solid #33373c;font-size:14px;color:#8d9095;font-family:"IBM Plex Mono"}
-.d-dimauros .bar{background:rgba(23,25,28,.97);border-top:3px solid var(--red)}.d-dimauros .bar .b2{background:#fff;color:var(--char)}
+.d-dimauros .credit{margin-top:16px;padding-top:12px;border-top:1px solid #2B4A86;font-size:14px;color:#A9B9D0;font-family:"IBM Plex Mono"}
+.d-dimauros .bar{background:rgba(20,44,100,.97);border-top:3px solid var(--sky)}.d-dimauros .bar .b2{background:var(--cream);color:var(--navy)}
 @media(min-width:900px){
- .d-dimauros .wrap{padding:0 56px}.d-dimauros .nav{display:flex;gap:28px;font-family:"IBM Plex Mono";font-size:14px;text-transform:uppercase}.d-dimauros .nav a{text-decoration:none;color:#e6e6e6}
+ .d-dimauros .wrap{padding:0 56px}.d-dimauros .nav{display:flex;gap:28px;font-family:"IBM Plex Mono";font-size:14px;text-transform:uppercase}.d-dimauros .nav a{text-decoration:none;color:#E6ECF3}
  .d-dimauros .hero .grid{display:grid;grid-template-columns:1fr 1fr;min-height:830px;max-width:none}
  .d-dimauros .hero .ph{height:auto;order:2}
- .d-dimauros .hero .ph:after{background:linear-gradient(90deg,var(--char),rgba(23,25,28,0) 35%)}
+ .d-dimauros .hero .ph:after{background:linear-gradient(90deg,var(--char),rgba(20,44,100,0) 30%),linear-gradient(rgba(15,34,80,.22),rgba(15,34,80,.22))}
  .d-dimauros .hero .copy{padding:70px 48px 50px 7vw;max-width:none}
  .d-dimauros .hero h1{font-size:64px}
  .d-dimauros .h2{font-size:56px}
@@ -106,3 +106,8 @@
  .d-dimauros #reviews .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.d-dimauros #reviews .k,.d-dimauros #reviews .h2,.d-dimauros #reviews .score{grid-column:1/-1}.d-dimauros #reviews .score{max-width:420px}
 
 }
+
+/* v3 retheme (Nov 2026): dark-context kickers use logo sky, footer logo spacing, desktop hero crop for hero-honda.jpg */
+.d-dimauros .hero .k,.d-dimauros .rob .k{color:var(--sky)}
+.d-dimauros footer .logo{margin-bottom:10px}
+@media (min-width:900px){.d-dimauros .hero .ph img{object-position:24% 60%}}
