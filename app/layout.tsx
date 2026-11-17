@@ -1,17 +1,7 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { Inter_Tight, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { SkipLink } from '@/components/layout/SkipLink';
-import { StickyMobileCta } from '@/components/layout/StickyMobileCta';
-import { JsonLd } from '@/components/seo/JsonLd';
-import { organizationSchema, websiteSchema } from '@/lib/schema';
-import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
-import { AttributionCapture } from '@/components/analytics/AttributionCapture';
+import { SiteChrome } from '@/components/layout/SiteChrome';
 import { SITE_URL } from '@/lib/siteUrl';
-import { BookCallProvider } from '@/components/booking/BookCallModal';
-import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
 import { booking } from '@/lib/booking';
 import './globals.css';
 
@@ -67,19 +57,7 @@ export default function RootLayout({
         <link rel="preload" as="script" href={booking.scriptSrc} />
       </head>
       <body className="font-sans antialiased">
-        <AnalyticsScripts />
-        <BookCallProvider>
-          <JsonLd data={[organizationSchema(), websiteSchema()]} />
-          <SkipLink />
-          <Header />
-          <main id="main">{children}</main>
-          <Footer />
-          <StickyMobileCta />
-          <Suspense fallback={null}>
-            <AttributionCapture />
-          </Suspense>
-          <GhlChatWidget />
-        </BookCallProvider>
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

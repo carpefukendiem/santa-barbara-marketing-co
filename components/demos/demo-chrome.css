@@ -1,0 +1,244 @@
+/* SBMC demo preview chrome — neutral, does not restyle demo design */
+
+:root {
+  --sbmc-demo-bar-h: 0px;
+  --sbmc-demo-call-h: 74px;
+}
+
+html[data-demo-bar='on'] {
+  --sbmc-demo-bar-h: 56px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --sbmc-demo-call-h: 0px;
+  }
+  html[data-demo-bar='on'] {
+    --sbmc-demo-bar-h: 48px;
+  }
+}
+
+.sbmc-demo-page {
+  padding-bottom: calc(var(--sbmc-demo-bar-h) + var(--sbmc-demo-call-h)) !important;
+  overflow-x: hidden;
+}
+
+.sbmc-demo-page .bar {
+  bottom: var(--sbmc-demo-bar-h) !important;
+}
+
+.sbmc-demo-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: var(--sbmc-demo-bar-h);
+  padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
+  background: #1a1a1a;
+  color: #e8e8e8;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  border-top: 1px solid #333;
+  box-sizing: border-box;
+}
+
+.sbmc-demo-bar__text {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.sbmc-demo-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.sbmc-demo-bar__cta,
+.sbmc-demo-bar__dismiss,
+.sbmc-demo-modal__close,
+.sbmc-demo-modal__submit {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.sbmc-demo-bar__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 12px;
+  background: #f2f2f2;
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sbmc-demo-bar__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  color: #ccc;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.sbmc-demo-modal {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: calc(100vw - 24px);
+  width: 420px;
+}
+
+.sbmc-demo-modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.sbmc-demo-modal__panel {
+  background: #fff;
+  color: #111;
+  padding: 20px 18px 18px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.sbmc-demo-modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sbmc-demo-modal__head h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.sbmc-demo-modal__close {
+  width: 44px;
+  height: 44px;
+  margin: -8px -8px 0 0;
+  background: transparent;
+  font-size: 24px;
+  color: #444;
+}
+
+.sbmc-demo-modal__lead {
+  margin: 8px 0 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.sbmc-demo-modal__form {
+  display: grid;
+  gap: 12px;
+}
+
+.sbmc-demo-modal__form label {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sbmc-demo-modal__form input,
+.sbmc-demo-modal__form select,
+.sbmc-demo-modal__form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  font: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  background: #fff;
+  color: #111;
+}
+
+.sbmc-demo-modal__form textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.sbmc-demo-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.sbmc-demo-modal__submit {
+  min-height: 48px;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.sbmc-demo-modal__submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.sbmc-demo-modal__error {
+  margin: 0;
+  font-size: 14px;
+  color: #8a1f11;
+}
+
+.sbmc-demo-modal__error a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.sbmc-demo-modal__success {
+  margin: 12px 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.demo-logo-img-wrap {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  max-height: 44px;
+}
+
+.demo-logo-img {
+  width: auto !important;
+  height: 36px !important;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+@media (max-width: 420px) {
+  .sbmc-demo-bar {
+    font-size: 11px;
+    padding-left: 8px;
+    padding-right: 6px;
+  }
+
+  .sbmc-demo-bar__cta {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
