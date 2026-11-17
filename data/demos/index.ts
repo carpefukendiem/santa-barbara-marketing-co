@@ -20,18 +20,26 @@ import { economyDemo } from './economy-muffler-brake';
 import { fairviewDemo } from './fairview-mattress-furniture';
 import { fairviewMotorsDemo } from './fairview-motors-brakes-alignment';
 import { fernandosDemo } from './fernandos-smog-check';
+import { gRuizDemo } from './g-ruiz-income-tax';
 import { goletaBakeryDemo } from './goleta-bakery';
 import { hiensDemo } from './hiens-auto-repair';
+import { hollisterDemo } from './hollister-barbershop';
+import { imperialDemo } from './the-imperial';
 import { javiersDemo } from './javiers-old-town-garage';
 import { jewelryMartDemo } from './jewelry-mart';
 import { kamilasDemo } from './kamilas-garage';
 import { laGuerreritaDemo } from './la-guerrerita';
+import { lilysDemo } from './lilys-nail-spa';
 import { marysDemo } from './marys-beauty-center';
 import { mayaDemo } from './maya-income-tax-co';
+import { neighborTimsDemo } from './neighbor-tims-bbq';
 import { oceanNailsDemo } from './ocean-nails-spa';
 import { precisionMotorcycleDemo } from './precision-motorcycle-service';
+import { riverasDemo } from './riveras-appliance-warehouse';
+import { roundinThirdDemo } from './roundin-third-sports-bar';
 import { shearEnvyDemo } from './shear-envy';
 import { starNailsDemo } from './star-nails-spa';
+import { stPaulDemo } from './st-paul-cleaners-laundry-tailoring';
 import type { DemoData, DemoSlug } from './types';
 
 export type { DemoChromeLocale, DemoData, DemoHourRow, DemoReview, DemoSlug } from './types';
@@ -59,6 +67,14 @@ const demos = {
   [economyDemo.slug]: economyDemo,
   [kamilasDemo.slug]: kamilasDemo,
   [hiensDemo.slug]: hiensDemo,
+  [stPaulDemo.slug]: stPaulDemo,
+  [gRuizDemo.slug]: gRuizDemo,
+  [riverasDemo.slug]: riverasDemo,
+  [imperialDemo.slug]: imperialDemo,
+  [hollisterDemo.slug]: hollisterDemo,
+  [lilysDemo.slug]: lilysDemo,
+  [neighborTimsDemo.slug]: neighborTimsDemo,
+  [roundinThirdDemo.slug]: roundinThirdDemo,
 } as const satisfies Record<string, DemoData>;
 
 export function getDemo(slug: string): DemoData | undefined {

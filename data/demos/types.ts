@@ -20,7 +20,15 @@ export type DemoSlug =
   | 'fairview-motors-brakes-alignment'
   | 'economy-muffler-brake'
   | 'kamilas-garage'
-  | 'hiens-auto-repair';
+  | 'hiens-auto-repair'
+  | 'st-paul-cleaners-laundry-tailoring'
+  | 'g-ruiz-income-tax'
+  | 'riveras-appliance-warehouse'
+  | 'the-imperial'
+  | 'hollister-barbershop'
+  | 'lilys-nail-spa'
+  | 'neighbor-tims-bbq'
+  | 'roundin-third-sports-bar';
 
 export type DemoHourRow = {
   day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
