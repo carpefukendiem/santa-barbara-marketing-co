@@ -10,7 +10,10 @@ export type DemoSlug =
   | 'goleta-bakery'
   | 'jewelry-mart'
   | 'marys-beauty-center'
-  | 'maya-income-tax-co';
+  | 'maya-income-tax-co'
+  | 'ocean-nails-spa'
+  | 'star-nails-spa'
+  | 'ambiance-nail-care-services';
 
 export type DemoHourRow = {
   day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
