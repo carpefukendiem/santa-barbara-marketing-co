@@ -9,6 +9,9 @@ export const precisionMotorcycleDemo: DemoData = {
   title: 'Precision Motorcycle Service · Dan’s independent moto shop, Goleta',
   description:
     'Motorcycle service, parts and tires for street and dirt bikes at 6150 Francis Botello Rd #B, Goleta. Call (805) 967-6163.',
+  listingDescription: "Motorcycle service, parts and tires for street and dirt bikes in Goleta.",
+  category: "Motorcycle service",
+  city: "Goleta",
   address: '6150 Francis Botello Rd #B, Goleta, CA 93117',
   phone: '(805) 967-6163',
   googleMapsUrl:

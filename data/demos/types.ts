@@ -37,6 +37,15 @@ export type DemoData = {
   crmName: string;
   title: string;
   description: string;
+  /**
+   * One-sentence blurb for the /demos index. Factual only — no invented claims.
+   * Required so new registry entries appear on the index with useful copy.
+   */
+  listingDescription: string;
+  /** Business category label for the /demos index (e.g. Nail salon). */
+  category: string;
+  /** City shown on the /demos index (derived from the shop address). */
+  city: string;
   address: string;
   /** Display phone; all tel: hrefs must come from telHref(phone). */
   phone: string;

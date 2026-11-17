@@ -9,6 +9,9 @@ export const dimaurosDemo: DemoData = {
   title: "Dimauro's Independent Honda Acura Repair · Goleta",
   description:
     'Honda and Acura only. Oil, timing belts, brakes, electrical and fuel injection at 5798 Dawson Ave, Goleta. Call (805) 964-1032.',
+  listingDescription: "Honda and Acura only — oil, timing belts, brakes, electrical and fuel injection in Goleta.",
+  category: "Auto repair",
+  city: "Goleta",
   address: '5798 Dawson Ave, Goleta, CA 93117',
   phone: '(805) 964-1032',
   googleMapsUrl:

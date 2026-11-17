@@ -61,11 +61,24 @@ Create a custom field named `message` in the GoHighLevel subaccount if it does n
 
 See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/ANALYTICS.md).
 
+## Prospect demos (`/demos`)
+
+Private, noindex preview sites for local businesses live under `/demos/<slug>`. The `/demos` index lists every entry in `data/demos/` automatically — there is no separate hand-maintained link list.
+
+To add a demo so it appears on the index and at `/demos/<slug>`:
+
+1. Add `data/demos/<slug>.ts` with `DemoData` (include `listingDescription`, `category`, and `city`).
+2. Register it in `data/demos/index.ts`.
+3. Wire the page component in `app/demos/[slug]/page.tsx`.
+
+Unfinished prospects stay off the index by not being registered. `/demos` and `/demos/*` are noindex/nofollow (metadata + `X-Robots-Tag`) and disallowed in `robots.txt`. Do not add them to the sitemap.
+
 ## How to edit content
 
 | File | What it controls |
 | --- | --- |
 | `data/site.ts` | Name, URL, email, phone, geo, social, contact details |
+| `data/demos/` | Prospect demo registry + `/demos` index |
 | `data/navigation.ts` | Header, mega menu, footer, breadcrumbs |
 | `data/services.ts` | Digital marketing service pages |
 | `data/printServices.ts` | Print & apparel service pages and hub |

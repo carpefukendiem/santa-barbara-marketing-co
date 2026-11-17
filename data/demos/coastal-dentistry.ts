@@ -9,6 +9,9 @@ export const coastalDentistryDemo: DemoData = {
   title: 'Coastal Dentistry · Dr. Loan Su, Goleta dentist',
   description:
     'Dr. Loan Su, general dentistry and cleanings at 5973 Encina Rd #108, Goleta. Call (805) 683-3801.',
+  listingDescription: "General dentistry and cleanings with Dr. Loan Su in Goleta.",
+  category: "Dentistry",
+  city: "Goleta",
   address: '5973 Encina Rd #108, Goleta, CA 93117',
   phone: '(805) 683-3801',
   googleMapsUrl:
