@@ -5,10 +5,12 @@ import type { DemoHourRow } from '@/data/demos/types';
 
 type HoursTodayProps = {
   hours: DemoHourRow[];
+  /** Batch-2 mockups strip the weekday prefix from data-hours for the Today line. */
+  stripDayPrefix?: boolean;
 };
 
 /** Highlights today's hours row in America/Los_Angeles and fills [data-today-text]. */
-export function HoursToday({ hours }: HoursTodayProps) {
+export function HoursToday({ hours, stripDayPrefix = false }: HoursTodayProps) {
   useEffect(() => {
     const day = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Los_Angeles',
@@ -20,10 +22,14 @@ export function HoursToday({ hours }: HoursTodayProps) {
     const listItem = document.querySelector(`[data-day="${day}"]`);
     if (listItem) listItem.classList.add('today');
 
+    const text = stripDayPrefix
+      ? row.hoursText.replace(/^\w+ /, '')
+      : row.hoursText;
+
     document.querySelectorAll('[data-today-text]').forEach((el) => {
-      el.textContent = row.hoursText;
+      el.textContent = text;
     });
-  }, [hours]);
+  }, [hours, stripDayPrefix]);
 
   return null;
 }
