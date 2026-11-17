@@ -1,0 +1,94 @@
+/* scoped demo styles for .d-coastal */
+.d-coastal, .d-coastal * {box-sizing:border-box}
+.d-coastal {-webkit-text-size-adjust:100%}
+.d-coastal img {display:block;max-width:100%}
+.d-coastal a {color:inherit}
+.d-coastal h1,.d-coastal h2,.d-coastal h3,.d-coastal p,.d-coastal ul,.d-coastal li,.d-coastal blockquote,.d-coastal cite {margin:0;padding:0}
+
+.d-coastal{font-size:17px;line-height:1.55}
+.d-coastal .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 22px;font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap}
+.d-coastal .btn svg{width:19px;height:19px;flex:none}
+.d-coastal .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.d-coastal .bar .btn{flex:1;min-height:54px;font-size:16px;padding:0 12px}
+.d-coastal .hours{list-style:none}.d-coastal .hours li{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:50px;padding:12px 18px}
+.d-coastal .hours .tag{display:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;margin-left:8px}.d-coastal .hours li.today .tag{display:inline-block}
+.d-coastal .map{display:block;overflow:hidden}.d-coastal .map iframe{width:100%;height:240px;border:0;display:block}
+.d-coastal .contact{display:grid;gap:10px}.d-coastal .contact a{display:flex;align-items:center;gap:14px;min-height:60px;padding:12px 18px;text-decoration:none;font-size:17px;word-break:break-word}
+.d-coastal .contact svg{width:22px;height:22px;flex:none}.d-coastal .contact small{display:block;font-size:14px;opacity:.75}
+@media (min-width:900px){.d-coastal .bar{display:none}}
+
+.d-coastal{--mist:#eef3f1;--harbor:#163847;--glass:#8fc1b5;--glass2:#d5e8e2;--sand:#e9dcc6;--ink:#11303c;--muted:#4f6670}
+.d-coastal{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--mist);color:var(--ink)}
+.d-coastal h1,.d-coastal h2,.d-coastal h3,.d-coastal .serif{font-family:Newsreader,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.04}
+.d-coastal .wrap{padding:0 22px;max-width:1160px;margin:0 auto}
+.d-coastal .k{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#3f7f73}
+.d-coastal header .hdr{display:flex;justify-content:space-between;align-items:center;min-height:70px}
+.d-coastal .logo{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;font-family:Newsreader;font-size:23px}
+.d-coastal .logo i{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--harbor);display:grid;place-items:center;font-style:normal;font-size:14px;font-family:"Instrument Sans";font-weight:600}
+.d-coastal .hc{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 16px;border-radius:999px;background:var(--harbor);color:#fff;text-decoration:none;font-weight:600;font-size:15px}.d-coastal .hc svg{width:16px;height:16px}
+.d-coastal .nav{display:none}
+.d-coastal .hero{padding:26px 0 0;position:relative;overflow:hidden}
+.d-coastal .hero h1{font-size:52px}
+.d-coastal .hero h1 em{font-style:italic;color:#2f6e64}
+.d-coastal .lead{font-size:18.5px;color:var(--muted);max-width:34ch;margin-top:18px}
+.d-coastal .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.d-coastal .cta .btn{flex:1 1 150px;border-radius:999px}
+.d-coastal .b1{background:var(--harbor);color:#fff}.d-coastal .b2{background:#fff;color:var(--harbor);border:1.5px solid var(--harbor)}
+.d-coastal .today{margin-top:16px;font-size:15.5px;color:var(--muted)}.d-coastal .today b{color:var(--ink)}
+.d-coastal .card{margin-top:34px;background:var(--harbor);color:#fff;border-radius:28px 28px 0 0;padding:30px 22px 26px;position:relative;overflow:hidden}
+.d-coastal .card .waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;color:var(--glass)}
+.d-coastal .card .sig{font-family:Newsreader;font-style:italic;font-size:44px;line-height:1;position:relative}
+.d-coastal .card p{position:relative;color:#cfe3de;margin-top:8px;max-width:30ch;font-size:16.5px}
+.d-coastal .card .facts{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:84px}
+.d-coastal .card .facts div{background:#1f4a5a;border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:12px 14px;backdrop-filter:blur(2px)}
+.d-coastal .card .facts b{display:block;font-family:Newsreader;font-size:24px;font-weight:400}
+.d-coastal .card .facts span{font-size:14px;color:#d9ebe6}
+.d-coastal section{padding:58px 0}
+.d-coastal .h2{font-size:42px;margin:10px 0 14px}
+.d-coastal .meet{background:#fff}
+.d-coastal .meet .big{font-family:Newsreader;font-size:28px;line-height:1.3;margin-top:18px}
+.d-coastal .meet .big em{background:linear-gradient(transparent 62%,var(--glass2) 62%);font-style:italic}
+.d-coastal .meet cite{display:block;font-style:normal;font-size:15px;color:var(--muted);margin-top:14px;font-weight:600}
+.d-coastal .what .list{display:grid;gap:12px;margin-top:22px}
+.d-coastal .what .it{background:#fff;border-radius:20px;padding:20px}
+.d-coastal .what .it b{font-family:Newsreader;font-size:26px;font-weight:400;display:block}
+.d-coastal .what .it p{color:var(--muted);font-size:16.5px;margin-top:4px}
+.d-coastal .what .it.alt{background:var(--glass2)}
+.d-coastal .rv{background:var(--harbor);color:#fff}
+.d-coastal .rv .h2{color:#fff}.d-coastal .rv .k{color:var(--glass)}
+.d-coastal .rates{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.d-coastal .rates div{border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:14px 16px}
+.d-coastal .rates b{font-family:Newsreader;font-size:42px;font-weight:400;line-height:1;display:block}
+.d-coastal .rates .s{color:var(--sand);letter-spacing:2px;font-size:15px}
+.d-coastal .rates small{display:block;font-size:14.5px;color:#cfe3de;margin-top:4px}
+.d-coastal .q{margin-top:16px;background:rgba(255,255,255,.07);border-radius:20px;padding:20px}
+.d-coastal .q p{font-size:17.5px}
+.d-coastal .q cite{display:block;font-style:normal;font-size:14.5px;color:var(--glass);margin-top:10px;font-weight:600}
+.d-coastal .visit .hours{margin-top:22px;background:#fff;border-radius:20px;overflow:hidden}
+.d-coastal .hours li{border-bottom:1px solid #e3ecea}.d-coastal .hours li:last-child{border:0}
+.d-coastal .hours li.today{background:var(--harbor);color:#fff;font-weight:600}.d-coastal .hours .tag{background:var(--glass);color:var(--ink);border-radius:999px}
+.d-coastal .hours li.closed > span:last-child{color:#8aa0a6}
+.d-coastal .map{margin-top:14px;border-radius:20px;filter:saturate(.7) hue-rotate(-10deg)}
+.d-coastal .contact{margin-top:14px}.d-coastal .contact a{background:#fff;border-radius:18px}.d-coastal .contact svg{color:#2f6e64}
+.d-coastal footer{background:var(--ink);color:#bcd3d0;padding:32px 0;font-size:15px}
+.d-coastal footer b{display:block;font-family:Newsreader;font-weight:400;font-size:22px;color:#fff;margin-bottom:6px}
+.d-coastal .credit{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);font-size:14px;color:#8fb0ad}
+.d-coastal .bar{background:rgba(238,243,241,.97);border-top:1px solid #d3e0dd}.d-coastal .bar .btn{border-radius:999px}
+@media(min-width:900px){
+ .d-coastal .wrap{padding:0 56px}.d-coastal .nav{display:flex;gap:28px;font-weight:500}.d-coastal .nav a{text-decoration:none}
+ .d-coastal .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;min-height:800px}
+ .d-coastal .hero h1{font-size:78px}
+ .d-coastal .card{margin:0;border-radius:28px;min-height:560px;padding:40px 34px}
+ .d-coastal .card .facts{margin-top:200px}
+ .d-coastal .h2{font-size:56px}
+/*DESK*/
+ .d-coastal .visit .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;align-items:start}
+ .d-coastal .visit .wrap>*{grid-column:2}
+ .d-coastal .visit .wrap>.k,.d-coastal .visit .wrap>.h2{grid-column:1/-1}
+ .d-coastal .visit .hours{grid-column:1;grid-row:3/span 4;margin-top:0}
+ .d-coastal .visit .map{margin-top:0}
+
+ .d-coastal .meet .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:56px;align-items:start}.d-coastal .meet .big{margin-top:0;font-size:34px}
+ .d-coastal .what .list{grid-template-columns:repeat(3,1fr)}
+ .d-coastal .rv .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.d-coastal .rv .k,.d-coastal .rv .h2,.d-coastal .rv .rates{grid-column:1/-1}.d-coastal .rv .rates{max-width:520px}
+
+}
