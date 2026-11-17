@@ -53,10 +53,10 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
           <div className="wrap grid" style={{ padding: 0 }}>
             <div className="ph">
               <Image
-                src={`${ASSET}/hero.jpg`}
-                alt="Mechanic's hands checking a disc brake caliper"
-                width={1200}
-                height={900}
+                src={`${ASSET}/hero-honda.jpg`}
+                alt="Blue Honda Civic Type R parked by a river"
+                width={2400}
+                height={1600}
                 priority
                 sizes="(min-width:900px) 50vw, 100vw"
               />
@@ -166,7 +166,7 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
         <section className="rob" id="robert">
           <div className="wrap cols">
             <div>
-              <div className="k" style={{ color: '#ff8a80' }}>
+              <div className="k">
                 Ask for Robert
               </div>
               <h2 className="h2">Customers come back for decades.</h2>
