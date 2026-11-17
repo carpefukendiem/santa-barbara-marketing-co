@@ -3,6 +3,14 @@ import { notFound } from 'next/navigation';
 import { getAllDemoSlugs, getDemo } from '@/data/demos';
 import type { DemoSlug } from '@/data/demos';
 import { AmbiancePage } from '@/components/demos/ambiance/AmbiancePage';
+import { GRuizPage } from '@/components/demos/g-ruiz/GRuizPage';
+import { HollisterPage } from '@/components/demos/hollister/HollisterPage';
+import { ImperialPage } from '@/components/demos/imperial/ImperialPage';
+import { LilysPage } from '@/components/demos/lilys/LilysPage';
+import { NeighborTimsPage } from '@/components/demos/neighbor-tims/NeighborTimsPage';
+import { RiverasPage } from '@/components/demos/riveras/RiverasPage';
+import { RoundinThirdPage } from '@/components/demos/roundin-third/RoundinThirdPage';
+import { StPaulPage } from '@/components/demos/st-paul/StPaulPage';
 import { AirportPage } from '@/components/demos/airport/AirportPage';
 import { AtlasPage } from '@/components/demos/atlas/AtlasPage';
 import { EconomyPage } from '@/components/demos/economy/EconomyPage';
@@ -75,6 +83,23 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap',
   'hiens-auto-repair':
     'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Work+Sans:wght@400;500;600&display=swap',
+
+  'st-paul-cleaners-laundry-tailoring':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Courier+Prime:wght@400;700&family=Karla:wght@400;500;700&display=swap',
+  'g-ruiz-income-tax':
+    'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap',
+  'riveras-appliance-warehouse':
+    'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Space+Mono:wght@400;700&display=swap',
+  'the-imperial':
+    'https://fonts.googleapis.com/css2?family=Yellowtail&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Josefin+Sans:wght@400;600&display=swap',
+  'hollister-barbershop':
+    'https://fonts.googleapis.com/css2?family=Ultra&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap',
+  'lilys-nail-spa':
+    'https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap',
+  'neighbor-tims-bbq':
+    'https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Caveat:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap',
+  'roundin-third-sports-bar':
+    'https://fonts.googleapis.com/css2?family=Graduate&family=Saira+Extra+Condensed:wght@800&family=Archivo:wght@400;600&display=swap',
 };
 
 export function generateStaticParams() {
@@ -169,6 +194,30 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'hiens-auto-repair':
       page = <HiensPage demo={demo} />;
+      break;
+    case 'st-paul-cleaners-laundry-tailoring':
+      page = <StPaulPage demo={demo} />;
+      break;
+    case 'g-ruiz-income-tax':
+      page = <GRuizPage demo={demo} />;
+      break;
+    case 'riveras-appliance-warehouse':
+      page = <RiverasPage demo={demo} />;
+      break;
+    case 'the-imperial':
+      page = <ImperialPage demo={demo} />;
+      break;
+    case 'hollister-barbershop':
+      page = <HollisterPage demo={demo} />;
+      break;
+    case 'lilys-nail-spa':
+      page = <LilysPage demo={demo} />;
+      break;
+    case 'neighbor-tims-bbq':
+      page = <NeighborTimsPage demo={demo} />;
+      break;
+    case 'roundin-third-sports-bar':
+      page = <RoundinThirdPage demo={demo} />;
       break;
     default: {
       const _exhaustive: never = demo.slug;
