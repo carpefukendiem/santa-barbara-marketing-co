@@ -1,3 +1,4 @@
+import { ambianceDemo } from './ambiance-nail-care-services';
 import { coastalDentistryDemo } from './coastal-dentistry';
 import { dimaurosDemo } from './dimauros-independent-honda-acura-repair';
 import { domingosDemo } from './domingos-cafe';
@@ -8,8 +9,10 @@ import { jewelryMartDemo } from './jewelry-mart';
 import { laGuerreritaDemo } from './la-guerrerita';
 import { marysDemo } from './marys-beauty-center';
 import { mayaDemo } from './maya-income-tax-co';
+import { oceanNailsDemo } from './ocean-nails-spa';
 import { precisionMotorcycleDemo } from './precision-motorcycle-service';
 import { shearEnvyDemo } from './shear-envy';
+import { starNailsDemo } from './star-nails-spa';
 import type { DemoData, DemoSlug } from './types';
 
 export type { DemoChromeLocale, DemoData, DemoHourRow, DemoReview, DemoSlug } from './types';
@@ -27,6 +30,9 @@ const demos = {
   [jewelryMartDemo.slug]: jewelryMartDemo,
   [marysDemo.slug]: marysDemo,
   [mayaDemo.slug]: mayaDemo,
+  [oceanNailsDemo.slug]: oceanNailsDemo,
+  [starNailsDemo.slug]: starNailsDemo,
+  [ambianceDemo.slug]: ambianceDemo,
 } as const satisfies Record<string, DemoData>;
 
 export function getDemo(slug: string): DemoData | undefined {

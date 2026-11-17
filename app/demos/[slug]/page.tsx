@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllDemoSlugs, getDemo } from '@/data/demos';
 import type { DemoSlug } from '@/data/demos';
+import { AmbiancePage } from '@/components/demos/ambiance/AmbiancePage';
 import { CoastalPage } from '@/components/demos/coastal/CoastalPage';
 import { DimaurosPage } from '@/components/demos/dimauros/DimaurosPage';
 import { DomingosPage } from '@/components/demos/domingos/DomingosPage';
@@ -12,8 +13,10 @@ import { JewelryMartPage } from '@/components/demos/jewelry-mart/JewelryMartPage
 import { LaGuerreritaPage } from '@/components/demos/la-guerrerita/LaGuerreritaPage';
 import { MarysPage } from '@/components/demos/marys/MarysPage';
 import { MayaPage } from '@/components/demos/maya/MayaPage';
+import { OceanNailsPage } from '@/components/demos/ocean-nails/OceanNailsPage';
 import { PrecisionPage } from '@/components/demos/precision/PrecisionPage';
 import { ShearEnvyPage } from '@/components/demos/shear-envy/ShearEnvyPage';
+import { StarNailsPage } from '@/components/demos/star-nails/StarNailsPage';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -44,6 +47,12 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Questrial&family=Figtree:wght@400;500;600;700&display=swap',
   'maya-income-tax-co':
     'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap',
+  'ocean-nails-spa':
+    'https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700;800&display=swap',
+  'star-nails-spa':
+    'https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Figtree:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap',
+  'ambiance-nail-care-services':
+    'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@600&family=Instrument+Sans:wght@400;500;600;700&display=swap',
 };
 
 export function generateStaticParams() {
@@ -108,6 +117,15 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'maya-income-tax-co':
       page = <MayaPage demo={demo} />;
+      break;
+    case 'ocean-nails-spa':
+      page = <OceanNailsPage demo={demo} />;
+      break;
+    case 'star-nails-spa':
+      page = <StarNailsPage demo={demo} />;
+      break;
+    case 'ambiance-nail-care-services':
+      page = <AmbiancePage demo={demo} />;
       break;
     default: {
       const _exhaustive: never = demo.slug;
