@@ -1,0 +1,135 @@
+/* scoped demo styles for .d-goleta-bakery */
+.d-goleta-bakery, .d-goleta-bakery * {box-sizing:border-box}
+.d-goleta-bakery {-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+.d-goleta-bakery img {display:block;max-width:100%}
+.d-goleta-bakery a {color:inherit}
+.d-goleta-bakery h1,.d-goleta-bakery h2,.d-goleta-bakery h3,.d-goleta-bakery p,.d-goleta-bakery ul,.d-goleta-bakery li,.d-goleta-bakery blockquote,.d-goleta-bakery cite {margin:0;padding:0}
+.d-goleta-bakery .map iframe{width:100%;height:100%;min-height:240px;border:0;display:block}
+
+.d-goleta-bakery{--yolk:#DCA605;--yolk2:#F2C230;--pink:#F3A6B9;--pink2:#FCD9E2;--choc:#3A1C10;--choc2:#5C2E1A;--cream:#FFF4E1;--ink:#24130B}
+
+.d-goleta-bakery{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);background:var(--cream);font-size:17px;line-height:1.5;}
+
+.d-goleta-bakery .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.d-goleta-bakery .ticker{background:var(--choc);color:var(--yolk2);font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.d-goleta-bakery .ticker div{display:flex;gap:28px;padding:9px 0;justify-content:center}
+.d-goleta-bakery .ticker span:nth-child(n+2){display:none}
+.d-goleta-bakery header{background:var(--yolk)}
+.d-goleta-bakery .hd{display:flex;align-items:center;justify-content:space-between;min-height:84px;gap:12px}
+.d-goleta-bakery .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.d-goleta-bakery .logo svg{width:64px;height:64px;flex:none}
+.d-goleta-bakery .logo b{font-weight:800;font-stretch:80%;font-size:24px;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:var(--choc)}
+.d-goleta-bakery .logo b small{display:block;font-family:'Instrument Serif',serif;font-style:italic;text-transform:none;font-weight:400;font-size:18px;letter-spacing:0;margin-top:3px}
+.d-goleta-bakery nav{display:none;gap:26px;font-weight:700}.d-goleta-bakery nav a{text-decoration:none;padding:12px 0}
+.d-goleta-bakery .hcall{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;background:var(--choc);color:var(--cream);text-decoration:none;font-weight:700;font-size:15px}
+.d-goleta-bakery .hcall svg{width:18px;height:18px}
+.d-goleta-bakery .hero{background:var(--yolk);position:relative;overflow:hidden}
+.d-goleta-bakery .hero .wrap{position:relative;z-index:2;padding-top:20px}
+.d-goleta-bakery .eyebrow{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--choc2)}
+.d-goleta-bakery .h1{font-weight:800;font-stretch:75%;text-transform:uppercase;line-height:.82;letter-spacing:-.02em;color:var(--choc);margin:14px 0 0}
+.d-goleta-bakery .h1 .a{display:block;font-size:66px}
+.d-goleta-bakery .h1 .five{display:block;font-size:172px;line-height:.8;color:var(--choc);text-shadow:7px 7px 0 var(--pink)}
+.d-goleta-bakery .h1 .b{display:block;font-size:44px;margin-top:6px}
+.d-goleta-bakery .sub{font-family:'Instrument Serif',serif;font-size:27px;line-height:1.15;margin:18px 0 0;max-width:500px}
+.d-goleta-bakery .sub i{color:#7a2d14}
+.d-goleta-bakery .cta{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+.d-goleta-bakery .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:0 24px;border-radius:999px;font-weight:800;text-decoration:none;font-size:17px}
+.d-goleta-bakery .btn svg{width:19px;height:19px}
+.d-goleta-bakery .b1{background:var(--choc);color:var(--cream)}
+.d-goleta-bakery .b2{background:var(--pink);color:var(--choc)}
+.d-goleta-bakery .heroimg{position:relative;margin:10px 0 0;height:330px;background:url(/demos/goleta-bakery/hero.jpg) 50% 50%/cover}
+.d-goleta-bakery .heroimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--yolk) 0%,rgba(220,166,5,0) 26%)}
+.d-goleta-bakery .badge{position:absolute;right:16px;top:250px;z-index:3;width:116px;height:116px;border-radius:50%;background:var(--pink);color:var(--choc);display:grid;place-items:center;text-align:center;transform:rotate(-10deg);font-weight:800;font-size:15px;line-height:1.05;box-shadow:0 0 0 4px var(--yolk),0 0 0 6px var(--choc)}
+.d-goleta-bakery .badge b{display:block;font-size:34px;font-stretch:75%}
+.d-goleta-bakery /* day */
+.day{background:var(--choc);color:var(--cream);padding:64px 0}
+.d-goleta-bakery .lab{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+.d-goleta-bakery h2{font-weight:800;font-stretch:78%;text-transform:uppercase;font-size:50px;line-height:.9;letter-spacing:-.01em;margin:12px 0 0}
+.d-goleta-bakery h2 i{font-family:'Instrument Serif',serif;text-transform:none;font-weight:400;font-style:italic;font-stretch:100%;letter-spacing:0;color:var(--yolk2)}
+.d-goleta-bakery .rail{margin-top:34px;display:grid;gap:0;border-left:3px dashed rgba(255,244,225,.35);padding-left:22px}
+.d-goleta-bakery .stop{position:relative;padding:0 0 28px}
+.d-goleta-bakery .stop:before{content:"";position:absolute;left:-33px;top:4px;width:19px;height:19px;border-radius:50%;background:var(--yolk2);box-shadow:0 0 0 4px var(--choc)}
+.d-goleta-bakery .stop .t{font-family:'DM Mono',monospace;font-size:15px;color:var(--yolk2)}
+.d-goleta-bakery .stop h3{font-weight:800;font-size:30px;font-stretch:80%;line-height:1;margin:6px 0 6px;text-transform:uppercase}
+.d-goleta-bakery .stop p{color:#e8d5c0;font-size:16px;max-width:460px}
+.d-goleta-bakery .stop.pink:before{background:var(--pink)}
+.d-goleta-bakery /* case */
+.vitrina{padding:64px 0;background:var(--cream)}
+.d-goleta-bakery .vitrina h2{color:var(--choc)}.d-goleta-bakery .vitrina h2 i{color:#B5531F}
+.d-goleta-bakery .vitrina .lab{color:#B5531F}
+.d-goleta-bakery .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.d-goleta-bakery .tile{position:relative;overflow:hidden;border-radius:18px;min-height:210px;background:#eadbc3}
+.d-goleta-bakery .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.d-goleta-bakery .tile .tg{position:absolute;left:10px;bottom:10px;right:10px;background:var(--cream);border-radius:10px;padding:8px 11px;font-weight:800;font-size:16px;line-height:1.15;text-transform:uppercase;font-stretch:85%}
+.d-goleta-bakery .tile .tg small{display:block;font-family:'Instrument Serif',serif;text-transform:none;font-weight:400;font-size:16px;font-stretch:100%}
+.d-goleta-bakery .tile.big{grid-column:span 2;min-height:300px}
+.d-goleta-bakery .tile.color{display:flex;flex-direction:column;justify-content:space-between;padding:16px;background:var(--pink)}
+.d-goleta-bakery .tile.color b{font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:24px;line-height:.95;overflow-wrap:anywhere}
+.d-goleta-bakery .tile.color p{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.15}
+.d-goleta-bakery .tile.color.y{background:var(--yolk2)}
+.d-goleta-bakery .list{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.d-goleta-bakery .list span{border:2px solid var(--choc);border-radius:999px;padding:7px 14px;font-weight:700;font-size:15px}
+.d-goleta-bakery /* reviews */
+.word{background:var(--pink);padding:64px 0;position:relative;overflow:hidden}
+.d-goleta-bakery .word h2{color:var(--choc)}.d-goleta-bakery .word h2 i{color:#9b2c12}.d-goleta-bakery .word .lab{color:var(--choc2)}
+.d-goleta-bakery .pull{font-family:'Instrument Serif',serif;font-size:38px;line-height:1.08;margin-top:26px;color:var(--choc);max-width:900px}
+.d-goleta-bakery .pull small{display:block;font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.08em;margin-top:14px;text-transform:uppercase}
+.d-goleta-bakery .tix{display:grid;gap:16px;margin-top:34px}
+.d-goleta-bakery .tk{background:var(--cream);border-radius:6px;padding:20px 20px 18px 20px;position:relative;box-shadow:0 14px 30px -18px rgba(58,28,16,.55)}
+.d-goleta-bakery .tk:before,.d-goleta-bakery .tk:after{content:"";position:absolute;top:50%;width:22px;height:22px;border-radius:50%;background:var(--pink);transform:translateY(-50%)}
+.d-goleta-bakery .tk:before{left:-11px}.d-goleta-bakery .tk:after{right:-11px}
+.d-goleta-bakery .tk .n{font-family:'DM Mono',monospace;font-size:13px;color:#9b2c12;letter-spacing:.1em;display:flex;justify-content:space-between;border-bottom:2px dashed #e4cdb0;padding-bottom:10px;margin-bottom:12px}
+.d-goleta-bakery .tk p{font-size:18px;line-height:1.4}
+.d-goleta-bakery .rate{display:flex;align-items:center;gap:14px;margin-top:30px}
+.d-goleta-bakery .rate b{font-weight:800;font-stretch:75%;font-size:64px;line-height:1;color:var(--choc)}
+.d-goleta-bakery .rate span{font-size:15px;color:var(--choc2);line-height:1.35}
+.d-goleta-bakery /* visit */
+.visit{background:var(--yolk);padding:64px 0 70px}
+.d-goleta-bakery .visit h2{color:var(--choc)}.d-goleta-bakery .visit h2 i{color:var(--cream)}
+.d-goleta-bakery .vg{display:grid;gap:18px;margin-top:28px}
+.d-goleta-bakery .clock{background:var(--choc);color:var(--cream);border-radius:22px;padding:24px}
+.d-goleta-bakery .clock .big{font-weight:800;font-stretch:75%;font-size:64px;line-height:.9;text-transform:uppercase;color:var(--yolk2)}
+.d-goleta-bakery .clock .big span{color:var(--pink)}
+.d-goleta-bakery .clock p{margin-top:8px;color:#e8d5c0}
+.d-goleta-bakery .rows{margin-top:18px;display:grid}
+.d-goleta-bakery .rows a{display:flex;align-items:center;gap:12px;min-height:50px;border-top:1px solid rgba(255,244,225,.2);text-decoration:none;font-weight:600;font-size:16px;word-break:break-word}
+.d-goleta-bakery .rows svg{width:20px;height:20px;flex:none;color:var(--pink)}
+.d-goleta-bakery .map{display:block;border-radius:22px;overflow:hidden;border:4px solid var(--choc)}
+.d-goleta-bakery .map iframe{width:100%;height:100%;min-height:240px;border:0;display:block}
+.d-goleta-bakery footer{background:var(--choc);color:#e8d5c0;padding:36px 0 30px;font-size:15px}
+.d-goleta-bakery footer .logo b{color:var(--cream)}
+.d-goleta-bakery footer p{margin-top:14px}
+.d-goleta-bakery .credit{margin-top:14px;font-size:13px;color:#b49a85}
+.d-goleta-bakery .bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--yolk);border-top:3px solid var(--choc)}
+.d-goleta-bakery .bar .btn{min-height:50px}
+@media(min-width:900px){
+ .d-goleta-bakery{padding-bottom:0}.d-goleta-bakery .bar{display:none}
+ .d-goleta-bakery .wrap{padding:0 44px}
+ .d-goleta-bakery .ticker span:nth-child(n+2){display:inline}
+ .d-goleta-bakery nav{display:flex}
+ .d-goleta-bakery .logo svg{width:76px;height:76px}.d-goleta-bakery .logo b{font-size:28px}
+ .d-goleta-bakery .hd{min-height:100px}
+ .d-goleta-bakery .hero{min-height:760px}
+ .d-goleta-bakery .heroimg{position:absolute;margin:0;right:-60px;top:0;bottom:0;width:62%;height:auto;background-position:40% 50%}
+ .d-goleta-bakery .heroimg:after{background:linear-gradient(90deg,var(--yolk) 0%,rgba(220,166,5,0) 30%),linear-gradient(180deg,var(--yolk) 0%,rgba(220,166,5,0) 14%)}
+ .d-goleta-bakery .hero .wrap{padding-top:40px;padding-bottom:80px}
+ .d-goleta-bakery .h1 .a{font-size:110px}.d-goleta-bakery .h1 .five{font-size:330px;text-shadow:14px 14px 0 var(--pink)}.d-goleta-bakery .h1 .b{font-size:72px}
+ .d-goleta-bakery .sub{font-size:34px}
+ .d-goleta-bakery .badge{top:auto;right:9%;bottom:70px;width:170px;height:170px;font-size:20px}.d-goleta-bakery .badge b{font-size:52px}
+ .d-goleta-bakery h2{font-size:92px}
+ .d-goleta-bakery .day,.d-goleta-bakery .vitrina,.d-goleta-bakery .word,.d-goleta-bakery .visit{padding:110px 0}
+ .d-goleta-bakery .dayg{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:start}
+ .d-goleta-bakery .rail{margin-top:8px}.d-goleta-bakery .stop h3{font-size:40px}
+ .d-goleta-bakery .grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:14px}
+ .d-goleta-bakery .tile{min-height:0}.d-goleta-bakery .tile.big{grid-column:span 2;grid-row:span 2}
+ .d-goleta-bakery .tile.tall{grid-row:span 2}
+ .d-goleta-bakery .tile.wide{grid-column:span 2}
+ .d-goleta-bakery .pull{font-size:64px}
+ .d-goleta-bakery .tile.color b{font-size:36px}
+ .d-goleta-bakery .tix{grid-template-columns:repeat(3,1fr);gap:26px}
+ .d-goleta-bakery .tk:nth-child(2){transform:rotate(1.5deg) translateY(18px)}.d-goleta-bakery .tk:nth-child(1){transform:rotate(-1.2deg)}
+ .d-goleta-bakery .vg{grid-template-columns:.85fr 1.15fr;align-items:stretch}
+ .d-goleta-bakery .map iframe{width:100%;height:100%;min-height:240px;border:0;display:block}
+ .d-goleta-bakery .clock .big{font-size:96px}
+ .d-goleta-bakery footer .wrap{display:flex;justify-content:space-between;align-items:flex-end}
+}

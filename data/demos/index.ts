@@ -1,13 +1,18 @@
 import { coastalDentistryDemo } from './coastal-dentistry';
 import { dimaurosDemo } from './dimauros-independent-honda-acura-repair';
+import { domingosDemo } from './domingos-cafe';
 import { fairviewDemo } from './fairview-mattress-furniture';
+import { goletaBakeryDemo } from './goleta-bakery';
 import { javiersDemo } from './javiers-old-town-garage';
+import { jewelryMartDemo } from './jewelry-mart';
 import { laGuerreritaDemo } from './la-guerrerita';
+import { marysDemo } from './marys-beauty-center';
+import { mayaDemo } from './maya-income-tax-co';
 import { precisionMotorcycleDemo } from './precision-motorcycle-service';
 import { shearEnvyDemo } from './shear-envy';
 import type { DemoData, DemoSlug } from './types';
 
-export type { DemoData, DemoHourRow, DemoReview, DemoSlug } from './types';
+export type { DemoChromeLocale, DemoData, DemoHourRow, DemoReview, DemoSlug } from './types';
 
 const demos = {
   [dimaurosDemo.slug]: dimaurosDemo,
@@ -17,6 +22,11 @@ const demos = {
   [shearEnvyDemo.slug]: shearEnvyDemo,
   [laGuerreritaDemo.slug]: laGuerreritaDemo,
   [fairviewDemo.slug]: fairviewDemo,
+  [domingosDemo.slug]: domingosDemo,
+  [goletaBakeryDemo.slug]: goletaBakeryDemo,
+  [jewelryMartDemo.slug]: jewelryMartDemo,
+  [marysDemo.slug]: marysDemo,
+  [mayaDemo.slug]: mayaDemo,
 } as const satisfies Record<string, DemoData>;
 
 export function getDemo(slug: string): DemoData | undefined {

@@ -5,7 +5,12 @@ export type DemoSlug =
   | 'javiers-old-town-garage'
   | 'shear-envy'
   | 'la-guerrerita'
-  | 'fairview-mattress-furniture';
+  | 'fairview-mattress-furniture'
+  | 'domingos-cafe'
+  | 'goleta-bakery'
+  | 'jewelry-mart'
+  | 'marys-beauty-center'
+  | 'maya-income-tax-co';
 
 export type DemoHourRow = {
   day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
@@ -20,6 +25,8 @@ export type DemoReview = {
   cite: string;
 };
 
+export type DemoChromeLocale = 'en' | 'es';
+
 export type DemoData = {
   slug: DemoSlug;
   name: string;
@@ -31,10 +38,22 @@ export type DemoData = {
   /** Display phone; all tel: hrefs must come from telHref(phone). */
   phone: string;
   googleMapsUrl: string;
-  /** Path under /public, or null for wordmark */
+  /** Path under /public, or null for wordmark. Single-badge logos use this alone. */
   logo: string | null;
+  /** Light-background wordmark/logo (Precision). */
+  logoLight?: string | null;
+  /** Dark-background wordmark/logo (Precision). */
+  logoDark?: string | null;
   /** Dimauro's: keep warranty claims off until Robert OKs */
   showWarrantyLine: boolean;
   warrantyLine?: string;
   hours: DemoHourRow[];
+  /** Preview bar + modal language. Default English. */
+  chromeLocale?: DemoChromeLocale;
+  /** Optional html lang on the demo root (e.g. Mary's Spanish-first). */
+  lang?: string;
+  /** Jewelry Mart: Saturday hours as one editable field. */
+  saturdayHours?: string;
+  /** Jewelry Mart: Tue–Fri open hours string when shared with Sat display. */
+  weekdayHours?: string;
 };

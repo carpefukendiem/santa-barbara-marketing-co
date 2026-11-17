@@ -22,8 +22,13 @@ export function PrecisionPage({ demo }: { demo: DemoData }) {
         <div className="wrap hdr">
           <DemoLogo
             logo={demo.logo}
+            logoLight={demo.logoLight}
+            logoDark={demo.logoDark}
+            tone="dark"
             name={demo.name}
             className="logo"
+            width={176}
+            height={100}
             wordmark={
               <>
                 <b>PRECISION</b>
@@ -248,16 +253,17 @@ export function PrecisionPage({ demo }: { demo: DemoData }) {
 
       <footer>
         <div className="wrap">
-          {demo.logo ? (
-            <DemoLogo
-              logo={demo.logo}
-              name={demo.name}
-              className="logo"
-              wordmark={<b>{demo.name}</b>}
-            />
-          ) : (
-            <b>{demo.name}</b>
-          )}
+          <DemoLogo
+            logo={demo.logo}
+            logoLight={demo.logoLight}
+            logoDark={demo.logoDark}
+            tone="dark"
+            name={demo.name}
+            className="logo"
+            width={176}
+            height={100}
+            wordmark={<b>{demo.name}</b>}
+          />
           {demo.address} · {demo.phone}
           <div className="credit">Demo site by Santa Barbara Marketing Co</div>
         </div>

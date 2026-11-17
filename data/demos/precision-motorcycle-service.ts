@@ -13,7 +13,9 @@ export const precisionMotorcycleDemo: DemoData = {
   phone: '(805) 967-6163',
   googleMapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Precision+Motorcycle+Service%2C+6150+Francis+Botello+Road+B%2C+Goleta%2C+CA+93117',
-  logo: null,
+  logo: '/demos/precision-motorcycle-service/logo-dark.png',
+  logoLight: '/demos/precision-motorcycle-service/logo-light.png',
+  logoDark: '/demos/precision-motorcycle-service/logo-dark.png',
   showWarrantyLine: false,
   hours: [
     {
