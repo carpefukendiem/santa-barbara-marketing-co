@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
         destination: '/get-started/started',
         permanent: false,
       },
+      // trailingSlash is off + skipTrailingSlashRedirect; still resolve /demos/
+      {
+        source: '/demos/',
+        destination: '/demos',
+        permanent: false,
+      },
     ];
   },
   async headers() {
@@ -48,6 +54,16 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value:
               'camera=(), microphone=(), geolocation=(), payment=(self "https://link.rankingsb.com")',
+          },
+        ],
+      },
+      // Exact /demos index (/:path* does not match the bare path).
+      {
+        source: '/demos',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow',
           },
         ],
       },
