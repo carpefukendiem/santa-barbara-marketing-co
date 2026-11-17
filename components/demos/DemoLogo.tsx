@@ -16,9 +16,14 @@ type DemoLogoProps = {
   height?: number;
 };
 
+function isSvg(src: string): boolean {
+  return /\.svg(?:$|\?)/i.test(src);
+}
+
 /**
  * Renders a logo image when `logo` / light-dark variants are set, otherwise the wordmark.
- * Image is sized via CSS on `.demo-logo-img` (height-led).
+ * Image is sized via CSS on `.demo-logo-img` (height-led). SVGs use a plain img
+ * (next/image does not optimize SVG); PNGs use next/image.
  */
 export function DemoLogo({
   logo,
@@ -40,14 +45,26 @@ export function DemoLogo({
     return (
       <a className={className} href="#top" aria-label={name}>
         <span className="demo-logo-img-wrap">
-          <Image
-            src={src}
-            alt={name}
-            width={width}
-            height={height}
-            className="demo-logo-img"
-            priority
-          />
+          {isSvg(src) ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={src}
+              alt={name}
+              width={width}
+              height={height}
+              className="demo-logo-img"
+              decoding="async"
+            />
+          ) : (
+            <Image
+              src={src}
+              alt={name}
+              width={width}
+              height={height}
+              className="demo-logo-img"
+              priority
+            />
+          )}
         </span>
       </a>
     );
