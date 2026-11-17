@@ -11,13 +11,20 @@
  * 998 Spa) stay off the index by simply not being added here.
  */
 import { ambianceDemo } from './ambiance-nail-care-services';
+import { airportDemo } from './airport-motors';
+import { atlasDemo } from './atlas-muffler-brakes';
 import { coastalDentistryDemo } from './coastal-dentistry';
 import { dimaurosDemo } from './dimauros-independent-honda-acura-repair';
 import { domingosDemo } from './domingos-cafe';
+import { economyDemo } from './economy-muffler-brake';
 import { fairviewDemo } from './fairview-mattress-furniture';
+import { fairviewMotorsDemo } from './fairview-motors-brakes-alignment';
+import { fernandosDemo } from './fernandos-smog-check';
 import { goletaBakeryDemo } from './goleta-bakery';
+import { hiensDemo } from './hiens-auto-repair';
 import { javiersDemo } from './javiers-old-town-garage';
 import { jewelryMartDemo } from './jewelry-mart';
+import { kamilasDemo } from './kamilas-garage';
 import { laGuerreritaDemo } from './la-guerrerita';
 import { marysDemo } from './marys-beauty-center';
 import { mayaDemo } from './maya-income-tax-co';
@@ -45,6 +52,13 @@ const demos = {
   [oceanNailsDemo.slug]: oceanNailsDemo,
   [starNailsDemo.slug]: starNailsDemo,
   [ambianceDemo.slug]: ambianceDemo,
+  [fernandosDemo.slug]: fernandosDemo,
+  [airportDemo.slug]: airportDemo,
+  [atlasDemo.slug]: atlasDemo,
+  [fairviewMotorsDemo.slug]: fairviewMotorsDemo,
+  [economyDemo.slug]: economyDemo,
+  [kamilasDemo.slug]: kamilasDemo,
+  [hiensDemo.slug]: hiensDemo,
 } as const satisfies Record<string, DemoData>;
 
 export function getDemo(slug: string): DemoData | undefined {

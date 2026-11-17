@@ -3,6 +3,13 @@ import { notFound } from 'next/navigation';
 import { getAllDemoSlugs, getDemo } from '@/data/demos';
 import type { DemoSlug } from '@/data/demos';
 import { AmbiancePage } from '@/components/demos/ambiance/AmbiancePage';
+import { AirportPage } from '@/components/demos/airport/AirportPage';
+import { AtlasPage } from '@/components/demos/atlas/AtlasPage';
+import { EconomyPage } from '@/components/demos/economy/EconomyPage';
+import { FairviewMotorsPage } from '@/components/demos/fairview-motors/FairviewMotorsPage';
+import { FernandosPage } from '@/components/demos/fernandos/FernandosPage';
+import { HiensPage } from '@/components/demos/hiens/HiensPage';
+import { KamilasPage } from '@/components/demos/kamilas/KamilasPage';
 import { CoastalPage } from '@/components/demos/coastal/CoastalPage';
 import { DimaurosPage } from '@/components/demos/dimauros/DimaurosPage';
 import { DomingosPage } from '@/components/demos/domingos/DomingosPage';
@@ -53,6 +60,21 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Figtree:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap',
   'ambiance-nail-care-services':
     'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:wght@600&family=Instrument+Sans:wght@400;500;600;700&display=swap',
+
+  'fernandos-smog-check':
+    'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap',
+  'airport-motors':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@400;500;600;700;800&display=swap',
+  'atlas-muffler-brakes':
+    'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Chivo+Mono:wght@400;500;600&display=swap',
+  'fairview-motors-brakes-alignment':
+    'https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
+  'economy-muffler-brake':
+    'https://fonts.googleapis.com/css2?family=Titan+One&family=Karla:wght@400;500;600;700;800&display=swap',
+  'kamilas-garage':
+    'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap',
+  'hiens-auto-repair':
+    'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Work+Sans:wght@400;500;600&display=swap',
 };
 
 export function generateStaticParams() {
@@ -126,6 +148,27 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'ambiance-nail-care-services':
       page = <AmbiancePage demo={demo} />;
+      break;
+    case 'fernandos-smog-check':
+      page = <FernandosPage demo={demo} />;
+      break;
+    case 'airport-motors':
+      page = <AirportPage demo={demo} />;
+      break;
+    case 'atlas-muffler-brakes':
+      page = <AtlasPage demo={demo} />;
+      break;
+    case 'fairview-motors-brakes-alignment':
+      page = <FairviewMotorsPage demo={demo} />;
+      break;
+    case 'economy-muffler-brake':
+      page = <EconomyPage demo={demo} />;
+      break;
+    case 'kamilas-garage':
+      page = <KamilasPage demo={demo} />;
+      break;
+    case 'hiens-auto-repair':
+      page = <HiensPage demo={demo} />;
       break;
     default: {
       const _exhaustive: never = demo.slug;

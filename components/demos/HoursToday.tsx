@@ -19,8 +19,11 @@ export function HoursToday({ hours, stripDayPrefix = false }: HoursTodayProps) {
     const row = hours.find((h) => h.day === day);
     if (!row) return;
 
-    const listItem = document.querySelector(`[data-day="${day}"]`);
-    if (listItem) listItem.classList.add('today');
+    // Support combined rows like data-day="Mon Tue Wed Thu" (Batch 5).
+    document.querySelectorAll('[data-day]').forEach((el) => {
+      const days = (el.getAttribute('data-day') || '').split(/\s+/).filter(Boolean);
+      if (days.includes(day)) el.classList.add('today');
+    });
 
     const text = stripDayPrefix
       ? row.hoursText.replace(/^\w+ /, '')
