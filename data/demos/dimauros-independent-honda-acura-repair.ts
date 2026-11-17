@@ -13,7 +13,9 @@ export const dimaurosDemo: DemoData = {
   phone: '(805) 964-1032',
   googleMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Dimauro%27s+Independent+Honda+Acura+Repair%2C+5798+Dawson+Avenue%2C+Goleta%2C+CA+93117",
-  logo: '/demos/dimauros-independent-honda-acura-repair/logo-light.png',
+  logo: '/demos/dimauros-independent-honda-acura-repair/logo-dark.v2.svg',
+  logoLight: '/demos/dimauros-independent-honda-acura-repair/logo-light.v2.svg',
+  logoDark: '/demos/dimauros-independent-honda-acura-repair/logo-dark.v2.svg',
   showWarrantyLine: false,
   warrantyLine:
     'Work that keeps your factory warranty valid, done as the dealer alternative.',

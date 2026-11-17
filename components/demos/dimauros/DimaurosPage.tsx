@@ -22,6 +22,8 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
         <div className="wrap hdr">
           <DemoLogo
             logo={demo.logo}
+            logoLight={demo.logoLight}
+            logoDark={demo.logoDark}
             tone="dark"
             name={demo.name}
             className="logo"
@@ -266,6 +268,8 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
         <div className="wrap">
           <DemoLogo
             logo={demo.logo}
+            logoLight={demo.logoLight}
+            logoDark={demo.logoDark}
             tone="dark"
             name={demo.name}
             className="logo"
