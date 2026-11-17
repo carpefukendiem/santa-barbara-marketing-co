@@ -4,7 +4,11 @@ import { getAllDemoSlugs, getDemo } from '@/data/demos';
 import type { DemoSlug } from '@/data/demos';
 import { CoastalPage } from '@/components/demos/coastal/CoastalPage';
 import { DimaurosPage } from '@/components/demos/dimauros/DimaurosPage';
+import { FairviewPage } from '@/components/demos/fairview/FairviewPage';
+import { JaviersPage } from '@/components/demos/javiers/JaviersPage';
+import { LaGuerreritaPage } from '@/components/demos/la-guerrerita/LaGuerreritaPage';
 import { PrecisionPage } from '@/components/demos/precision/PrecisionPage';
+import { ShearEnvyPage } from '@/components/demos/shear-envy/ShearEnvyPage';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -17,6 +21,14 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap',
   'precision-motorcycle-service':
     'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap',
+  'javiers-old-town-garage':
+    'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap',
+  'shear-envy':
+    'https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700&family=Manrope:wght@400;500;600;700&display=swap',
+  'la-guerrerita':
+    'https://fonts.googleapis.com/css2?family=Shrikhand&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap',
+  'fairview-mattress-furniture':
+    'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap',
 };
 
 export function generateStaticParams() {
@@ -54,6 +66,18 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'precision-motorcycle-service':
       page = <PrecisionPage demo={demo} />;
+      break;
+    case 'javiers-old-town-garage':
+      page = <JaviersPage demo={demo} />;
+      break;
+    case 'shear-envy':
+      page = <ShearEnvyPage demo={demo} />;
+      break;
+    case 'la-guerrerita':
+      page = <LaGuerreritaPage demo={demo} />;
+      break;
+    case 'fairview-mattress-furniture':
+      page = <FairviewPage demo={demo} />;
       break;
     default: {
       const _exhaustive: never = demo.slug;

@@ -1,7 +1,11 @@
 export type DemoSlug =
   | 'dimauros-independent-honda-acura-repair'
   | 'coastal-dentistry'
-  | 'precision-motorcycle-service';
+  | 'precision-motorcycle-service'
+  | 'javiers-old-town-garage'
+  | 'shear-envy'
+  | 'la-guerrerita'
+  | 'fairview-mattress-furniture';
 
 export type DemoHourRow = {
   day: 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
