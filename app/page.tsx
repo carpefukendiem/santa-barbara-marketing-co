@@ -4,14 +4,13 @@ import { HomeTrim } from '@/components/sections/HomeTrim';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { faqPageSchema, professionalServiceSchema } from '@/lib/schema';
 import { homepageFaqs } from '@/data/faqs';
+import { homepageMeta } from '@/data/homepage';
 import { site } from '@/data/site';
 import { absoluteUrl } from '@/lib/utils';
 
 export const metadata = buildMetadata({
-  title:
-    'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
-  description:
-    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a free call.',
+  title: homepageMeta.title,
+  description: homepageMeta.description,
   path: '/',
   absoluteTitle: true,
 });
