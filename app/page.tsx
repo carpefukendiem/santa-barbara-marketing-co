@@ -8,10 +8,9 @@ import { site } from '@/data/site';
 import { absoluteUrl } from '@/lib/utils';
 
 export const metadata = buildMetadata({
-  title:
-    'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
+  title: 'The Local Lead Plan | Santa Barbara Marketing Co.',
   description:
-    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a free call.',
+    'Website, full CRM, and follow-up for Santa Barbara County businesses. $297/mo or $2,970/yr. Your site is live in 30 days. Cancel anytime with 30-day written notice.',
   path: '/',
   absoluteTitle: true,
 });
