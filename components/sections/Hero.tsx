@@ -86,7 +86,7 @@ function IncludedRow({ item }: { item: IncludedItemCopy }) {
       </span>
       <p className={styles.rowText}>
         <span className={styles.itemName}>{item.name}</span>
-        <span className={styles.itemDesc}> — {item.description}</span>
+        <span className={styles.itemDesc}>: {item.description}</span>
       </p>
     </li>
   );
@@ -143,7 +143,7 @@ function stepBody(step: Step): ReactNode {
           <strong>{step.lead}</strong>{' '}
           <span className={styles.tag}>Optional · not in $297</span>
           <br />
-          Voice AI answers calls when you can’t — $99/mo . Chat AI handles chats when you can’t — $29/mo . Add either, both, or neither.
+          Voice AI answers calls when you can’t, $99/mo. Chat AI handles chats when you can’t, $29/mo. Add either, both, or neither.
         </p>
       );
     default: {

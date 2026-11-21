@@ -88,11 +88,11 @@ const variantA: HomepageCopy = {
     headline: 'The whole customer-getting system. Set up for you.',
     headlinePrice: '$297/mo.',
     supportNarrow:
-      'Website, full CRM, follow-up, reporting, and training — from a local team that will come meet you.',
+      'Website, full CRM, follow-up, reporting, and training, from a local team that will come meet you.',
     supportDesk:
-      'A custom website, your own full CRM, follow-up, reporting, and training — from a local team that will come meet you.',
+      'A custom website, your own full CRM, follow-up, reporting, and training, from a local team that will come meet you.',
     priceLine: null,
-    primaryCta: 'Start The Local Lead Plan — $297/mo',
+    primaryCta: 'Start The Local Lead Plan, $297/mo',
     secondaryCta: 'Prefer to talk first? Book a call',
     trustChips: [
       'Secure checkout by Stripe',
@@ -189,9 +189,9 @@ const variantA: HomepageCopy = {
     priceLabel: 'The Local Lead Plan',
     priceMonthly: '$297',
     priceMonthlySuffix: '/mo',
-    priceAnnualLine: 'Or $2,970/yr — 2 months free',
+    priceAnnualLine: 'Or $2,970/yr, 2 months free',
     priceSave: 'Save $594 vs. monthly',
-    pricePrimaryCta: 'Start The Local Lead Plan — $297/mo',
+    pricePrimaryCta: 'Start The Local Lead Plan, $297/mo',
     priceSecondaryCta: 'Prefer to talk first? Book a call',
     howLabel: 'How it starts',
     howSteps: [
@@ -205,7 +205,7 @@ const variantA: HomepageCopy = {
       },
       {
         lead: 'We set it all up.',
-        body: ' Website, full CRM, follow-up, and the app — then we train you.',
+        body: ' Website, full CRM, follow-up, and the app, then we train you.',
       },
     ],
     howAddonsLead: 'Optional add-ons, if you want them.',
