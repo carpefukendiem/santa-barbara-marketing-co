@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
       // Cover both /demos and /demos/<slug> (trailing-slash form alone can miss /demos).
-      disallow: ['/api/', '/demos', '/demos/'],
+      disallow: ['/api/', '/demos', '/demos/', '/hp', '/hp/', '/admin', '/admin/'],
     },
     sitemap: `${site.url}/sitemap.xml`,
   };
