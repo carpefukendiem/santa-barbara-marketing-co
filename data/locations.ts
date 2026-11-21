@@ -466,7 +466,7 @@ export const locations: Location[] = [
       {
         question: 'How long does a Santa Barbara business website take to build?',
         answer:
-          'Four to eight weeks is typical for a marketing site with a clear sitemap, if photos and copy arrive on time. Booking, multilingual content, or a large original photo library add time. We give a dated outline. If we are waiting on you, we say so. If you are waiting on us, you will know that too.',
+          'Live in 30 days once we have your logins, photos and content, for a marketing site with a clear sitemap. Booking, multilingual content, or a large original photo library add time. We give a dated outline. If we are waiting on you, we say so. If you are waiting on us, you will know that too.',
         category: 'getting-started',
       },
       {

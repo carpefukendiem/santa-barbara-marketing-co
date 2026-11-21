@@ -183,8 +183,8 @@ export default function AboutPage() {
               templated location pages. Awards that cannot be found. Years in
               business that do not match a registration date. We will not
               compete that way. If we do not have a review we can permission,
-              there is no review widget. If we do not have a street address we
-              can verify, there is no fake suite number in schema. If a
+              there is no review widget. The street address and phone you see in
+              the footer and on Contact are the ones we publish in schema. If a
               competitor is beating you on review velocity, we will say that in
               a free call instead of dressing it up.
             </p>

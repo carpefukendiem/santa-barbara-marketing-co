@@ -10,8 +10,11 @@ export const trustCapabilities: TrustItem[] = [
   { id: 'serving-805', label: 'Serving the 805', icon: 'waves' },
   { id: 'one-roof', label: 'SEO, Ads & Websites Under One Roof', icon: 'compass' },
   { id: 'reporting', label: 'Plain-English Reporting', icon: 'heart' },
-  // Only include no-contracts if the business actually operates that way.
-  { id: 'no-contracts', label: 'No Long-Term Contracts', icon: 'leaf' },
+  {
+    id: 'no-contracts',
+    label: 'Cancel anytime with 30-day written notice',
+    icon: 'leaf',
+  },
 ];
 
 export type TrustLogo = {

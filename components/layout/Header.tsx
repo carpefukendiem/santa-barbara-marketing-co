@@ -14,7 +14,7 @@ import {
   primaryCta,
   primaryNav,
 } from '@/data/navigation';
-import { cn, telHref } from '@/lib/utils';
+import { cn, formatPhone, telHref } from '@/lib/utils';
 
 export function Header() {
   const pathname = usePathname();
@@ -78,7 +78,7 @@ export function Header() {
                 href={telHref(site.phone)}
                 className={cn('hidden text-sm md:inline lg:hidden', overDark ? 'text-cream' : 'text-ink')}
               >
-                {site.phone}
+                {formatPhone(site.phone)}
               </a>
             ) : null}
           </div>
@@ -172,7 +172,7 @@ export function Header() {
                     overDark ? 'text-cream' : 'text-ink',
                   )}
                 >
-                  {site.phone}
+                  {formatPhone(site.phone)}
                 </a>
               ) : null}
               <span className="hidden min-[1100px]:inline-flex">

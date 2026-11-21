@@ -33,8 +33,8 @@ export function HowWeWork() {
           Simple. Strategic. Built for Results.
         </Heading>
         <p className="mt-6 max-w-2xl text-lg text-cream/80">
-          A clear plan, real work, and reporting you can read. No long-term
-          contract.
+          A clear plan, real work, and reporting you can read. Cancel anytime
+          with 30-day written notice.
         </p>
         <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {howWeWorkSteps.map((step, index) => (

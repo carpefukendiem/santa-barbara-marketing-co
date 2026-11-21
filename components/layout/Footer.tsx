@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Wordmark } from '@/components/brand/Wordmark';
+import { NapBlock } from '@/components/layout/NapBlock';
 import { site } from '@/data/site';
 import {
   digitalServiceLinks,
@@ -12,7 +13,6 @@ import {
   legalLinks,
   locationLinks,
 } from '@/data/navigation';
-import { telHref } from '@/lib/utils';
 
 export function Footer() {
   const pathname = usePathname();
@@ -60,20 +60,7 @@ export function Footer() {
             <p className="mt-4 font-display text-xl text-cream/80">
               {site.tagline}
             </p>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-4 inline-block font-mono text-sm text-cream/75 hover:text-cream"
-            >
-              {site.email}
-            </a>
-            {site.phone ? (
-              <a
-                href={telHref(site.phone)}
-                className="mt-2 block font-mono text-sm text-cream/75"
-              >
-                {site.phone}
-              </a>
-            ) : null}
+            <NapBlock tone="footer" />
             {socials.length > 0 ? (
               <ul className="mt-6 flex gap-4">
                 {socials.map(([name, href]) => (
