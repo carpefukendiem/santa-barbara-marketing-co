@@ -2,114 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { photos } from '@/data/images';
+import type { HomepageCopy, IncludedItemCopy } from '@/data/homepage-variants';
+import { getHomepageCopy } from '@/data/homepage-variants';
 import styles from './hero-atf.module.css';
-
-type IncludedItem = {
-  name: string;
-  description: string;
-};
-
-const recap = [
-  'Website + full CRM',
-  'Email & text follow-up',
-  'Website chat',
-  'App setup + training',
-  'Local SEO + reviews',
-  'Monthly reporting',
-] as const;
-
-const crmItems: IncludedItem[] = [
-  {
-    name: 'Full CRM',
-    description:
-      'Contacts, conversations, and customer history in one place, set up under your name',
-  },
-  {
-    name: 'Pipelines',
-    description: 'See every lead and where they stand',
-  },
-  {
-    name: 'Booking and calendars',
-    description: 'Customers can schedule with you',
-  },
-  {
-    name: 'Email marketing',
-    description: 'Plus automated email follow-ups',
-  },
-  {
-    name: 'Texting and missed-call text-back',
-    description: 'If you miss a call, they get a text',
-  },
-  {
-    name: 'Website chat',
-    description: 'Visitors can message you from the site',
-  },
-  {
-    name: 'Forms',
-    description: 'Capture leads on the site',
-  },
-  {
-    name: 'Automations',
-    description: 'Follow-up that runs without you chasing it',
-  },
-  {
-    name: 'Review requests',
-    description: 'Ask happy customers for reviews',
-  },
-  {
-    name: 'Reporting',
-    description: 'See activity from your own account',
-  },
-  {
-    name: 'Mobile app',
-    description: 'We set it up and train you',
-  },
-];
-
-const doneItems: IncludedItem[] = [
-  {
-    name: 'Custom website',
-    description: 'Fully integrated and connected to the CRM',
-  },
-  {
-    name: 'First review request or offer blast',
-    description: 'Sent to your customer list',
-  },
-  {
-    name: 'Monthly reporting',
-    description: 'We walk you through what’s working',
-  },
-  {
-    name: 'Local SEO',
-    description: 'Show up locally',
-  },
-];
 
 type Step =
   | { kind: 'plain'; lead: string; body: string }
   | { kind: 'addons'; lead: string };
-
-const steps: Step[] = [
-  {
-    kind: 'plain',
-    lead: 'Start the plan or book a call.',
-    body: ' Secure checkout by Stripe, or talk it through first.',
-  },
-  {
-    kind: 'plain',
-    lead: 'We come meet you.',
-    body: ' A local team, in person, to learn the business.',
-  },
-  {
-    kind: 'addons',
-    lead: 'Optional add-ons, if you want them.',
-  },
-  {
-    kind: 'plain',
-    lead: 'We set it all up.',
-    body: ' Website, full CRM, follow-up, and the app — then we train you.',
-  },
-];
 
 function CheckIcon() {
   return (
@@ -179,7 +78,7 @@ function PinIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-function IncludedRow({ item }: { item: IncludedItem }) {
+function IncludedRow({ item }: { item: IncludedItemCopy }) {
   return (
     <li className={styles.row}>
       <span className={styles.check}>
@@ -202,7 +101,7 @@ function Group({
 }: {
   title: string;
   aside: string;
-  items: IncludedItem[];
+  items: readonly IncludedItemCopy[];
   plus?: string;
   next?: boolean;
 }) {
@@ -254,10 +153,18 @@ function stepBody(step: Step): ReactNode {
   }
 }
 
-function HowItStarts() {
+function HowItStarts({ copy }: { copy: HomepageCopy['hero'] }) {
+  const [step1, step2, step3] = copy.howSteps;
+  const steps: Step[] = [
+    { kind: 'plain', lead: step1.lead, body: step1.body },
+    { kind: 'plain', lead: step2.lead, body: step2.body },
+    { kind: 'addons', lead: copy.howAddonsLead },
+    { kind: 'plain', lead: step3.lead, body: step3.body },
+  ];
+
   return (
     <div className={styles.how}>
-      <h2 className={styles.monoLabel}>How it starts</h2>
+      <h2 className={styles.monoLabel}>{copy.howLabel}</h2>
       <ol className={styles.steps}>
         {steps.map((step, index) => (
           <li key={step.lead} className={styles.step}>
@@ -281,7 +188,13 @@ function AddonsBox() {
   );
 }
 
-function PriceBlock({ variant }: { variant: 'top' | 'end' | 'panel' }) {
+function PriceBlock({
+  variant,
+  copy,
+}: {
+  variant: 'top' | 'end' | 'panel';
+  copy: HomepageCopy['hero'];
+}) {
   const variantClass =
     variant === 'top' ? styles.cardTop : variant === 'end' ? styles.cardEnd : styles.cardPanel;
 
@@ -289,22 +202,23 @@ function PriceBlock({ variant }: { variant: 'top' | 'end' | 'panel' }) {
     <div className={`${styles.priceCard} ${variantClass}`} data-price-variant={variant}>
       <div className={styles.priceTop}>
         <div className={styles.priceLeft}>
-          <p className={styles.priceLabel}>The Local Lead Plan</p>
+          <p className={styles.priceLabel}>{copy.priceLabel}</p>
           <p className={styles.price}>
-            $297<span>/mo</span>
+            {copy.priceMonthly}
+            <span>{copy.priceMonthlySuffix}</span>
           </p>
         </div>
         <div className={styles.priceRight}>
-          <p>Or $2,970/yr — 2 months free</p>
-          <p className={styles.save}>Save $594 vs. monthly</p>
+          <p>{copy.priceAnnualLine}</p>
+          <p className={styles.save}>{copy.priceSave}</p>
         </div>
       </div>
-      <Link className={styles.priceCta} href="/get-started">
-        <span>Start The Local Lead Plan — $297/mo</span>
+      <Link className={styles.priceCta} href="/get-started" data-ab-cta="start_plan">
+        <span>{copy.pricePrimaryCta}</span>
         <ArrowIcon />
       </Link>
-      <Link className={styles.priceSecondary} href="/book-a-call">
-        <span className={styles.linkLabel}>Prefer to talk first? Book a call</span>
+      <Link className={styles.priceSecondary} href="/book-a-call" data-ab-cta="book_call">
+        <span className={styles.linkLabel}>{copy.priceSecondaryCta}</span>
         <ArrowIcon />
       </Link>
       <p className={styles.trust}>
@@ -327,9 +241,11 @@ function PriceBlock({ variant }: { variant: 'top' | 'end' | 'panel' }) {
   );
 }
 
-export function Hero() {
+export function Hero({ copy = getHomepageCopy('a') }: { copy?: HomepageCopy }) {
+  const hero = copy.hero;
+
   return (
-    <section className={styles.hero} aria-labelledby="hero-title">
+    <section className={styles.hero} aria-labelledby="hero-title" data-hp-variant-hero>
       <div className={styles.photo} aria-hidden="true">
         <Image
           src={photos.hero.src}
@@ -345,44 +261,50 @@ export function Hero() {
 
       <div className={styles.layout}>
         <div className={styles.copy}>
-          <p className={styles.eyebrow}>Local businesses in Santa Barbara and nearby</p>
+          <p className={styles.eyebrow}>{hero.eyebrow}</p>
           <h1 id="hero-title" className={styles.h1} data-hero-part="h1">
-            The whole customer-getting system. Set up for you.{' '}
-            <span className={styles.h1Price}>$297/mo.</span>
+            {hero.headline}
+            {hero.headlinePrice ? (
+              <>
+                {' '}
+                <span className={styles.h1Price}>{hero.headlinePrice}</span>
+              </>
+            ) : null}
           </h1>
           <p className={styles.support}>
-            <span className={styles.onlyNarrowInline}>
-              Website, full CRM, follow-up, reporting, and training — from a local team that will come meet you.
-            </span>
-            <span className={styles.onlyDeskInline}>
-              A custom website, your own full CRM, follow-up, reporting, and training — from a local team that will come meet you.
-            </span>
+            <span className={styles.onlyNarrowInline}>{hero.supportNarrow}</span>
+            <span className={styles.onlyDeskInline}>{hero.supportDesk}</span>
           </p>
+          {hero.priceLine ? (
+            <p className={styles.support} data-hero-part="price-line">
+              {hero.priceLine}
+            </p>
+          ) : null}
 
           <div className={styles.onlyDesk}>
-            <Link className={styles.heroCta} href="/get-started">
-              <span>Start The Local Lead Plan — $297/mo</span>
+            <Link className={styles.heroCta} href="/get-started" data-ab-cta="start_plan">
+              <span>{hero.primaryCta}</span>
               <ArrowIcon />
             </Link>
-            <Link className={styles.heroSecondary} href="/book-a-call">
-              <span className={styles.linkLabel}>Prefer to talk first? Book a call</span>
+            <Link className={styles.heroSecondary} href="/book-a-call" data-ab-cta="book_call">
+              <span className={styles.linkLabel}>{hero.secondaryCta}</span>
               <ArrowIcon />
             </Link>
             <ul className={styles.chips}>
               <li>
                 <LockIcon />
-                Secure checkout by Stripe
+                {hero.trustChips[0]}
               </li>
-              <li>Cancel anytime with 30-day written notice</li>
+              <li>{hero.trustChips[1]}</li>
               <li>
                 <PinIcon />
-                We’ll come meet you
+                {hero.trustChips[2]}
               </li>
             </ul>
             <div className={styles.recap}>
-              <p className={styles.monoLabel}>What’s included, set up for you</p>
+              <p className={styles.monoLabel}>{hero.recapLabel}</p>
               <ul>
-                {recap.map((item) => (
+                {hero.recap.map((item) => (
                   <li key={item}>
                     <span className={styles.dot} aria-hidden="true" />
                     {item}
@@ -390,74 +312,65 @@ export function Hero() {
                 ))}
               </ul>
             </div>
-            <HowItStarts />
+            <HowItStarts copy={hero} />
           </div>
         </div>
 
         <div className={styles.onlyNarrow}>
-          <PriceBlock variant="top" />
+          <PriceBlock variant="top" copy={hero} />
         </div>
 
         <div className={styles.panel} data-hero-part="panel">
           <div className={styles.strip}>
-            <span>The Local Lead Plan</span>
-            <span>$297/mo · all included</span>
+            <span>{hero.panelStripTitle}</span>
+            <span>{hero.panelStripPrice}</span>
           </div>
           <div className={styles.panelBody}>
             <div className={styles.includedHead}>
               <h2 className={styles.h2} data-hero-part="included-title">
-                What’s included
+                {hero.includedTitle}
               </h2>
               <p className={styles.sub}>
-                <span className={styles.onlyNarrowInline}>
-                  All in The Local Lead Plan · set up for you
-                </span>
-                <span className={styles.onlyDeskInline}>
-                  All in The Local Lead Plan · set up for you · one monthly price
-                </span>
+                <span className={styles.onlyNarrowInline}>{hero.includedSubNarrow}</span>
+                <span className={styles.onlyDeskInline}>{hero.includedSubDesk}</span>
               </p>
             </div>
             <div className={styles.groups}>
               <Group
-                title="Your full CRM"
-                aside="What the system does"
-                items={crmItems}
-                plus="Plus the other built-in tools."
+                title={hero.crmTitle}
+                aside={hero.crmAside}
+                items={hero.crmItems}
+                plus={hero.crmPlus}
               />
               <Group
-                title="Done for you"
-                aside="Also included"
-                items={doneItems}
+                title={hero.doneTitle}
+                aside={hero.doneAside}
+                items={hero.doneItems}
                 next
               />
             </div>
             <p className={styles.closer}>
               <PinIcon />
-              <span>Close enough to shake your hand. We’ll come to you.</span>
+              <span>{hero.closer}</span>
             </p>
             <div className={styles.onlyDesk}>
-              <PriceBlock variant="panel" />
+              <PriceBlock variant="panel" copy={hero} />
               <AddonsBox />
             </div>
           </div>
         </div>
 
         <div className={styles.onlyNarrow}>
-          <HowItStarts />
+          <HowItStarts copy={hero} />
         </div>
         <div className={`${styles.onlyNarrow} ${styles.end}`}>
-          <PriceBlock variant="end" />
+          <PriceBlock variant="end" copy={hero} />
           <AddonsBox />
         </div>
       </div>
 
       <div className={`${styles.band} ${styles.onlyDesk}`}>
-        <p>
-          Santa Barbara · Goleta · Montecito · Carpinteria{'\u00A0·\u00A0'}
-          One local system{'\u00A0·\u00A0'}
-          Plain-English reporting{'\u00A0·\u00A0'}
-          Cancel anytime with 30-day written notice
-        </p>
+        <p>{hero.band}</p>
       </div>
     </section>
   );

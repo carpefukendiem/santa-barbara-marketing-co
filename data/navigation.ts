@@ -183,7 +183,7 @@ export const companyLinks: NavLink[] = [
 ];
 
 export const getStartedLinks: NavLink[] = [
-  { label: 'Book a Free Call', href: '/book-a-call' },
+  { label: 'Book a 20-Minute Call', href: '/book-a-call' },
   { label: 'Local Lead Plan', href: '/local-lead-plan' },
   { label: 'Get Started', href: '/get-started' },
   { label: 'Pricing', href: '/pricing' },
@@ -207,7 +207,7 @@ export const allServiceLinks: NavLink[] = megaColumns.flatMap(
 );
 
 export const primaryCta = {
-  label: 'Book a Free Call',
+  label: 'Book a 20-Minute Call',
   href: '/book-a-call',
 } as const;
 

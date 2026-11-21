@@ -3,31 +3,9 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import Link from 'next/link';
 import pricingStyles from '@/components/pricing/pricing-page.module.css';
+import type { HomepageCopy } from '@/data/homepage-variants';
+import { getHomepageCopy } from '@/data/homepage-variants';
 import styles from './home-trim.module.css';
-
-const crmPrimary = [
-  ['Full CRM', 'Contacts, conversations, and customer history in one place, set up under your name.'],
-  ['Pipelines', 'See every lead and where they stand.'],
-  ['Booking and calendars', 'Customers can schedule with you.'],
-  ['Email marketing', 'Plus automated email follow-ups.'],
-  ['Texting and missed-call text-back', 'If you miss a call, they get a text.'],
-] as const;
-
-const crmExtra = [
-  ['Website chat', 'Visitors can message you from the site.'],
-  ['Forms', 'Capture leads on the site.'],
-  ['Automations', 'Follow-up that runs without you chasing it.'],
-  ['Review requests', 'Ask happy customers for reviews.'],
-  ['Reporting', 'See activity from your own account.'],
-  ['Mobile app', 'We set it up and train you.'],
-] as const;
-
-const doneForYou = [
-  ['Custom website', 'Fast, mobile-first website, fully integrated and connected to the CRM.'],
-  ['First review request or offer blast', 'Sent to your customer list.'],
-  ['Monthly reporting', 'We walk you through what’s working.'],
-  ['Local SEO', 'Show up locally.'],
-] as const;
 
 const faqs = [
   ['How fast is my site live?', 'Live in 30 days once we have your logins, photos and content.'],
@@ -91,7 +69,7 @@ function CloseArrow() {
   );
 }
 
-function HomePriceCard() {
+function HomePriceCard({ secondaryCta }: { secondaryCta: string }) {
   const [annual, setAnnual] = useState(false);
   const monthRef = useRef<HTMLButtonElement>(null);
   const yearRef = useRef<HTMLButtonElement>(null);
@@ -159,11 +137,11 @@ function HomePriceCard() {
           <p className={pricingStyles.save}>Save $594 vs. monthly</p>
         </div>
       </div>
-      <Link className={pricingStyles.cta} href="/get-started">
+      <Link className={pricingStyles.cta} href="/get-started" data-ab-cta="start_plan">
         {cta} <ArrowIcon />
       </Link>
-      <Link className={pricingStyles.secondary} href="/book-a-call">
-        Prefer to talk first? Book a call <ArrowIcon />
+      <Link className={pricingStyles.secondary} href="/book-a-call" data-ab-cta="book_call">
+        {secondaryCta} <ArrowIcon />
       </Link>
       <p className={pricingStyles.trust}>
         <span className={pricingStyles.lock}>
@@ -187,8 +165,9 @@ function HomePriceCard() {
   );
 }
 
-export function HomeTrim() {
+export function HomeTrim({ copy = getHomepageCopy('a') }: { copy?: HomepageCopy }) {
   const [expanded, setExpanded] = useState(false);
+  const trim = copy.trim;
 
   return (
     <div className={`${styles.root}${expanded ? ` ${styles.expanded}` : ''}`}>
@@ -196,25 +175,23 @@ export function HomeTrim() {
         <div className={styles.wrap}>
           <div className={styles.head}>
             <div>
-              <p className={styles.kicker}>What’s included</p>
+              <p className={styles.kicker}>{trim.includedKicker}</p>
               <h2 className={styles.h2} id="inc-title">
-                Your full CRM, and the work we do for you.
+                {trim.includedTitle}
               </h2>
             </div>
-            <p className={styles.lede}>
-              All in The Local Lead Plan, for one monthly price. Set up under your name.
-            </p>
+            <p className={styles.lede}>{trim.includedLede}</p>
           </div>
 
           <div className={styles.incGrid}>
             <div className={styles.incCard}>
               <div className={styles.incCardH}>
-                <span className={styles.lab}>Your full CRM</span>
-                <span className={styles.sub}>What the system does</span>
+                <span className={styles.lab}>{trim.crmLab}</span>
+                <span className={styles.sub}>{trim.crmSub}</span>
               </div>
-              <p className={styles.incSubh}>Catch every lead and follow up until it books.</p>
+              <p className={styles.incSubh}>{trim.crmSubh}</p>
               <ul className={styles.incList}>
-                {crmPrimary.map(([name, outcome]) => (
+                {trim.crmPrimary.map(([name, outcome]) => (
                   <li key={name}>
                     <CheckDot />
                     <span>
@@ -225,7 +202,7 @@ export function HomeTrim() {
                 ))}
               </ul>
               <ul className={styles.incList}>
-                {crmExtra.map(([name, outcome]) => (
+                {trim.crmExtra.map(([name, outcome]) => (
                   <li key={name} className={styles.crmExtra}>
                     <CheckDot />
                     <span>
@@ -239,7 +216,7 @@ export function HomeTrim() {
                     +
                   </span>
                   <span>
-                    <span className={styles.incName}>Plus the other built-in tools.</span>
+                    <span className={styles.incName}>{trim.crmPlus}</span>
                   </span>
                 </li>
               </ul>
@@ -256,12 +233,12 @@ export function HomeTrim() {
 
             <div className={`${styles.incCard} ${styles.incCardNavy}`}>
               <div className={styles.incCardH}>
-                <span className={styles.lab}>Done for you</span>
-                <span className={styles.sub}>Also included</span>
+                <span className={styles.lab}>{trim.doneLab}</span>
+                <span className={styles.sub}>{trim.doneSub}</span>
               </div>
-              <p className={styles.incSubh}>Built and run by us, so your hours stay on paying work.</p>
+              <p className={styles.incSubh}>{trim.doneSubh}</p>
               <ul className={styles.incList}>
-                {doneForYou.map(([name, outcome]) => (
+                {trim.doneForYou.map(([name, outcome]) => (
                   <li key={name}>
                     <CheckDot />
                     <span>
@@ -280,62 +257,42 @@ export function HomeTrim() {
         <div className={styles.wrap}>
           <div className={styles.head}>
             <div>
-              <p className={styles.kicker}>How it starts</p>
+              <p className={styles.kicker}>{trim.howKicker}</p>
               <h2 className={styles.h2} id="how-title">
-                From first call to a system that works while you work.
+                {trim.howTitle}
               </h2>
             </div>
-            <p className={styles.lede}>
-              The same four steps as above. A local team sets it up with you in person, then trains you to run it.
-            </p>
+            <p className={styles.lede}>{trim.howLede}</p>
           </div>
           <ol className={styles.steps}>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>1</span>
-              <div>
-                <p className={styles.stepTitle}>Start the plan or book a call.</p>
-                <p className={styles.stepBody}>Secure checkout by Stripe, or talk it through first.</p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>2</span>
-              <div>
-                <p className={styles.stepTitle}>We come meet you.</p>
-                <p className={styles.stepBody}>A local team, in person, to learn the business.</p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>3</span>
-              <div>
-                <p className={styles.stepTitle}>Optional add-ons, if you want them.</p>
-                <p className={styles.stepBody}>
-                  <span className={styles.stepTag}>Optional · not in $297</span>
-                  <br />
-                  Voice AI answers calls when you can’t, $99/mo. Chat AI handles chats when you can’t, $29/mo. Add
-                  either, both, or neither. Website chat is included.
-                </p>
-              </div>
-            </li>
-            <li className={styles.step}>
-              <span className={styles.stepNum}>4</span>
-              <div>
-                <p className={styles.stepTitle}>We set it all up.</p>
-                <p className={styles.stepBody}>Website, full CRM, follow-up, and the app, then we train you.</p>
-              </div>
-            </li>
+            {trim.howSteps.map((step, index) => (
+              <li key={step.title} className={styles.step}>
+                <span className={styles.stepNum}>{index + 1}</span>
+                <div>
+                  <p className={styles.stepTitle}>{step.title}</p>
+                  <p className={styles.stepBody}>
+                    {step.tag ? (
+                      <>
+                        <span className={styles.stepTag}>{step.tag}</span>
+                        <br />
+                      </>
+                    ) : null}
+                    {step.body}
+                  </p>
+                </div>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
 
       <section className={styles.sec} id="local" aria-labelledby="local-title">
         <div className={styles.wrap}>
-          <p className={styles.kicker}>Santa Barbara and nearby</p>
+          <p className={styles.kicker}>{trim.localKicker}</p>
           <h2 className={styles.h2} id="local-title">
-            We come to you.
+            {trim.localTitle}
           </h2>
-          <p className={styles.localNote}>
-            In-person setup and training in Santa Barbara, Goleta, Carpinteria, and Montecito.
-          </p>
+          <p className={styles.localNote}>{trim.localNote}</p>
           <div className={styles.localCities} aria-label="Cities we come to">
             {cities.map((city) => (
               <span key={city} className={styles.localCity}>
@@ -350,12 +307,12 @@ export function HomeTrim() {
       <section className={`${styles.sec} ${styles.secPrice}`} id="price" aria-labelledby="price-title">
         <div className={styles.priceShell}>
           <div className={styles.priceIntro}>
-            <p className={styles.kicker}>The Local Lead Plan</p>
+            <p className={styles.kicker}>{trim.priceKicker}</p>
             <h2 className={styles.h2} id="price-title">
-              One monthly price.
+              {trim.priceTitle}
             </h2>
           </div>
-          <HomePriceCard />
+          <HomePriceCard secondaryCta={copy.hero.priceSecondaryCta} />
         </div>
       </section>
 
@@ -378,17 +335,21 @@ export function HomeTrim() {
 
       <section className={`${styles.sec} ${styles.secNavy} ${styles.close}`} id="close" aria-labelledby="close-title">
         <div className={styles.wrap}>
-          <p className={styles.kicker}>The Local Lead Plan</p>
+          <p className={styles.kicker}>{trim.closeKicker}</p>
           <h2 className={styles.h2} id="close-title">
-            Start the plan, or book a free call.
+            {trim.closeTitle}
           </h2>
-          <p className={styles.lede}>$297/mo, or $2,970/yr. Cancel anytime with 30-day written notice.</p>
+          <p className={styles.lede}>{trim.closeLede}</p>
           <div className={styles.closeActions}>
-            <Link className={styles.closeBtn} href="/get-started">
-              Start the plan <CloseArrow />
+            <Link className={styles.closeBtn} href="/get-started" data-ab-cta="start_plan">
+              {trim.closePrimaryCta} <CloseArrow />
             </Link>
-            <Link className={`${styles.closeBtn} ${styles.closeBtnSec}`} href="/book-a-call">
-              Book a free call <CloseArrow />
+            <Link
+              className={`${styles.closeBtn} ${styles.closeBtnSec}`}
+              href="/book-a-call"
+              data-ab-cta="book_call"
+            >
+              {trim.closeSecondaryCta} <CloseArrow />
             </Link>
           </div>
           <p className={styles.closeContact}>

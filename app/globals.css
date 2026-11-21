@@ -399,15 +399,23 @@ header.site-header a.header-book {
   box-shadow: none;
   gap: 0;
   min-height: 44px;
-  padding: 13px 24px;
+  padding: 12px 18px;
   border-radius: 999px;
   background: var(--tile);
   color: var(--white);
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: normal;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (min-width: 1440px) {
+  header.site-header a.header-book {
+    padding: 13px 22px;
+    font-size: 15px;
+  }
 }
 
 header.site-header a.header-book:hover {
