@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { listAbEvents, summarizeAbEvents } from '@/lib/ab/store';
+import { fetchAbSummary, summarizeAbSummary } from '@/lib/ab/store';
 
 export const runtime = 'nodejs';
 
@@ -28,15 +28,22 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { rows, store } = await listAbEvents();
+    const { rows, store, via } = await fetchAbSummary();
+    const variants = summarizeAbSummary(rows);
+    const totalEvents = variants.reduce(
+      (sum, variant) =>
+        sum + Object.values(variant.events).reduce((inner, n) => inner + n, 0),
+      0,
+    );
     return NextResponse.json({
       store,
-      total: rows.length,
-      variants: summarizeAbEvents(rows),
+      via: via ?? null,
+      total: totalEvents,
+      variants,
       note:
         store === 'memory'
-          ? 'Using in-process memory. Apply supabase/migrations/20261121_hp_ab_events.sql and set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY for durable production counts.'
-          : 'Reading from Supabase hp_ab_events.',
+          ? 'Using in-process memory. Set SUPABASE_URL + SUPABASE_ANON_KEY (server-only) for durable counts via hp_ab_summary().'
+          : 'Reading from Supabase RPC hp_ab_summary(). Rates use exposure visitors as the denominator.',
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Read failed';

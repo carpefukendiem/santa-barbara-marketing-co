@@ -37,22 +37,22 @@ export async function POST(request: Request) {
 
   const path =
     typeof body.path === 'string' && body.path.startsWith('/')
-      ? body.path.slice(0, 200)
+      ? body.path.slice(0, 512)
       : '/';
   const sessionId =
     typeof body.session_id === 'string' && body.session_id.length > 0
-      ? body.session_id.slice(0, 200)
+      ? body.session_id.slice(0, 256)
       : null;
 
   try {
-    const row = await insertAbEvent({
+    await insertAbEvent({
       event: body.event,
       variant: body.variant,
       path,
-      visitor_id: body.visitor_id.slice(0, 120),
+      visitor_id: body.visitor_id.slice(0, 128),
       session_id: sessionId,
     });
-    return NextResponse.json({ ok: true, id: row.id });
+    return NextResponse.json({ ok: true });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Store failed';
     return NextResponse.json({ error: message }, { status: 500 });

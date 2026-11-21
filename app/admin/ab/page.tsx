@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { listAbEvents, summarizeAbEvents } from '@/lib/ab/store';
+import { fetchAbSummary, summarizeAbSummary } from '@/lib/ab/store';
 import { AB_EVENTS } from '@/lib/ab/constants';
 
 export const metadata: Metadata = {
@@ -42,26 +42,39 @@ export default async function AdminAbPage({ searchParams }: PageProps) {
     );
   }
 
-  const { rows, store } = await listAbEvents();
-  const [statsA, statsB] = summarizeAbEvents(rows);
+  const { rows, store, via } = await fetchAbSummary();
+  const [statsA, statsB] = summarizeAbSummary(rows);
   const a = statsA!;
   const b = statsB!;
   const conversionEvents = AB_EVENTS.filter((event) => event !== 'exposure');
+  const totalEvents =
+    Object.values(a.events).reduce((sum, n) => sum + n, 0) +
+    Object.values(b.events).reduce((sum, n) => sum + n, 0);
 
   return (
     <main style={{ padding: 24, fontFamily: 'system-ui, sans-serif', maxWidth: 960 }}>
       <h1>Homepage A/B results</h1>
       <p style={{ color: '#555' }}>
-        Store: <strong>{store}</strong> · Total events: {rows.length}
+        Store: <strong>{store}</strong>
+        {via ? (
+          <>
+            {' '}
+            ({via})
+          </>
+        ) : null}{' '}
+        · Total events: {totalEvents}
       </p>
       {store === 'memory' ? (
         <p style={{ color: '#8a4b08' }}>
-          Memory store only. Apply{' '}
-          <code>supabase/migrations/20261121_hp_ab_events.sql</code> and set{' '}
-          <code>SUPABASE_URL</code> + <code>SUPABASE_SERVICE_ROLE_KEY</code> for
-          durable production counts.
+          Memory store only. Set <code>SUPABASE_URL</code> +{' '}
+          <code>SUPABASE_ANON_KEY</code> (server-only) for durable counts via{' '}
+          <code>hp_ab_summary()</code>.
         </p>
-      ) : null}
+      ) : (
+        <p style={{ color: '#555' }}>
+          Rates use unique exposure visitors as the denominator.
+        </p>
+      )}
       <table
         style={{
           width: '100%',
@@ -76,18 +89,22 @@ export default async function AdminAbPage({ searchParams }: PageProps) {
               Metric
             </th>
             <th style={{ textAlign: 'right', borderBottom: '1px solid #ddd', padding: 8 }}>
-              A
+              A events / visitors
             </th>
             <th style={{ textAlign: 'right', borderBottom: '1px solid #ddd', padding: 8 }}>
-              B
+              B events / visitors
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td style={{ padding: 8 }}>exposures</td>
-            <td style={{ padding: 8, textAlign: 'right' }}>{a.exposures}</td>
-            <td style={{ padding: 8, textAlign: 'right' }}>{b.exposures}</td>
+            <td style={{ padding: 8, textAlign: 'right' }}>
+              {a.events.exposure} / {a.visitors.exposure}
+            </td>
+            <td style={{ padding: 8, textAlign: 'right' }}>
+              {b.events.exposure} / {b.visitors.exposure}
+            </td>
           </tr>
           {conversionEvents.map((event) => (
             <tr key={event}>
@@ -98,8 +115,12 @@ export default async function AdminAbPage({ searchParams }: PageProps) {
                   ({pct(a.rates[event])} / {pct(b.rates[event])})
                 </span>
               </td>
-              <td style={{ padding: 8, textAlign: 'right' }}>{a.events[event]}</td>
-              <td style={{ padding: 8, textAlign: 'right' }}>{b.events[event]}</td>
+              <td style={{ padding: 8, textAlign: 'right' }}>
+                {a.events[event]} / {a.visitors[event]}
+              </td>
+              <td style={{ padding: 8, textAlign: 'right' }}>
+                {b.events[event]} / {b.visitors[event]}
+              </td>
             </tr>
           ))}
         </tbody>

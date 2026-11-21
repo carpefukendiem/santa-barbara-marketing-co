@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import type { AbEventName } from '@/lib/ab/constants';
+import { AB_EVENTS, type AbEventName } from '@/lib/ab/constants';
 import type { HomepageVariantId } from '@/data/homepage-variants';
 
 export type AbEventRow = {
@@ -10,6 +10,13 @@ export type AbEventRow = {
   path: string;
   visitor_id: string;
   session_id: string | null;
+};
+
+export type HpAbSummaryRow = {
+  variant: HomepageVariantId;
+  event: AbEventName;
+  events: number;
+  visitors: number;
 };
 
 type InsertInput = {
@@ -23,35 +30,39 @@ type InsertInput = {
 /**
  * Durable store for homepage A/B events.
  *
- * Preferred: Supabase table `hp_ab_events` when SUPABASE_URL and
- * SUPABASE_SERVICE_ROLE_KEY are set (see supabase/migrations).
+ * Preferred: Supabase with SUPABASE_URL + SUPABASE_ANON_KEY (server-only).
+ * Optional fallback key: SUPABASE_SERVICE_ROLE_KEY.
+ * Writes: INSERT only (anon has no SELECT). Reads: RPC hp_ab_summary().
  *
- * Fallback already available in-repo: process-local memory buffer so preview
- * and local `next start` can exercise /api/ab-results. This is not multi-
- * instance durable; apply the SQL migration and set the Supabase env vars
- * before relying on production counts. Vercel Analytics custom events are
- * always fired from the client in parallel.
+ * Without Supabase env vars, uses an in-process memory buffer for local/preview.
  */
 const memoryStore: AbEventRow[] = [];
 
-function supabaseConfig() {
+function supabaseConfig(): { url: string; key: string; via: 'anon' | 'service' } | null {
   const url = process.env.SUPABASE_URL?.replace(/\/$/, '');
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return null;
-  return { url, key };
+  if (!url) return null;
+  const anon = process.env.SUPABASE_ANON_KEY;
+  if (anon) return { url, key: anon, via: 'anon' };
+  const service = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (service) return { url, key: service, via: 'service' };
+  return null;
 }
 
-export async function insertAbEvent(input: InsertInput): Promise<AbEventRow> {
-  const row: AbEventRow = {
-    id: randomUUID(),
-    created_at: new Date().toISOString(),
+export function normalizeAbInsert(input: InsertInput): InsertInput {
+  return {
     variant: input.variant,
     event: input.event,
-    path: input.path,
-    visitor_id: input.visitor_id,
-    session_id: input.session_id ?? null,
+    path: input.path.slice(0, 512),
+    visitor_id: input.visitor_id.slice(0, 128),
+    session_id:
+      input.session_id && input.session_id.length > 0
+        ? input.session_id.slice(0, 256)
+        : null,
   };
+}
 
+export async function insertAbEvent(input: InsertInput): Promise<{ ok: true }> {
+  const row = normalizeAbInsert(input);
   const supabase = supabaseConfig();
   if (supabase) {
     const response = await fetch(`${supabase.url}/rest/v1/hp_ab_events`, {
@@ -60,11 +71,9 @@ export async function insertAbEvent(input: InsertInput): Promise<AbEventRow> {
         apikey: supabase.key,
         Authorization: `Bearer ${supabase.key}`,
         'Content-Type': 'application/json',
-        Prefer: 'return=representation',
+        Prefer: 'return=minimal',
       },
       body: JSON.stringify({
-        id: row.id,
-        created_at: row.created_at,
         variant: row.variant,
         event: row.event,
         path: row.path,
@@ -76,80 +85,125 @@ export async function insertAbEvent(input: InsertInput): Promise<AbEventRow> {
       const detail = await response.text().catch(() => '');
       throw new Error(`Supabase insert failed (${response.status}): ${detail}`);
     }
-    return row;
+    return { ok: true };
   }
 
-  memoryStore.push(row);
-  return row;
+  memoryStore.push({
+    id: randomUUID(),
+    created_at: new Date().toISOString(),
+    variant: row.variant,
+    event: row.event,
+    path: row.path,
+    visitor_id: row.visitor_id,
+    session_id: row.session_id ?? null,
+  });
+  return { ok: true };
 }
 
-export async function listAbEvents(): Promise<{
-  rows: AbEventRow[];
+function emptyCounts(): Record<AbEventName, number> {
+  return {
+    exposure: 0,
+    start_plan_click: 0,
+    get_started_view: 0,
+    checkout_start: 0,
+    checkout_complete: 0,
+    book_call_click: 0,
+    book_call_view: 0,
+    booking_complete: 0,
+  };
+}
+
+function summarizeFromRows(rows: HpAbSummaryRow[]): AbVariantStats[] {
+  const variants: HomepageVariantId[] = ['a', 'b'];
+  return variants.map((variant) => {
+    const events = emptyCounts();
+    const visitors = emptyCounts();
+    for (const row of rows) {
+      if (row.variant !== variant) continue;
+      if (!(AB_EVENTS as readonly string[]).includes(row.event)) continue;
+      events[row.event] = Number(row.events) || 0;
+      visitors[row.event] = Number(row.visitors) || 0;
+    }
+    const exposureVisitors = visitors.exposure;
+    const rate = (count: number) =>
+      exposureVisitors > 0 ? Number((count / exposureVisitors).toFixed(4)) : null;
+    return {
+      variant,
+      exposures: exposureVisitors,
+      events,
+      visitors,
+      rates: {
+        start_plan_click: rate(visitors.start_plan_click),
+        get_started_view: rate(visitors.get_started_view),
+        checkout_start: rate(visitors.checkout_start),
+        checkout_complete: rate(visitors.checkout_complete),
+        book_call_click: rate(visitors.book_call_click),
+        book_call_view: rate(visitors.book_call_view),
+        booking_complete: rate(visitors.booking_complete),
+      },
+    };
+  });
+}
+
+function memorySummaryRows(): HpAbSummaryRow[] {
+  const map = new Map<string, { events: number; visitors: Set<string> }>();
+  for (const row of memoryStore) {
+    const key = `${row.variant}:${row.event}`;
+    const current = map.get(key) ?? { events: 0, visitors: new Set<string>() };
+    current.events += 1;
+    current.visitors.add(row.visitor_id);
+    map.set(key, current);
+  }
+  const rows: HpAbSummaryRow[] = [];
+  for (const [key, value] of map) {
+    const [variant, event] = key.split(':') as [HomepageVariantId, AbEventName];
+    rows.push({
+      variant,
+      event,
+      events: value.events,
+      visitors: value.visitors.size,
+    });
+  }
+  return rows;
+}
+
+export async function fetchAbSummary(): Promise<{
+  rows: HpAbSummaryRow[];
   store: 'supabase' | 'memory';
+  via?: 'anon' | 'service';
 }> {
   const supabase = supabaseConfig();
   if (supabase) {
-    const response = await fetch(
-      `${supabase.url}/rest/v1/hp_ab_events?select=id,created_at,variant,event,path,visitor_id,session_id&order=created_at.asc`,
-      {
-        headers: {
-          apikey: supabase.key,
-          Authorization: `Bearer ${supabase.key}`,
-        },
-        next: { revalidate: 0 },
+    const response = await fetch(`${supabase.url}/rest/v1/rpc/hp_ab_summary`, {
+      method: 'POST',
+      headers: {
+        apikey: supabase.key,
+        Authorization: `Bearer ${supabase.key}`,
+        'Content-Type': 'application/json',
       },
-    );
+      body: '{}',
+      next: { revalidate: 0 },
+    });
     if (!response.ok) {
       const detail = await response.text().catch(() => '');
-      throw new Error(`Supabase read failed (${response.status}): ${detail}`);
+      throw new Error(`Supabase rpc failed (${response.status}): ${detail}`);
     }
-    const rows = (await response.json()) as AbEventRow[];
-    return { rows, store: 'supabase' };
+    const rows = (await response.json()) as HpAbSummaryRow[];
+    return { rows, store: 'supabase', via: supabase.via };
   }
 
-  return { rows: [...memoryStore], store: 'memory' };
+  return { rows: memorySummaryRows(), store: 'memory' };
 }
 
 export type AbVariantStats = {
   variant: HomepageVariantId;
+  /** Unique visitors with an exposure event. */
   exposures: number;
   events: Record<AbEventName, number>;
+  visitors: Record<AbEventName, number>;
   rates: Record<Exclude<AbEventName, 'exposure'>, number | null>;
 };
 
-export function summarizeAbEvents(rows: AbEventRow[]): AbVariantStats[] {
-  const variants: HomepageVariantId[] = ['a', 'b'];
-  return variants.map((variant) => {
-    const subset = rows.filter((row) => row.variant === variant);
-    const events = {
-      exposure: 0,
-      start_plan_click: 0,
-      get_started_view: 0,
-      checkout_start: 0,
-      checkout_complete: 0,
-      book_call_click: 0,
-      book_call_view: 0,
-      booking_complete: 0,
-    } satisfies Record<AbEventName, number>;
-    for (const row of subset) {
-      events[row.event] += 1;
-    }
-    const exposures = events.exposure;
-    const rate = (count: number) =>
-      exposures > 0 ? Number((count / exposures).toFixed(4)) : null;
-    return {
-      variant,
-      exposures,
-      events,
-      rates: {
-        start_plan_click: rate(events.start_plan_click),
-        get_started_view: rate(events.get_started_view),
-        checkout_start: rate(events.checkout_start),
-        checkout_complete: rate(events.checkout_complete),
-        book_call_click: rate(events.book_call_click),
-        book_call_view: rate(events.book_call_view),
-        booking_complete: rate(events.booking_complete),
-      },
-    };
-  });
+export function summarizeAbSummary(rows: HpAbSummaryRow[]): AbVariantStats[] {
+  return summarizeFromRows(rows);
 }
