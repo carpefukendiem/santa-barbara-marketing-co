@@ -45,7 +45,7 @@ export function organizationSchema(): JsonLd {
     foundingDate: site.founded,
     potentialAction: {
       '@type': 'ReserveAction',
-      name: 'Book a Free Call',
+      name: 'Book a 20-Minute Call',
       target: {
         '@type': 'EntryPoint',
         urlTemplate: `${site.url}/book-a-call`,
@@ -146,7 +146,7 @@ export function professionalServiceSchema(input: {
     provider: { '@id': organizationId() },
     potentialAction: {
       '@type': 'ReserveAction',
-      name: 'Book a Free Call',
+      name: 'Book a 20-Minute Call',
       target: `${site.url}/book-a-call`,
     },
   };
