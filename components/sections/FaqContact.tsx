@@ -7,7 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { homepageFaqs } from '@/data/faqs';
 import { site } from '@/data/site';
-import { telHref } from '@/lib/utils';
+import { formatPhone, telHref } from '@/lib/utils';
 
 export function FaqContact() {
   return (
@@ -47,7 +47,7 @@ export function FaqContact() {
                   href={telHref(site.phone)}
                   className="mt-3 block font-mono text-sm text-cream/70"
                 >
-                  {site.phone}
+                  {formatPhone(site.phone)}
                 </a>
               ) : null}
             </div>

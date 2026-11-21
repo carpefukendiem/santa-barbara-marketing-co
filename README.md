@@ -110,7 +110,7 @@ Brand icons are inline SVG in `components/icons/` and should not be swapped back
 - `app/sitemap.ts` generated from data (planned articles excluded)
 - `app/robots.ts`
 - JSON-LD via `lib/schema.ts` and `components/seo/JsonLd.tsx`
-- No `aggregateRating`, `review`, or `PostalAddress` (there is no verified street address)
+- No `aggregateRating` or `review` without permissioned data. NAP lives in `data/site.ts` and LocalBusiness / Organization JSON-LD.
 
 ## Asset pipeline
 

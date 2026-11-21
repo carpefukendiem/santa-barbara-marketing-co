@@ -30,7 +30,7 @@ const doneForYou = [
 ] as const;
 
 const faqs = [
-  ['How fast is my site live?', 'In 3 to 6 weeks.'],
+  ['How fast is my site live?', 'Live in 30 days once we have your logins, photos and content.'],
   ['What does it cost?', 'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free).'],
   ['What’s not included?', 'Ad spend, Google Business Profile rebuilds, and print. They are quoted separately if you want them.'],
   ['How do I cancel?', 'Cancel anytime with 30-day written notice.'],

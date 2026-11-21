@@ -7,10 +7,29 @@ function organizationId(): string {
   return `${site.url}/#organization`;
 }
 
-export function organizationSchema(): JsonLd {
-  const sameAs = Object.values(site.social).filter(
+function localBusinessId(): string {
+  return `${site.url}/#localbusiness`;
+}
+
+function postalAddress(): JsonLd {
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.streetAddress,
+    addressLocality: site.address.addressLocality,
+    addressRegion: site.address.addressRegion,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.addressCountry,
+  };
+}
+
+function sameAsLinks(): string[] {
+  return Object.values(site.social).filter(
     (url): url is string => typeof url === 'string' && url.length > 0,
   );
+}
+
+export function organizationSchema(): JsonLd {
+  const sameAs = sameAsLinks();
 
   return {
     '@context': 'https://schema.org',
@@ -20,7 +39,8 @@ export function organizationSchema(): JsonLd {
     url: site.url,
     logo: absoluteUrl('/images/brand/sbmc-logo.png'),
     email: site.email,
-    ...(site.phone ? { telephone: site.phone } : {}),
+    telephone: site.phone,
+    address: postalAddress(),
     ...(sameAs.length > 0 ? { sameAs } : {}),
     foundingDate: site.founded,
     potentialAction: {
@@ -38,6 +58,39 @@ export function organizationSchema(): JsonLd {
   };
 }
 
+/**
+ * LocalBusiness node with verified NAP and email.
+ * Never emit aggregateRating or review without permissioned data.
+ * Opening hours are omitted to match main (no published office hours).
+ */
+export function localBusinessSchema(): JsonLd {
+  const sameAs = sameAsLinks();
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': localBusinessId(),
+    name: site.napName,
+    url: site.url,
+    logo: absoluteUrl('/images/brand/sbmc-logo.png'),
+    image: absoluteUrl('/images/brand/og-default.png'),
+    email: site.email,
+    telephone: site.phone,
+    address: postalAddress(),
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: site.geo.lat,
+      longitude: site.geo.lng,
+    },
+    areaServed: site.areaServed.map((city) => ({
+      '@type': 'City',
+      name: city,
+    })),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    parentOrganization: { '@id': organizationId() },
+  };
+}
+
 export function websiteSchema(): JsonLd {
   return {
     '@context': 'https://schema.org',
@@ -50,28 +103,25 @@ export function websiteSchema(): JsonLd {
   };
 }
 
-/**
- * Never emit aggregateRating, review, or PostalAddress.
- * There is no verified street address and no permissioned reviews.
- */
 export function professionalServiceSchema(input: {
   name: string;
   description: string;
   url: string;
   image?: string;
 }): JsonLd {
-  const sameAs = Object.values(site.social).filter(
-    (url): url is string => typeof url === 'string' && url.length > 0,
-  );
+  const sameAs = sameAsLinks();
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     name: input.name,
     url: input.url,
     logo: absoluteUrl('/images/brand/sbmc-logo.png'),
     image: input.image ?? absoluteUrl('/images/brand/og-default.png'),
     description: input.description,
+    email: site.email,
+    telephone: site.phone,
+    address: postalAddress(),
     areaServed: site.areaServed.map((city) => ({
       '@type': 'City',
       name: city,
@@ -90,7 +140,7 @@ export function professionalServiceSchema(input: {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: site.email,
-      ...(site.phone ? { telephone: site.phone } : {}),
+      telephone: site.phone,
       areaServed: site.areaServed,
     },
     provider: { '@id': organizationId() },

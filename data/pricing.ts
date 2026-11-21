@@ -76,7 +76,7 @@ export const pricingPlan = {
     },
     {
       title: 'We build the system',
-      body: 'A website is typically 3 to 6 weeks when content arrives on time. Automations and the listing follow the same plan.',
+      body: 'A website is typically live in 30 days once we have your logins, photos and content. Automations and the listing follow the same plan.',
     },
     {
       title: 'Launch',

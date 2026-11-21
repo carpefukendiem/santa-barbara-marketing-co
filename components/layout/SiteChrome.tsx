@@ -11,7 +11,11 @@ import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
 import { AttributionCapture } from '@/components/analytics/AttributionCapture';
 import { BookCallProvider } from '@/components/booking/BookCallModal';
 import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
-import { organizationSchema, websiteSchema } from '@/lib/schema';
+import {
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from '@/lib/schema';
 
 export function SiteChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -25,7 +29,9 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     <>
       <AnalyticsScripts />
       <BookCallProvider>
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <JsonLd
+          data={[organizationSchema(), localBusinessSchema(), websiteSchema()]}
+        />
         <SkipLink />
         <Header />
         <main id="main">{children}</main>

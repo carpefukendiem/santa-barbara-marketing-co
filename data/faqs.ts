@@ -15,7 +15,8 @@ export const faqs: FaqItem[] = [
   {
     category: 'homepage',
     question: 'How fast is my site live?',
-    answer: 'In 3 to 6 weeks.',
+    answer:
+      'Live in 30 days once we have your logins, photos and content.',
   },
   {
     category: 'homepage',
@@ -110,7 +111,7 @@ export const faqs: FaqItem[] = [
     category: 'websites',
     question: 'How long does a new website take?',
     answer:
-      '3 to 6 weeks is typical for a marketing site with a clear sitemap, provided content arrives on time. Custom features, booking, or a large photo library add time. We will give you a dated outline, not a vague “soon.” If you are waiting on us, you will know. If we are waiting on copy or logins, we will say that too.',
+      'Live in 30 days once we have your logins, photos and content, for a marketing site with a clear sitemap. Custom features, booking, or a large photo library add time. We will give you a dated outline, not a vague “soon.” If you are waiting on us, you will know. If we are waiting on copy or logins, we will say that too.',
   },
   {
     category: 'websites',
@@ -134,7 +135,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'Are there long-term contracts?',
     answer:
-      'Not by default. SEO needs time, so we recommend a horizon of at least 90 days so the work has a chance to show. That is a recommendation, not a trap. Terms are in the proposal. If you want out because the work is not happening, that is a conversation we should have with the reporting in front of us, not a buried clause.',
+      'Cancel anytime with 30-day written notice. SEO needs time, so we recommend a horizon of at least 90 days so the work has a chance to show. That is a recommendation, not a trap. Terms are in the proposal. If you want out because the work is not happening, that is a conversation we should have with the reporting in front of us, not a buried clause.',
   },
   {
     category: 'working-together',

@@ -3,12 +3,11 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { NapBlock } from '@/components/layout/NapBlock';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { site } from '@/data/site';
 import { primaryCta } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { formatPhone, telHref } from '@/lib/utils';
 
 export const metadata = buildMetadata({
   title: 'Contact Us',
@@ -47,32 +46,15 @@ export default function ContactPage() {
                 </Link>{' '}
                 form instead.
               </p>
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-8 space-y-6">
                 <li>
-                  <p className="text-eyebrow text-ocean">Email</p>
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="mt-1 inline-block text-lg text-navy hover:text-ocean"
-                  >
-                    {site.email}
-                  </a>
+                  <p className="text-eyebrow text-ocean">Visit or reach us</p>
+                  <NapBlock tone="contact" />
                 </li>
-                {site.phone ? (
-                  <li>
-                    <p className="text-eyebrow text-ocean">Phone</p>
-                    <a
-                      href={telHref(site.phone)}
-                      className="mt-1 inline-block text-lg text-navy hover:text-ocean"
-                    >
-                      {formatPhone(site.phone)}
-                    </a>
-                  </li>
-                ) : null}
                 <li>
                   <p className="text-eyebrow text-ocean">Where we work</p>
                   <p className="mt-1 text-lg text-ink">
-                    Santa Barbara, Goleta, Montecito, and Carpinteria. We do not
-                    list a street address we cannot verify.
+                    Santa Barbara, Goleta, Montecito, and Carpinteria.
                   </p>
                 </li>
               </ul>

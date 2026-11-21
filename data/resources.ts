@@ -654,7 +654,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `Four to eight weeks is typical for a marketing site with a clear sitemap, if content arrives on time. Custom features, large photo libraries, and legal review add time. The usual delay is not code. It is waiting on copy, logins, and approvals. A dated outline (when drafts are due, when you review, when it launches) is part of a professional quote. “Soon” is not.`,
+        html: `Live in 30 days once we have your logins, photos and content, for a marketing site with a clear sitemap. Custom features, large photo libraries, and legal review add time. The usual delay is not code. It is waiting on copy, logins, and approvals. A dated outline (when drafts are due, when you review, when it launches) is part of a professional quote. “Soon” is not.`,
       },
       {
         type: 'p',
