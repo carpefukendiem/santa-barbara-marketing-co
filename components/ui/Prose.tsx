@@ -21,7 +21,7 @@ export function Prose({
         '[&>table]:mt-8 [&>table]:w-full [&>table]:border-collapse [&>table]:text-left [&>table]:text-body-sm',
         '[&>table_th]:border-b [&>table_th]:border-rule [&>table_th]:py-2 [&>table_th]:pr-4',
         '[&>table_td]:border-b [&>table_td]:border-rule [&>table_td]:py-2 [&>table_td]:pr-4',
-        '[&_a]:font-medium [&_a]:text-tile [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-navy',
+        '[&_a]:font-medium [&_a]:text-tile [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-navy focus-visible:[&_a]:outline focus-visible:[&_a]:outline-2 focus-visible:[&_a]:outline-offset-2 focus-visible:[&_a]:outline-[var(--ochre)]',
         '[&>code]:rounded [&>code]:bg-sand [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:text-[0.9em]',
         className,
       )}

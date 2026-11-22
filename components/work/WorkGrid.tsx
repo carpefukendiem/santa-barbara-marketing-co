@@ -66,7 +66,7 @@ export function WorkGrid({ studies }: { studies: CaseStudy[] }) {
             <Card key={study.slug} className="flex h-full flex-col">
               <Link href={`/work/${study.slug}`} className="block">
                 <h2 className="font-display text-3xl text-ink">{study.client}</h2>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] text-stone">
+                <p className="mt-2 font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
                   {study.industry} · {study.location}
                 </p>
                 <ul className="mt-4 flex flex-wrap gap-2">

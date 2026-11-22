@@ -40,13 +40,13 @@ export function Button({
   const visual = variant === 'link' ? 'ghost' : variant;
 
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium ease-sbmc transition-[color,background-color,transform] duration-200 disabled:pointer-events-none disabled:opacity-60',
+    'inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium ease-sbmc transition-[color,background-color,transform] duration-200 disabled:pointer-events-none disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--ochre)]',
     visual === 'primary' &&
-      'bg-tile text-cream hover:bg-[#a83b27]',
+      'bg-tile text-white hover:bg-[var(--tile-hover)]',
     visual === 'secondary' && 'px-0 py-0 text-current',
     visual === 'ghost' &&
       resolvedTone === 'dark' &&
-      'px-0 py-0 text-cream/80 hover:text-cream',
+      'px-0 py-0 text-cream hover:text-white',
     visual === 'ghost' &&
       resolvedTone === 'light' &&
       'px-0 py-0 text-ink hover:text-tile',

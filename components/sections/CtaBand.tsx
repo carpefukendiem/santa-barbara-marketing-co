@@ -26,7 +26,7 @@ export function CtaBand({
           <Heading as="h2" className="text-7xl !text-cream">
             {heading}
           </Heading>
-          <p className="mt-4 max-w-xl text-lg text-cream/80">{subline}</p>
+          <p className="mt-4 max-w-xl text-lg leading-[1.6] text-cream">{subline}</p>
           <div className="mt-8">
             <Button href={ctaHref} className="!bg-cream !text-tile">
               {ctaLabel}

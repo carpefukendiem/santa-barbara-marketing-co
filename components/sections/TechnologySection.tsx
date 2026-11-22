@@ -30,13 +30,13 @@ export function TechnologySection() {
             <Heading className="mt-4 !text-cream">
               A Website That Loads Before They Lose Interest.
             </Heading>
-            <p className="mt-6 text-lg text-cream/70">
+            <p className="mt-6 text-lg leading-[1.6] text-cream">
               Most of your visitors are on a phone, often on cellular, often
               deciding in the time it takes to cross a parking lot. We build
               for that: static pages, honest image sizes, and Core Web Vitals
               that are measured, not advertised as a personality trait.
             </p>
-            <p className="mt-4 text-lg text-cream/70">
+            <p className="mt-4 text-lg leading-[1.6] text-cream">
               This site is built the same way we build client sites. The numbers
               below are about this website, not a client dashboard. If a
               marketing site cannot meet them, it is not a model we would sell.
@@ -60,7 +60,7 @@ export function TechnologySection() {
                   {stat.node}
                 </p>
                 <span className="mt-4 block h-px bg-cream/20" aria-hidden="true" />
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/60">
+                <p className="mt-3 font-mono text-[13px] uppercase tracking-[0.12em] text-cream">
                   {stat.label}
                 </p>
               </div>

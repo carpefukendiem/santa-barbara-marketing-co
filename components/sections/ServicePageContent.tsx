@@ -129,11 +129,11 @@ export function ServicePageContent({ service }: { service: Service }) {
             <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
               {service.process.map((step, index) => (
                 <div key={step.title} className="border-l border-cream/30 pl-6">
-                  <p className="font-display text-8xl font-light text-cream opacity-40">
+                  <p className="font-display text-8xl font-light text-cream/75">
                     {String(index + 1).padStart(2, '0')}
                   </p>
                   <h3 className="mt-2 font-display text-3xl text-cream">{step.title}</h3>
-                  <p className="mt-3 text-cream/80">{step.body}</p>
+                  <p className="mt-3 leading-[1.6] text-cream">{step.body}</p>
                 </div>
               ))}
             </div>
@@ -177,7 +177,7 @@ export function ServicePageContent({ service }: { service: Service }) {
               <div className="lg:sticky lg:top-28">
                 {relatedServices.length > 0 ? (
                   <>
-                    <p className="border-t-2 border-tile pt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-stone">
+                    <p className="border-t-2 border-tile pt-4 font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
                       Related services
                     </p>
                     <ul className="mt-4 space-y-3">
@@ -251,7 +251,7 @@ export function ServicePageContent({ service }: { service: Service }) {
             <div className="mt-12 space-y-0">
               {relatedResources.map((resource) => (
                 <div key={resource.slug} className="border-t border-rule py-7">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-stone">
+                  <p className="font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
                     {resourceCategoryLabels[resource.category]}
                   </p>
                   <h3 className="mt-3 font-display text-3xl">

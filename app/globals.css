@@ -2,28 +2,30 @@
 
 @theme {
   --color-navy: #0b1f33;
-  --color-ocean: #d9a441;
-  --color-tile: #c4472e;
+  /* Ocean is the readable gold for text on cream (WCAG AA). Bright ochre stays for accents on dark. */
+  --color-ocean: #8b6914;
+  --color-tile: #b8432b;
   --color-sand: #f7f1e6;
   --color-cream: #f7f1e6;
   --color-ochre: #d9a441;
+  --color-ochre-ink: #8b6914;
   --color-ink: #111418;
   --color-stone: #5f6670;
   --color-line: rgb(11 31 51 / 0.14);
-  --color-white: #f7f1e6;
+  --color-white: #ffffff;
   --color-rule: rgb(11 31 51 / 0.14);
 
   --color-sbmc-navy: #0b1f33;
   --color-sbmc-navy-deep: #0b1f33;
   --color-sbmc-navy-soft: #0b1f33;
   --color-sbmc-teal: #d9a441;
-  --color-sbmc-teal-dark: #c4472e;
+  --color-sbmc-teal-dark: #b8432b;
   --color-sbmc-sage: #d9a441;
   --color-sbmc-aqua: #d9a441;
   --color-sbmc-aqua-light: #f7f1e6;
-  --color-sbmc-orange: #c4472e;
+  --color-sbmc-orange: #b8432b;
   --color-sbmc-orange-hover: #a83b27;
-  --color-sbmc-peach: #c4472e;
+  --color-sbmc-peach: #b8432b;
   --color-sbmc-peach-light: #f7f1e6;
   --color-sbmc-sand: #f7f1e6;
   --color-sbmc-cream: #f7f1e6;
@@ -46,8 +48,8 @@
 
   --color-navy-2: #10294a;
   --color-tile-ink: #b8432b;
-  --color-tile-2: #c84e30;
-  --color-tile-hover: #b23f28;
+  --color-tile-2: #c4472e;
+  --color-tile-hover: #a63b25;
   --color-save-ink: #7a5410;
   --color-paper: #ffffff;
   --color-cream-2: #efe6d4;
@@ -61,11 +63,12 @@
   --font-display-italic: var(--font-source-serif-italic), var(--font-source-serif), ui-serif, Georgia,
     'Times New Roman', serif;
   --navy: #0b1f33;
-  --ocean: #d9a441;
-  --tile: #c4472e;
+  --ocean: #8b6914;
+  --tile: #b8432b;
   --sand: #f7f1e6;
   --cream: #f7f1e6;
   --ochre: #d9a441;
+  --ochre-ink: #8b6914;
   --ink: #111418;
   --stone: #5f6670;
   --line: rgba(11, 31, 51, 0.14);
@@ -74,8 +77,8 @@
   --navy-2: #10294a;
   --white: #ffffff;
   --tile-ink: #b8432b;
-  --tile-2: #c84e30;
-  --tile-hover: #b23f28;
+  --tile-2: #c4472e;
+  --tile-hover: #a63b25;
   --save-ink: #7a5410;
   --cream-2: #efe6d4;
   --ink-2: #3e4652;
@@ -111,7 +114,7 @@
   /* Slightly cheaper paint than deep multi-layer blurs; looks the same at a glance. */
   --sh-panel: 0 18px 40px rgba(0, 0, 0, 0.38);
   --sh-card-m: 0 10px 24px rgba(0, 0, 0, 0.32);
-  --sh-cta: 0 8px 18px rgba(196, 71, 46, 0.32);
+  --sh-cta: 0 8px 18px rgba(184, 67, 43, 0.32);
 }
 
 html {
@@ -265,10 +268,18 @@ i.font-display {
 
 .text-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
   text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .text-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+  }
 }
 
 .nav-link {
@@ -397,13 +408,22 @@ header.site-header[data-over-dark] .nav-link {
 }
 
 header.site-header .nav-link[aria-current='page'] {
+  color: var(--ochre-ink);
+}
+
+header.site-header[data-over-dark] .nav-link[aria-current='page'] {
   color: var(--ochre);
 }
 
 header.site-header .nav-link:hover,
 header.site-header .nav-link[aria-expanded='true'] {
-  color: var(--ochre);
+  color: var(--ochre-ink);
   text-decoration: none;
+}
+
+header.site-header[data-over-dark] .nav-link:hover,
+header.site-header[data-over-dark] .nav-link[aria-expanded='true'] {
+  color: var(--ochre);
 }
 
 header.site-header a.header-book {
@@ -413,7 +433,7 @@ header.site-header a.header-book {
   padding: 12px 18px;
   border-radius: 999px;
   background: var(--tile);
-  color: var(--white);
+  color: #ffffff;
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;

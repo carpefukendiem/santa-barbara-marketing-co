@@ -46,7 +46,7 @@ export function LocalSeoSection() {
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {tiles.map((tile) => (
             <div key={tile.title} className="border-t-2 border-tile pt-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-tile">
+              <p className="font-mono text-[13px] uppercase tracking-[0.12em] text-tile">
                 {tile.title}
               </p>
               <p className="mt-4 text-ink">{tile.body}</p>

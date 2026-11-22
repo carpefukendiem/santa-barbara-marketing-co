@@ -57,7 +57,7 @@ export function NumberedList({
       {items.map((item, i) => (
         <div key={`${item.name}-${item.index}`}>
           {item.group && (i === 0 || items[i - 1]?.group !== item.group) ? (
-            <p className="border-t border-rule pt-9 font-mono text-[11px] uppercase tracking-[0.22em] text-stone">
+            <p className="border-t border-rule pt-9 font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
               {item.group}
             </p>
           ) : null}

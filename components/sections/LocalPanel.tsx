@@ -56,7 +56,7 @@ export function LocalPanel() {
               {values.map((value) => (
                 <li
                   key={value}
-                  className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink"
+                  className="flex items-center gap-3 font-mono text-[13px] uppercase tracking-[0.12em] text-ink"
                 >
                   <span className="h-2 w-2 bg-[--ochre]" aria-hidden="true" />
                   {value}

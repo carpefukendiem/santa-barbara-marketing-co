@@ -35,6 +35,72 @@ type PageHeroProps = {
   tightMobile?: boolean;
 };
 
+function HeroCopy({
+  eyebrow,
+  title,
+  lastWord,
+  subhead,
+  breadcrumbs,
+  resolvedCta,
+  secondaryCta,
+  showEyebrow,
+  tightMobile,
+}: {
+  eyebrow?: string;
+  title: string;
+  lastWord?: string;
+  subhead?: string;
+  breadcrumbs: Crumb[];
+  resolvedCta: Cta | null;
+  secondaryCta?: Cta;
+  showEyebrow: boolean;
+  tightMobile: boolean;
+}) {
+  return (
+    <>
+      <Breadcrumbs items={breadcrumbs} light className="pt-4" />
+      {showEyebrow ? (
+        <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
+          {eyebrow}
+        </Eyebrow>
+      ) : null}
+      <Heading
+        as="h1"
+        className={cn(
+          tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream',
+          /* Accent words use ochre on dark heroes (tile fails on bright photo areas). */
+          'drop-shadow-[0_1px_12px_rgba(11,31,51,0.45)] [&_em]:!text-ochre',
+        )}
+        accent={lastWord}
+      >
+        {title}
+      </Heading>
+      {subhead ? (
+        <p
+          className={cn(
+            'max-w-xl text-base leading-[1.6] text-cream sm:text-lg',
+            tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
+          )}
+        >
+          {subhead}
+        </p>
+      ) : null}
+      {resolvedCta || secondaryCta ? (
+        <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          {resolvedCta ? (
+            <Button href={resolvedCta.href}>{resolvedCta.label}</Button>
+          ) : null}
+          {secondaryCta ? (
+            <Button variant="ghost" tone="dark" href={secondaryCta.href}>
+              {secondaryCta.label}
+            </Button>
+          ) : null}
+        </div>
+      ) : null}
+    </>
+  );
+}
+
 export function PageHero({
   variant,
   eyebrow,
@@ -58,6 +124,18 @@ export function PageHero({
   const showEyebrow =
     Boolean(eyebrow) && eyebrow!.trim().toLowerCase() !== (lastCrumb || '');
 
+  const copyProps = {
+    eyebrow,
+    title,
+    lastWord,
+    subhead,
+    breadcrumbs,
+    resolvedCta,
+    secondaryCta,
+    showEyebrow,
+    tightMobile,
+  };
+
   return (
     <section
       className={cn(
@@ -66,21 +144,33 @@ export function PageHero({
       )}
     >
       {showPhoto && image ? (
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-5/12">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            priority
-            fetchPriority="high"
-            loading="eager"
-            quality={HERO_IMAGE_QUALITY}
-            sizes={PAGE_HERO_IMAGE_SIZES}
-            className="object-cover"
-            style={{ objectPosition: image.focalPoint }}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-5/12">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority
+              fetchPriority="high"
+              loading="eager"
+              quality={HERO_IMAGE_QUALITY}
+              sizes={PAGE_HERO_IMAGE_SIZES}
+              className="object-cover"
+              style={{ objectPosition: image.focalPoint }}
+            />
+          </div>
+          {/* Mobile: lighter overall wash; keep a stronger bottom-left text scrim. */}
+          <div
+            className="absolute inset-0 bg-[rgba(11,31,51,0.68)] lg:hidden"
+            aria-hidden="true"
+          />
+          {/* Desktop: photo shows through on the right; scrim the text column. */}
+          <div
+            className="absolute inset-0 hidden bg-gradient-to-r from-[rgba(11,31,51,0.82)] via-[rgba(11,31,51,0.55)] via-48% to-transparent to-72% lg:block"
+            aria-hidden="true"
           />
           <div
-            className="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-[--navy] via-[--navy]/60 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[rgba(11,31,51,0.8)] via-[rgba(11,31,51,0.12)] to-[rgba(11,31,51,0.32)] lg:from-[rgba(11,31,51,0.4)] lg:via-transparent lg:to-transparent"
             aria-hidden="true"
           />
         </div>
@@ -96,80 +186,12 @@ export function PageHero({
       >
         {disableReveal ? (
           <div className="min-w-0 lg:col-span-7">
-            <Breadcrumbs items={breadcrumbs} light className="pt-4" />
-            {showEyebrow ? (
-              <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
-                {eyebrow}
-              </Eyebrow>
-            ) : null}
-            <Heading
-              as="h1"
-              className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
-              accent={lastWord}
-            >
-              {title}
-            </Heading>
-            {subhead ? (
-              <p
-                className={cn(
-                  'max-w-xl text-lg text-cream/70',
-                  tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
-                )}
-              >
-                {subhead}
-              </p>
-            ) : null}
-            {resolvedCta || secondaryCta ? (
-              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                {resolvedCta ? (
-                  <Button href={resolvedCta.href}>{resolvedCta.label}</Button>
-                ) : null}
-                {secondaryCta ? (
-                  <Button variant="ghost" tone="dark" href={secondaryCta.href}>
-                    {secondaryCta.label}
-                  </Button>
-                ) : null}
-              </div>
-            ) : null}
+            <HeroCopy {...copyProps} />
           </div>
         ) : (
           <Reveal className="min-w-0 lg:col-span-7">
-          <Breadcrumbs items={breadcrumbs} light className="pt-4" />
-          {showEyebrow ? (
-            <Eyebrow dark className={cn(tightMobile ? 'mt-3 sm:mt-6' : 'mt-6')}>
-              {eyebrow}
-            </Eyebrow>
-          ) : null}
-          <Heading
-            as="h1"
-            className={cn(tightMobile ? 'mt-2 sm:mt-4 !text-cream' : 'mt-4 !text-cream')}
-            accent={lastWord}
-          >
-            {title}
-          </Heading>
-          {subhead ? (
-            <p
-              className={cn(
-                'max-w-xl text-lg text-cream/70',
-                tightMobile ? 'mt-3 sm:mt-5' : 'mt-5',
-              )}
-            >
-              {subhead}
-            </p>
-          ) : null}
-          {resolvedCta || secondaryCta ? (
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              {resolvedCta ? (
-                <Button href={resolvedCta.href}>{resolvedCta.label}</Button>
-              ) : null}
-              {secondaryCta ? (
-                <Button variant="ghost" tone="dark" href={secondaryCta.href}>
-                  {secondaryCta.label}
-                </Button>
-              ) : null}
-            </div>
-          ) : null}
-        </Reveal>
+            <HeroCopy {...copyProps} />
+          </Reveal>
         )}
         {rightSlot ? (
           <div className="mt-10 min-w-0 lg:mt-0 lg:col-span-5 lg:col-start-8">

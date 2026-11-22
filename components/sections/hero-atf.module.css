@@ -28,8 +28,8 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(11, 31, 51, 0.72) 0%,
-    rgba(11, 31, 51, 0.82) 55%,
+    rgba(11, 31, 51, 0.68) 0%,
+    rgba(11, 31, 51, 0.78) 55%,
     var(--navy) 100%
   );
 }
@@ -83,12 +83,12 @@
 
 .eyebrow {
   margin: 0;
-  color: var(--ochre);
+  color: var(--cream);
   font-family: var(--font-mono);
-  font-size: clamp(0.6563rem, 0.575rem + 0.3333vw, 0.875rem);
+  font-size: clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem);
   font-weight: 500;
-  letter-spacing: 0.15em;
-  line-height: normal;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
   text-transform: uppercase;
 }
 
@@ -114,11 +114,11 @@
 .support {
   max-width: 590px;
   margin: 9px 0 0;
-  color: var(--cream-86);
-  font-size: clamp(0.9063rem, 0.7554rem + 0.619vw, 1.3125rem);
+  color: var(--cream);
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.3125rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.42;
+  line-height: 1.6;
   text-wrap: pretty;
 }
 
@@ -692,10 +692,15 @@
   .overlay {
     background: linear-gradient(
       90deg,
-      rgba(11, 31, 51, 0.55),
-      rgba(11, 31, 51, 0.25) 40%,
-      rgba(11, 31, 51, 0.35)
+      rgba(11, 31, 51, 0.66) 0%,
+      rgba(11, 31, 51, 0.32) 42%,
+      rgba(11, 31, 51, 0.28) 100%
     );
+  }
+
+  .eyebrow {
+    color: var(--ochre);
+    letter-spacing: 0.14em;
   }
 
   .circle {
@@ -741,10 +746,6 @@
     display: inline;
   }
 
-  .eyebrow {
-    letter-spacing: 0.2em;
-  }
-
   .h1 {
     margin-top: 20px;
     letter-spacing: -0.018em;
@@ -757,7 +758,7 @@
 
   .support {
     margin-top: 24px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .heroCta,

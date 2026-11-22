@@ -12,7 +12,7 @@ export function PastClientsStrip() {
       className="border-y border-cream/15 bg-navy px-6 py-5 lg:px-14"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-3 md:flex-row md:items-baseline md:gap-6">
-        <p className="shrink-0 font-mono text-[11px] tracking-[0.16em] text-cream/55 uppercase">
+        <p className="shrink-0 font-mono text-[13px] tracking-[0.12em] text-cream uppercase">
           Businesses we&apos;ve worked with
         </p>
         <ul className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-cream/85">

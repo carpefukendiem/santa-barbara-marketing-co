@@ -20,8 +20,8 @@ export function Breadcrumbs({
     <nav
       aria-label="Breadcrumb"
       className={cn(
-        'min-w-0 max-w-full font-mono text-[11px] uppercase tracking-[0.16em]',
-        light ? 'text-ochre' : 'text-stone',
+        'min-w-0 max-w-full font-mono text-[13px] uppercase tracking-[0.12em] sm:text-[12px] sm:tracking-[0.14em]',
+        light ? 'text-cream' : 'text-stone',
         className,
       )}
     >
@@ -45,8 +45,9 @@ export function Breadcrumbs({
                 <Link
                   href={item.href}
                   className={cn(
-                    'hover:text-ocean',
-                    light && 'hover:text-white',
+                    light
+                      ? 'text-cream/90 underline-offset-2 hover:text-white hover:underline'
+                      : 'hover:text-[color:var(--ochre-ink)]',
                   )}
                 >
                   {item.label}
