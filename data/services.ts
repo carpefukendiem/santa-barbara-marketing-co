@@ -1450,7 +1450,7 @@ export const services: Service[] = [
         step: 3,
         title: 'Write the 90-day sequence',
         body:
-          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We include a 20-minute call level of clarity even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
+          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We keep the same level of clarity as the 20-minute call even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
       },
       {
         step: 4,
