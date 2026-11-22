@@ -50,7 +50,7 @@ export const batch1Locations: Location[] = [
       },
     ],
     searchBehavior:
-      'Residents usually include Santa Maria or Orcutt in the query. They are trying to stay in the north county and avoid a result that means a drive over the grade. "Near me" still appears, and the phone is often sitting in a house in Orcutt or east of Broadway, which is a different centroid than State Street.\n\nHospitality and food searches mix locals and 101 travelers. The traveler decides in minutes from a parking lot. The local compares and may call tomorrow. Those should not share the same first paragraph. B2B and agricultural queries are branded or category-plus-city. Those people will read a capabilities page. They will not tap the first taco shop in the pack.\n\nSpanish-language and bilingual search show up more here than on the South Coast tourist spine. If a real share of your customers prefer Spanish, the listing and the site should not pretend otherwise. We scope that as real pages, not a plugin toggle.',
+      'Residents usually include Santa Maria or Orcutt in the query. They are trying to stay in the north county and avoid a result that means a drive over the grade. "Near me" still appears, and the phone is often sitting in a house in Orcutt or east of Broadway, which is a different centroid than State Street.\n\nHospitality and food searches mix locals and 101 travelers. The traveler decides in minutes from a parking lot. The local compares and may call tomorrow. Those should not share the same first paragraph. B2B and agricultural queries are branded or category-plus-city. Those people will read a capabilities page. They will not tap the first taco shop in the pack.\n\nSpanish-language and bilingual search show up more here than on the South Coast tourist spine. If a real share of your customers prefer Spanish, the listing and the site should not pretend otherwise. We scope that as real pages, not a plugin toggle. Allan Hancock and the clinic corridors create steady weekday queries that do not follow a tourist calendar. Wrong hours or a stale primary category erase you in the moment someone needed you.',
     dominantIndustries: [
       'home-services',
       'restaurants-hospitality',
@@ -81,13 +81,13 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'marketing-automation',
-        why: 'Follow-up for trades and clinics that get after-hours inquiries and lose them by morning.',
+        why: 'Follow-up through a full CRM for trades and clinics that get after-hours inquiries and lose them by morning.',
       },
     ],
     localChallenges: [
       {
         title: 'South Coast agencies treat Santa Maria as a county footnote',
-        body: 'One paragraph in a Santa Barbara County page does not rank for Santa Maria and does not help a Broadway business. Unique copy, local photos, and a profile city that says Santa Maria are still uncommon. That gap is the opening.',
+        body: 'One paragraph in a Santa Barbara County page does not rank for Santa Maria and does not help a Broadway or Main Street business. Unique copy, local photos, and a profile city that says Santa Maria are still uncommon here. That gap is still the opening.',
       },
       {
         title: 'Orcutt is not a keyword synonym for Santa Maria',
@@ -130,7 +130,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'What happens on the free call for a Santa Maria business?',
         answer:
-          'We look at your current visibility before we talk, then spend the call on where you show up today in Santa Maria or Orcutt, what nearby competitors are doing, and what we would fix first. If it makes sense to work together, we send a proposal. If not, you leave with the list.',
+          'We look at your current visibility before we talk, then spend the call on where you show up today in Santa Maria or Orcutt, what nearby competitors are doing, and what we would fix first. If it makes sense to work together, we send a proposal. If not, you leave with the list. Email info@sbmc.io or call (805) 307-7600 to book it.',
         category: 'free-call',
       },
     ],
@@ -156,9 +156,9 @@ export const batch1Locations: Location[] = [
       'The Santa Ynez Valley is five towns sharing one wine-country reputation. Solvang, Buellton, Los Olivos, Santa Ynez, and Ballard each produce different searches, and a single "valley" homepage usually serves none of them well.',
     heroImage: photos.communityMontecito,
     intro:
-      'Highway 246 ties Solvang, Buellton, Santa Ynez, Los Olivos, and Ballard into a visitor map that looks simple from a tasting-room brochure. Search does not treat it as one marketplace. A hotel on Copenhagen Drive, a taco spot off the 101 in Buellton, a tasting room on Grand Avenue in Los Olivos, and a plumber who serves valley addresses are asking Google for different people, at different hours, with different amounts of time to decide.\n\nWe work with businesses that sell inside this valley. The job is to get you found by visitors who decide in a few minutes, and by residents who will hire you again, then to make the page they open able to take that call. Santa Barbara Marketing Co. writes for this geography because a statewide wine-country template cannot tell those jobs apart.',
+      'Highway 246 ties Solvang, Buellton, Santa Ynez, Los Olivos, and Ballard into a visitor map that looks simple from a tasting-room brochure. Search does not treat it as one marketplace. A hotel on Copenhagen Drive, a taco spot off the 101 in Buellton, a tasting room on Grand Avenue in Los Olivos, and a plumber who serves valley addresses are asking Google for different people, at different hours, with different amounts of time to decide.\n\nWe work with businesses that sell inside this valley. The job is to get you found by visitors who decide in a few minutes, and by residents who will hire you again, then to make the page they open able to take that call. Santa Barbara Marketing Co. writes for this geography because a statewide wine-country template cannot tell those jobs apart. Founded in 2026, we treat the valley as its own market, not a scenic sidebar on a South Coast brochure. The Local Lead Plan is $297/mo or $2,970/yr when the fit is right.',
     marketProfile:
-      'Solvang is the densest visitor node. Danish-themed streets, hotels, restaurants, and walk-up retail that live on day-trippers and overnight stays. Map Pack competition for dinner, lodging, and "things to do" is real. Photos, hours, and a listing that looks current decide more than a poetic About page. Buellton sits on the 101 and catches travelers before they commit to Solvang parking. Practical food, lodging, and services that serve both pass-through traffic and locals who prefer not to fight Copenhagen Drive on a Saturday.\n\nLos Olivos is smaller and more tasting-room weighted. Grand Avenue walks, wine, and a quieter evening pace. Categories and hours have to match that rhythm or Maps will skip you for a Solvang pin. Santa Ynez and Ballard hold more resident and ranch-adjacent trade mixed with wine. A contractor, a vet, a market, a school-adjacent service. Those searches are local and careful. Chumash Casino Resort nearby pulls a separate stream of visitors who still eat, still need a hotel overflow night, and still tap Maps from a parking lot. Ignore that traffic and you leave it on the table. Speak only to that traffic and you look like a casino adjunct to the people who live on Figueroa Mountain Road.\n\nWine is the reputation and not the whole economy. Hospitality, retail, real estate, home services for ranch and residential properties, and professional offices that serve the valley year-round. Summer and harvest weekends thicken visitor queries. January looks quieter for anyone who lives on walk-by traffic. Home-service companies often see the reverse. Content, ads, hours, and staffing plans have to follow the season you are in.\n\nPins matter. A Buellton restaurant will not reliably sit in a Solvang pack, and a Santa Barbara County service-area listing will not occupy a Los Olivos Map Pack without a genuine presence. We will say which town you can win from your address before you spend a year chasing a village you do not sit in.',
+      'Solvang is the densest visitor node. Danish-themed streets, hotels, restaurants, and walk-up retail that live on day-trippers and overnight stays. Map Pack competition for dinner, lodging, and "things to do" is real. Photos, hours, and a listing that looks current decide more than a poetic About page. Buellton sits on the 101 and catches travelers before they commit to Solvang parking. Practical food, lodging, and services that serve both pass-through traffic and locals who prefer not to fight Copenhagen Drive on a Saturday.\n\nLos Olivos is smaller and more tasting-room weighted. Grand Avenue walks, wine, and a quieter evening pace. Categories and hours have to match that rhythm or Maps will skip you for a Solvang pin. Santa Ynez and Ballard hold more resident and ranch-adjacent trade mixed with wine. A contractor, a vet, a market, a school-adjacent service. Those searches are local and careful. Chumash Casino Resort nearby pulls a separate stream of visitors who still eat, still need a hotel overflow night, and still tap Maps from a parking lot. Ignore that traffic and you leave it on the table. Speak only to that traffic and you look like a casino adjunct to the people who live on Figueroa Mountain Road.\n\nWine is the reputation and not the whole economy. Hospitality, retail, real estate, home services for ranch and residential properties, and professional offices that serve the valley year-round. Summer and harvest weekends thicken visitor queries. January looks quieter for anyone who lives on walk-by traffic. Home-service companies often see the reverse. Content, ads, hours, and staffing plans have to follow the season you are in. Alamo Pintado, Figueroa Mountain Road, and the quieter ranch lanes produce service calls that never touch a tasting-room parking lot. A page that names those roads without inventing a vineyard romance will be one of the few that does.\n\nPins matter. A Buellton restaurant will not reliably sit in a Solvang pack, and a Santa Barbara County service-area listing will not occupy a Los Olivos Map Pack without a genuine presence. We will say which town you can win from your address before you spend a year chasing a village you do not sit in. When your office is in one town and your trucks cover the rest, we put the honest address on the profile and build organic pages for the communities you actually drive to.',
     neighborhoods: [
       {
         name: 'Solvang',
@@ -192,7 +192,7 @@ export const batch1Locations: Location[] = [
       },
     ],
     searchBehavior:
-      'Visitor searches are short and urgent. Dinner, tasting room, hotel, "open now," something to do with kids between wineries. The Map Pack does most of the work. Resident searches include a town name or "near me" from a valley address. They are choosing among people they might hire again.\n\nTown modifiers matter. "Solvang dinner" and "Buellton mechanic" are different jobs. A campaign or a page that only says Santa Ynez Valley will rank for a phrase tourists use in articles and still lose the pack for the town someone is standing in. We split where the intent splits.\n\nSeasonal peaks around weekends, holidays, and harvest change auction prices and foot traffic together. A flat ad schedule year-round either overpays in January or goes invisible in October.',
+      'Visitor searches are short and urgent. Dinner, tasting room, hotel, "open now," something to do with kids between wineries. The Map Pack does most of the work. Resident searches include a town name or "near me" from a valley address. They are choosing among people they might hire again.\n\nTown modifiers matter. "Solvang dinner" and "Buellton mechanic" are different jobs. A campaign or a page that only says Santa Ynez Valley will rank for a phrase tourists use in articles and still lose the pack for the town someone is standing in. We split where the intent splits. Casino-adjacent overnight guests often search from a phone in a hotel lot with even less patience than a tasting-room visitor. Hours, parking notes, and a tap that works matter more than a brand film.\n\nSeasonal peaks around weekends, holidays, and harvest change auction prices and foot traffic together. A flat ad schedule year-round either overpays in January or goes invisible in October. Real estate and ranch-service queries move on their own calendar. Those buyers will read a capabilities page. They will not tap the first gift shop in the pack.',
     dominantIndustries: [
       'restaurants-hospitality',
       'real-estate',
@@ -203,11 +203,11 @@ export const batch1Locations: Location[] = [
     serviceRelevance: [
       {
         service: 'local-seo',
-        why: 'Town-level packs for Solvang, Buellton, Los Olivos, and Santa Ynez instead of one vague valley listing.',
+        why: 'Town-level packs for Solvang, Buellton, Los Olivos, and Santa Ynez instead of one vague valley listing. Categories and photos that match the street you sit on.',
       },
       {
         service: 'seo',
-        why: 'Organic pages that separate visitor jobs from resident services without doorway spam across five towns.',
+        why: 'Organic pages that separate visitor jobs from resident services without doorway spam across five towns. Ranch and valley-road pages when the work lives off the tourist map.',
       },
       {
         service: 'google-ads',
@@ -223,7 +223,7 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'conversion-optimization',
-        why: 'Booking and call paths for a two-minute visitor decision and for a resident requesting a ranch-property visit.',
+        why: 'Booking and call paths for a two-minute visitor decision and for a resident requesting a ranch-property visit. Follow-up through a full CRM when inquiries arrive after tasting-room hours.',
       },
     ],
     localChallenges: [
@@ -233,15 +233,15 @@ export const batch1Locations: Location[] = [
       },
       {
         title: 'Visitor season hides a thin winter for walk-by businesses',
-        body: 'If hospitality is your only story, the off-season will feel like a collapse. Resident and service pages keep the phone relevant when the tasting rooms are quiet.',
+        body: 'If hospitality is your only story, the off-season will feel like a collapse. Resident and service pages keep the phone relevant when the tasting rooms are quiet. Ads and hours should follow that shift instead of pretending every month looks like October.',
       },
       {
         title: 'A pin in the wrong village loses the pack',
-        body: 'Distance still rules Maps. A Buellton address fighting for Copenhagen Drive queries is usually the wrong fight. We map which packs your pin can enter.',
+        body: 'Distance still rules Maps. A Buellton address fighting for Copenhagen Drive queries is usually the wrong fight. We map which packs your pin can enter, and we put weight on organic and ads where the pack rules do not fit.',
       },
       {
         title: 'Wine-country templates read as generic',
-        body: 'Stock barrel photos and "rolling vineyards" copy bounce the people who already live here. Specific streets, real interiors, and honest hours read as more trustworthy than a brochure voice.',
+        body: 'Stock barrel photos and "rolling vineyards" copy bounce the people who already live here. Specific streets, real interiors, and honest hours read as more trustworthy than a brochure voice. Visitors notice the difference too when every competing listing looks like the same stock gallery.',
       },
     ],
     faqs: [
@@ -254,25 +254,25 @@ export const batch1Locations: Location[] = [
       {
         question: 'Should a valley contractor chase Solvang tourist keywords?',
         answer:
-          'Only if that traffic becomes booked work. Most home-service companies waste spend on visitor phrases and underbuild the resident searches that pay. We will look at your jobs and say which is which.',
+          'Only if that traffic becomes booked work. Most home-service companies waste spend on visitor phrases and underbuild the resident searches that pay. We will look at your jobs and say which is which before you buy another weekend of tourist clicks.',
         category: 'ads',
       },
       {
         question: 'How do we work together if we are up the valley?',
         answer:
-          'By phone, email, and shared logins. Email info@sbmc.io or call (805) 307-7600. We do not ask you to visit an office. The Local Lead Plan is $297/mo or $2,970/yr, cancel anytime with 30-day written notice.',
+          'By phone, email, and shared logins. Email info@sbmc.io or call (805) 307-7600. We do not ask you to visit an office. The Local Lead Plan is $297/mo or $2,970/yr, cancel anytime with 30-day written notice. Live in 30 days once we have your logins, photos and content.',
         category: 'working-together',
       },
       {
         question: 'Is the Santa Ynez Valley too small for SEO?',
         answer:
-          'Volume is lower than Santa Barbara. The searches that exist are still attached to hotel nights, dinners, and service jobs you want. A complete listing and a few specific pages often matter more here than a large content program.',
+          'Volume is lower than Santa Barbara. The searches that exist are still attached to hotel nights, dinners, and service jobs you want. A complete listing and a few specific pages often matter more here than a large content program. Thin doorway pages across every village name usually help no one.',
         category: 'seo',
       },
       {
         question: 'What does the free call cover for a valley business?',
         answer:
-          'Which town packs you can enter from your pin, what your profile and site are missing, and whether ads are even appropriate for your category. You leave with a clear first-fix list either way.',
+          'Which town packs you can enter from your pin, what your profile and site are missing, and whether ads are even appropriate for your category. You leave with a clear first-fix list either way. If the fit is wrong, we say so before anyone spends money.',
         category: 'free-call',
       },
     ],
@@ -298,9 +298,9 @@ export const batch1Locations: Location[] = [
       'Lompoc is a military town, a valley town, and a wine-adjacent town at once. H Street, Ocean Avenue, Old Town, and the hills toward the STA do not share one search intent, and agencies that skip this city leave that gap open.',
     heroImage: photos.communityGoleta,
     intro:
-      'Lompoc sits west of the Santa Ynez Valley with a commercial grid locals actually use, a historic Old Town, and Vandenberg Space Force Base shaping housing, hiring, and weekend demand. People who live here search Lompoc. Transferring families search from somewhere else before they arrive. Wine visitors headed to the Sta. Rita Hills pass through or stay over. Those three people should not land on the same vague county paragraph.\n\nSanta Barbara Marketing Co. writes marketing for businesses that trade in Lompoc. Listings, websites, ads, and follow-up aimed at this grid, not at a South Coast template with the name replaced. Founded in 2026. The Local Lead Plan is $297/mo or $2,970/yr.',
+      'Lompoc sits west of the Santa Ynez Valley with a commercial grid locals actually use, a historic Old Town, and Vandenberg Space Force Base shaping housing, hiring, and weekend demand. People who live here search Lompoc. Transferring families search from somewhere else before they arrive. Wine visitors headed to the Sta. Rita Hills pass through or stay over. Those three people should not land on the same vague county paragraph.\n\nSanta Barbara Marketing Co. writes marketing for businesses that trade in Lompoc. Listings, websites, ads, and follow-up aimed at this grid, not at a South Coast template with the name replaced. Founded in 2026. The Local Lead Plan is $297/mo or $2,970/yr. We will say when a category here is already crowded, and when a complete profile is still the shortest path to the phone.',
     marketProfile:
-      'H Street and Ocean Avenue carry much of the everyday commercial load. Retail, services, food, and offices that residents find on the way home from base, school, or a shift. Old Town Lompoc holds murals, smaller storefronts, and a different weekend pace. A shop that photographs the actual block and keeps hours honest will often outpace a prettier brand that only lists "serving the Central Coast."\n\nVandenberg is not a neighborhood you put a pin in for consumer retail, but it is a demand engine. Military families, contractors, and civilian employees search for housing-adjacent services, urgent care, auto, food, and kid activities on a transfer calendar that does not match tourist season. Pages and ads that speak to arrival and daily life outperform wine-country poetry aimed at that buyer.\n\nWest of town, the Sta. Rita Hills and surrounding vineyards bring tasting-room and weekend visitor traffic. That overlay is real and thinner than Solvang. A tasting room, a farm stay, or a restaurant that wants those visitors needs distinct URLs and hours. A family dentist who does not want them should stop bidding on wine phrases. Mission La Purisima and the surrounding parks pull day-trippers who still need lunch and still tap Maps.\n\nAgriculture, light industrial, and the quieter residential tracts fill out the rest. Competition in many local categories is lighter than Santa Barbara or even Santa Maria, because fewer operators keep a serious profile and a unique city page. A complete Google Business Profile, a fast site, and pages that name H Street, Ocean, Old Town, and the zips you serve can still be a durable advantage. We will tell you when a category here is tighter than it looks.',
+      'H Street and Ocean Avenue carry much of the everyday commercial load. Retail, services, food, and offices that residents find on the way home from base, school, or a shift. Old Town Lompoc holds murals, smaller storefronts, and a different weekend pace. A shop that photographs the actual block and keeps hours honest will often outpace a prettier brand that only lists "serving the Central Coast."\n\nVandenberg is not a neighborhood you put a pin in for consumer retail, but it is a demand engine. Military families, contractors, and civilian employees search for housing-adjacent services, urgent care, auto, food, and kid activities on a transfer calendar that does not match tourist season. Pages and ads that speak to arrival and daily life outperform wine-country poetry aimed at that buyer. PCS weeks compress decisions. A listing with current hours, clear categories, and a site that answers practical questions will get the tap that a vague county brochure will not.\n\nWest of town, the Sta. Rita Hills and surrounding vineyards bring tasting-room and weekend visitor traffic. That overlay is real and thinner than Solvang. A tasting room, a farm stay, or a restaurant that wants those visitors needs distinct URLs and hours. A family dentist who does not want them should stop bidding on wine phrases. Mission La Purisima and the surrounding parks pull day-trippers who still need lunch and still tap Maps. Those day trips are short. Parking notes, a clear offer, and a Map Pack listing that looks alive decide more than a long brand story.\n\nAgriculture, light industrial, and the quieter residential tracts fill out the rest. Flower fields, greenhouse work, and the yards that support them still need vendors, equipment, and professional services. Those searches are practical. A page that names the work and the city without turning into farm tourism copy will be one of the few that does. Competition in many local categories is lighter than Santa Barbara or even Santa Maria, because fewer operators keep a serious profile and a unique city page. A complete Google Business Profile, a fast site, and pages that name H Street, Ocean, Old Town, and the zips you serve can still be a durable advantage. We will tell you when a category here is tighter than it looks.',
     neighborhoods: [
       {
         name: 'H Street corridor',
@@ -334,7 +334,7 @@ export const batch1Locations: Location[] = [
       },
     ],
     searchBehavior:
-      'Residents type Lompoc. They are trying to stay in town or find someone who will actually drive from Santa Maria or the valley. Transferring families often search before they arrive, with housing, schools, and service categories mixed together. That traffic needs pages that answer practical questions without assuming they already know H Street.\n\nWine-weekend visitors search like visitors elsewhere, only in smaller volume than Solvang. Same-day food and lodging still resolve through Maps. Base-adjacent evening searches for food and urgent needs are impatient. Wrong hours bury you.\n\nCounty-wide phrases still leak clicks toward more famous cities. A Lompoc firm that owns its city name keeps the local jobs. One that only bids on Santa Barbara donates the hometown pack.',
+      'Residents type Lompoc. They are trying to stay in town or find someone who will actually drive from Santa Maria or the valley. Transferring families often search before they arrive, with housing, schools, and service categories mixed together. That traffic needs pages that answer practical questions without assuming they already know H Street.\n\nWine-weekend visitors search like visitors elsewhere, only in smaller volume than Solvang. Same-day food and lodging still resolve through Maps. Base-adjacent evening searches for food and urgent needs are impatient. Wrong hours bury you. Mission and park day-trippers behave the same way: short queries, shallow scrolls, a decision made from a parking lot.\n\nCounty-wide phrases still leak clicks toward more famous cities. A Lompoc firm that owns its city name keeps the local jobs. One that only bids on Santa Barbara donates the hometown pack. B2B and agricultural queries are branded or category-plus-city. Those people will read a capabilities page. They will not tap the first taco shop in the pack.',
     dominantIndustries: [
       'home-services',
       'restaurants-hospitality',
@@ -345,7 +345,7 @@ export const batch1Locations: Location[] = [
     serviceRelevance: [
       {
         service: 'local-seo',
-        why: 'A complete Lompoc profile and pages. In a smaller pack, that work still moves listings in a timeframe owners can feel.',
+        why: 'A complete Lompoc profile and pages for H Street, Ocean, Old Town, and the zips you serve. In a smaller pack, that work still moves listings in a timeframe owners can feel.',
       },
       {
         service: 'seo',
@@ -353,44 +353,44 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'google-ads',
-        why: 'Separate resident and visitor campaigns, with geo that respects Lompoc instead of a vanity Central Coast radius.',
+        why: 'Separate resident and visitor campaigns, with geo that respects Lompoc instead of a vanity Central Coast radius. Dayparting when weekend wine traffic is the only revenue you want.',
       },
       {
         service: 'web-design',
-        why: 'A fast site that looks like this town. Honest hours, real storefront photos, and a call button that works on a phone.',
+        why: 'A fast site that looks like this town. Honest hours, real storefront photos, and a call button that works on a phone during a PCS week.',
       },
       {
         service: 'google-business-profile',
-        why: 'Still the main discovery surface. Categories and photos of the actual block or yard.',
+        why: 'Still the main discovery surface. Categories and photos of the actual block or yard, not a stock Central Coast gallery.',
       },
       {
         service: 'marketing-automation',
-        why: 'Follow-up for inquiries that arrive after a shift change or during a PCS week and go cold by morning.',
+        why: 'Follow-up through a full CRM for inquiries that arrive after a shift change or during a PCS week and go cold by morning.',
       },
     ],
     localChallenges: [
       {
         title: 'Agencies skip Lompoc in the county brochure',
-        body: 'South Coast pages that mention the city once do not rank for it. Unique copy and a profile city that says Lompoc are still uncommon. That is the opening.',
+        body: 'South Coast pages that mention the city once do not rank for it. Unique copy and a profile city that says Lompoc are still uncommon. That is the opening. Photos of the actual frontage and a NAP that matches the world close the gap faster than a bigger ad budget alone.',
       },
       {
         title: 'Base demand and wine demand cancel each other on one homepage',
-        body: 'A transferring family and a tasting-room visitor want different first sentences. We split pages when the buyer splits, or we pick the revenue you actually want.',
+        body: 'A transferring family and a tasting-room visitor want different first sentences. We split pages when the buyer splits, or we pick the revenue you actually want. Mixing both voices into one hero paragraph usually serves neither.',
       },
       {
         title: 'Santa Maria and valley competitors bleed into local packs',
-        body: 'Service-area listings from nearby cities show up when a Lompoc profile is incomplete. Fixing categories, photos, and pages is the first job, before you assume you need a bigger ad budget.',
+        body: 'Service-area listings from nearby cities show up when a Lompoc profile is incomplete. Fixing categories, photos, and pages is the first job, before you assume you need a bigger ad budget. Distance still helps a local pin when the listing looks alive.',
       },
       {
         title: 'Seasonal wine traffic is not a full business plan',
-        body: 'If you live on weekend visitors alone, weekday resident work has to be built on purpose. If you are a resident business, stop paying for wine-tour clicks you will never serve.',
+        body: 'If you live on weekend visitors alone, weekday resident work has to be built on purpose. If you are a resident business, stop paying for wine-tour clicks you will never serve. Hours, ads, and page titles should follow the calendar you actually staff for.',
       },
     ],
     faqs: [
       {
         question: 'Do you serve Lompoc as seriously as Santa Barbara?',
         answer:
-          'Yes. Same plan, same build timeline. Live in 30 days once we have your logins, photos and content. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice.',
+          'Yes. Same plan, same build timeline. Live in 30 days once we have your logins, photos and content. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice. North County is not a footnote on our county list.',
         category: 'working-together',
       },
       {
@@ -402,19 +402,19 @@ export const batch1Locations: Location[] = [
       {
         question: 'Is Lompoc easier to rank in than Santa Maria?',
         answer:
-          'Often the packs are smaller. A neglected listing will still lose to a Santa Maria company that filled in the fields. We look at your category before we talk about speed.',
+          'Often the packs are smaller. A neglected listing will still lose to a Santa Maria company that filled in the fields. We look at your category before we talk about speed. Completeness and honest categories matter more here than a large content calendar.',
         category: 'seo',
       },
       {
         question: 'What does the Local Lead Plan cost?',
         answer:
-          'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free). Ad spend, profile rebuilds, and print are quoted separately if you want them.',
+          'The Local Lead Plan is $297/mo, or $2,970/yr (2 months free). Ad spend, profile rebuilds, and print are quoted separately if you want them. Email info@sbmc.io or call (805) 307-7600 if you want the free call first.',
         category: 'homepage',
       },
       {
         question: 'Can we run ads only on weekends for tasting traffic?',
         answer:
-          'Yes, when that matches how you make money. Dayparting and separate campaigns keep you from paying for Tuesday clicks when you only want Saturday visitors. Resident businesses usually want the opposite schedule.',
+          'Yes, when that matches how you make money. Dayparting and separate campaigns keep you from paying for Tuesday clicks when you only want Saturday visitors. Resident businesses usually want the opposite schedule, with stronger weekday coverage around base and school routines.',
         category: 'ads',
       },
     ],
@@ -476,7 +476,7 @@ export const batch1Locations: Location[] = [
       },
     ],
     searchBehavior:
-      'Map Pack queries here are short. "Plumber Goleta," "dentist near me," "lunch Old Town." The searcher is often trying to avoid a downtown result. If your titles only say Santa Barbara, you have already lost the filter they applied.\n\nStudent and parent queries spike around move-in, finals, and graduation. B2B queries are branded or category-plus-Goleta. Those people will read. Voice and in-car searches for trades still resolve through Maps. Wrong primary categories make you invisible in the moment someone needed you.\n\nBranded search is table stakes. Unbranded category search in Goleta is the work, especially when Santa Barbara competitors look stronger on raw review count.',
+      'Map Pack queries here are short. "Plumber Goleta," "dentist near me," "lunch Old Town." The searcher is often trying to avoid a downtown result. If your titles only say Santa Barbara, you have already lost the filter they applied.\n\nStudent and parent queries spike around move-in, finals, and graduation. B2B queries are branded or category-plus-Goleta. Those people will read. Voice and in-car searches for trades still resolve through Maps. Wrong primary categories make you invisible in the moment someone needed you.\n\nBranded search is table stakes. Unbranded category search in Goleta is the work, especially when Santa Barbara competitors look stronger on raw review count. Airport and industrial-park queries lean branded or category-plus-city. Those buyers will finish a capabilities page when the listing and the site agree on the address.',
     dominantIndustries: [
       'home-services',
       'professional-services',
@@ -549,13 +549,13 @@ export const batch1Locations: Location[] = [
       {
         question: 'Do I need a blog to rank in Goleta?',
         answer:
-          'You need useful URLs. If a page explains a service or a campus-season offer, write it. Weekly articles for the sake of publishing are skippable. Five pages a person would finish beat a calendar of filler.',
+          'You need useful URLs. If a page explains a service or a campus-season offer, write it. Weekly articles for the sake of publishing are skippable. Five pages a person would finish beat a calendar of filler. Old Town and Ellwood pages count when they are specific.',
         category: 'seo',
       },
       {
         question: 'How do we start SEO work together?',
         answer:
-          'Book a call or email info@sbmc.io. We audit the pack and the site first. The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO and on-site SEO. Cancel anytime with 30-day written notice.',
+          'Book a call or email info@sbmc.io. We audit the pack and the site first. The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO and on-site SEO. Cancel anytime with 30-day written notice. Call (805) 307-7600 if you prefer the phone.',
         category: 'working-together',
       },
     ],
@@ -581,9 +581,9 @@ export const batch1Locations: Location[] = [
       'A Goleta site that opens with Santa Barbara branding has already lost the resident who typed Goleta on purpose. The first screen has to name this city, load on a phone, and offer a tap.',
     heroImage: photos.communityGoleta,
     intro:
-      'Someone searching from Isla Vista, Old Town, or an office near the airport is not browsing the way a designer browses on a fast connection. Students decide quickly. Parents compare from another city. Engineers and office managers will read a capabilities page if you do not hide it behind a cinematic homepage.\n\nWe design and build marketing sites for Goleta businesses that live with those windows. Information architecture, compressed photography, type you can read outdoors, and a call or booking action that does not require a desktop. Pretty is allowed. Pretty that fails on a small screen is not finished.',
+      'Someone searching from Isla Vista, Old Town, or an office near the airport is not browsing the way a designer browses on a fast connection. Students decide quickly. Parents compare from another city. Engineers and office managers will read a capabilities page if you do not hide it behind a cinematic homepage.\n\nWe design and build marketing sites for Goleta businesses that live with those windows. Information architecture, compressed photography, type you can read outdoors, and a call or booking action that does not require a desktop. Pretty is allowed. Pretty that fails on a small screen is not finished. Founded in 2026, Santa Barbara Marketing Co. builds the site inside the Local Lead Plan at $297/mo or $2,970/yr when the fit is right.',
     marketProfile:
-      'Old Town storefronts need hours, a current exterior or interior photo, and a tap-to-call target in the first screen. Camino Real independents compete with national chains for attention. Clarity beats atmosphere. Campus-adjacent food and services need pages that stand alone when Maps drops a student on a deep URL at 11 p.m. A homepage that assumes they read the About story will lose them.\n\nB2B firms in the Storke corridor and the industrial parks need a different density. Service lists, proof, and a request path a procurement contact can use. They will not wait for a video background. They will leave if the form asks for a novel before they can say "call me." Goleta companies sometimes serve two of those markets on one domain. The templates have to split or the messaging cancels itself out.\n\nPhotography is a local trap. Coastal bluff stock does not tell a visitor whether your shop is on Hollister or whether your exam room is real. We prefer original photos of the actual premises, compressed, with a focal point. Brand can live in type, color, and a few well-chosen frames. Technical health is part of design because slow pages waste Maps traffic you already earned. We build on a modern stack, not a page-builder theme with a plugin for every wish.\n\nBilingual households are part of this market for many service businesses. If Spanish matters to your customers, it should be real pages, scoped as work, not a machine toggle that breaks the layout.',
+      'Old Town storefronts need hours, a current exterior or interior photo, and a tap-to-call target in the first screen. Camino Real independents compete with national chains for attention. Clarity beats atmosphere. Campus-adjacent food and services need pages that stand alone when Maps drops a student on a deep URL at 11 p.m. A homepage that assumes they read the About story will lose them.\n\nB2B firms in the Storke corridor and the industrial parks need a different density. Service lists, proof, and a request path a procurement contact can use. They will not wait for a video background. They will leave if the form asks for a novel before they can say "call me." Goleta companies sometimes serve two of those markets on one domain. The templates have to split or the messaging cancels itself out. Ellwood and west Goleta residents often start on a phone even when they finish on a laptop. Specificity about the city and the service wins that comparison.\n\nPhotography is a local trap. Coastal bluff stock does not tell a visitor whether your shop is on Hollister or whether your exam room is real. We prefer original photos of the actual premises, compressed, with a focal point. Brand can live in type, color, and a few well-chosen frames. Technical health is part of design because slow pages waste Maps traffic you already earned. We build on a modern stack, not a page-builder theme with a plugin for every wish.\n\nBilingual households are part of this market for many service businesses. If Spanish matters to your customers, it should be real pages, scoped as work, not a machine toggle that breaks the layout. Follow-up after the form submit belongs in a full CRM, not in a spreadsheet that goes cold overnight.',
     neighborhoods: [
       {
         name: 'Old Town Goleta',
@@ -613,11 +613,11 @@ export const batch1Locations: Location[] = [
       {
         name: 'Ellwood and west Goleta',
         context:
-          'Residents on home Wi-Fi who still start on a phone. They will compare two sites. Specificity wins.',
+          'Residents on home Wi-Fi who still start on a phone. They will compare two sites. Specificity about Goleta and the service wins that comparison.',
       },
     ],
     searchBehavior:
-      'A large share of Goleta sessions begin in Maps or a search result and land on a deep page, not on the homepage. The URL they open has to stand alone. Query-to-page match is a design problem. "Urgent care near UCSB" should not land on a generic wellness manifesto. "IT support Goleta" should not land on a hospitality-looking homepage.\n\nAfter the tap, behavior is impatient on food and same-day trades, and deeper on professional services. We design for the shallow case where it matters, and we allow more room to read where the job requires it. One layout language, two densities. Residents who typed Goleta will bounce if the hero only says Santa Barbara.',
+      'A large share of Goleta sessions begin in Maps or a search result and land on a deep page, not on the homepage. The URL they open has to stand alone. Query-to-page match is a design problem. "Urgent care near UCSB" should not land on a generic wellness manifesto. "IT support Goleta" should not land on a hospitality-looking homepage.\n\nAfter the tap, behavior is impatient on food and same-day trades, and deeper on professional services. We design for the shallow case where it matters, and we allow more room to read where the job requires it. One layout language, two densities. Residents who typed Goleta will bounce if the hero only says Santa Barbara. Parents comparing from another city will bounce if hours, address, and a phone number are buried under a brand film. Airport and industrial-park readers want a capabilities list they can scan one-handed before a meeting.',
     dominantIndustries: [
       'professional-services',
       'restaurants-hospitality',
@@ -627,7 +627,7 @@ export const batch1Locations: Location[] = [
     serviceRelevance: [
       {
         service: 'web-design',
-        why: 'Original layouts that say Goleta up front, built to load on a phone and to make the next action obvious.',
+        why: 'Original layouts that say Goleta up front, built to load on a phone and to make the next action obvious on Hollister or in a parking lot.',
       },
       {
         service: 'conversion-optimization',
@@ -635,7 +635,7 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'local-seo',
-        why: 'Each location and service URL has to stand alone when Maps drops someone mid-site.',
+        why: 'Each location and service URL has to stand alone when Maps drops someone mid-site. Old Town, Ellwood, and campus pages when the buyer splits.',
       },
       {
         service: 'seo',
@@ -661,7 +661,7 @@ export const batch1Locations: Location[] = [
       },
       {
         title: 'Heavy visuals fail on cellular near campus and the freeway',
-        body: 'Uncompressed galleries and autoplay video stall the decision window. First-load weight is a design constraint, the same way type size is.',
+        body: 'Uncompressed galleries and autoplay video stall the decision window. First-load weight is a design constraint, the same way type size is. We compress on purpose and keep third-party scripts on a short leash.',
       },
       {
         title: 'Third-party widgets eat the tap',
@@ -672,7 +672,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'How long does a Goleta business website take to build?',
         answer:
-          'Live in 30 days once we have your logins, photos and content, for a marketing site with a clear sitemap. Booking systems, bilingual pages, or a large original photo library add time. We give a dated outline.',
+          'Live in 30 days once we have your logins, photos and content, for a marketing site with a clear sitemap. Booking systems, bilingual pages, or a large original photo library add time. We give a dated outline and say who we are waiting on.',
         category: 'websites',
       },
       {
@@ -696,7 +696,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'Will the site help us rank in Goleta?',
         answer:
-          'A fast, clear site helps you keep the traffic Maps already sends, and page experience is one ranking input. It will not replace relevance, reviews, or a pin in the right place. We still treat speed as non-negotiable.',
+          'A fast, clear site helps you keep the traffic Maps already sends, and page experience is one ranking input. It will not replace relevance, reviews, or a pin in the right place. We still treat speed as non-negotiable on Hollister, campus, and the industrial park alike.',
         category: 'seo',
       },
     ],
@@ -722,9 +722,9 @@ export const batch1Locations: Location[] = [
       'Montecito sites are often a second look after a referral. The page has to feel like it belongs in that conversation: fast, specific, and quiet enough that a household manager will trust the next tap.',
     heroImage: photos.communityMontecito,
     intro:
-      'Coast Village Road restaurants, Upper Village offices, and estate-service firms do not need a loud luxury template. They need a site that loads, names the work, shows something real, and makes it easy to call or request a visit without a chatbot in the way.\n\nWe design marketing sites for Montecito businesses and for Santa Barbara firms that serve the village honestly. Volume is the wrong scoreboard. Ten careful inquiries can matter more than a thousand tire-kickers. Pretty is allowed. Marble-stock theatrics and invented pedigree are not.',
+      'Coast Village Road restaurants, Upper Village offices, and estate-service firms do not need a loud luxury template. They need a site that loads, names the work, shows something real, and makes it easy to call or request a visit without a chatbot in the way.\n\nWe design marketing sites for Montecito businesses and for Santa Barbara firms that serve the village honestly. Volume is the wrong scoreboard. Ten careful inquiries can matter more than a thousand tire-kickers. Pretty is allowed. Marble-stock theatrics and invented pedigree are not. Founded in 2026, Santa Barbara Marketing Co. includes the marketing website in the Local Lead Plan at $297/mo or $2,970/yr when the fit is right.',
     marketProfile:
-      'Coast Village Road traffic includes residents, household staff, and a thin visitor overlay from Butterfly Beach and Channel Drive. A restaurant or shop site has to confirm hours, the room, and a reservation or call path in the first screen. Upper Village businesses see quieter, more local sessions. Specialist offices need calm layouts, real staff or studio photos, and a request form that does not feel like a consumer app.\n\nEstate trades and professional services often win work by referral. The website is the confirmation layer. Someone heard a name. They search. Wrong hours, an abandoned blog, or a template that screams "exclusive" can kill the job before the phone rings. We build for that second look: service area stated honestly, proof without swagger, and mobile layouts that work when a property manager is standing in a driveway.\n\nMany firms that serve Montecito keep their office in Santa Barbara. That is fine on the site if you say it plainly. Putting a Montecito street address you do not occupy is a trust problem for humans and a policy problem for Google. Design should support an honest NAP and a clear list of communities you drive to.\n\nTechnical health still matters. Slow pages waste the rare click. We compress images on purpose, avoid autoplay hero video, and keep third-party scripts on a short leash. Discretion is a performance choice as much as a visual one.',
+      'Coast Village Road traffic includes residents, household staff, and a thin visitor overlay from Butterfly Beach and Channel Drive. A restaurant or shop site has to confirm hours, the room, and a reservation or call path in the first screen. Upper Village businesses see quieter, more local sessions. Specialist offices need calm layouts, real staff or studio photos, and a request form that does not feel like a consumer app.\n\nEstate trades and professional services often win work by referral. The website is the confirmation layer. Someone heard a name. They search. Wrong hours, an abandoned blog, or a template that screams "exclusive" can kill the job before the phone rings. We build for that second look: service area stated honestly, proof without swagger, and mobile layouts that work when a property manager is standing in a driveway. East Valley lanes and the quieter hills produce the same pattern. The person on the other end of the referral is checking fit, not browsing for entertainment.\n\nMany firms that serve Montecito keep their office in Santa Barbara. That is fine on the site if you say it plainly. Putting a Montecito street address you do not occupy is a trust problem for humans and a policy problem for Google. Design should support an honest NAP and a clear list of communities you drive to. Hot Springs and Montecito Hills work often arrives by phone after a name is shared. The site still has to confirm who you are and how to reach you without inventing a storefront you do not have.\n\nTechnical health still matters. Slow pages waste the rare click. We compress images on purpose, avoid autoplay hero video, and keep third-party scripts on a short leash. Discretion is a performance choice as much as a visual one. Follow-up after a request form belongs in a full CRM so a careful inquiry does not sit unanswered until the next morning.',
     neighborhoods: [
       {
         name: 'Coast Village Road',
@@ -749,11 +749,11 @@ export const batch1Locations: Location[] = [
       {
         name: 'Montecito Hills and Hot Springs',
         context:
-          'Low density. Service-area clarity and phone access matter more than a village walk-in map.',
+          'Low density. Service-area clarity and phone access matter more than a village walk-in map. The site confirms the referral before the truck is booked.',
       },
     ],
     searchBehavior:
-      'Sessions are fewer and more deliberate than on State Street. Branded searches after a referral are common. Unbranded category-plus-Montecito searches still happen and should land on a page that stands alone. Visitors on Butterfly Beach behave like visitors anywhere: short queries, shallow scrolls, high impatience.\n\nAfter the tap, household managers and owners scan for fit. Service area, who you are, how to reach you. Forms that demand a budget and a life story before a conversation will be abandoned. We design the shallow path for hospitality and the quieter, longer path for professional and estate work, without dressing either in fake luxury chrome.',
+      'Sessions are fewer and more deliberate than on State Street. Branded searches after a referral are common. Unbranded category-plus-Montecito searches still happen and should land on a page that stands alone. Visitors on Butterfly Beach behave like visitors anywhere: short queries, shallow scrolls, high impatience.\n\nAfter the tap, household managers and owners scan for fit. Service area, who you are, how to reach you. Forms that demand a budget and a life story before a conversation will be abandoned. We design the shallow path for hospitality and the quieter, longer path for professional and estate work, without dressing either in fake luxury chrome. A property manager on a phone in a driveway will not wait for a video background. Hours, a clear next step, and a number they can tap decide whether the referral survives.',
     dominantIndustries: [
       'real-estate',
       'professional-services',
@@ -764,11 +764,11 @@ export const batch1Locations: Location[] = [
     serviceRelevance: [
       {
         service: 'web-design',
-        why: 'Original, discreet layouts that load quickly and read as competent without template luxury theatrics.',
+        why: 'Original, discreet layouts that load quickly and read as competent without template luxury theatrics. Built for referral confirmation as much as for discovery.',
       },
       {
         service: 'conversion-optimization',
-        why: 'A request path a household manager can use, and a phone number that is easy to find.',
+        why: 'A request path a household manager can use, and a phone number that is easy to find. No chatbot in the way of a careful inquiry.',
       },
       {
         service: 'seo',
@@ -790,19 +790,19 @@ export const batch1Locations: Location[] = [
     localChallenges: [
       {
         title: 'Loud luxury templates bounce the buyers you want',
-        body: 'Gold gradients, stock marble, and "exclusive" language feel off here. Specific work, real photos, and quiet type read as more expensive.',
+        body: 'Gold gradients, stock marble, and "exclusive" language feel off here. Specific work, real photos, and quiet type read as more expensive. Visitors and household staff both notice when the site looks like a theme.',
       },
       {
         title: 'Fake Montecito addresses destroy trust',
-        body: 'If your office is in Santa Barbara, say so and list the communities you serve. Design should not paper over a Maps policy problem.',
+        body: 'If your office is in Santa Barbara, say so and list the communities you serve. Design should not paper over a Maps policy problem. An honest NAP and a clear drive list beat a borrowed Coast Village pin.',
       },
       {
         title: 'Vanity traffic goals distort the build',
-        body: 'A flat traffic graph can still include the only inquiries that filled the month. We design for qualified contact, not for session theater.',
+        body: 'A flat traffic graph can still include the only inquiries that filled the month. We design for qualified contact, not for session theater. Low volume with the right people is still a win in this market.',
       },
       {
         title: 'Widgets fight discretion',
-        body: 'Aggressive chat pops and review carousels can feel wrong on an estate-service site. We add tools only when they complete a named job.',
+        body: 'Aggressive chat pops and review carousels can feel wrong on an estate-service site. We add tools only when they complete a named job, and we leave a quiet path for the people who just want to call.',
       },
     ],
     faqs: [
@@ -815,7 +815,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'Can you design a site if our office is in Santa Barbara but we serve Montecito?',
         answer:
-          'Yes. We write honest service-area copy and keep the address truthful. We will not put a Montecito street on the site that you do not occupy.',
+          'Yes. We write honest service-area copy and keep the address truthful. We will not put a Montecito street on the site that you do not occupy. Organic pages can still name the communities you drive to.',
         category: 'getting-started',
       },
       {
@@ -827,13 +827,13 @@ export const batch1Locations: Location[] = [
       {
         question: 'What does it cost?',
         answer:
-          'The Local Lead Plan is $297/mo or $2,970/yr and includes the marketing website. Cancel anytime with 30-day written notice. info@sbmc.io · (805) 307-7600.',
+          'The Local Lead Plan is $297/mo or $2,970/yr and includes the marketing website. Cancel anytime with 30-day written notice. Email info@sbmc.io or call (805) 307-7600.',
         category: 'homepage',
       },
       {
         question: 'How do we work together on design feedback?',
         answer:
-          'A small team, clear rounds, and written decisions. You will not be handed to a rotating coordinator in another time zone. Strategy and the website are run by people who know this market.',
+          'A small team, clear rounds, and written decisions. You will not be handed to a rotating coordinator in another time zone. Strategy and the website are run by people who know this market. Email info@sbmc.io anytime during the build.',
         category: 'working-together',
       },
     ],
@@ -859,9 +859,9 @@ export const batch1Locations: Location[] = [
       'Santa Maria SEO is still underbuilt. The packs on Broadway, Main, and Orcutt are often missing a serious local operator who kept the profile complete and wrote a page that is actually about this city.',
     heroImage: photos.hero,
     intro:
-      'If you sell in Santa Maria, the listing in the three-pack is often the whole discovery path for trades, food, clinics, and local services. Someone searching from Orcutt, east Main, or a truck on Betteravia is looking at Maps first. Organic results under the pack still matter for medical, legal, multi-location home projects, and B2B work tied to agriculture and processing.\n\nThis page stays on ranking mechanics for this metro. Categories, reviews, proximity, and on-site relevance. Santa Barbara Marketing Co. treats Santa Maria as its own market. We do not stamp a South Coast paragraph and change the title.',
+      'If you sell in Santa Maria, the listing in the three-pack is often the whole discovery path for trades, food, clinics, and local services. Someone searching from Orcutt, east Main, or a truck on Betteravia is looking at Maps first. Organic results under the pack still matter for medical, legal, multi-location home projects, and B2B work tied to agriculture and processing.\n\nThis page stays on ranking mechanics for this metro. Categories, reviews, proximity, and on-site relevance. Santa Barbara Marketing Co. treats Santa Maria as its own market. We do not stamp a South Coast paragraph and change the title. Founded in 2026. The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO and on-site SEO when the fit is right.',
     marketProfile:
-      'Relevance, distance, and prominence still decide the pack. In Santa Maria, prominence is often quieter than in tourist Santa Barbara because visitor-review velocity is lower. That can be an advantage for a business that collects steady, specific reviews from real tickets. Distance favors pins that sit near the searcher in Orcutt or along Broadway. Relevance is where most neglected listings fail: wrong primary category, leftover tenant hours, no photos of the current storefront, and a website that never says Santa Maria in a useful way.\n\nDowntown and Broadway packs for food and services are competitive among local operators but rarely flooded with national visitor brands the way State Street is. Orcutt packs are more residential. A Santa Maria-only title can lose the resident who typed Orcutt. Betteravia and industrial queries lean B2B. Hide-the-address tactics aimed at ranking like a shop will not fix a yard business. Tell the truth on the profile and put weight on organic pages and ads when the pack rules do not fit.\n\nOrganic SEO under the pack is how you catch county-wide and research queries without donating every click to a South Coast firm that mentioned Santa Maria once. Doorway pages that swap city names dilute the site. One honest Santa Maria page a person would finish beats ten thin clones. Spanish-language search is part of the market for many categories. Real pages beat a machine translation layer.\n\nReview cadence matters. Recency beats a frozen average. We set up an honest request process. We do not write reviews, buy them, or bury the unhappy ones. If the work itself is the problem, SEO will not paper over it.',
+      'Relevance, distance, and prominence still decide the pack. In Santa Maria, prominence is often quieter than in tourist Santa Barbara because visitor-review velocity is lower. That can be an advantage for a business that collects steady, specific reviews from real tickets. Distance favors pins that sit near the searcher in Orcutt or along Broadway. Relevance is where most neglected listings fail: wrong primary category, leftover tenant hours, no photos of the current storefront, and a website that never says Santa Maria in a useful way.\n\nDowntown and Broadway packs for food and services are competitive among local operators but rarely flooded with national visitor brands the way State Street is. Orcutt packs are more residential. A Santa Maria-only title can lose the resident who typed Orcutt. Betteravia and industrial queries lean B2B. Hide-the-address tactics aimed at ranking like a shop will not fix a yard business. Tell the truth on the profile and put weight on organic pages and ads when the pack rules do not fit. Town Center West and the retail corridors add chain gravity. Independents there need sharper categories or they vanish next to national packs.\n\nOrganic SEO under the pack is how you catch county-wide and research queries without donating every click to a South Coast firm that mentioned Santa Maria once. Doorway pages that swap city names dilute the site. One honest Santa Maria page a person would finish beats ten thin clones. Spanish-language search is part of the market for many categories. Real pages beat a machine translation layer. Valley agriculture and food-processing vendors still need pages that name the work without turning into farm-to-table poetry.\n\nReview cadence matters. Recency beats a frozen average. We set up an honest request process. We do not write reviews, buy them, or bury the unhappy ones. If the work itself is the problem, SEO will not paper over it.',
     neighborhoods: [
       {
         name: 'Downtown / Broadway and Main',
@@ -895,7 +895,7 @@ export const batch1Locations: Location[] = [
       },
     ],
     searchBehavior:
-      'Pack queries are short. "Plumber Santa Maria," "best tacos near me," "dentist Orcutt." The searcher wants a north county result. Click-through from the blue links is a more careful person, often comparing medical, legal, or larger home jobs.\n\nBranded search is common for established food and service businesses. Unbranded category search is where a less famous operator still has a path if the profile and pages are built for the job. Voice and in-car queries for trades resolve through Maps. Wrong hours or a stale primary category erase you in the moment someone needed you.\n\nBilingual queries appear in more categories than South Coast tourist pages admit. Plan for them when they match how you already answer the phone.',
+      'Pack queries are short. "Plumber Santa Maria," "best tacos near me," "dentist Orcutt." The searcher wants a north county result. Click-through from the blue links is a more careful person, often comparing medical, legal, or larger home jobs.\n\nBranded search is common for established food and service businesses. Unbranded category search is where a less famous operator still has a path if the profile and pages are built for the job. Voice and in-car queries for trades resolve through Maps. Wrong hours or a stale primary category erase you in the moment someone needed you.\n\nBilingual queries appear in more categories than South Coast tourist pages admit. Plan for them when they match how you already answer the phone. Betteravia and valley B2B searches are branded or category-plus-city. Those buyers will finish a capabilities page when the listing tells the truth about the yard or warehouse.',
     dominantIndustries: [
       'home-services',
       'restaurants-hospitality',
@@ -905,11 +905,11 @@ export const batch1Locations: Location[] = [
     serviceRelevance: [
       {
         service: 'local-seo',
-        why: 'The core of Santa Maria SEO. Pack eligibility, categories, and pages for Broadway, Main, and Orcutt.',
+        why: 'The core of Santa Maria SEO. Pack eligibility, categories, and pages for Broadway, Main, and Orcutt. Photos of the actual frontage, not a South Coast stock gallery.',
       },
       {
         service: 'seo',
-        why: 'Organic coverage for research and B2B queries the three-pack does not finish.',
+        why: 'Organic coverage for research and B2B queries the three-pack does not finish. Valley and agricultural pages when the work lives there.',
       },
       {
         service: 'google-business-profile',
@@ -917,7 +917,7 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'conversion-optimization',
-        why: 'A pack win on a confusing page still loses the call. The site has to finish the job.',
+        why: 'A pack win on a confusing page still loses the call. The site has to finish the job, including after-hours follow-up through a full CRM.',
       },
       {
         service: 'analytics',
@@ -925,7 +925,7 @@ export const batch1Locations: Location[] = [
       },
       {
         service: 'google-ads',
-        why: 'A bridge while prominence catches up, geo-limited to Santa Maria and Orcutt.',
+        why: 'A bridge while prominence catches up, geo-limited to Santa Maria and Orcutt, with negatives for South Coast terms you will never serve.',
       },
     ],
     localChallenges: [
@@ -935,11 +935,11 @@ export const batch1Locations: Location[] = [
       },
       {
         title: 'Orcutt modifiers get ignored',
-        body: 'Residents type Orcutt. If every title only says Santa Maria, you miss a pack and a set of organic queries you could have owned.',
+        body: 'Residents type Orcutt. If every title only says Santa Maria, you miss a pack and a set of organic queries you could have owned. We split pages when the geography and the buyer split.',
       },
       {
         title: 'Service-area competitors from nearby cities show up when listings are thin',
-        body: 'Completing the profile and building relevance is the first response. Ads can fill gaps. Fake addresses create suspension risk.',
+        body: 'Completing the profile and building relevance is the first response. Ads can fill gaps. Fake addresses create suspension risk. Distance still helps a local pin when the listing looks alive.',
       },
       {
         title: 'Wrong categories bury a good operator',
@@ -950,7 +950,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'How long does Santa Maria SEO take?',
         answer:
-          'Neglected profiles often move in the Map Pack within a few months when the category is not locked down by aggressive competitors. Research terms take longer. We will not promise a thirty-day first-page screenshot.',
+          'Neglected profiles often move in the Map Pack within a few months when the category is not locked down by aggressive competitors. Research terms take longer. We will not promise a thirty-day first-page screenshot. We will say which surface we expect to move first.',
         category: 'seo',
       },
       {
@@ -968,7 +968,7 @@ export const batch1Locations: Location[] = [
       {
         question: 'What is included in your plan for SEO?',
         answer:
-          'The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO, on-site SEO, the marketing website, and related follow-up tools. Cancel anytime with 30-day written notice. info@sbmc.io · (805) 307-7600.',
+          'The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO, on-site SEO, the marketing website, and related follow-up tools. Cancel anytime with 30-day written notice. Email info@sbmc.io or call (805) 307-7600.',
         category: 'homepage',
       },
       {
