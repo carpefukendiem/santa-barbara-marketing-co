@@ -33,11 +33,70 @@ import { PrecisionPage } from '@/components/demos/precision/PrecisionPage';
 import { ShearEnvyPage } from '@/components/demos/shear-envy/ShearEnvyPage';
 import { StarNailsPage } from '@/components/demos/star-nails/StarNailsPage';
 
+import { NoSitePage } from '@/components/demos/nosite/NoSitePage';
+
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 const FONT_LINKS: Record<DemoSlug, string> = {
+  'the-palms-barber-shop':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'shanghai-restaurant':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600;700&display=swap',
+  'taqueria-el-buen-gusto':
+    'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap',
+  'goleta-radiator-auto-repair':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'uptown-barber-shop':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'urban-statement-salon':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap',
+  'stape-cycles':
+    'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap',
+  'barber-inc':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'kim-nails-spa':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap',
+  'mesa-barber-shop':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'de-la-vina-barbers':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'caseys-garage-discount-smog':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'saigon-noodle-house':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600;700&display=swap',
+  'sushi-tyme':
+    'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600;700&display=swap',
+  'tacos-pipeye':
+    'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap',
+  'la-arcada-barber-shop':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'alphonsos-transmission':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'westcoast-automotive':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'simply-automotive':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'gonzos-small-engine-repair':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'filix-tires':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'anacapa-auto-body-paint':
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  'rainbow-nails':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap',
+  'amigos-haircutting':
+    'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
+  'sheepskin-trading-post':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap',
+  'bobs-canvas-shop':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap',
+  'milpas-taqueria':
+    'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap',
+  'today-nails':
+    'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap',
+
   'dimauros-independent-honda-acura-repair':
     'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,700;62..125,800&family=IBM+Plex+Mono:wght@400;600&display=swap',
   'coastal-dentistry':
@@ -152,6 +211,36 @@ export default async function DemoSlugPage({ params }: PageProps) {
       break;
     case 'domingos-cafe':
       page = <DomingosPage demo={demo} />;
+      break;
+    case 'the-palms-barber-shop':
+    case 'shanghai-restaurant':
+    case 'taqueria-el-buen-gusto':
+    case 'goleta-radiator-auto-repair':
+    case 'uptown-barber-shop':
+    case 'urban-statement-salon':
+    case 'stape-cycles':
+    case 'barber-inc':
+    case 'kim-nails-spa':
+    case 'mesa-barber-shop':
+    case 'de-la-vina-barbers':
+    case 'caseys-garage-discount-smog':
+    case 'saigon-noodle-house':
+    case 'sushi-tyme':
+    case 'tacos-pipeye':
+    case 'la-arcada-barber-shop':
+    case 'alphonsos-transmission':
+    case 'westcoast-automotive':
+    case 'simply-automotive':
+    case 'gonzos-small-engine-repair':
+    case 'filix-tires':
+    case 'anacapa-auto-body-paint':
+    case 'rainbow-nails':
+    case 'amigos-haircutting':
+    case 'sheepskin-trading-post':
+    case 'bobs-canvas-shop':
+    case 'milpas-taqueria':
+    case 'today-nails':
+      page = <NoSitePage demo={demo} />;
       break;
     case 'goleta-bakery':
       page = <GoletaBakeryPage demo={demo} />;
