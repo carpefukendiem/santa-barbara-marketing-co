@@ -40,6 +40,35 @@ import { roundinThirdDemo } from './roundin-third-sports-bar';
 import { shearEnvyDemo } from './shear-envy';
 import { starNailsDemo } from './star-nails-spa';
 import { stPaulDemo } from './st-paul-cleaners-laundry-tailoring';
+import { thePalmsBarberShopDemo } from './the-palms-barber-shop';
+import { shanghaiRestaurantDemo } from './shanghai-restaurant';
+import { taqueriaElBuenGustoDemo } from './taqueria-el-buen-gusto';
+import { goletaRadiatorAutoRepairDemo } from './goleta-radiator-auto-repair';
+import { uptownBarberShopDemo } from './uptown-barber-shop';
+import { urbanStatementSalonDemo } from './urban-statement-salon';
+import { kidsCutsDemo } from './kids-cuts';
+import { stapeCyclesDemo } from './stape-cycles';
+import { barberIncDemo } from './barber-inc';
+import { kimNailsSpaDemo } from './kim-nails-spa';
+import { mesaBarberShopDemo } from './mesa-barber-shop';
+import { deLaVinaBarbersDemo } from './de-la-vina-barbers';
+import { caseysGarageDiscountSmogDemo } from './caseys-garage-discount-smog';
+import { saigonNoodleHouseDemo } from './saigon-noodle-house';
+import { sushiTymeDemo } from './sushi-tyme';
+import { tacosPipeyeDemo } from './tacos-pipeye';
+import { laArcadaBarberShopDemo } from './la-arcada-barber-shop';
+import { alphonsosTransmissionDemo } from './alphonsos-transmission';
+import { westcoastAutomotiveDemo } from './westcoast-automotive';
+import { simplyAutomotiveDemo } from './simply-automotive';
+import { gonzosSmallEngineRepairDemo } from './gonzos-small-engine-repair';
+import { filixTiresDemo } from './filix-tires';
+import { anacapaAutoBodyPaintDemo } from './anacapa-auto-body-paint';
+import { rainbowNailsDemo } from './rainbow-nails';
+import { amigosHaircuttingDemo } from './amigos-haircutting';
+import { sheepskinTradingPostDemo } from './sheepskin-trading-post';
+import { bobsCanvasShopDemo } from './bobs-canvas-shop';
+import { milpasTaqueriaDemo } from './milpas-taqueria';
+import { todayNailsDemo } from './today-nails';
 import type { DemoData, DemoSlug } from './types';
 
 export type { DemoChromeLocale, DemoData, DemoHourRow, DemoReview, DemoSlug } from './types';
@@ -75,6 +104,35 @@ const demos = {
   [lilysDemo.slug]: lilysDemo,
   [neighborTimsDemo.slug]: neighborTimsDemo,
   [roundinThirdDemo.slug]: roundinThirdDemo,
+  [thePalmsBarberShopDemo.slug]: thePalmsBarberShopDemo,
+  [shanghaiRestaurantDemo.slug]: shanghaiRestaurantDemo,
+  [taqueriaElBuenGustoDemo.slug]: taqueriaElBuenGustoDemo,
+  [goletaRadiatorAutoRepairDemo.slug]: goletaRadiatorAutoRepairDemo,
+  [uptownBarberShopDemo.slug]: uptownBarberShopDemo,
+  [urbanStatementSalonDemo.slug]: urbanStatementSalonDemo,
+  [kidsCutsDemo.slug]: kidsCutsDemo,
+  [stapeCyclesDemo.slug]: stapeCyclesDemo,
+  [barberIncDemo.slug]: barberIncDemo,
+  [kimNailsSpaDemo.slug]: kimNailsSpaDemo,
+  [mesaBarberShopDemo.slug]: mesaBarberShopDemo,
+  [deLaVinaBarbersDemo.slug]: deLaVinaBarbersDemo,
+  [caseysGarageDiscountSmogDemo.slug]: caseysGarageDiscountSmogDemo,
+  [saigonNoodleHouseDemo.slug]: saigonNoodleHouseDemo,
+  [sushiTymeDemo.slug]: sushiTymeDemo,
+  [tacosPipeyeDemo.slug]: tacosPipeyeDemo,
+  [laArcadaBarberShopDemo.slug]: laArcadaBarberShopDemo,
+  [alphonsosTransmissionDemo.slug]: alphonsosTransmissionDemo,
+  [westcoastAutomotiveDemo.slug]: westcoastAutomotiveDemo,
+  [simplyAutomotiveDemo.slug]: simplyAutomotiveDemo,
+  [gonzosSmallEngineRepairDemo.slug]: gonzosSmallEngineRepairDemo,
+  [filixTiresDemo.slug]: filixTiresDemo,
+  [anacapaAutoBodyPaintDemo.slug]: anacapaAutoBodyPaintDemo,
+  [rainbowNailsDemo.slug]: rainbowNailsDemo,
+  [amigosHaircuttingDemo.slug]: amigosHaircuttingDemo,
+  [sheepskinTradingPostDemo.slug]: sheepskinTradingPostDemo,
+  [bobsCanvasShopDemo.slug]: bobsCanvasShopDemo,
+  [milpasTaqueriaDemo.slug]: milpasTaqueriaDemo,
+  [todayNailsDemo.slug]: todayNailsDemo,
 } as const satisfies Record<string, DemoData>;
 
 export function getDemo(slug: string): DemoData | undefined {
