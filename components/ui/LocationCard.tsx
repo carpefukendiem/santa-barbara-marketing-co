@@ -32,7 +32,7 @@ export function LocationCard({
         />
       </div>
       <p className="mt-5 font-display text-4xl font-light">{city}</p>
-      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] opacity-60">
+      <p className="mt-2 font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
         {tagline}
       </p>
       <span className="mt-4 block h-px bg-current opacity-20" aria-hidden="true" />

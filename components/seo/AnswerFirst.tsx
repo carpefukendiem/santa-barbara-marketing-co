@@ -27,10 +27,10 @@ export function AnswerFirst({ answer, facts, className }: AnswerFirstProps) {
           <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {facts.map((fact) => (
               <div key={fact.label}>
-                <dt className="font-mono text-[11px] tracking-[0.16em] text-ink/50 uppercase">
+                <dt className="font-mono text-[13px] tracking-[0.12em] text-stone uppercase">
                   {fact.label}
                 </dt>
-                <dd className="mt-1 text-sm text-ink">{fact.value}</dd>
+                <dd className="mt-1 text-sm leading-normal text-ink">{fact.value}</dd>
               </div>
             ))}
           </dl>

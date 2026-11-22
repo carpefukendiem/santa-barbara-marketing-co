@@ -71,7 +71,7 @@ export function PrintServicePageContent({
           </div>
           <aside className="lg:col-span-4 lg:col-start-9">
             <div className="lg:sticky lg:top-28">
-              <p className="border-t-2 border-tile pt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-stone">
+              <p className="border-t-2 border-tile pt-4 font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
                 Related services
               </p>
               <ul className="mt-4 space-y-3">

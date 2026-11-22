@@ -57,7 +57,7 @@ export function Footer() {
             <Link href="/" className="inline-block max-w-[320px]">
               <Wordmark inverted className="!h-24 !max-w-[320px]" />
             </Link>
-            <p className="mt-4 font-display text-xl text-cream/80">
+            <p className="mt-4 font-display text-xl text-cream">
               {site.tagline}
             </p>
             <NapBlock tone="footer" />
@@ -69,7 +69,7 @@ export function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs uppercase tracking-[0.16em] text-cream/70 hover:text-cream"
+                      className="font-mono text-xs uppercase tracking-[0.12em] text-cream hover:text-white"
                     >
                       {social.label}
                     </a>
@@ -85,7 +85,7 @@ export function Footer() {
             <FooterColumn title="Resources" links={resourceLinks} />
             <FooterColumn title="Company" links={companyLinks} />
             <div>
-              <p className="font-mono text-[11px] tracking-[0.18em] text-cream/60 uppercase">
+              <p className="font-mono text-[13px] tracking-[0.12em] text-cream uppercase">
                 Get Started
               </p>
               <ul className="mt-4 space-y-2">
@@ -93,14 +93,14 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="font-mono text-xs uppercase tracking-[0.12em] text-cream/80 hover:text-cream"
+                      className="font-mono text-xs uppercase tracking-[0.12em] text-cream hover:text-white"
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <p className="mt-8 font-mono text-[11px] tracking-[0.18em] text-cream/60 uppercase">
+              <p className="mt-8 font-mono text-[13px] tracking-[0.12em] text-cream uppercase">
                 Print & Apparel
               </p>
               <ul className="mt-4 space-y-2">
@@ -120,7 +120,7 @@ export function Footer() {
         </div>
       </div>
       <div className="relative bg-navy">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-cream/20 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/60 sm:flex-row sm:items-center sm:justify-between lg:px-14">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-cream/20 px-6 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-cream sm:flex-row sm:items-center sm:justify-between lg:px-14">
           <p>
             © {year} Santa Barbara Marketing Co. · Santa Barbara, California · Est.{' '}
             {site.founded}
@@ -149,7 +149,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <p className="text-xs font-medium tracking-[0.18em] text-white/60 uppercase">
+      <p className="font-mono text-[13px] font-medium tracking-[0.12em] text-cream uppercase">
         {title}
       </p>
       <ul className="mt-4 space-y-2">
@@ -157,7 +157,7 @@ function FooterColumn({
           <li key={link.href}>
             <Link
               href={link.href}
-              className="text-sm text-white/80 hover:text-white xl:whitespace-nowrap"
+              className="text-sm text-cream hover:text-white xl:whitespace-nowrap"
             >
               {link.label}
             </Link>

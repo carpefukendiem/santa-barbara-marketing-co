@@ -32,7 +32,7 @@ export function FaqContact() {
             <div className="lg:col-span-5">
               <Eyebrow dark>{`Let's talk`}</Eyebrow>
               <Heading className="mt-4 !text-cream">Ready to Grow?</Heading>
-              <p className="mt-4 text-lg text-cream/70">
+              <p className="mt-4 text-lg leading-[1.6] text-cream">
                 Tell us about the business. We will reply with a next step, not a
                 drip sequence.
               </p>
@@ -45,7 +45,7 @@ export function FaqContact() {
               {site.phone ? (
                 <a
                   href={telHref(site.phone)}
-                  className="mt-3 block font-mono text-sm text-cream/70"
+                  className="mt-3 block font-mono text-sm text-cream"
                 >
                   {formatPhone(site.phone)}
                 </a>

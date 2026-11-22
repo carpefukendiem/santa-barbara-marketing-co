@@ -57,7 +57,8 @@ export function Header() {
         'site-header fixed inset-x-0 top-0 z-40',
         scrolled || lightTop
           ? 'border-b border-rule bg-cream/95 text-ink'
-          : 'border-b border-transparent bg-transparent text-cream',
+          : /* Navy wash behind white nav so links stay readable over light hero regions. */
+            'border-b border-transparent bg-[linear-gradient(180deg,rgba(11,31,51,0.72)_0%,rgba(11,31,51,0.28)_70%,transparent_100%)] text-cream',
       )}
       data-scrolled={scrolled ? '' : undefined}
       data-over-dark={overDark ? '' : undefined}

@@ -18,7 +18,7 @@ export function FormField({
     <div>
       <label
         htmlFor={id}
-        className="block font-mono text-[11px] uppercase tracking-[0.16em] text-stone [.bg-navy_&]:text-cream/60"
+        className="block font-mono text-[13px] uppercase tracking-[0.12em] text-stone [.bg-navy_&]:text-cream"
       >
         {label}
         {required ? null : <span> (optional)</span>}

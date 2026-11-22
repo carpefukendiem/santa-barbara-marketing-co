@@ -12,7 +12,7 @@ export function PrintApparelRow({ industrySlug }: { industrySlug: string }) {
 
   return (
     <div className="mt-10 border-t border-rule pt-6">
-      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-stone">
+      <p className="font-mono text-[13px] uppercase tracking-[0.12em] text-stone">
         Print & Apparel
       </p>
       <p className="mt-3 text-lg text-ink">

@@ -15,7 +15,8 @@ export function Eyebrow({
     <p
       className={cn(
         'text-eyebrow',
-        dark ? 'text-ochre' : 'text-stone',
+        /* Cream over dark/photo; ochre-ink over cream (AA). */
+        dark ? 'text-cream' : 'text-[color:var(--ochre-ink)]',
         align === 'center' && 'text-center',
         className,
       )}
