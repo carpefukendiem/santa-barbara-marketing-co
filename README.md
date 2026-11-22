@@ -57,7 +57,7 @@ Import the GitHub repo. Canonical and Open Graph URLs use `https://www.sbmc.io` 
 | `LEAD_WEBHOOK_URL` | If webhook | JSON POST destination |
 | `RESEND_API_KEY` / `LEAD_NOTIFY_EMAIL` | If resend | Stub until implemented |
 
-Create a custom field named `message` in the GoHighLevel subaccount if it does not exist. Booking uses the Santa Barbara Marketing Co. calendar (widget hosted on `link.rankingsb.com`). CRM sync stays optional until `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` are set in Vercel.
+Create a custom field named `message` in the CRM subaccount if it does not exist. Booking uses the Santa Barbara Marketing Co. calendar (widget hosted on `link.sbmc.io`). CRM sync stays optional until `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` are set in Vercel.
 
 See [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) and [docs/ANALYTICS.md](docs/ANALYTICS.md).
 
