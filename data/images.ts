@@ -104,7 +104,7 @@ export const decor = {
 export const brand = {
   logo: {
     src: '/images/brand/sbmc-logo.webp',
-    alt: 'Santa Barbara Marketing Co. logo — a circular seal with the Santa Barbara Mission, palms, and a cresting wave.',
+    alt: 'Santa Barbara Marketing Co. logo - a circular seal with the Santa Barbara Mission, palms, and a cresting wave.',
     width: 1254,
     height: 1254,
     focalPoint: '50% 50%',
