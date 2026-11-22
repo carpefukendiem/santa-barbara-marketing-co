@@ -79,7 +79,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(11, 31, 51, 0.94) 0%, rgba(11, 31, 51, 0.72) 38%, rgba(11, 31, 51, 0.5) 100%);
+  background: linear-gradient(90deg, rgba(11, 31, 51, 0.82) 0%, rgba(11, 31, 51, 0.42) 38%, rgba(11, 31, 51, 0.3) 100%);
 }
 
 .blob {
@@ -1051,7 +1051,7 @@
   }
 
   .overlay {
-    background: linear-gradient(180deg, rgba(11, 31, 51, 0.84) 0%, rgba(11, 31, 51, 0.92) 60%, var(--navy) 100%);
+    background: linear-gradient(180deg, rgba(11, 31, 51, 0.68) 0%, rgba(11, 31, 51, 0.78) 60%, var(--navy) 100%);
   }
 
   .blob,

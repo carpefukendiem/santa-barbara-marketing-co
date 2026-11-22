@@ -159,18 +159,18 @@ export function PageHero({
               style={{ objectPosition: image.focalPoint }}
             />
           </div>
-          {/* Mobile: darken the full photo plane so type clears busy areas. */}
+          {/* Mobile: lighter overall wash; keep a stronger bottom-left text scrim. */}
           <div
-            className="absolute inset-0 bg-[rgba(11,31,51,0.84)] lg:hidden"
+            className="absolute inset-0 bg-[rgba(11,31,51,0.68)] lg:hidden"
             aria-hidden="true"
           />
-          {/* Desktop: keep the photo readable on the right; scrim the text column. */}
+          {/* Desktop: photo shows through on the right; scrim the text column. */}
           <div
-            className="absolute inset-0 hidden bg-gradient-to-r from-[rgba(11,31,51,0.94)] via-[rgba(11,31,51,0.82)] via-48% to-transparent to-72% lg:block"
+            className="absolute inset-0 hidden bg-gradient-to-r from-[rgba(11,31,51,0.82)] via-[rgba(11,31,51,0.55)] via-48% to-transparent to-72% lg:block"
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-[rgba(11,31,51,0.92)] via-[rgba(11,31,51,0.2)] to-[rgba(11,31,51,0.45)] lg:from-[rgba(11,31,51,0.55)] lg:via-transparent lg:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[rgba(11,31,51,0.8)] via-[rgba(11,31,51,0.12)] to-[rgba(11,31,51,0.32)] lg:from-[rgba(11,31,51,0.4)] lg:via-transparent lg:to-transparent"
             aria-hidden="true"
           />
         </div>
