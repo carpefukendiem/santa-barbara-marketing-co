@@ -54,7 +54,7 @@
 | kamilas-garage/doors.jpg | https://www.pexels.com/photo/garage-doors-at-night-11213219/ | Mathias Reding |
 | hiens-auto-repair/hero.jpg (PLACEHOLDER) | https://www.pexels.com/photo/a-variety-of-wrenches-hanging-on-a-board-on-a-wall-10497629/ | Aedrian Salazar |
 
-# Demos upgrade pilot — new downloads (Pexels License; https://www.pexels.com/license/)
+# Demos upgrade pilot - new downloads (Pexels License; https://www.pexels.com/license/)
 | demo | filename | source URL | photographer | license |
 |---|---|---|---|---|
 | coastal-dentistry | hero.jpg | https://www.pexels.com/photo/black-and-white-dentist-chair-4269361/ | Cedric Fauntleroy | Pexels License |
