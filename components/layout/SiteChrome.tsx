@@ -12,12 +12,9 @@ import { AnalyticsScripts } from '@/components/seo/AnalyticsScripts';
 import { AttributionCapture } from '@/components/analytics/AttributionCapture';
 import { AbTracker } from '@/components/analytics/AbTracker';
 import { BookCallProvider } from '@/components/booking/BookCallModal';
+import { PastClientsStrip } from '@/components/sections/PastClientsStrip';
 import { GhlChatWidget } from '@/components/seo/GhlChatWidget';
-import {
-  localBusinessSchema,
-  organizationSchema,
-  websiteSchema,
-} from '@/lib/schema';
+import { sitewideGraph } from '@/lib/schema';
 
 export function SiteChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -33,12 +30,11 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <AnalyticsScripts />
       <Analytics />
       <BookCallProvider>
-        <JsonLd
-          data={[organizationSchema(), localBusinessSchema(), websiteSchema()]}
-        />
+        <JsonLd data={sitewideGraph()} />
         <SkipLink />
         <Header />
         <main id="main">{children}</main>
+        <PastClientsStrip />
         <Footer />
         <StickyMobileCta />
         <Suspense fallback={null}>

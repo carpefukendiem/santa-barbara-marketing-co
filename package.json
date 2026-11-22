@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "prepare-assets": "node scripts/prepare-assets.mjs"
+    "prepare-assets": "node scripts/prepare-assets.mjs",
+    "generate-lastmod": "node scripts/generate-lastmod.mjs",
+    "submit-indexnow": "node scripts/submit-indexnow.mjs",
+    "test:schema": "npx tsx --test lib/schema.test.ts",
+    "validate-schema": "npx tsx scripts/validate-schema.mts && npx tsx scripts/validate-schema-remote.mts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

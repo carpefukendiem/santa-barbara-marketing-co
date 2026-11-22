@@ -48,13 +48,15 @@ export default function ContactPage() {
               </p>
               <ul className="mt-8 space-y-6">
                 <li>
-                  <p className="text-eyebrow text-ocean">Visit or reach us</p>
+                  <p className="text-eyebrow text-ocean">Reach us</p>
                   <NapBlock tone="contact" />
                 </li>
                 <li>
                   <p className="text-eyebrow text-ocean">Where we work</p>
                   <p className="mt-1 text-lg text-ink">
-                    Santa Barbara, Goleta, Montecito, and Carpinteria.
+                    Service-area business covering all of Santa Barbara County,
+                    including Santa Barbara, Goleta, Montecito, Carpinteria,
+                    Santa Maria, Lompoc, and the Santa Ynez Valley.
                   </p>
                 </li>
               </ul>

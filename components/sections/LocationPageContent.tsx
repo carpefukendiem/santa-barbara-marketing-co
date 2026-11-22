@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MapPin } from 'lucide-react';
 import { CtaBand } from '@/components/sections/CtaBand';
+import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { FAQAccordion } from '@/components/ui/Accordion';
 import { Button } from '@/components/ui/Button';
@@ -19,13 +20,13 @@ import { Section } from '@/components/ui/Section';
 import { getIndustry } from '@/data/industries';
 import { getLocation, overviewLocations, type Location } from '@/data/locations';
 import { primaryCta } from '@/data/navigation';
+import { pricingPlan } from '@/data/pricing';
 import { getService } from '@/data/services';
-import { site } from '@/data/site';
 import {
   breadcrumbSchema,
   faqPageSchema,
-  professionalServiceSchema,
   serviceSchema,
+  webPageSchema,
 } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { accentWord, absoluteUrl } from '@/lib/utils';
@@ -113,43 +114,46 @@ export function LocationPageContent({ slug }: { slug: string }) {
   const isSantaBarbara = location.city === 'Santa Barbara';
   const isOverview = location.pageType === 'overview';
 
-  const crumbItems = isSantaBarbara && !isOverview
-    ? [
-        { label: 'Home', href: '/' },
-        { label: 'Santa Barbara', href: '/santa-barbara-digital-marketing' },
-        { label: location.h1 },
-      ]
-    : [
-        { label: 'Home', href: '/' },
-        { label: location.h1 },
-      ];
+  const crumbItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/service-areas' },
+    ...(isSantaBarbara && !isOverview
+      ? [{ label: 'Santa Barbara', href: '/santa-barbara-digital-marketing' }]
+      : []),
+    { label: location.h1 },
+  ];
 
-  const crumbSchema = isSantaBarbara && !isOverview
-    ? [
-        { name: 'Home', path: '/' },
-        { name: 'Santa Barbara', path: '/santa-barbara-digital-marketing' },
-        { name: location.h1, path: `/${location.slug}` },
-      ]
-    : [
-        { name: 'Home', path: '/' },
-        { name: location.h1, path: `/${location.slug}` },
-      ];
+  const crumbSchema = [
+    { name: 'Home', path: '/' },
+    { name: 'Service Areas', path: '/service-areas' },
+    ...(isSantaBarbara && !isOverview
+      ? [
+          {
+            name: 'Santa Barbara',
+            path: '/santa-barbara-digital-marketing',
+          },
+        ]
+      : []),
+    { name: location.h1, path: `/${location.slug}` },
+  ];
 
   const pageUrl = absoluteUrl(`/${location.slug}`);
+  const cityArea = [
+    {
+      type: location.city === 'Montecito' ? 'Place' : 'City',
+      name: `${location.city}, CA`,
+    },
+  ];
 
-  const pageSchema = isOverview
-    ? professionalServiceSchema({
-        name: `${site.name} — ${location.city}`,
-        description: location.metaDescription,
-        url: pageUrl,
-        image: absoluteUrl(location.heroImage.src),
-      })
-    : serviceSchema({
-        name: location.h1,
-        serviceType: serviceTypeLabel[location.pageType],
-        description: location.metaDescription,
-        url: pageUrl,
-      });
+  const pageSchema = serviceSchema({
+    name: isOverview
+      ? `Website design and local SEO in ${location.city}`
+      : location.h1,
+    serviceType: serviceTypeLabel[location.pageType],
+    description: location.metaDescription,
+    url: pageUrl,
+    areaServed: cityArea,
+  });
 
   const locationServices = location.serviceRelevance
     .map((entry) => {
@@ -175,6 +179,11 @@ export function LocationPageContent({ slug }: { slug: string }) {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            path: `/${location.slug}`,
+            name: location.metaTitle,
+            description: location.metaDescription,
+          }),
           breadcrumbSchema(crumbSchema),
           pageSchema,
           faqPageSchema(location.faqs),
@@ -194,6 +203,10 @@ export function LocationPageContent({ slug }: { slug: string }) {
       />
 
       {isSantaBarbara ? <SantaBarbaraSubnav currentSlug={location.slug} /> : null}
+
+      <AnswerFirst
+        answer={`Santa Barbara Marketing Co helps ${location.city} businesses with websites, local SEO, Google Business Profile work, and follow-up. The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr. We serve all of Santa Barbara County.`}
+      />
 
       <Section bg="white">
         <Reveal>

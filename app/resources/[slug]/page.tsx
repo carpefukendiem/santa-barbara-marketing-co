@@ -113,7 +113,7 @@ export default async function ResourceArticlePage({ params }: Props) {
       <Section bg="white" py="pb-20 lg:pb-28 pt-0">
         <Reveal>
           <p className="mb-10 text-stone">
-            By {site.name} · Published {formatDate(resource.datePublished)}
+            By {site.founder.name} · Published {formatDate(resource.datePublished)}
             {resource.dateModified !== resource.datePublished
               ? ` · Updated ${formatDate(resource.dateModified)}`
               : ''}

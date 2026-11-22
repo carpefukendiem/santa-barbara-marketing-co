@@ -11,7 +11,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: 'Industries We Serve in Santa Barbara County',
+  title: 'Industries We Serve in SB County',
   description:
     'Marketing for home services, professional firms, restaurants, medical, and real estate in Santa Barbara County. See how each vertical searches.',
   path: '/industries',

@@ -52,10 +52,10 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Get found in Google Search and Maps when locals are ready to buy.',
-    metaTitle: 'Local SEO Services in Santa Barbara & the 805',
+    metaTitle: 'Local SEO & Google Maps in Santa Barbara',
     metaDescription:
-      'Show up in Google Search and Maps when Santa Barbara and Goleta customers are ready to call. Honest Local SEO, no ranking promises. Book a 20-Minute Call.',
-    h1: 'Local SEO for Santa Barbara, Goleta, and the rest of the 805',
+      'Local SEO and Google Maps ranking for Santa Barbara County. Honest work on your listing and pages. Book a 20-Minute Call.',
+    h1: 'Local SEO and Google Maps ranking for Santa Barbara County',
     eyebrow: 'Get Found',
     heroLede:
       'When someone on State Street, in Old Town Goleta, or sitting in a hotel off Cabrillo types a service into Google, the Map Pack usually decides who gets the call. Local SEO is the work of earning a place in that map and in the local results under it. Google weighs three things: how close you are to the searcher, how prominent your business looks, and how clearly your listing and website match the query. We work those three levers for owners who want calls from people already trying to hire someone. We will not promise a number-one ranking. We will tell you which geography is realistic for your pin, and we will measure the calls and direction requests that follow.',
@@ -191,11 +191,11 @@ export const services: Service[] = [
     icon: 'local-seo',
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
-      'Organic search beyond Maps: pages, technical health, and visibility in AI answers.',
-    metaTitle: 'SEO Services for Santa Barbara Businesses',
+      'Technical health, site architecture, and content pages worth ranking.',
+    metaTitle: 'Technical & Content SEO for Local Sites',
     metaDescription:
-      'Organic search for Santa Barbara businesses that need more than the Map Pack. Content, technical SEO, and honest AI-search work. Book a 20-Minute Call.',
-    h1: 'SEO for Santa Barbara businesses that need more than the Map Pack',
+      'Technical SEO, site architecture, and content for local business sites. Clear pages Google and AI tools can quote. Book a 20-Minute Call.',
+    h1: 'Technical and content SEO for local business websites',
     eyebrow: 'Organic Search',
     heroLede:
       'The Map Pack is three slots. Organic results underneath it, plus the way Google and other assistants summarize your pages, are how a lot of 805 businesses still get found for considered searches: a surgeon, a remodel, a lawyer, a school, a stay that is not tonight. SEO here means making your website the clearest, fastest, best-organized answer for those queries, then keeping it that way. That is content, internal linking, technical health, and a realistic view of AI search visibility. It is not a blog mill, and it is not a promise that ChatGPT will recommend you by Friday. We treat AI Overviews and similar surfaces as part of search, with the same honesty we use for rankings: we can improve the source material. We cannot control the model.',
@@ -457,7 +457,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-sage)',
     cardBlurb:
       'Modern, fast, and built to convert visitors into customers.',
-    metaTitle: 'Website Design & Development in Santa Barbara',
+    metaTitle: 'Website Design in Santa Barbara',
     metaDescription:
       'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Book a 20-Minute Call.',
     h1: 'Websites built for phones, speed, and a short decision window',
@@ -595,7 +595,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Make the listing people tap in Maps accurate, complete, and worth trusting.',
-    metaTitle: 'Google Business Profile Optimization in Santa Barbara',
+    metaTitle: 'Google Business Profile in Santa Barbara',
     metaDescription:
       'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Book a 20-Minute Call.',
     h1: 'Google Business Profile work for the listing customers actually tap',
@@ -728,7 +728,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-sage)',
     cardBlurb:
       'Turn the traffic you already pay for into more calls, forms, and booked jobs.',
-    metaTitle: 'Conversion Rate Optimization for Local Businesses',
+    metaTitle: 'Conversion Optimization for Local Business',
     metaDescription:
       'Turn Santa Barbara site traffic into more calls and forms. Landing pages, mobile CTAs, and tests based on real behavior. Book a 20-Minute Call.',
     h1: 'Conversion optimization for local sites that get visits and miss the call',
@@ -997,7 +997,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Save time, follow up faster, and never miss a lead again.',
-    metaTitle: 'Marketing Automation & CRM for 805 Businesses',
+    metaTitle: 'Marketing Automation & CRM for the 805',
     metaDescription:
       'CRM and follow-up for Santa Barbara businesses so leads get a reply before they hire someone else. Pipelines, reminders, reporting. Book a 20-Minute Call.',
     h1: 'Marketing automation so 805 leads get a reply before they hire someone else',
@@ -1129,7 +1129,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Missed-call text-back, routing, review asks, and intake that actually runs.',
-    metaTitle: 'AI Automation for Local Businesses in Santa Barbara',
+    metaTitle: 'AI Automation for Santa Barbara Business',
     metaDescription:
       'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Book a 20-Minute Call.',
     h1: 'AI automation for missed calls, routing, reviews, and intake',
@@ -1261,7 +1261,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-sand)',
     cardBlurb:
       'Calls, forms, and campaigns in English, without a 14-tab vanity dashboard.',
-    metaTitle: 'Marketing Analytics & Reporting in Santa Barbara',
+    metaTitle: 'Marketing Analytics in Santa Barbara',
     metaDescription:
       'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Book a 20-Minute Call.',
     h1: 'Marketing analytics you can read without a decoder',

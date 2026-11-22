@@ -11,18 +11,23 @@ import { Prose } from '@/components/ui/Prose';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
+import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { photos } from '@/data/images';
 import { primaryCta } from '@/data/navigation';
 import { site } from '@/data/site';
-import { breadcrumbSchema } from '@/lib/schema';
+import {
+  breadcrumbSchema,
+  personSchema,
+  webPageSchema,
+} from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import type { LucideIcon } from 'lucide-react';
 
 export const metadata = buildMetadata({
   title: 'About Us',
   description:
-    "We're a Santa Barbara digital marketing agency founded in 2026. Local by residence, proof over promises, one system. Book a 20-Minute Call.",
+    'Santa Barbara Marketing Co was founded in 2026 by Ruben Ruiz. Formerly Ranking SB. Local by residence, proof over promises, one system. Book a 20-Minute Call.',
   path: '/about',
 });
 
@@ -48,20 +53,39 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', path: '/' },
-          { name: 'About', path: '/about' },
-        ])}
+        data={[
+          webPageSchema({
+            path: '/about',
+            name: 'About Us',
+            description:
+              'Santa Barbara Marketing Co was founded in 2026 by Ruben Ruiz. Formerly Ranking SB.',
+            type: 'AboutPage',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+          personSchema(),
+        ]}
       />
       <PageHero
         variant="simple"
         eyebrow="About the agency"
         title="A Santa Barbara agency that shows its work"
         accent="Santa Barbara"
-        subhead={`Founded in ${site.founded}. Local by residence. Proof over promises. One system for getting found, getting chosen, and getting followed up with.`}
+        subhead={`Founded in ${site.founded}. Formerly Ranking SB. Local by residence. Proof over promises. One system for getting found, getting chosen, and getting followed up with.`}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'About' },
+        ]}
+      />
+      <AnswerFirst
+        answer="Santa Barbara Marketing Co is a marketing agency based in Santa Barbara, founded in 2026 by Ruben Ruiz, who has marketed local businesses since 2007. Formerly Ranking SB. We serve all of Santa Barbara County. The Local Lead Plan is $297/mo."
+        facts={[
+          { label: 'Founded', value: site.founded },
+          { label: 'Founder', value: 'Ruben Ruiz' },
+          { label: 'Formerly', value: 'Ranking SB' },
+          { label: 'Plan', value: '$297/mo or $2,970/yr' },
         ]}
       />
 
@@ -106,12 +130,14 @@ export default function AboutPage() {
         <Reveal>
           <Prose>
             <p>
-              Santa Barbara Marketing Co. is a digital marketing agency for
-              businesses in Santa Barbara, Goleta, Montecito, and Carpinteria.
-              We were founded in {site.founded}. We live in the 805. That is
-              the origin story. There is no invented decade on a wall, and there
-              is no claim that we have been serving this county for a generation.
-              If a sentence cannot be checked, it does not belong on this site.
+              Santa Barbara Marketing Co is a digital marketing agency for
+              businesses across Santa Barbara County. We were founded in{' '}
+              {site.founded} by {site.founder.name}, who has marketed local
+              businesses since 2007. Formerly Ranking SB. We live in the 805.
+              That is the origin story. There is no invented decade on a wall,
+              and there is no claim that we have been serving this county for a
+              generation under this name. If a sentence cannot be checked, it
+              does not belong on this site.
             </p>
             <p>
               We started the company because the local market had split into two
@@ -183,10 +209,11 @@ export default function AboutPage() {
               templated location pages. Awards that cannot be found. Years in
               business that do not match a registration date. We will not
               compete that way. If we do not have a review we can permission,
-              there is no review widget. The street address and phone you see in
-              the footer and on Contact are the ones we publish in schema. If a
-              competitor is beating you on review velocity, we will say that in
-              a 20-minute call instead of dressing it up.
+              there is no review widget. The city, phone, and email you see in
+              the footer and on Contact are the ones we publish in schema. We are
+              a service-area business with no walk-in office. If a competitor is
+              beating you on review velocity, we will say that in a 20-minute
+              call instead of dressing it up.
             </p>
             <p>
               That posture is how we write service pages, location pages, and

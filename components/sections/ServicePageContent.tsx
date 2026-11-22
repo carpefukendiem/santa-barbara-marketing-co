@@ -7,16 +7,19 @@ import { Prose } from '@/components/ui/Prose';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
+import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { getLocation } from '@/data/locations';
 import { primaryCta } from '@/data/navigation';
 import { getResource, resourceCategoryLabels, type Resource } from '@/data/resources';
 import { getService, type Service } from '@/data/services';
+import { pricingPlan } from '@/data/pricing';
 import {
   breadcrumbSchema,
   faqPageSchema,
   serviceSchema,
+  webPageSchema,
 } from '@/lib/schema';
 import { accentWord, absoluteUrl } from '@/lib/utils';
 import Link from 'next/link';
@@ -68,6 +71,11 @@ export function ServicePageContent({ service }: { service: Service }) {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            path: `/services/${service.slug}`,
+            name: service.metaTitle,
+            description: service.metaDescription,
+          }),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
@@ -92,6 +100,10 @@ export function ServicePageContent({ service }: { service: Service }) {
         breadcrumbs={crumbs}
         primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
         secondaryCta={{ href: '/services', label: 'Our Services' }}
+      />
+
+      <AnswerFirst
+        answer={`${service.shortName} from Santa Barbara Marketing Co for businesses across Santa Barbara County. Part of The Local Lead Plan at $${pricingPlan.monthlyAmount}/mo, or scoped on its own after a 20-Minute Call.`}
       />
 
       <Section>

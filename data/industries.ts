@@ -21,7 +21,7 @@ export const industries: Industry[] = [
     slug: 'home-services',
     name: 'Home Services',
     navLabel: 'Home Services',
-    metaTitle: 'Home Services Marketing in Santa Barbara County',
+    metaTitle: 'Home Services Marketing in SB County',
     metaDescription:
       'Map Pack, Google Ads, and after-hours follow-up for HVAC, plumbing, electrical, roofing, and cleaning companies in Santa Barbara County, CA.',
     h1: 'Home services marketing for HVAC, plumbing, electrical, and trades in the 805',
@@ -95,7 +95,7 @@ export const industries: Industry[] = [
     slug: 'professional-services',
     name: 'Professional Services',
     navLabel: 'Professional Services',
-    metaTitle: 'Marketing for Law, Accounting & Advisory Firms in Santa Barbara',
+    metaTitle: 'Marketing for Professional Firms in SB',
     metaDescription:
       'Search, websites, and reputation work for law, accounting, advisory, and design firms in Santa Barbara and Montecito. Discreet, research-ready pages.',
     h1: 'Marketing for law, accounting, advisory, and design firms in Santa Barbara and Montecito',
@@ -169,7 +169,7 @@ export const industries: Industry[] = [
     slug: 'restaurants-hospitality',
     name: 'Restaurants & Hospitality',
     navLabel: 'Restaurants',
-    metaTitle: 'Restaurant & Hospitality Marketing in Santa Barbara',
+    metaTitle: 'Restaurant Marketing in Santa Barbara',
     metaDescription:
       'Google Maps, hours, photos, and booking paths for restaurants and hospitality on State Street, the Funk Zone, and Linden Avenue in the 805 area.',
     h1: 'Restaurant and hospitality marketing for Santa Barbara, the Funk Zone, and Carpinteria',
@@ -243,7 +243,7 @@ export const industries: Industry[] = [
     slug: 'medical-wellness',
     name: 'Medical & Wellness',
     navLabel: 'Medical & Wellness',
-    metaTitle: 'Medical & Wellness Marketing in Santa Barbara County',
+    metaTitle: 'Medical Marketing in Santa Barbara County',
     metaDescription:
       'Trust-first local search, reviews, and websites for clinics, dental, physical therapy, and spas in Santa Barbara, Goleta, and nearby 805 cities.',
     h1: 'Marketing for clinics, dental, physical therapy, and spas in Santa Barbara County',
@@ -317,7 +317,7 @@ export const industries: Industry[] = [
     slug: 'real-estate',
     name: 'Real Estate',
     navLabel: 'Real Estate',
-    metaTitle: 'Real Estate Marketing in Santa Barbara & Montecito',
+    metaTitle: 'Real Estate Marketing in Santa Barbara',
     metaDescription:
       'Neighborhood search, sites, and ads for Santa Barbara and Montecito agents, brokerages, and property managers. Useful pages, not doorway spam.',
     h1: 'Marketing for real estate agents, brokerages, and property managers in the 805',

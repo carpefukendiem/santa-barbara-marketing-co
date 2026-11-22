@@ -7,13 +7,15 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
+import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { faqsByCategory } from '@/data/faqs';
 import { NumberedList } from '@/components/ui/NumberedList';
 import { printServices } from '@/data/printServices';
+import { pricingPlan } from '@/data/pricing';
 import { getService, services, type ServiceNavGroup } from '@/data/services';
 import { primaryCta } from '@/data/navigation';
-import { breadcrumbSchema, faqPageSchema } from '@/lib/schema';
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from '@/lib/schema';
 
 const groupOrder: ServiceNavGroup[] = ['found', 'convert', 'systems'];
 
@@ -57,6 +59,12 @@ export function ServicesOverview() {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            path: '/services',
+            name: 'Digital Marketing Services in Santa Barbara',
+            description:
+              'Local SEO, websites, Google Ads, and follow-up as one system for Santa Barbara County businesses.',
+          }),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
@@ -74,6 +82,9 @@ export function ServicesOverview() {
           { label: 'Home', href: '/' },
           { label: 'Services' },
         ]}
+      />
+      <AnswerFirst
+        answer={`Santa Barbara Marketing Co offers Local SEO, websites, Google Ads, Google Business Profile work, and CRM follow-up for Santa Barbara County businesses. The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr.`}
       />
 
       <Section bg="white">

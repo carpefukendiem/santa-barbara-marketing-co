@@ -17,7 +17,7 @@ import {
   visibleMetrics,
 } from '@/data/caseStudies';
 import { testimonials } from '@/data/testimonials';
-import { breadcrumbSchema } from '@/lib/schema';
+import { articleSchema, breadcrumbSchema, personId } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/utils';
 
@@ -74,13 +74,20 @@ export default async function CaseStudyPage({ params }: Props) {
             { name: 'Work', path: '/work' },
             { name: study.client, path: `/work/${study.slug}` },
           ]),
+          articleSchema({
+            headline: study.client,
+            description: study.challenge,
+            url: absoluteUrl(`/work/${study.slug}`),
+            datePublished: '2026-01-01',
+            dateModified: '2026-11-22',
+          }),
           {
             '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: study.client,
-            description: study.outcome ?? study.challenge,
+            '@type': 'CreativeWork',
+            name: study.client,
+            about: study.challenge,
+            author: { '@id': personId() },
             url: absoluteUrl(`/work/${study.slug}`),
-            mainEntityOfPage: absoluteUrl(`/work/${study.slug}`),
           },
         ]}
       />

@@ -2,8 +2,14 @@ import { notFound } from 'next/navigation';
 import { IndustryPageContent } from '@/components/sections/IndustryPageContent';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getIndustry, industries } from '@/data/industries';
-import { breadcrumbSchema, faqPageSchema } from '@/lib/schema';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  serviceSchema,
+  webPageSchema,
+} from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
+import { absoluteUrl } from '@/lib/utils';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -35,11 +41,22 @@ export default async function IndustryDetailPage({ params }: Props) {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            path: `/industries/${industry.slug}`,
+            name: industry.metaTitle,
+            description: industry.metaDescription,
+          }),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Industries', path: '/industries' },
             { name: industry.name, path: `/industries/${industry.slug}` },
           ]),
+          serviceSchema({
+            name: `${industry.name} marketing`,
+            serviceType: industry.name,
+            description: industry.metaDescription,
+            url: absoluteUrl(`/industries/${industry.slug}`),
+          }),
           faqPageSchema(industry.faqs),
         ]}
       />

@@ -30,7 +30,7 @@ export const locations: Location[] = [
     slug: 'santa-barbara-digital-marketing',
     city: 'Santa Barbara',
     pageType: 'overview',
-    metaTitle: 'Digital Marketing in Santa Barbara, CA',
+    metaTitle: 'Digital Marketing Agency Santa Barbara',
     metaDescription:
       'How Santa Barbara businesses get found by residents and by visitors. Local SEO, websites, and ads for State Street, the Funk Zone, and the Mesa.',
     h1: 'Digital Marketing in Santa Barbara',
@@ -192,10 +192,10 @@ export const locations: Location[] = [
     slug: 'santa-barbara-seo',
     city: 'Santa Barbara',
     pageType: 'seo',
-    metaTitle: 'Santa Barbara SEO Services',
+    metaTitle: 'Santa Barbara SEO Company',
     metaDescription:
       'Santa Barbara SEO for the Map Pack and the results under it. We work proximity, reviews, and pages for the parts of town your pin can actually win.',
-    h1: 'Santa Barbara SEO',
+    h1: 'Santa Barbara SEO Company',
     heroLede:
       'Santa Barbara SEO is mostly a Maps problem with an organic problem underneath it. The pack is shallow, downtown phrases are crowded, and your pin\'s location decides more than a clever title tag.',
     heroImage: photos.communitySantaBarbara,
@@ -351,7 +351,7 @@ export const locations: Location[] = [
     slug: 'santa-barbara-web-design',
     city: 'Santa Barbara',
     pageType: 'web-design',
-    metaTitle: 'Santa Barbara Web Design & Development',
+    metaTitle: 'Santa Barbara Web Design',
     metaDescription:
       'Websites for Santa Barbara businesses opened on a phone at the waterfront. Fast pages, a clear call button, and a visitor decision that lasts a few minutes.',
     h1: 'Santa Barbara Web Design',
@@ -506,7 +506,7 @@ export const locations: Location[] = [
     slug: 'santa-barbara-google-ads',
     city: 'Santa Barbara',
     pageType: 'google-ads',
-    metaTitle: 'Santa Barbara Google Ads Management',
+    metaTitle: 'Santa Barbara Google Ads',
     metaDescription:
       'Google Ads for Santa Barbara, shaped around seasonal demand, costly clicks, and the searches that mean someone is ready to call you this week.',
     h1: 'Santa Barbara Google Ads',
@@ -665,7 +665,7 @@ export const locations: Location[] = [
     slug: 'goleta-digital-marketing',
     city: 'Goleta',
     pageType: 'overview',
-    metaTitle: 'Goleta Digital Marketing & SEO',
+    metaTitle: 'Goleta Digital Marketing Agency',
     metaDescription:
       'Digital marketing for Goleta businesses found as Goleta. Old Town, Camino Real, the student market, and the tech corridor each search differently.',
     h1: 'Digital Marketing in Goleta',
@@ -803,7 +803,7 @@ export const locations: Location[] = [
     slug: 'montecito-digital-marketing',
     city: 'Montecito',
     pageType: 'overview',
-    metaTitle: 'Montecito Digital Marketing & SEO',
+    metaTitle: 'Montecito Digital Marketing',
     metaDescription:
       'Montecito digital marketing for Coast Village Road and the Upper Village. Low search volume, high-value work, and a Map Pack rule we will state plainly.',
     h1: 'Digital Marketing in Montecito',
@@ -937,7 +937,7 @@ export const locations: Location[] = [
     slug: 'carpinteria-digital-marketing',
     city: 'Carpinteria',
     pageType: 'overview',
-    metaTitle: 'Carpinteria Digital Marketing & SEO',
+    metaTitle: 'Carpinteria Digital Marketing',
     metaDescription:
       'Digital marketing for Carpinteria on Linden, the beach, and the greenhouse belt. A tighter market, lighter local competition, and pages written for this town.',
     h1: 'Digital Marketing in Carpinteria',

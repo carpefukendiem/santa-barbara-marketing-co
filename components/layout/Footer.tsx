@@ -4,22 +4,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { NapBlock } from '@/components/layout/NapBlock';
-import { site } from '@/data/site';
+import { site, siteSocialLinks } from '@/data/site';
 import {
   digitalServiceLinks,
   printServiceLinks,
   companyLinks,
   getStartedLinks,
+  industryLinks,
   legalLinks,
   locationLinks,
+  resourceLinks,
 } from '@/data/navigation';
 
 export function Footer() {
   const pathname = usePathname();
   const year = new Date().getFullYear();
-  const socials = Object.entries(site.social).filter(
-    (entry): entry is [string, string] => typeof entry[1] === 'string' && entry[1].length > 0,
-  );
+  const socials = siteSocialLinks();
   const isMinimal = pathname === '/book-a-call';
 
   if (isMinimal) {
@@ -62,21 +62,27 @@ export function Footer() {
             </p>
             <NapBlock tone="footer" />
             {socials.length > 0 ? (
-              <ul className="mt-6 flex gap-4">
-                {socials.map(([name, href]) => (
-                  <li key={name}>
-                    <a href={href} className="font-mono text-xs uppercase tracking-[0.16em] text-cream/70">
-                      {name}
+              <ul className="mt-6 flex flex-wrap gap-4">
+                {socials.map((social) => (
+                  <li key={social.href}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs uppercase tracking-[0.16em] text-cream/70 hover:text-cream"
+                    >
+                      {social.label}
                     </a>
                   </li>
                 ))}
               </ul>
             ) : null}
           </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 xl:grid-cols-5 xl:gap-x-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 xl:grid-cols-6 xl:gap-x-4">
             <FooterColumn title="Services" links={digitalServiceLinks} />
-            <FooterColumn title="Print & Apparel" links={printServiceLinks} />
-            <FooterColumn title="Locations" links={locationLinks} />
+            <FooterColumn title="Areas we serve" links={locationLinks} />
+            <FooterColumn title="Industries" links={industryLinks} />
+            <FooterColumn title="Resources" links={resourceLinks} />
             <FooterColumn title="Company" links={companyLinks} />
             <div>
               <p className="font-mono text-[11px] tracking-[0.18em] text-cream/60 uppercase">
@@ -88,6 +94,21 @@ export function Footer() {
                     <Link
                       href={link.href}
                       className="font-mono text-xs uppercase tracking-[0.12em] text-cream/80 hover:text-cream"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 font-mono text-[11px] tracking-[0.18em] text-cream/60 uppercase">
+                Print & Apparel
+              </p>
+              <ul className="mt-4 space-y-2">
+                {printServiceLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/80 hover:text-white xl:whitespace-nowrap"
                     >
                       {link.label}
                     </Link>

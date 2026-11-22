@@ -118,7 +118,7 @@ export const megaFeatures: MegaFeature[] = [
   {
     label: 'SEO',
     href: '/services/seo',
-    blurb: 'Pages that match how people search in the 805.',
+    blurb: 'Technical health, architecture, and content pages.',
     icon: 'search',
   },
 ];
@@ -135,10 +135,47 @@ export const primaryNav: NavLink[] = [
 ];
 
 export const locationLinks: NavLink[] = [
+  { label: 'All service areas', href: '/service-areas' },
   { label: 'Santa Barbara', href: '/santa-barbara-digital-marketing' },
+  { label: 'Santa Barbara SEO', href: '/santa-barbara-seo' },
+  { label: 'Santa Barbara Web Design', href: '/santa-barbara-web-design' },
   { label: 'Goleta', href: '/goleta-digital-marketing' },
   { label: 'Montecito', href: '/montecito-digital-marketing' },
   { label: 'Carpinteria', href: '/carpinteria-digital-marketing' },
+];
+
+export const industryLinks: NavLink[] = [
+  { label: 'All industries', href: '/industries' },
+  { label: 'Home Services', href: '/industries/home-services' },
+  { label: 'Professional Services', href: '/industries/professional-services' },
+  { label: 'Restaurants & Hospitality', href: '/industries/restaurants-hospitality' },
+  { label: 'Medical & Wellness', href: '/industries/medical-wellness' },
+  { label: 'Real Estate', href: '/industries/real-estate' },
+];
+
+export const resourceLinks: NavLink[] = [
+  { label: 'All resources', href: '/resources' },
+  { label: 'Local SEO in Santa Barbara', href: '/resources/local-seo-santa-barbara' },
+  {
+    label: 'Google Business Profile checklist',
+    href: '/resources/google-business-profile-optimization',
+  },
+  {
+    label: 'What SEO costs in Santa Barbara',
+    href: '/resources/how-much-does-seo-cost-santa-barbara',
+  },
+  {
+    label: 'Website cost in Santa Barbara',
+    href: '/resources/web-design-cost-santa-barbara',
+  },
+  {
+    label: 'Google Ads for local business',
+    href: '/resources/google-ads-for-local-business',
+  },
+  {
+    label: 'AI search visibility',
+    href: '/resources/ai-search-visibility-local-business',
+  },
 ];
 
 export const locationFeatures: MegaFeature[] = [
