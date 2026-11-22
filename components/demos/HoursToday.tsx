@@ -23,7 +23,7 @@ function parseClock(raw: string): number | null {
   const m = raw
     .trim()
     .match(/^(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
-  if (!m) return null;
+  if (!m || m[1] == null || m[3] == null) return null;
   let h = Number(m[1]);
   const min = m[2] ? Number(m[2]) : 0;
   const ap = m[3].toUpperCase();
@@ -43,14 +43,15 @@ function parseRange(hours: string): { open: number; close: number } | null {
     .trim();
   if (/closed/i.test(cleaned)) return null;
   const parts = cleaned.split(/\s*-\s*/);
-  if (parts.length < 2) return null;
+  const leftRaw = parts[0];
+  const rightRaw = parts[1];
+  if (leftRaw == null || rightRaw == null) return null;
   // Allow "8:00 – 5:00" without AM/PM by assuming daytime shop hours
-  let left = parts[0].trim();
-  let right = parts[1].trim();
+  let left = leftRaw.trim();
+  let right = rightRaw.trim();
   if (/^\d{1,2}(:\d{2})?$/.test(left) && /^\d{1,2}(:\d{2})?$/.test(right)) {
     left = `${left} AM`;
-    const rh = Number(right.split(':')[0]);
-    right = `${right} ${rh < 12 ? 'PM' : 'PM'}`;
+    right = `${right} PM`;
   }
   // If left lacks AM/PM but right has it, inherit
   if (!/[ap]m/i.test(left) && /[ap]m/i.test(right)) {
