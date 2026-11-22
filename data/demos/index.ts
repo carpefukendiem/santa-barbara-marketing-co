@@ -46,7 +46,6 @@ import { taqueriaElBuenGustoDemo } from './taqueria-el-buen-gusto';
 import { goletaRadiatorAutoRepairDemo } from './goleta-radiator-auto-repair';
 import { uptownBarberShopDemo } from './uptown-barber-shop';
 import { urbanStatementSalonDemo } from './urban-statement-salon';
-import { kidsCutsDemo } from './kids-cuts';
 import { stapeCyclesDemo } from './stape-cycles';
 import { barberIncDemo } from './barber-inc';
 import { kimNailsSpaDemo } from './kim-nails-spa';
@@ -110,7 +109,6 @@ const demos = {
   [goletaRadiatorAutoRepairDemo.slug]: goletaRadiatorAutoRepairDemo,
   [uptownBarberShopDemo.slug]: uptownBarberShopDemo,
   [urbanStatementSalonDemo.slug]: urbanStatementSalonDemo,
-  [kidsCutsDemo.slug]: kidsCutsDemo,
   [stapeCyclesDemo.slug]: stapeCyclesDemo,
   [barberIncDemo.slug]: barberIncDemo,
   [kimNailsSpaDemo.slug]: kimNailsSpaDemo,

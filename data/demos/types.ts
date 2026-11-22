@@ -35,7 +35,6 @@ export type DemoSlug =
   | 'goleta-radiator-auto-repair'
   | 'uptown-barber-shop'
   | 'urban-statement-salon'
-  | 'kids-cuts'
   | 'stape-cycles'
   | 'barber-inc'
   | 'kim-nails-spa'

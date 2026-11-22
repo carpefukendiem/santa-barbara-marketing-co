@@ -52,8 +52,6 @@ const FONT_LINKS: Record<DemoSlug, string> = {
     'https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap',
   'urban-statement-salon':
     'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Sans:wght@400;500;600;700&display=swap',
-  'kids-cuts':
-    'https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap',
   'stape-cycles':
     'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap',
   'barber-inc':
@@ -220,7 +218,6 @@ export default async function DemoSlugPage({ params }: PageProps) {
     case 'goleta-radiator-auto-repair':
     case 'uptown-barber-shop':
     case 'urban-statement-salon':
-    case 'kids-cuts':
     case 'stape-cycles':
     case 'barber-inc':
     case 'kim-nails-spa':
