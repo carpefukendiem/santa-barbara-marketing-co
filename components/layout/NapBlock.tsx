@@ -9,7 +9,8 @@ type NapBlockProps = {
 
 /**
  * Single NAP + email block. Keep formatting identical site-wide.
- * Hours are intentionally omitted (keep office hours as on main).
+ * Service-area business: city/region only (no street address).
+ * Hours are intentionally omitted.
  */
 export function NapBlock({ className, tone = 'contact' }: NapBlockProps) {
   const phone = site.phone;
@@ -32,7 +33,6 @@ export function NapBlock({ className, tone = 'contact' }: NapBlockProps) {
       )}
     >
       <p className={cn(nameClass, 'break-words')}>{site.napName}</p>
-      <p className="break-words">{site.address.streetAddress}</p>
       <p className="break-words">{siteCityLine()}</p>
       {phone ? (
         <p>

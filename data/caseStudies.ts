@@ -72,13 +72,6 @@ export const caseStudies: CaseStudy[] = [
       'Google Business Profile optimization',
       'automated lead follow-up',
     ],
-    outcome: 'Ranks on page 1 for martial arts searches in Santa Barbara.',
-    metrics: [
-      {
-        label: 'Page 1 — martial arts, Santa Barbara',
-        note: 'TODO_METRIC: keyword, position, date checked',
-      },
-    ],
     liveUrl: 'https://ensomma.com',
     formerBrandNote: true,
     status: 'active',
@@ -100,13 +93,8 @@ export const caseStudies: CaseStudy[] = [
       'mobile menu and responsive overhaul',
       'Google Ads campaign across Search, Display, Performance Max, Demand Gen, and YouTube',
     ],
-    outcome: 'Page 1 for jiu jitsu searches in Goleta with no paid ads; both gyms on page 1 in the same county.',
-    metrics: [
-      {
-        label: 'Page 1 — jiu jitsu, Goleta (organic)',
-        note: 'TODO_METRIC',
-      },
-    ],
+    outcome:
+      'Site rebuilt for mobile usability with schedule and offer pages, local SEO, and a Google Ads campaign for a summer membership special.',
     liveUrl: 'https://101jiujitsugoleta.com',
     formerBrandNote: true,
     status: 'active',
@@ -118,9 +106,9 @@ export const caseStudies: CaseStudy[] = [
     location: 'Downtown Santa Barbara',
     servicesUsed: ['Web Design & Development', 'Local SEO', 'Google Business Profile'],
     challenge: 'No website and zero Google visibility.',
-    approach: 'Built the entire presence from scratch — site, profile, citations, content.',
+    approach:
+      'Built the entire presence from scratch: site, profile, citations, and content.',
     whatWeBuilt: ['New website', 'Google Business Profile setup', 'local citations'],
-    outcome: 'Page 1 for pest control searches in its service area.',
     formerBrandNote: true,
     status: 'anonymized',
   },

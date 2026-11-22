@@ -46,7 +46,7 @@ export const resources: Resource[] = [
   {
     slug: 'local-seo-santa-barbara',
     title: 'Local SEO in Santa Barbara: How Businesses Actually Get Found',
-    metaTitle: 'Local SEO in Santa Barbara: How Businesses Get Found',
+    metaTitle: 'Local SEO in Santa Barbara: How to Get Found',
     metaDescription:
       'How Santa Barbara businesses get found in Maps and Search. Map Pack versus organic, Goleta versus downtown, and what Local SEO actually includes.',
     category: 'seo',
@@ -73,7 +73,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO in Santa Barbara</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with a 20-minute call. If you want to understand the market first, keep reading.`,
+        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO and Google Maps</a> in Santa Barbara County, and how it relates to hiring a <a href="/santa-barbara-seo">Santa Barbara SEO company</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with a 20-minute call. If you want to understand the market first, keep reading.`,
       },
       {
         type: 'h2',
@@ -218,7 +218,7 @@ export const resources: Resource[] = [
     slug: 'google-business-profile-optimization',
     title:
       'Google Business Profile Optimization: A Practical Checklist for 805 Businesses',
-    metaTitle: 'Google Business Profile Checklist for 805 Businesses',
+    metaTitle: 'Google Business Profile Checklist for the 805',
     metaDescription:
       'A practical Google Business Profile checklist for Santa Barbara County: categories, services, photos, reviews, hours, and the mistakes that waste a listing.',
     category: 'seo',
@@ -393,7 +393,7 @@ export const resources: Resource[] = [
   {
     slug: 'how-much-does-seo-cost-santa-barbara',
     title: 'What SEO Actually Costs in Santa Barbara (and What Drives the Price)',
-    metaTitle: 'What SEO Costs in Santa Barbara (Planning Ranges)',
+    metaTitle: 'What SEO Costs in Santa Barbara',
     metaDescription:
       'Planning ranges for SEO in Santa Barbara County, labeled as market patterns, not quotes. What drives price: competition, site, locations, and content.',
     category: 'seo',
@@ -548,7 +548,7 @@ export const resources: Resource[] = [
   {
     slug: 'web-design-cost-santa-barbara',
     title: 'What a Business Website Costs in Santa Barbara in 2026',
-    metaTitle: 'What a Business Website Costs in Santa Barbara in 2026',
+    metaTitle: 'Website Cost for Santa Barbara Businesses',
     metaDescription:
       'What a Santa Barbara business website costs in 2026. Planning ranges from market patterns, not quotes, plus the drivers that change the price.',
     category: 'websites',
@@ -703,7 +703,7 @@ export const resources: Resource[] = [
   {
     slug: 'google-ads-for-local-business',
     title: 'Google Ads for Local Businesses: Where the Budget Actually Goes',
-    metaTitle: 'Google Ads for Local Businesses: Where Budget Goes',
+    metaTitle: 'Google Ads for Local Businesses',
     metaDescription:
       'Where a local Google Ads budget actually goes: media versus management, wasted queries, landing pages, tracking, and geo. Planning context for 805 businesses.',
     category: 'ads',
@@ -857,7 +857,7 @@ export const resources: Resource[] = [
   {
     slug: 'ai-search-visibility-local-business',
     title: 'Showing Up in AI Search: What Local Businesses Should Actually Do',
-    metaTitle: 'AI Search Visibility for Local Businesses in the 805',
+    metaTitle: 'AI Search Visibility for Local Businesses',
     metaDescription:
       'What local businesses should actually do about AI search: treat it as SEO, publish substance, and ignore spam. Honest guidance for Santa Barbara County.',
     category: 'ai',
@@ -1011,8 +1011,8 @@ export const resources: Resource[] = [
   },
   {
     slug: 'santa-barbara-seo-guide',
-    title: 'Santa Barbara SEO Guide for Local Businesses',
-    metaTitle: 'Santa Barbara SEO Guide for Local Businesses',
+    title: 'Santa Barbara SEO Guide',
+    metaTitle: 'Santa Barbara SEO Guide',
     metaDescription:
       'A planned full-length SEO guide for Santa Barbara businesses covering Maps, organic pages, content, technical work, and the first fixes to make.',
     category: 'seo',
@@ -1029,8 +1029,8 @@ export const resources: Resource[] = [
   },
   {
     slug: 'local-search-ranking-factors',
-    title: 'Local Search Ranking Factors That Matter in the 805',
-    metaTitle: 'Local Search Ranking Factors That Matter in the 805',
+    title: 'Local Search Ranking Factors in the 805',
+    metaTitle: 'Local Search Ranking Factors in the 805',
     metaDescription:
       'A planned deep look at local ranking factors for Santa Barbara County: proximity, prominence, relevance, and what is overhyped. Not published yet.',
     category: 'seo',
@@ -1047,8 +1047,8 @@ export const resources: Resource[] = [
   },
   {
     slug: 'how-to-get-more-google-reviews',
-    title: 'How to Get More Google Reviews Without Breaking the Rules',
-    metaTitle: 'How to Get More Google Reviews Without Breaking the Rules',
+    title: 'Google Reviews Without Breaking the Rules',
+    metaTitle: 'Google Reviews Without Breaking the Rules',
     metaDescription:
       'A planned practical guide to asking for Google reviews in the 805: timing, links, staff habits, and what Google does not allow. Not published yet.',
     category: 'seo',
@@ -1083,8 +1083,8 @@ export const resources: Resource[] = [
   },
   {
     slug: 'goleta-local-seo-guide',
-    title: 'Local SEO in Goleta for West-Side Businesses',
-    metaTitle: 'Local SEO in Goleta for West-Side Businesses',
+    title: 'Local SEO in Goleta for West-Side Business',
+    metaTitle: 'Local SEO in Goleta for West-Side Business',
     metaDescription:
       'A planned local SEO guide for Goleta businesses covering Old Town, UCSB-adjacent demand, and why a Goleta pin rarely wins downtown Santa Barbara.',
     category: 'seo',
@@ -1137,8 +1137,8 @@ export const resources: Resource[] = [
   },
   {
     slug: 'speed-to-lead-follow-up-systems',
-    title: 'Speed-to-Lead Follow-Up Systems for Local Businesses',
-    metaTitle: 'Speed-to-Lead Follow-Up Systems for Local Businesses',
+    title: 'Speed-to-Lead Follow-Up for Local Business',
+    metaTitle: 'Speed-to-Lead Follow-Up for Local Business',
     metaDescription:
       'A planned article on answering 805 leads fast: call routing, SMS texts, after-hours coverage, CRM follow-up, and the metrics that actually matter.',
     category: 'ai',

@@ -31,16 +31,15 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
-    template: '%s | Santa Barbara Marketing Co.',
+    default: 'SBMC | Digital Marketing Agency Santa Barbara',
+    template: '%s | SBMC',
   },
   description:
-    'Digital marketing for Santa Barbara, Goleta, Montecito, and Carpinteria. Local SEO, websites, Google Ads, and follow-up that turns attention into booked work.',
+    'Digital marketing for Santa Barbara County. Local SEO, websites, Google Ads, and follow-up that turns attention into booked work.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Santa Barbara Marketing Co.',
+    siteName: 'Santa Barbara Marketing Co',
   },
 };
 

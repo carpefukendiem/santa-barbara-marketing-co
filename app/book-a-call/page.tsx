@@ -7,7 +7,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Book a 20-Minute Call | Santa Barbara Marketing Co.',
+  title: 'Book a 20-Minute Call | SBMC',
   description:
     'A free 30-minute call with a local marketing team. No contract, no pitch deck.',
   path: '/book-a-call',

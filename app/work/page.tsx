@@ -14,7 +14,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: 'Our Work | Santa Barbara Marketing Co.',
+  title: 'Our Work | SBMC',
   description:
     'Websites, local SEO, Google Ads, and automation built for real Santa Barbara, Goleta, Montecito, and Santa Ynez Valley businesses. Results published only when verified.',
   path: '/work',
@@ -63,7 +63,7 @@ export default function WorkPage() {
           </Heading>
           <p className="mt-6 max-w-2xl text-lg text-stone">
             Santa Barbara Marketing Co. is the new name for work that has been going on in
-            this town for years — much of it under our previous name, Ranking SB. Below is
+            this town for years, much of it under our previous name, Ranking SB. Below is
             what we have built for local businesses. Where we publish a result, it names
             the source and the date. Where we do not have that yet, we show the work and
             leave the number out.

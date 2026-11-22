@@ -13,7 +13,7 @@ export function generateStaticParams(): { variant: HomepageVariantId }[] {
 
 const homeMetadata = buildMetadata({
   title:
-    'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
+    'SBMC | Digital Marketing Agency Santa Barbara',
   description:
     'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a 20-minute call.',
   path: '/',
