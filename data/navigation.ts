@@ -43,10 +43,13 @@ export const megaColumns: MegaColumn[] = [
       { label: 'Local SEO', href: '/services/local-seo' },
       { label: 'SEO', href: '/services/seo' },
       { label: 'Google Ads', href: '/services/google-ads' },
+      { label: 'Meta Ads', href: '/services/meta-ads' },
       { label: 'Google Business Profile', href: '/services/google-business-profile' },
+      { label: 'Review Management', href: '/services/review-management' },
       { label: 'Web Design & Development', href: '/services/web-design' },
       { label: 'Conversion Optimization', href: '/services/conversion-optimization' },
       { label: 'Social Media', href: '/services/social-media' },
+      { label: 'Spanish-Language Marketing', href: '/services/spanish-language-marketing' },
       { label: 'Marketing Automation', href: '/services/marketing-automation' },
       { label: 'AI Automation', href: '/services/ai-automation' },
       { label: 'Analytics & Reporting', href: '/services/analytics' },
@@ -140,17 +143,33 @@ export const locationLinks: NavLink[] = [
   { label: 'Santa Barbara SEO', href: '/santa-barbara-seo' },
   { label: 'Santa Barbara Web Design', href: '/santa-barbara-web-design' },
   { label: 'Goleta', href: '/goleta-digital-marketing' },
+  { label: 'Goleta SEO', href: '/goleta-seo' },
+  { label: 'Goleta Web Design', href: '/goleta-web-design' },
   { label: 'Montecito', href: '/montecito-digital-marketing' },
+  { label: 'Montecito Web Design', href: '/montecito-web-design' },
   { label: 'Carpinteria', href: '/carpinteria-digital-marketing' },
+  { label: 'Santa Maria', href: '/santa-maria-digital-marketing' },
+  { label: 'Santa Maria SEO', href: '/santa-maria-seo' },
+  { label: 'Lompoc', href: '/lompoc-digital-marketing' },
+  { label: 'Santa Ynez Valley', href: '/santa-ynez-valley-digital-marketing' },
 ];
 
 export const industryLinks: NavLink[] = [
   { label: 'All industries', href: '/industries' },
   { label: 'Home Services', href: '/industries/home-services' },
+  { label: 'HVAC', href: '/industries/hvac' },
+  { label: 'Plumbing', href: '/industries/plumbing' },
+  { label: 'Electricians', href: '/industries/electricians' },
+  { label: 'Roofing', href: '/industries/roofing' },
+  { label: 'Contractors', href: '/industries/contractors' },
+  { label: 'Pest Control', href: '/industries/pest-control' },
   { label: 'Professional Services', href: '/industries/professional-services' },
   { label: 'Restaurants & Hospitality', href: '/industries/restaurants-hospitality' },
+  { label: 'Wineries', href: '/industries/wineries' },
   { label: 'Medical & Wellness', href: '/industries/medical-wellness' },
+  { label: 'Dentists', href: '/industries/dentists' },
   { label: 'Real Estate', href: '/industries/real-estate' },
+  { label: 'Martial Arts', href: '/industries/martial-arts' },
 ];
 
 export const resourceLinks: NavLink[] = [
@@ -159,6 +178,10 @@ export const resourceLinks: NavLink[] = [
   {
     label: 'Google Business Profile checklist',
     href: '/resources/google-business-profile-optimization',
+  },
+  {
+    label: 'How to get more Google reviews',
+    href: '/resources/how-to-get-more-google-reviews',
   },
   {
     label: 'What SEO costs in Santa Barbara',
@@ -202,6 +225,18 @@ export const locationFeatures: MegaFeature[] = [
     href: '/carpinteria-digital-marketing',
     blurb: 'Linden Avenue and beach-day intent.',
     icon: 'anchor',
+  },
+  {
+    label: 'Santa Maria',
+    href: '/santa-maria-digital-marketing',
+    blurb: 'Broadway, Main, Orcutt, and North County.',
+    icon: 'building',
+  },
+  {
+    label: 'Santa Ynez Valley',
+    href: '/santa-ynez-valley-digital-marketing',
+    blurb: 'Solvang, Buellton, tasting rooms, Highway 246.',
+    icon: 'trees',
   },
 ];
 

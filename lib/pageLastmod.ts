@@ -1,6 +1,10 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
+import { industries } from '@/data/industries'
+import { locations } from '@/data/locations'
 import { publishedResources } from '@/data/resources'
+import { printServices } from '@/data/printServices'
+import { services } from '@/data/services'
 
 type LastmodMap = Record<string, string>
 
@@ -17,21 +21,53 @@ function loadMap(): LastmodMap {
   return cached
 }
 
+function fromIsoDate(isoDate: string): Date {
+  if (isoDate.includes('T')) return new Date(isoDate)
+  return new Date(`${isoDate}T12:00:00-07:00`)
+}
+
 /**
- * Real lastmod for a sitemap path: content date when present, else git-derived
- * map from data/page-lastmod.json (not build time for every URL).
+ * Real lastmod for a sitemap path.
+ * Prefer an explicit per-URL stamp in data/page-lastmod.json, then per-entry
+ * dateModified on the content object, then file-level stamps. Never use build time.
  */
 export function pageLastModified(path: string): Date {
+  const map = loadMap()
+  if (map[path]) return new Date(map[path])
+
   if (path.startsWith('/resources/')) {
     const slug = path.slice('/resources/'.length)
     const resource = publishedResources.find((item) => item.slug === slug)
     if (resource?.dateModified) {
-      return new Date(`${resource.dateModified}T12:00:00-07:00`)
+      return fromIsoDate(resource.dateModified)
     }
   }
 
-  const map = loadMap()
-  if (map[path]) return new Date(map[path])
+  if (path.startsWith('/services/')) {
+    const slug = path.slice('/services/'.length)
+    const service = services.find((item) => item.slug === slug)
+    if (service?.dateModified) {
+      return fromIsoDate(service.dateModified)
+    }
+    const printService = printServices.find((item) => item.slug === slug)
+    if (printService && 'dateModified' in printService) {
+      const value = (printService as { dateModified?: string }).dateModified
+      if (value) return fromIsoDate(value)
+    }
+  }
+
+  if (path.startsWith('/industries/')) {
+    const slug = path.slice('/industries/'.length)
+    const industry = industries.find((item) => item.slug === slug)
+    if (industry?.dateModified) {
+      return fromIsoDate(industry.dateModified)
+    }
+  }
+
+  const location = locations.find((item) => `/${item.slug}` === path)
+  if (location?.dateModified) {
+    return fromIsoDate(location.dateModified)
+  }
 
   if (path.startsWith('/services/')) {
     const fileKey = path.includes('print') ||
@@ -46,7 +82,8 @@ export function pageLastModified(path: string): Date {
     path.startsWith('/santa-') ||
     path.startsWith('/goleta-') ||
     path.startsWith('/montecito-') ||
-    path.startsWith('/carpinteria-')
+    path.startsWith('/carpinteria-') ||
+    path.startsWith('/lompoc-')
   ) {
     if (map['__file__:data/locations.ts']) {
       return new Date(map['__file__:data/locations.ts'])
@@ -63,7 +100,5 @@ export function pageLastModified(path: string): Date {
     }
   }
 
-  // Conservative fallback: Prefer content-era date over "now" so every URL
-  // does not share the build timestamp.
   return new Date('2026-08-29T12:00:00-07:00')
 }

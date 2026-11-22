@@ -1,4 +1,5 @@
 import type { FaqItem } from './faqs';
+import { batch1Industries } from './_batch1_industries';
 
 export type Industry = {
   slug: string;
@@ -391,8 +392,13 @@ export const industries: Industry[] = [
       'ai-search-visibility-local-business',
     ],
   },
+  ...batch1Industries,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
   return industries.find((industry) => industry.slug === slug);
+}
+
+export function getChildIndustries(parentSlug: string): Industry[] {
+  return industries.filter((industry) => industry.parent === parentSlug);
 }

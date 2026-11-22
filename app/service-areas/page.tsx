@@ -36,9 +36,8 @@ const faqs = [
   },
 ]
 
-const santaBarbaraServices = locations.filter(
-  (location) =>
-    location.city === 'Santa Barbara' && location.pageType !== 'overview',
+const cityServicePages = locations.filter(
+  (location) => location.pageType !== 'overview',
 )
 
 export default function ServiceAreasPage() {
@@ -78,7 +77,7 @@ export default function ServiceAreasPage() {
         ]}
       />
       <AnswerFirst
-        answer="Santa Barbara Marketing Co is based in Santa Barbara and serves businesses across Santa Barbara County. City pages cover Santa Barbara, Goleta, Montecito, and Carpinteria today, with North County and valley hubs next. The Local Lead Plan is $297/mo."
+        answer="Santa Barbara Marketing Co is based in Santa Barbara and serves businesses across Santa Barbara County. City hubs and service pages cover Santa Barbara, Goleta, Montecito, Carpinteria, Santa Maria, Lompoc, and the Santa Ynez Valley. The Local Lead Plan is $297/mo."
         facts={[
           { label: 'Base', value: 'Santa Barbara, CA' },
           { label: 'Coverage', value: 'Santa Barbara County' },
@@ -90,10 +89,10 @@ export default function ServiceAreasPage() {
         <Reveal>
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-3xl text-navy">City pages</h2>
+              <h2 className="font-display text-3xl text-navy">City hubs</h2>
               <p className="mt-3 max-w-prose text-ink/80">
-                Live pages with local detail for the South Coast markets we
-                write about as separate places, not swapped city names.
+                Live pages with local detail for markets we write about as
+                separate places, not swapped city names.
               </p>
               <ul className="mt-6 space-y-3">
                 {overviewLocations.map((location) => (
@@ -108,10 +107,10 @@ export default function ServiceAreasPage() {
                 ))}
               </ul>
               <h3 className="mt-10 font-display text-2xl text-navy">
-                Santa Barbara services
+                City service pages
               </h3>
               <ul className="mt-4 space-y-2">
-                {santaBarbaraServices.map((location) => (
+                {cityServicePages.map((location) => (
                   <li key={location.slug}>
                     <Link
                       href={`/${location.slug}`}
@@ -128,21 +127,54 @@ export default function ServiceAreasPage() {
                 County coverage
               </h2>
               <p className="mt-3 max-w-prose text-ink/80">
-                Places we serve as a service-area business. North County and
-                valley hub pages are on the roadmap; until then these areas are
-                covered from the county offer and linked from here.
+                Places we serve as a service-area business. Hub pages link above
+                for the markets we have written in full. Smaller places in the
+                list are covered from those hubs and from the county offer.
               </p>
               <ul className="mt-6 columns-1 gap-8 sm:columns-2">
                 {site.areaServed
                   .filter((place) => place.type !== 'AdministrativeArea')
-                  .map((place) => (
-                    <li
-                      key={place.name}
-                      className="mb-2 break-inside-avoid text-ink"
-                    >
-                      {place.name.replace(', CA', '')}
-                    </li>
-                  ))}
+                  .map((place) => {
+                    const hub = overviewLocations.find((location) => {
+                      const city = place.name.replace(', CA', '')
+                      return (
+                        location.city === city ||
+                        (city === 'Solvang' &&
+                          location.slug ===
+                            'santa-ynez-valley-digital-marketing') ||
+                        (city === 'Buellton' &&
+                          location.slug ===
+                            'santa-ynez-valley-digital-marketing') ||
+                        (city === 'Santa Ynez' &&
+                          location.slug ===
+                            'santa-ynez-valley-digital-marketing') ||
+                        (city === 'Los Olivos' &&
+                          location.slug ===
+                            'santa-ynez-valley-digital-marketing') ||
+                        (city === 'Orcutt' &&
+                          location.slug === 'santa-maria-digital-marketing') ||
+                        (city === 'Guadalupe' &&
+                          location.slug === 'santa-maria-digital-marketing')
+                      )
+                    })
+                    return (
+                      <li
+                        key={place.name}
+                        className="mb-2 break-inside-avoid text-ink"
+                      >
+                        {hub ? (
+                          <Link
+                            href={`/${hub.slug}`}
+                            className="text-navy underline-offset-4 hover:underline"
+                          >
+                            {place.name.replace(', CA', '')}
+                          </Link>
+                        ) : (
+                          place.name.replace(', CA', '')
+                        )}
+                      </li>
+                    )
+                  })}
               </ul>
             </div>
           </div>

@@ -19,7 +19,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     heroLede:
       'Facebook and Instagram can put your offer in front of people who live, work, or visit Santa Barbara County when search alone is too slow or too narrow. They can also burn a month of budget on tourist scrollers, lookalike audiences built from the wrong list, and a landing page that never asks for the call. We manage Meta ads with the same rules we use for Google Ads: hire-intent where it exists, creative that looks like this county, tracking you can audit, and a hard split between what you pay Meta for media and what you pay us to manage. Ad spend is never folded into our fee. If organic social or Google search would hire faster for your category, we will say so before we open Ads Manager.',
     problemFraming:
-      'The common Santa Barbara County Meta story starts with a boosted post from last summer. A plate, a truck, a smiling team photo. Reach goes up. Comments stay quiet. Nobody can say which dollar produced a reservation, a consult, or a booked estimate. The next vendor rebuilds the account with broad interests, a pixel that never fired a purchase or lead event, and a creative set that could sit on any coast. The dashboard looks busy. The floor does not.\n\nAttribution is the real job. A winery pouring on Foxen Canyon Road, a restaurant near State Street, and a home-service van covering the 101 corridor do not share a conversion definition. One needs tasting reservations. One needs covers on a Tuesday in February. One needs a phone call that becomes a job. If we cannot tell a real inquiry from a profile visit, we should not scale. We install or repair the pixel, the Conversions API when it helps, and the thank-you or call events that mean someone asked for work. We will not treat a thruplay or a page like as proof the account is working.\n\nSeasonality here is not a spreadsheet average. Summer visitors change hospitality auctions. Fiesta and Solstice weekends spike some categories and fill others with noise. UCSB calendars move Goleta traffic. Slow months after Labor Day still need a phone that rings for plumbers, clinics, and shops that live on residents. We plan budgets and creative around that calendar. When the offer cannot win on paid social at the budget you have, we will say so instead of “optimizing” a sample of clicks that never had a chance to teach the algorithm anything useful.',
+      'The common Santa Barbara County Meta story starts with a boosted post from last summer. A plate, a truck, a smiling team photo. Reach goes up. Comments stay quiet. Nobody can say which dollar produced a reservation, a consult, or a booked estimate. The next vendor rebuilds the account with broad interests, a pixel that never fired a purchase or lead event, and a creative set that could sit on any coast. The dashboard looks busy. The floor does not.\n\nAttribution is the real job. A winery pouring on Foxen Canyon Road, a restaurant near State Street, and a home-service van covering the 101 corridor do not share a conversion definition. One needs tasting reservations. One needs covers on a Tuesday in February. One needs a phone call that becomes a job. If we cannot tell a real inquiry from a profile visit, we should not scale. We install or repair the pixel, the Conversions API when it helps, and the thank-you or call events that mean someone asked for work. We will not treat a thruplay or a page like as proof the account is working.\n\nSeasonality here is not a spreadsheet average. Summer visitors change hospitality auctions. Fiesta and Solstice weekends spike some categories and fill others with noise. UCSB calendars move Goleta traffic. Slow months after Labor Day still need a phone that rings for plumbers, clinics, and shops that live on residents. We plan budgets and creative around that calendar. When the offer cannot win on paid social at the budget you have, we will say so instead of "optimizing" a sample of clicks that never had a chance to teach the algorithm anything useful.',
     whatsIncluded: [
       {
         title: 'Account structure built around real offers',
@@ -68,7 +68,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         step: 2,
         title: 'Tracking and offers before scale',
         body:
-          'Events, call tracking, and CRM capture get fixed before we raise budgets. Structure follows the offers you actually want more of: reservations versus retail, emergency versus booked, hospitality versus service if the economics differ. Naming stays boring and consistent so next quarter’s report still makes sense. You approve any claim that names price, availability, or licensing.',
+          'Events, call tracking, and CRM capture get fixed before we raise budgets. Structure follows the offers you actually want more of: reservations versus retail, emergency versus booked, hospitality versus service if the economics differ. Naming stays boring and consistent so next quarter\'s report still makes sense. You approve any claim that names price, availability, or licensing.',
       },
       {
         step: 3,
@@ -120,7 +120,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'ads',
         question: 'Can you guarantee a cost per lead on Meta?',
         answer:
-          'No. We control structure, creative, tracking, and destinations. We cannot control Meta’s auction, competitors, or whether your team answers the lead form. We will give a planning range after we see the offer and the account, and we will tell you when the math does not work. Guaranteed CPL is a sales line, not a media fact.',
+          'No. We control structure, creative, tracking, and destinations. We cannot control Meta\'s auction, competitors, or whether your team answers the lead form. We will give a planning range after we see the offer and the account, and we will tell you when the math does not work. Guaranteed CPL is a sales line, not a media fact.',
       },
       {
         category: 'ads',
@@ -132,7 +132,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'ads',
         question: 'How do Fiesta and summer change Meta ads here?',
         answer:
-          'Auction prices and audience mix move. Hospitality and retail see more visitor intent that converts in minutes or not at all. Service businesses may get more “while we are in town” noise. We plan budgets, creative, and exclusions around that calendar. Running January settings through July without a conversation is how accounts surprise you. You see the plan before the spike.',
+          'Auction prices and audience mix move. Hospitality and retail see more visitor intent that converts in minutes or not at all. Service businesses may get more "while we are in town" noise. We plan budgets, creative, and exclusions around that calendar. Running January settings through July without a conversation is how accounts surprise you. You see the plan before the spike.',
       },
     ],
     relatedServices: ['social-media', 'google-ads', 'local-seo'],
@@ -166,14 +166,14 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     h1: 'Review management for Santa Barbara County businesses that want recent proof, not fake stars',
     eyebrow: 'Convert & Trust',
     heroLede:
-      'Reviews are how a stranger on the South Coast decides you are safe to call. Recency and specificity matter more than a frozen five-star average from another decade. We build review request and reply systems for Santa Barbara County operators that follow Google’s rules: no fake reviews, no gated “only happy customers” links, no incentives that buy a star. The work ties into your Google Business Profile, your follow-up habits, and the jobs you actually finish. We will not write customer reviews for you, and we will not hide a service problem behind a marketing script. If the rating is weak because the job was weak, fix the work, then ask.',
+      'Reviews are how a stranger on the South Coast decides you are safe to call. Recency and specificity matter more than a frozen five-star average from another decade. We build review request and reply systems for Santa Barbara County operators that follow Google\'s rules: no fake reviews, no gated "only happy customers" links, no incentives that buy a star. The work ties into your Google Business Profile, your follow-up habits, and the jobs you actually finish. We will not write customer reviews for you, and we will not hide a service problem behind a marketing script. If the rating is weak because the job was weak, fix the work, then ask.',
     problemFraming:
-      'South Coast searchers still open the Map Pack and scroll the stars before they dial. A listing with thirty glowing one-liners from 2019 loses to a quieter listing with recent notes that mention the roof, the cleaning, the wait time, or the way the front desk handled a hard day. Velocity and detail beat vanity counts. Most Santa Barbara County shops know that and still stall. The ask feels awkward. The link is wrong. Staff forget. Or worse, someone installs a funnel that routes unhappy people to a private form and happy people to Google. That gated flow violates Google’s policies and trains a fake public record.\n\nThe other failure is silence after a review lands. A detailed complaint on a Montecito-facing clinic sits unanswered for three weeks. A five-star note that named a technician never got a thank-you. Q&A fills with prices you do not honor. Photos do not match the grid. The profile looks abandoned even when the trucks are busy from Carpinteria through Goleta. Review management is not a trophy case. It is a weekly operating habit: ask after completed work, reply in your voice, escalate real problems to the owner, and keep the public record honest.\n\nWe also see owners sold volume hacks. Paid posters. Review exchange groups. Gift-card-for-stars schemes. Those shortcuts risk suspension and they read fake to locals who know this county. We will not run them. If your volume of completed jobs is too low to produce a steady request rhythm, we will say that instead of inventing a growth hack. Marketing cannot manufacture trust faster than you finish good work.',
+      'South Coast searchers still open the Map Pack and scroll the stars before they dial. A listing with thirty glowing one-liners from 2019 loses to a quieter listing with recent notes that mention the roof, the cleaning, the wait time, or the way the front desk handled a hard day. Velocity and detail beat vanity counts. Most Santa Barbara County shops know that and still stall. The ask feels awkward. The link is wrong. Staff forget. Or worse, someone installs a funnel that routes unhappy people to a private form and happy people to Google. That gated flow violates Google\'s policies and trains a fake public record.\n\nThe other failure is silence after a review lands. A detailed complaint on a Montecito-facing clinic sits unanswered for three weeks. A five-star note that named a technician never got a thank-you. Q&A fills with prices you do not honor. Photos do not match the grid. The profile looks abandoned even when the trucks are busy from Carpinteria through Goleta. Review management is not a trophy case. It is a weekly operating habit: ask after completed work, reply in your voice, escalate real problems to the owner, and keep the public record honest.\n\nWe also see owners sold volume hacks. Paid posters. Review exchange groups. Gift-card-for-stars schemes. Those shortcuts risk suspension and they read fake to locals who know this county. We will not run them. If your volume of completed jobs is too low to produce a steady request rhythm, we will say that instead of inventing a growth hack. Marketing cannot manufacture trust faster than you finish good work.',
     whatsIncluded: [
       {
         title: 'Policy-safe request flow after real jobs',
         body:
-          'A simple ask timed after completed work, sent by SMS, email, or a card your staff can hand over, with a direct path to your Google Business Profile. We design for honesty. No filtering unhappy customers to a private form. No incentives that violate Google’s rules. Staff get language they can actually say on a Tuesday.',
+          'A simple ask timed after completed work, sent by SMS, email, or a card your staff can hand over, with a direct path to your Google Business Profile. We design for honesty. No filtering unhappy customers to a private form. No incentives that violate Google\'s rules. Staff get language they can actually say on a Tuesday.',
       },
       {
         title: 'Reply voice for public reviews',
@@ -217,7 +217,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         step: 2,
         title: 'Build the ask and the reply kit',
         body:
-          'We write the request copy, choose the channel staff will use, and set reply templates you can edit. Links point straight to the listing customers should use. If the profile needs ownership or duplicate cleanup first, that happens before volume. You approve every customer-facing sentence. We still will not draft fake reviews or “sample” five-stars for the grid.',
+          'We write the request copy, choose the channel staff will use, and set reply templates you can edit. Links point straight to the listing customers should use. If the profile needs ownership or duplicate cleanup first, that happens before volume. You approve every customer-facing sentence. We still will not draft fake reviews or "sample" five-stars for the grid.',
       },
       {
         step: 3,
@@ -245,19 +245,19 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'seo',
         question: 'Will you write Google reviews for us?',
         answer:
-          'No. That violates Google’s rules and it is dishonest to neighbors who read the listing. We help you ask real customers after real work, and we help you reply. If someone offers a pack of five-star posts, walk away. Suspensions and lost trust cost more than a quiet month of honest asks.',
+          'No. That violates Google\'s rules and it is dishonest to neighbors who read the listing. We help you ask real customers after real work, and we help you reply. If someone offers a pack of five-star posts, walk away. Suspensions and lost trust cost more than a quiet month of honest asks.',
       },
       {
         category: 'seo',
         question: 'Can we send unhappy customers to a private form first?',
         answer:
-          'No. Gating reviews that way breaks Google’s policies. Everyone who is invited should get the same public path. If you are afraid of public feedback, fix the service issues that create it. We will still help you reply to hard reviews with calm, specific language.',
+          'No. Gating reviews that way breaks Google\'s policies. Everyone who is invited should get the same public path. If you are afraid of public feedback, fix the service issues that create it. We will still help you reply to hard reviews with calm, specific language.',
       },
       {
         category: 'seo',
         question: 'Are gift cards or discounts for reviews allowed?',
         answer:
-          'Incentivized reviews are not allowed under Google’s policies. Do not trade stars for money, credit, or entry into a giveaway. A simple thank-you after someone posts on their own is different from a bounty. We will not build a program that buys ratings.',
+          'Incentivized reviews are not allowed under Google\'s policies. Do not trade stars for money, credit, or entry into a giveaway. A simple thank-you after someone posts on their own is different from a bounty. We will not build a program that buys ratings.',
       },
       {
         category: 'seo',
@@ -275,7 +275,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'working-together',
         question: 'What if a false review shows up?',
         answer:
-          'We help you flag content that appears fake or conflicts of interest using Google’s tools, and we draft a calm public reply when a reply is wise. Removal is Google’s decision, not ours. We will not promise a takedown. We will not engage in review bombing the competitor either.',
+          'We help you flag content that appears fake or conflicts of interest using Google\'s tools, and we draft a calm public reply when a reply is wise. Removal is Google\'s decision, not ours. We will not promise a takedown. We will not engage in review bombing the competitor either.',
       },
       {
         category: 'working-together',
@@ -319,9 +319,9 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     h1: 'Spanish-language marketing for Santa Barbara County businesses that need to be understood',
     eyebrow: 'Get Found',
     heroLede:
-      'A large share of Santa Barbara County customers prefer to read, call, or text in Spanish. If your website, Google Business Profile, and ads only speak English, you are asking those neighbors to do extra work before they hire you. We plan and produce Spanish-language marketing that is bilingual on purpose: pages, listing fields, review replies, and campaign copy written for real local use, not a machine-translated afterthought. We will not invent census percentages, community sizes, or “guaranteed reach” into any language group. We will tell you where Spanish belongs first (often the listing and the phone path), and where a full bilingual site or campaign is worth the build.',
+      'A large share of Santa Barbara County customers prefer to read, call, or text in Spanish. If your website, Google Business Profile, and ads only speak English, you are asking those neighbors to do extra work before they hire you. We plan and produce Spanish-language marketing that is bilingual on purpose: pages, listing fields, review replies, and campaign copy written for real local use, not a machine-translated afterthought. We will not invent census percentages, community sizes, or "guaranteed reach" into any language group. We will tell you where Spanish belongs first (often the listing and the phone path), and where a full bilingual site or campaign is worth the build.',
     problemFraming:
-      'The usual failure in this county is a homepage banner that says “Se habla español” next to an English-only menu, English-only forms, and a voicemail that never offers a Spanish option. Santa Maria and Lompoc households, South Coast service customers, and hospitality workers who hire home services after a shift all notice the gap. Trust drops before the quote starts. A second failure is a plug-in translation that turns your licenses, warranties, and medical disclaimers into nonsense. That is not bilingual marketing. That is liability with a language dropdown.\n\nSearch and Maps behave differently by language too. Spanish queries for plumbers, clinics, restaurants, and contractors are not a find-and-replace of your English keyword list. Categories, service names, and Google posts need human review. Review asks that only go out in English miss the customers who were happiest with a Spanish-speaking tech. Ads that spray translated headlines into the wrong audience waste media. We write and review copy with people who can catch tone, not just vocabulary.\n\nWe also see owners sold a fantasy of “capturing the Hispanic market” with one Facebook boost and a stock photo. That pitch usually arrives with invented statistics and a promise this agency will not repeat. Santa Barbara County is diverse across cities. Santa Maria and Lompoc are not interchangeable with a downtown Santa Barbara patio crowd. Your offer, your staff language capacity, and who answers the phone decide what we should build. If nobody on your team can return a Spanish call, we will say the marketing should wait on staffing rather than fill a form you cannot serve.',
+      'The usual failure in this county is a homepage banner that says "Se habla español" next to an English-only menu, English-only forms, and a voicemail that never offers a Spanish option. Santa Maria and Lompoc households, South Coast service customers, and hospitality workers who hire home services after a shift all notice the gap. Trust drops before the quote starts. A second failure is a plug-in translation that turns your licenses, warranties, and medical disclaimers into nonsense. That is not bilingual marketing. That is liability with a language dropdown.\n\nSearch and Maps behave differently by language too. Spanish queries for plumbers, clinics, restaurants, and contractors are not a find-and-replace of your English keyword list. Categories, service names, and Google posts need human review. Review asks that only go out in English miss the customers who were happiest with a Spanish-speaking tech. Ads that spray translated headlines into the wrong audience waste media. We write and review copy with people who can catch tone, not just vocabulary.\n\nWe also see owners sold a fantasy of "capturing the Hispanic market" with one Facebook boost and a stock photo. That pitch usually arrives with invented statistics and a promise this agency will not repeat. Santa Barbara County is diverse across cities. Santa Maria and Lompoc are not interchangeable with a downtown Santa Barbara patio crowd. Your offer, your staff language capacity, and who answers the phone decide what we should build. If nobody on your team can return a Spanish call, we will say the marketing should wait on staffing rather than fill a form you cannot serve.',
     whatsIncluded: [
       {
         title: 'Language audit of the customer path',
@@ -346,7 +346,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
       {
         title: 'Review and follow-up messages in the right language',
         body:
-          'Request and reminder copy your staff can send after jobs served in Spanish, with the same Google policy rules as our review work: no fake, gated, or incentivized reviews. Sequences stay short. If the full CRM sends the ask, we wire language to the customer’s preference when you can store it.',
+          'Request and reminder copy your staff can send after jobs served in Spanish, with the same Google policy rules as our review work: no fake, gated, or incentivized reviews. Sequences stay short. If the full CRM sends the ask, we wire language to the customer\'s preference when you can store it.',
       },
       {
         title: 'Staff-facing scripts for the first hello',
@@ -404,7 +404,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'websites',
         question: 'How long does a bilingual site take?',
         answer:
-          'Live in 30 days once we have your logins, photos and content for the pages in the sitemap we agreed on. Heavy legal review, large service catalogs, or a messy URL history add time. We date that in writing. “Se habla español” on an English-only site is not a launch.',
+          'Live in 30 days once we have your logins, photos and content for the pages in the sitemap we agreed on. Heavy legal review, large service catalogs, or a messy URL history add time. We date that in writing. "Se habla español" on an English-only site is not a launch.',
       },
       {
         category: 'seo',

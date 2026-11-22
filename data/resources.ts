@@ -1,3 +1,6 @@
+import type { FaqItem } from './faqs';
+import { howToGetMoreGoogleReviews } from './_batch1_resource';
+
 export type ResourceStatus = 'published' | 'planned';
 export type ResourceCategory = 'seo' | 'ads' | 'websites' | 'ai' | 'strategy';
 
@@ -40,6 +43,8 @@ export type Resource = {
   relatedLocations: string[];
   relatedArticles: string[];
   body: ResourceBlock[];
+  /** Optional visible FAQ matched by FAQPage JSON-LD. */
+  faqs?: FaqItem[];
 };
 
 export const resources: Resource[] = [
@@ -1045,24 +1050,7 @@ export const resources: Resource[] = [
     relatedArticles: [],
     body: [],
   },
-  {
-    slug: 'how-to-get-more-google-reviews',
-    title: 'Google Reviews Without Breaking the Rules',
-    metaTitle: 'Google Reviews Without Breaking the Rules',
-    metaDescription:
-      'A planned practical guide to asking for Google reviews in the 805: timing, links, staff habits, and what Google does not allow. Not published yet.',
-    category: 'seo',
-    excerpt:
-      'A planned playbook for review velocity that stays inside Google’s rules. No bought stars, no gated five-star filters.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
+  howToGetMoreGoogleReviews,
   {
     slug: 'why-your-website-isnt-getting-leads',
     title: 'Why Your Website Is Not Getting Leads',
