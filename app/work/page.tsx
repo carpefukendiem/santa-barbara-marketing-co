@@ -116,7 +116,7 @@ export default function WorkPage() {
 
       <CtaBand
         heading="See how we would measure yours."
-        subline="A free call ends with a written 90-day list, not a pitch deck."
+        subline="A 20-minute call ends with a written 90-day list, not a pitch deck."
       />
     </>
   );

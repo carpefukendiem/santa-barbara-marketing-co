@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         ok: false,
-        error: 'Checkout is not live yet. Book a free call and we will enroll you from there.',
+        error: 'Checkout is not live yet. Book a 20-minute call and we will enroll you from there.',
       },
       { status: 503 },
     );
@@ -150,7 +150,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('[checkout] session create failed', error);
     return NextResponse.json(
-      { ok: false, error: 'Checkout could not start. Book a free call and we will enroll you from there.' },
+      { ok: false, error: 'Checkout could not start. Book a 20-minute call and we will enroll you from there.' },
       { status: 502 },
     );
   }

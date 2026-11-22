@@ -73,7 +73,7 @@ export default async function GetStartedCompletePage({ searchParams }: StartedPa
             <p className="font-mono text-sm text-tile">02</p>
             <p className="mt-2 font-display text-3xl">We look at the listing and the site</p>
             <p className="mt-3 text-stone">
-              Same intake as a free call, minus the pitch. If you want that conversation
+              Same intake as a 20-minute call, minus the pitch. If you want that conversation
               on the calendar, book it.
             </p>
           </li>

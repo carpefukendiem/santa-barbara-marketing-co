@@ -228,7 +228,7 @@ export function ServicePageContent({ service }: { service: Service }) {
 
       <CtaBand
         heading={`Ready to talk about ${service.shortName.toLowerCase()}?`}
-        subline="Book a Free Call. A person looks at your visibility first. No contract attached."
+        subline="Book a 20-Minute Call. A person looks at your visibility first. No contract attached."
       />
 
       {relatedResources.length > 0 ? (

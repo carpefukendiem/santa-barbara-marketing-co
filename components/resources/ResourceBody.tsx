@@ -112,7 +112,7 @@ function ResourceBlockView({
 function InlineArticleCta() {
   return (
     <Card className="my-12 p-7">
-      <p className="text-eyebrow text-ocean">Free Call</p>
+      <p className="text-eyebrow text-ocean">20-Minute Call</p>
       <p className="mt-3 text-h3 text-navy">
         Want this applied to your listing and your pages?
       </p>
