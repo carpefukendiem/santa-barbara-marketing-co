@@ -23,6 +23,7 @@ export type Location = {
   faqs: FaqItem[];
   nearbyLinks: Array<{ label: string; href: string }>;
   relatedResources: string[];
+  dateModified?: string;
 };
 
 export const locations: Location[] = [
