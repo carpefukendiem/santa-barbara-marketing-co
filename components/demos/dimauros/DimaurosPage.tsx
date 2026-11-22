@@ -282,17 +282,6 @@ export function DimaurosPage({ demo }: { demo: DemoData }) {
         </div>
       </footer>
 
-      <div className="bar">
-        <a className="btn b1" href={telHref(demo.phone)}>
-          <PhoneIcon />
-          Call now
-        </a>
-        <a className="btn b2" href={demo.googleMapsUrl} target="_blank" rel="noopener">
-          <NavIcon />
-          Directions
-        </a>
-      </div>
-
       <DemoPreviewChrome
         businessName={demo.name}
         crmName={demo.crmName}

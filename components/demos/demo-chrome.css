@@ -140,19 +140,18 @@ html[data-demo-bar='on'] {
   }
 }
 
-/* Sticky header compact state (set by useDemoReveal) */
-.sbmc-demo-page > header,
-.sbmc-demo-page header.top,
-.sbmc-demo-page header.mast {
+/* Sticky header (K4) + compact state (set by useDemoReveal) */
+.sbmc-demo-page header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   transition:
     padding 180ms ease-out,
     background 180ms ease-out,
     backdrop-filter 180ms ease-out,
     box-shadow 180ms ease-out;
 }
-.sbmc-demo-page.is-scrolled > header,
-.sbmc-demo-page.is-scrolled header.top,
-.sbmc-demo-page.is-scrolled header.mast {
+.sbmc-demo-page.is-scrolled header {
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
