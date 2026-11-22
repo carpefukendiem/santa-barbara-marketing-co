@@ -47,7 +47,7 @@ export default function TermsPage() {
               search engine optimization, Google Ads management, website design
               and development, conversion work, Google Business Profile support,
               automation, analytics, and strategy. Scope, timeline, and fees
-              are defined in a written proposal. A 20-minute call is complimentary.
+              are defined in a written proposal. A 30-minute call is complimentary.
               It is not a promise of rankings, revenue, or a later discount.
             </p>
             <p>
@@ -66,7 +66,7 @@ export default function TermsPage() {
               for management and production, not a markup we hide. The Local Lead
               Plan billed through this site is a subscription: monthly at the
               published monthly rate, or annually at the published yearly rate.
-              It renews until you cancel with 30-day written notice to {site.email}. A 20-minute call does not require a credit
+              It renews until you cancel with 30-day written notice to {site.email}. A 30-minute call does not require a credit
               card. Work may pause if invoices remain unpaid.
             </p>
             <h2>Intellectual property</h2>

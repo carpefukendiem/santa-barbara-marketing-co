@@ -32,7 +32,7 @@ const faqs = [
   {
     question: 'Do you have a walk-in office?',
     answer:
-      'No. We are a service-area business. Reach us by phone at (805) 307-7600 or email info@sbmc.io, or book a 20-Minute Call.',
+      'No. We are a service-area business. Reach us by phone at (805) 307-7600 or email info@sbmc.io, or book a 30-Minute Call.',
   },
 ]
 
@@ -182,7 +182,7 @@ export default function ServiceAreasPage() {
       </Section>
       <CtaBand
         heading="Tell us where you actually win work."
-        subline="A 20-Minute Call starts with geography you can defend, not a wish list."
+        subline="A 30-Minute Call starts with geography you can defend, not a wish list."
       />
     </>
   )

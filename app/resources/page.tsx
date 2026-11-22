@@ -73,7 +73,7 @@ export default function ResourcesPage() {
                 Get a plan for your listing and your pages
               </Heading>
               <p className="mt-5 max-w-[52ch] text-lg text-ink">
-                The articles explain how the market works. A 20-minute call applies
+                The articles explain how the market works. A 30-minute call applies
                 that to your Google Business Profile, your site, and the
                 searches you can actually win.
               </p>

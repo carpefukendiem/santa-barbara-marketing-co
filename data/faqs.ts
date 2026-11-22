@@ -43,7 +43,7 @@ export const faqs: FaqItem[] = [
   },
   {
     category: 'getting-started',
-    question: 'What happens on the 20-minute call?',
+    question: 'What happens on the 30-minute call?',
     answer:
       'We look at your current visibility before we talk, then spend about thirty minutes on where you show up today, what nearby competitors are doing, and what we would fix first. If it makes sense to work together, we send a proposal. If not, you leave with the list.',
   },
@@ -129,7 +129,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 20-minute call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
+      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 30-minute call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
   },
   {
     category: 'working-together',

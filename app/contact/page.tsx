@@ -12,7 +12,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Contact Us',
   description:
-    'Contact Santa Barbara Marketing Co. for Local SEO, websites, and Google Ads in the 805. Email us or request a 20-minute call. No spam, no drip.',
+    'Contact Santa Barbara Marketing Co. for Local SEO, websites, and Google Ads in the 805. Email us or request a 30-minute call. No spam, no drip.',
   path: '/contact',
 });
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
               <p className="text-lg text-ink">
                 If you want the written 90-day plan, use the{' '}
                 <Link href={primaryCta.href} className="font-medium text-ocean underline underline-offset-4">
-                  20-Minute Call
+                  30-Minute Call
                 </Link>{' '}
                 form instead.
               </p>

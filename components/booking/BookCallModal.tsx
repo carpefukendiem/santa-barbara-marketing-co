@@ -137,7 +137,7 @@ export function BookingCalendarEmbed({
       <iframe
         id={iframeId}
         src={booking.embedSrc}
-        title="Book a 20-minute call"
+        title="Book a 30-minute call"
         allow="payment"
         scrolling="no"
         loading="lazy"
@@ -176,7 +176,7 @@ function BookCallModal({ onClose }: { onClose: () => void }) {
       <div className="relative w-full max-w-4xl bg-cream">
         <div className="flex items-center justify-between border-b border-rule px-6 py-4">
           <h2 id="book-call-title" className="font-display text-2xl text-ink">
-            Book a 20-Minute Call
+            Book a 30-Minute Call
           </h2>
           <button
             type="button"

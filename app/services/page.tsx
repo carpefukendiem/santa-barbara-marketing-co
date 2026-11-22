@@ -4,7 +4,7 @@ import { ServicesOverview } from '@/components/sections/ServicesOverview';
 export const metadata = buildMetadata({
   title: 'Digital Marketing Services in Santa Barbara',
   description:
-    'Full-service digital marketing in Santa Barbara: Local SEO, websites, Google Ads, and follow-up as one system, not five vendors. Book a 20-Minute Call.',
+    'Full-service digital marketing in Santa Barbara: Local SEO, websites, Google Ads, and follow-up as one system, not five vendors. Book a 30-Minute Call.',
   path: '/services',
 });
 

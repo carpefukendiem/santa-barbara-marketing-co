@@ -103,7 +103,7 @@ export function ServicePageContent({ service }: { service: Service }) {
       />
 
       <AnswerFirst
-        answer={`${service.shortName} from Santa Barbara Marketing Co for businesses across Santa Barbara County. Part of The Local Lead Plan at $${pricingPlan.monthlyAmount}/mo, or scoped on its own after a 20-Minute Call.`}
+        answer={`${service.shortName} from Santa Barbara Marketing Co for businesses across Santa Barbara County. Part of The Local Lead Plan at $${pricingPlan.monthlyAmount}/mo, or scoped on its own after a 30-Minute Call.`}
       />
 
       <Section>
@@ -240,7 +240,7 @@ export function ServicePageContent({ service }: { service: Service }) {
 
       <CtaBand
         heading={`Ready to talk about ${service.shortName.toLowerCase()}?`}
-        subline="Book a 20-Minute Call. A person looks at your visibility first. No contract attached."
+        subline="Book a 30-Minute Call. A person looks at your visibility first. No contract attached."
       />
 
       {relatedResources.length > 0 ? (

@@ -136,7 +136,7 @@ export function WorkEmptyState() {
       </Section>
       <CtaBand
         heading="See how we would measure yours."
-        subline="A 20-minute call is a written 90-day list, not a pitch deck of fake results."
+        subline="A 30-minute call is a written 90-day list, not a pitch deck of fake results."
       />
     </>
   );

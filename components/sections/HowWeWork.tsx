@@ -53,7 +53,7 @@ export function HowWeWork() {
           ))}
         </div>
         <p className="mt-14 max-w-2xl text-lg leading-[1.6] text-cream">
-          It starts with a 20-minute call. Tell us where the business is and where you
+          It starts with a 30-minute call. Tell us where the business is and where you
           want it to go; we will tell you what we would do first and what it would
           cost.
         </p>

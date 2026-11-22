@@ -27,7 +27,7 @@ import type { LucideIcon } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'About Us',
   description:
-    'Santa Barbara Marketing Co was founded in 2026 by Ruben Ruiz. Formerly Ranking SB. Local by residence, proof over promises, one system. Book a 20-Minute Call.',
+    'Santa Barbara Marketing Co was founded in 2026 by Ruben Ruiz. Formerly Ranking SB. Local by residence, proof over promises, one system. Book a 30-Minute Call.',
   path: '/about',
 });
 
@@ -212,7 +212,7 @@ export default function AboutPage() {
               there is no review widget. The city, phone, and email you see in
               the footer and on Contact are the ones we publish in schema. We are
               a service-area business with no walk-in office. If a competitor is
-              beating you on review velocity, we will say that in a 20-minute
+              beating you on review velocity, we will say that in a 30-minute
               call instead of dressing it up.
             </p>
             <p>
@@ -232,7 +232,7 @@ export default function AboutPage() {
             </p>
             <h2>How to start</h2>
             <p>
-              <Link href="/book-a-call">Book a 20-minute call</Link>
+              <Link href="/book-a-call">Book a 30-minute call</Link>
               . We look at your current visibility before we talk and come with
               a short list of what we would do first. If it makes sense to work
               together, we send a proposal. If not, you leave with the list. No
