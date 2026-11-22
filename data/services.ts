@@ -20,15 +20,15 @@ export type Service = {
   iconBg: string; // CSS color token like 'var(--sbmc-aqua)'
   cardBlurb: string; // 2 lines max
   metaTitle: string; // under ~60 chars, NO brand suffix
-  metaDescription: string; // 140–158 chars, unique, benefit + soft CTA
+  metaDescription: string; // 140-158 chars, unique, benefit + soft CTA
   h1: string;
   heroLede: string;
   eyebrow: string;
-  problemFraming: string; // 2–3 paragraphs, specific to 805
-  whatsIncluded: Array<{ title: string; body: string }>; // 5–7, each body 40–60 words
+  problemFraming: string; // 2-3 paragraphs, specific to 805
+  whatsIncluded: Array<{ title: string; body: string }>; // 5-7, each body 40-60 words
   process: Array<{ step: number; title: string; body: string }>; // 4 steps
   outcomes: string[];
-  faqs: FaqItem[]; // 5–7 UNIQUE per service, category matching the service
+  faqs: FaqItem[]; // 5-7 UNIQUE per service, category matching the service
   relatedServices: string[]; // slugs
   relatedLocations: string[]; // overview location slugs across the county
   relatedResources: string[]; // pick 2 from the allowed resource slugs
