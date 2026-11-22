@@ -48,6 +48,14 @@ export const photos = {
     focalPoint: '62% 48%',
     needsHighRes: false,
   },
+  communitySantaMaria: {
+    src: '/images/photos/community-santa-maria.webp',
+    alt: 'Santa Maria Valley farmland with crop rows and hills under a clear sky.',
+    width: 1600,
+    height: 1067,
+    focalPoint: '50% 45%',
+    needsHighRes: false,
+  },
   communityCarpinteria: {
     src: '/images/photos/community-carpinteria.webp',
     alt: 'Carpinteria beach at golden hour, with driftwood on the sand, palms, and the mountains.',
@@ -96,7 +104,7 @@ export const decor = {
 export const brand = {
   logo: {
     src: '/images/brand/sbmc-logo.webp',
-    alt: 'Santa Barbara Marketing Co. logo — a circular seal with the Santa Barbara Mission, palms, and a cresting wave.',
+    alt: 'Santa Barbara Marketing Co. logo - a circular seal with the Santa Barbara Mission, palms, and a cresting wave.',
     width: 1254,
     height: 1254,
     focalPoint: '50% 50%',

@@ -1,19 +1,24 @@
 import type { FaqItem } from './faqs';
+import { batch1Industries } from './_batch1_industries';
 
 export type Industry = {
   slug: string;
   name: string;
   navLabel: string;
   metaTitle: string;
-  metaDescription: string; // 140–158 unique chars
+  metaDescription: string; // 140-158 unique chars
   h1: string;
   heroLede: string;
   searchBehavior: string; // how customers in this vertical search locally
   problems: Array<{ title: string; body: string }>; // 3
-  servicesThatMatter: Array<{ service: string; why: string }>; // 3–4 service slugs
+  servicesThatMatter: Array<{ service: string; why: string }>; // 3-4 service slugs
   locations: string[]; // 2 location slugs
-  faqs: FaqItem[]; // 3–4 vertical-specific
+  faqs: FaqItem[]; // 3-4 vertical-specific
   relatedResources: string[];
+  /** ISO date for schema / lastmod when this vertical page was last edited. */
+  dateModified?: string;
+  /** Parent industry slug when this page is a child vertical. */
+  parent?: string;
 };
 
 export const industries: Industry[] = [
@@ -387,8 +392,13 @@ export const industries: Industry[] = [
       'ai-search-visibility-local-business',
     ],
   },
+  ...batch1Industries,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
   return industries.find((industry) => industry.slug === slug);
+}
+
+export function getChildIndustries(parentSlug: string): Industry[] {
+  return industries.filter((industry) => industry.parent === parentSlug);
 }

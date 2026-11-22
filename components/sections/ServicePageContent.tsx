@@ -48,7 +48,7 @@ export function ServicePageContent({ service }: { service: Service }) {
     .filter((item): item is NonNullable<ReturnType<typeof getLocation>> =>
       Boolean(item),
     )
-    .slice(0, 4)
+    .slice(0, 6)
     .map((location) => {
       const relevance = location.serviceRelevance.find(
         (entry) => entry.service === service.slug,

@@ -37,6 +37,16 @@ export default async function IndustryDetailPage({ params }: Props) {
   const industry = getIndustry(slug);
   if (!industry) notFound();
 
+  const parent = industry.parent ? getIndustry(industry.parent) : undefined;
+  const breadcrumbItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Industries', path: '/industries' },
+    ...(parent
+      ? [{ name: parent.name, path: `/industries/${parent.slug}` }]
+      : []),
+    { name: industry.name, path: `/industries/${industry.slug}` },
+  ];
+
   return (
     <>
       <JsonLd
@@ -46,11 +56,7 @@ export default async function IndustryDetailPage({ params }: Props) {
             name: industry.metaTitle,
             description: industry.metaDescription,
           }),
-          breadcrumbSchema([
-            { name: 'Home', path: '/' },
-            { name: 'Industries', path: '/industries' },
-            { name: industry.name, path: `/industries/${industry.slug}` },
-          ]),
+          breadcrumbSchema(breadcrumbItems),
           serviceSchema({
             name: `${industry.name} marketing`,
             serviceType: industry.name,

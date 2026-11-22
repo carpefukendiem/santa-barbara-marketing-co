@@ -1,3 +1,6 @@
+import type { FaqItem } from './faqs';
+import { howToGetMoreGoogleReviews } from './_batch1_resource';
+
 export type ResourceStatus = 'published' | 'planned';
 export type ResourceCategory = 'seo' | 'ads' | 'websites' | 'ai' | 'strategy';
 
@@ -40,6 +43,8 @@ export type Resource = {
   relatedLocations: string[];
   relatedArticles: string[];
   body: ResourceBlock[];
+  /** Optional visible FAQ matched by FAQPage JSON-LD. */
+  faqs?: FaqItem[];
 };
 
 export const resources: Resource[] = [
@@ -297,7 +302,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `The business name should be the name on the door and the license, not “Santa Barbara’s Best Plumber | 24/7 Emergency.” Keyword names get listings suspended. The phone should be the number you actually answer. If you use a call-tracking number, keep the citation NAP consistent and make sure the tracking number is set up as a tracking number in the profile, not as a second identity. Hours must match the door, including holidays. Nothing burns trust like a “Open now” that is locked.`,
+        html: `The business name should be the name on the door and the license, not “Santa Barbara’s Best Plumber | All-Day Emergency.” Keyword names get listings suspended. The phone should be the number you actually answer. If you use a call-tracking number, keep the citation NAP consistent and make sure the tracking number is set up as a tracking number in the profile, not as a second identity. Hours must match the door, including holidays. Nothing burns trust like a “Open now” that is locked.`,
       },
       {
         type: 'p',
@@ -446,9 +451,9 @@ export const resources: Resource[] = [
       {
         type: 'ul',
         items: [
-          'Technical and on-page audit with a prioritized fix list: often $1,500–$5,000 depending on site size and how deep the crawl goes. Planning range, not a quote.',
-          'Google Business Profile cleanup plus citation consistency for one location: often $750–$2,500 as a project. More if duplicates and legal-name issues are messy.',
-          'A small set of real service or city pages (written, not spun): often $2,000–$8,000 depending on research, design, and how many pages are actually different.',
+          'Technical and on-page audit with a prioritized fix list: often $1,500-$5,000 depending on site size and how deep the crawl goes. Planning range, not a quote.',
+          'Google Business Profile cleanup plus citation consistency for one location: often $750-$2,500 as a project. More if duplicates and legal-name issues are messy.',
+          'A small set of real service or city pages (written, not spun): often $2,000-$8,000 depending on research, design, and how many pages are actually different.',
           'A full site rebuild sold as “SEO” is really a website project. See our article on website costs. Do not compare it to a monthly SEO retainer.',
         ],
       },
@@ -459,9 +464,9 @@ export const resources: Resource[] = [
       {
         type: 'ul',
         items: [
-          'Light local maintenance (posts, a few citations, a report): commonly $500–$1,500/month. In competitive 805 categories this is often too thin to change the Pack. Planning range, not a quote.',
-          'Standard one-location local SEO (profile, on-page, reviews process, modest content, reporting): commonly $1,500–$3,500/month in many California local markets.',
-          'Competitive categories (legal, dental, med spa, some home services) or two-plus locations: commonly $3,500–$7,000+/month. Multi-location and statewide work sits above that.',
+          'Light local maintenance (posts, a few citations, a report): commonly $500-$1,500/month. In competitive 805 categories this is often too thin to change the Pack. Planning range, not a quote.',
+          'Standard one-location local SEO (profile, on-page, reviews process, modest content, reporting): commonly $1,500-$3,500/month in many California local markets.',
+          'Competitive categories (legal, dental, med spa, some home services) or two-plus locations: commonly $3,500-$7,000+/month. Multi-location and statewide work sits above that.',
           'Enterprise or national organic programs are a different product. If you are a single-location 805 shop, you should not be priced like one.',
         ],
       },
@@ -585,11 +590,11 @@ export const resources: Resource[] = [
       {
         type: 'ul',
         items: [
-          'DIY on Squarespace, Wix, or WordPress.com: often $200–$3,000 in year one including the theme, the platform fee, and a domain. Your time is the real cost. Planning range, not a quote.',
-          'Freelancer or small studio on a template, lightly customized, 5–8 pages, your copy and photos: often $2,500–$8,000.',
-          'Custom marketing site for a local business (original design, 8–20 pages, mobile-first, basic CMS, forms, analytics): often $8,000–$20,000. This is the usual professional band for a serious 805 site.',
-          'Larger custom work: booking or patient workflows, ecommerce, multi-location, membership, heavy integration: often $20,000–$50,000+. Specialty healthcare, legal portals, and custom apps sit above that.',
-          'Ongoing hosting, updates, and small edits: often $50–$400/month depending on stack and SLA, or included in a retainer. Separate from any ads or SEO fee.',
+          'DIY on Squarespace, Wix, or WordPress.com: often $200-$3,000 in year one including the theme, the platform fee, and a domain. Your time is the real cost. Planning range, not a quote.',
+          'Freelancer or small studio on a template, lightly customized, 5-8 pages, your copy and photos: often $2,500-$8,000.',
+          'Custom marketing site for a local business (original design, 8-20 pages, mobile-first, basic CMS, forms, analytics): often $8,000-$20,000. This is the usual professional band for a serious 805 site.',
+          'Larger custom work: booking or patient workflows, ecommerce, multi-location, membership, heavy integration: often $20,000-$50,000+. Specialty healthcare, legal portals, and custom apps sit above that.',
+          'Ongoing hosting, updates, and small edits: often $50-$400/month depending on stack and SLA, or included in a retainer. Separate from any ads or SEO fee.',
         ],
       },
       {
@@ -1045,24 +1050,7 @@ export const resources: Resource[] = [
     relatedArticles: [],
     body: [],
   },
-  {
-    slug: 'how-to-get-more-google-reviews',
-    title: 'Google Reviews Without Breaking the Rules',
-    metaTitle: 'Google Reviews Without Breaking the Rules',
-    metaDescription:
-      'A planned practical guide to asking for Google reviews in the 805: timing, links, staff habits, and what Google does not allow. Not published yet.',
-    category: 'seo',
-    excerpt:
-      'A planned playbook for review velocity that stays inside Google’s rules. No bought stars, no gated five-star filters.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
+  howToGetMoreGoogleReviews,
   {
     slug: 'why-your-website-isnt-getting-leads',
     title: 'Why Your Website Is Not Getting Leads',

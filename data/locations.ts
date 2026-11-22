@@ -1,6 +1,7 @@
 import type { FaqItem } from './faqs';
 import { photos } from './images';
 import type { SiteImage } from './images';
+import { batch1Locations } from './_batch1_locations';
 
 export type LocationPageType = 'overview' | 'seo' | 'web-design' | 'google-ads';
 
@@ -23,6 +24,7 @@ export type Location = {
   faqs: FaqItem[];
   nearbyLinks: Array<{ label: string; href: string }>;
   relatedResources: string[];
+  dateModified?: string;
 };
 
 export const locations: Location[] = [
@@ -182,6 +184,9 @@ export const locations: Location[] = [
       { label: 'Goleta digital marketing', href: '/goleta-digital-marketing' },
       { label: 'Montecito digital marketing', href: '/montecito-digital-marketing' },
       { label: 'Carpinteria digital marketing', href: '/carpinteria-digital-marketing' },
+      { label: 'Santa Maria digital marketing', href: '/santa-maria-digital-marketing' },
+      { label: 'Lompoc digital marketing', href: '/lompoc-digital-marketing' },
+      { label: 'Santa Ynez Valley digital marketing', href: '/santa-ynez-valley-digital-marketing' },
       { label: 'Santa Barbara SEO', href: '/santa-barbara-seo' },
       { label: 'Santa Barbara web design', href: '/santa-barbara-web-design' },
       { label: 'Santa Barbara Google Ads', href: '/santa-barbara-google-ads' },
@@ -796,6 +801,9 @@ export const locations: Location[] = [
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
       { label: 'Montecito digital marketing', href: '/montecito-digital-marketing' },
       { label: 'Carpinteria digital marketing', href: '/carpinteria-digital-marketing' },
+      { label: 'Goleta SEO', href: '/goleta-seo' },
+      { label: 'Goleta web design', href: '/goleta-web-design' },
+      { label: 'Santa Maria digital marketing', href: '/santa-maria-digital-marketing' },
     ],
     relatedResources: ['how-much-does-seo-cost-santa-barbara'],
   },
@@ -930,6 +938,8 @@ export const locations: Location[] = [
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
       { label: 'Goleta digital marketing', href: '/goleta-digital-marketing' },
       { label: 'Carpinteria digital marketing', href: '/carpinteria-digital-marketing' },
+      { label: 'Montecito web design', href: '/montecito-web-design' },
+      { label: 'Santa Ynez Valley digital marketing', href: '/santa-ynez-valley-digital-marketing' },
     ],
     relatedResources: ['ai-search-visibility-local-business'],
   },
@@ -1068,9 +1078,11 @@ export const locations: Location[] = [
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
       { label: 'Goleta digital marketing', href: '/goleta-digital-marketing' },
       { label: 'Montecito digital marketing', href: '/montecito-digital-marketing' },
+      { label: 'Santa Maria digital marketing', href: '/santa-maria-digital-marketing' },
     ],
     relatedResources: ['local-seo-santa-barbara'],
   },
+  ...batch1Locations,
 ];
 
 export function getLocation(slug: string): Location | undefined {

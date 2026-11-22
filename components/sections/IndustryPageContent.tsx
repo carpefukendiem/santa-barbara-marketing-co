@@ -13,7 +13,7 @@ import { Section } from '@/components/ui/Section';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { PrintApparelRow } from '@/components/sections/PrintApparelRow';
 import { getResource, resourceCategoryLabels } from '@/data/resources';
-import type { Industry } from '@/data/industries';
+import { getIndustry, type Industry } from '@/data/industries';
 import { getLocation } from '@/data/locations';
 import { getService } from '@/data/services';
 import { primaryCta } from '@/data/navigation';
@@ -25,6 +25,10 @@ const locationTaglines: Record<string, string> = {
   'goleta-digital-marketing': 'West-side pins, UCSB-adjacent demand.',
   'montecito-digital-marketing': 'Low volume, high consideration.',
   'carpinteria-digital-marketing': 'Linden Avenue and beach-day intent.',
+  'santa-maria-digital-marketing': 'Broadway, Main, Orcutt, and North County.',
+  'lompoc-digital-marketing': 'Vandenberg-linked customers and valley traffic.',
+  'santa-ynez-valley-digital-marketing':
+    'Solvang, Buellton, tasting rooms, Highway 246.',
 };
 
 export function IndustryPageContent({ industry }: { industry: Industry }) {
@@ -45,6 +49,8 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
     return [resource];
   });
 
+  const parent = industry.parent ? getIndustry(industry.parent) : undefined;
+
   const chips = [
     industry.name,
     ...industry.problems.map((problem) => problem.title),
@@ -54,6 +60,15 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
     ? serviceLucide(services[0].service.slug, services[0].service.icon)
     : undefined;
 
+  const breadcrumbs = [
+    { label: 'Home', href: '/' },
+    { label: 'Industries', href: '/industries' },
+    ...(parent
+      ? [{ label: parent.name, href: `/industries/${parent.slug}` }]
+      : []),
+    { label: industry.name },
+  ];
+
   return (
     <>
       <PageHero
@@ -62,11 +77,7 @@ export function IndustryPageContent({ industry }: { industry: Industry }) {
         title={industry.h1}
         accent={accentWord(industry.h1)}
         subhead={industry.heroLede}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Industries', href: '/industries' },
-          { label: industry.name },
-        ]}
+        breadcrumbs={breadcrumbs}
         primaryCta={{ href: primaryCta.href, label: primaryCta.label }}
         chips={chips}
         icon={Icon}

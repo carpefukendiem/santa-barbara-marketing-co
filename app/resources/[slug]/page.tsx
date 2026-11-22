@@ -9,6 +9,7 @@ import { Section } from '@/components/ui/Section';
 import { ResourceBody, headingId } from '@/components/resources/ResourceBody';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { FAQAccordion } from '@/components/ui/Accordion';
 import {
   getResource,
   publishedResources,
@@ -16,7 +17,7 @@ import {
   type Resource,
 } from '@/data/resources';
 import { site } from '@/data/site';
-import { articleSchema, breadcrumbSchema } from '@/lib/schema';
+import { articleSchema, breadcrumbSchema, faqPageSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { absoluteUrl, formatDate, readingTimeLabel } from '@/lib/utils';
 import Link from 'next/link';
@@ -82,24 +83,27 @@ export default async function ResourceArticlePage({ params }: Props) {
   const url = absoluteUrl(`/resources/${resource.slug}`);
   const readTime = readingTimeLabel(resourceText(resource));
 
+  const jsonLd = [
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Resources', path: '/resources' },
+      { name: resource.title, path: `/resources/${resource.slug}` },
+    ]),
+    articleSchema({
+      headline: resource.title,
+      description: resource.metaDescription,
+      url,
+      datePublished: resource.datePublished,
+      dateModified: resource.dateModified,
+    }),
+    ...(resource.faqs && resource.faqs.length > 0
+      ? [faqPageSchema(resource.faqs)]
+      : []),
+  ];
+
   return (
     <>
-      <JsonLd
-        data={[
-          breadcrumbSchema([
-            { name: 'Home', path: '/' },
-            { name: 'Resources', path: '/resources' },
-            { name: resource.title, path: `/resources/${resource.slug}` },
-          ]),
-          articleSchema({
-            headline: resource.title,
-            description: resource.metaDescription,
-            url,
-            datePublished: resource.datePublished,
-            dateModified: resource.dateModified,
-          }),
-        ]}
-      />
+      <JsonLd data={jsonLd} />
       <PageHero
         variant="simple"
         eyebrow={`${resourceCategoryLabels[resource.category]} · ${readTime}`}
@@ -144,6 +148,17 @@ export default async function ResourceArticlePage({ params }: Props) {
           </div>
         </Reveal>
       </Section>
+      {resource.faqs && resource.faqs.length > 0 ? (
+        <Section bg="cream">
+          <Reveal>
+            <Eyebrow>FAQ</Eyebrow>
+            <Heading className="mt-4">Common questions</Heading>
+            <div className="mt-10">
+              <FAQAccordion items={resource.faqs} />
+            </div>
+          </Reveal>
+        </Section>
+      ) : null}
       {related.length > 0 ? (
         <Section bg="sand">
           <Reveal>

@@ -1,4 +1,5 @@
 import type { FaqItem } from './faqs';
+import { batch1Services } from './_batch1_services';
 
 export type ServiceIconName =
   | 'local-seo'
@@ -19,20 +20,22 @@ export type Service = {
   iconBg: string; // CSS color token like 'var(--sbmc-aqua)'
   cardBlurb: string; // 2 lines max
   metaTitle: string; // under ~60 chars, NO brand suffix
-  metaDescription: string; // 140–158 chars, unique, benefit + soft CTA
+  metaDescription: string; // 140-158 chars, unique, benefit + soft CTA
   h1: string;
   heroLede: string;
   eyebrow: string;
-  problemFraming: string; // 2–3 paragraphs, specific to 805
-  whatsIncluded: Array<{ title: string; body: string }>; // 5–7, each body 40–60 words
+  problemFraming: string; // 2-3 paragraphs, specific to 805
+  whatsIncluded: Array<{ title: string; body: string }>; // 5-7, each body 40-60 words
   process: Array<{ step: number; title: string; body: string }>; // 4 steps
   outcomes: string[];
-  faqs: FaqItem[]; // 5–7 UNIQUE per service, category matching the service
+  faqs: FaqItem[]; // 5-7 UNIQUE per service, category matching the service
   relatedServices: string[]; // slugs
-  relatedLocations: string[]; // use: santa-barbara-digital-marketing, goleta-digital-marketing, montecito-digital-marketing, carpinteria-digital-marketing
+  relatedLocations: string[]; // overview location slugs across the county
   relatedResources: string[]; // pick 2 from the allowed resource slugs
-  relatedIndustries: string[]; // 1–2 from home-services, professional-services, restaurants-hospitality, medical-wellness, real-estate
+  relatedIndustries: string[]; // industry slugs
   pricingNote: string | null; // null OR honest scoping copy, NO invented prices
+  /** ISO date (YYYY-MM-DD) for sitemap lastmod when this service page was last edited. */
+  dateModified?: string;
 };
 
 const relatedLocationSlugs: Service['relatedLocations'] = [
@@ -40,6 +43,9 @@ const relatedLocationSlugs: Service['relatedLocations'] = [
   'goleta-digital-marketing',
   'montecito-digital-marketing',
   'carpinteria-digital-marketing',
+  'santa-maria-digital-marketing',
+  'lompoc-digital-marketing',
+  'santa-ynez-valley-digital-marketing',
 ];
 
 export const services: Service[] = [
@@ -52,7 +58,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Get found in Google Search and Maps when locals are ready to buy.',
-    metaTitle: 'Local SEO & Google Maps in Santa Barbara',
+    metaTitle: 'Local SEO & Google Maps in Santa Barbara County',
     metaDescription:
       'Local SEO and Google Maps ranking for Santa Barbara County. Honest work on your listing and pages. Book a 20-Minute Call.',
     h1: 'Local SEO and Google Maps ranking for Santa Barbara County',
@@ -324,7 +330,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-peach)',
     cardBlurb:
       'Targeted, high-intent traffic that turns into real customers.',
-    metaTitle: 'Google Ads Management in Santa Barbara',
+    metaTitle: 'Google Ads Management in Santa Barbara County',
     metaDescription:
       'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Book a 20-Minute Call.',
     h1: 'Google Ads management for Santa Barbara businesses tired of wasted clicks',
@@ -457,7 +463,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-sage)',
     cardBlurb:
       'Modern, fast, and built to convert visitors into customers.',
-    metaTitle: 'Website Design in Santa Barbara',
+    metaTitle: 'Website Design in Santa Barbara County',
     metaDescription:
       'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Book a 20-Minute Call.',
     h1: 'Websites built for phones, speed, and a short decision window',
@@ -595,7 +601,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Make the listing people tap in Maps accurate, complete, and worth trusting.',
-    metaTitle: 'Google Business Profile in Santa Barbara',
+    metaTitle: 'Google Business Profile in Santa Barbara County',
     metaDescription:
       'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Book a 20-Minute Call.',
     h1: 'Google Business Profile work for the listing customers actually tap',
@@ -861,7 +867,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-peach-light)',
     cardBlurb:
       'Content and campaigns that build your brand and community.',
-    metaTitle: 'Social Media Marketing in Santa Barbara',
+    metaTitle: 'Social Media Marketing in Santa Barbara County',
     metaDescription:
       'Social media for Santa Barbara businesses that need community and content, not a posting treadmill. Instagram, campaigns, and honest scope. Book a 20-Minute Call.',
     h1: 'Social media marketing that matches how the 805 actually uses it',
@@ -1129,7 +1135,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-aqua)',
     cardBlurb:
       'Missed-call text-back, routing, review asks, and intake that actually runs.',
-    metaTitle: 'AI Automation for Santa Barbara Business',
+    metaTitle: 'AI Automation for Santa Barbara County',
     metaDescription:
       'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Book a 20-Minute Call.',
     h1: 'AI automation for missed calls, routing, reviews, and intake',
@@ -1261,7 +1267,7 @@ export const services: Service[] = [
     iconBg: 'var(--sbmc-sand)',
     cardBlurb:
       'Calls, forms, and campaigns in English, without a 14-tab vanity dashboard.',
-    metaTitle: 'Marketing Analytics in Santa Barbara',
+    metaTitle: 'Marketing Analytics in Santa Barbara County',
     metaDescription:
       'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Book a 20-Minute Call.',
     h1: 'Marketing analytics you can read without a decoder',
@@ -1392,7 +1398,7 @@ export const services: Service[] = [
     icon: 'strategy',
     iconBg: 'var(--sbmc-sand)',
     cardBlurb: 'A clear plan for long-term, sustainable growth.',
-    metaTitle: 'Digital Marketing Strategy in Santa Barbara',
+    metaTitle: 'Digital Marketing Strategy in Santa Barbara County',
     metaDescription:
       'A 90-day digital marketing plan for Santa Barbara businesses: what to do first, what to wait on, and how we will measure. Book a 20-Minute Call.',
     h1: 'Digital marketing strategy for the next 90 days, not a binder',
@@ -1521,6 +1527,7 @@ export const services: Service[] = [
     pricingNote:
       'Strategy is scoped by how many channels and locations we must look at, whether ads and analytics access is available, and whether you want a single 90-day document or a short follow-up cycle. A one-location shop on Hollister is a different engagement than a multi-service firm serving Montecito and downtown with an existing agency in the mix. After we see the site, the listing, and the question you actually need answered, we send a written range for the strategy work. Implementation of SEO, ads, or a website is quoted separately. We will not invent a master-plan price that pretends media spend and development are included.',
   },
+  ...batch1Services,
 ];
 
 export function getService(slug: string): Service | undefined {

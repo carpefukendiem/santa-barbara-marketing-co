@@ -20,16 +20,27 @@ export function Breadcrumbs({
     <nav
       aria-label="Breadcrumb"
       className={cn(
-        'font-mono text-[11px] uppercase tracking-[0.16em] max-w-full overflow-x-auto no-scrollbar',
+        'min-w-0 max-w-full font-mono text-[11px] uppercase tracking-[0.16em]',
         light ? 'text-ochre' : 'text-stone',
         className,
       )}
     >
-      <ol className="flex flex-nowrap items-center gap-1.5 whitespace-nowrap">
+      {/*
+        Single row by default: earlier crumbs do not shrink; the last crumb
+        truncates with ellipsis (min-width:0). flex-wrap only kicks in if the
+        earlier crumbs alone cannot fit the viewport.
+      */}
+      <ol className="flex min-w-0 flex-nowrap items-center gap-x-1.5">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={`${item.label}-${index}`} className="flex items-center gap-1.5 shrink-0">
+            <li
+              key={`${item.label}-${index}`}
+              className={cn(
+                'flex items-center gap-1.5',
+                isLast ? 'min-w-0 basis-0 grow' : 'shrink-0',
+              )}
+            >
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
@@ -41,12 +52,23 @@ export function Breadcrumbs({
                   {item.label}
                 </Link>
               ) : (
-                <span className={cn(isLast && (light ? 'text-white' : 'text-navy'))}>
+                <span
+                  className={cn(
+                    isLast && (light ? 'text-white' : 'text-navy'),
+                    isLast &&
+                      'block min-w-0 overflow-hidden text-ellipsis whitespace-nowrap',
+                  )}
+                  title={isLast ? item.label : undefined}
+                >
                   {item.label}
                 </span>
               )}
               {!isLast ? (
-                <ChevronRight size={14} aria-hidden="true" className="opacity-50" />
+                <ChevronRight
+                  size={14}
+                  aria-hidden="true"
+                  className="shrink-0 opacity-50"
+                />
               ) : null}
             </li>
           );
