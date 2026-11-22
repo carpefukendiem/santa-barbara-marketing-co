@@ -14,6 +14,10 @@ export type Industry = {
   locations: string[]; // 2 location slugs
   faqs: FaqItem[]; // 3–4 vertical-specific
   relatedResources: string[];
+  /** ISO date for schema / lastmod when this vertical page was last edited. */
+  dateModified?: string;
+  /** Parent industry slug when this page is a child vertical. */
+  parent?: string;
 };
 
 export const industries: Industry[] = [
