@@ -1,7 +1,14 @@
 'use client';
 
 import Script from 'next/script';
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { booking } from '@/lib/booking';
 import { isBookingConfirmedMessage } from '@/lib/bookingEvents';
 import { trackGa4 } from '@/lib/analytics';
@@ -25,16 +32,13 @@ export function useBookCall() {
 
 function warmBookingAssets() {
   if (typeof document === 'undefined') return;
-  if (!document.head.querySelector(`link[href="${booking.origin}"]`)) {
+  if (!document.head.querySelector(`link[data-booking-preconnect="${booking.origin}"]`)) {
     const preconnect = document.createElement('link');
     preconnect.rel = 'preconnect';
     preconnect.href = booking.origin;
     preconnect.crossOrigin = 'anonymous';
+    preconnect.setAttribute('data-booking-preconnect', booking.origin);
     document.head.appendChild(preconnect);
-    const dns = document.createElement('link');
-    dns.rel = 'dns-prefetch';
-    dns.href = booking.origin;
-    document.head.appendChild(dns);
   }
   if (!document.querySelector(`script[src="${booking.scriptSrc}"]`)) {
     const script = document.createElement('script');
@@ -70,16 +74,6 @@ export function BookCallProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const run = () => warmBookingAssets();
-    const idle = window.requestIdleCallback?.(run);
-    const timeout = window.setTimeout(run, 600);
-    return () => {
-      if (idle != null) window.cancelIdleCallback?.(idle);
-      window.clearTimeout(timeout);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeModal();
@@ -108,20 +102,51 @@ export function BookingCalendarEmbed({
   fallback?: boolean;
 }) {
   const iframeId = `${booking.calendarId}_booking`;
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [loadScript, setLoadScript] = useState(false);
+
+  useEffect(() => {
+    const node = rootRef.current;
+    if (!node || loadScript) return;
+
+    const activate = () => {
+      warmBookingAssets();
+      setLoadScript(true);
+    };
+
+    if (typeof IntersectionObserver === 'undefined') {
+      activate();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          activate();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px 0px', threshold: 0.01 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [loadScript]);
 
   return (
-    <div className="bg-cream">
+    <div ref={rootRef} className="bg-cream">
       <iframe
         id={iframeId}
         src={booking.embedSrc}
         title="Book a 20-minute call"
         allow="payment"
         scrolling="no"
-        loading="eager"
+        loading="lazy"
         className={className ?? 'w-full min-h-[880px] border-0'}
         style={{ overflow: 'hidden' }}
       />
-      <Script src={booking.scriptSrc} strategy="afterInteractive" />
+      {loadScript ? (
+        <Script src={booking.scriptSrc} strategy="lazyOnload" />
+      ) : null}
       {fallback ? (
         <p className="border-t border-rule px-6 py-4 text-sm text-stone">
           If the calendar does not load,{' '}

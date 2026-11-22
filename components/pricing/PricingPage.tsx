@@ -4,6 +4,10 @@ import { useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { photos } from '@/data/images';
+import {
+  HERO_IMAGE_QUALITY,
+  PRICING_HERO_IMAGE_SIZES,
+} from '@/lib/heroImage';
 import styles from './pricing-page.module.css';
 
 type Variant = 'hero' | 'mid' | 'final';
@@ -245,7 +249,10 @@ export function PricingPage() {
             alt=""
             fill
             priority
-            sizes="(min-width: 1100px) 46vw, 100vw"
+            fetchPriority="high"
+            loading="eager"
+            quality={HERO_IMAGE_QUALITY}
+            sizes={PRICING_HERO_IMAGE_SIZES}
             className={styles.photoImg}
           />
           <div className={styles.overlay} />

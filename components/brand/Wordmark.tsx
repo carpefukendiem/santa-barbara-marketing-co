@@ -5,10 +5,10 @@ import { cn } from '@/lib/utils';
 export function Wordmark({
   inverted = false,
   className,
-  priority = false,
 }: {
   inverted?: boolean;
   className?: string;
+  /** @deprecated Ignored; wordmark must not steal LCP preload from the hero. */
   priority?: boolean;
 }) {
   const mark = inverted ? brand.wordmarkWhite : brand.wordmarkNavy;
@@ -20,7 +20,10 @@ export function Wordmark({
       height={mark.height}
       sizes="(max-width: 767px) 224px, 320px"
       className={cn('header-wordmark object-contain object-left', className)}
-      priority={priority}
+      // Lazy + low priority so the hero owns LCP discovery / preload.
+      loading="lazy"
+      decoding="async"
+      fetchPriority="low"
     />
   );
 }

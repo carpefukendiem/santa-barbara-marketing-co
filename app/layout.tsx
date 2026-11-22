@@ -9,15 +9,28 @@ const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-source-serif',
-  style: ['normal', 'italic'],
+  style: 'normal',
+  // Preload only the ATF headline face (one woff2).
   preload: true,
+  adjustFontFallback: true,
+});
+
+// Italic ships for pull-quotes / closers but is not preloaded (below-fold on mobile).
+const sourceSerifItalic = Source_Serif_4({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-serif-italic',
+  style: 'italic',
+  preload: false,
+  adjustFontFallback: true,
 });
 
 const inter = Inter_Tight({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-  preload: true,
+  preload: false,
+  adjustFontFallback: true,
 });
 
 const jetbrains = JetBrains_Mono({
@@ -25,7 +38,8 @@ const jetbrains = JetBrains_Mono({
   display: 'swap',
   variable: '--font-mono-jb',
   weight: '500',
-  preload: true,
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -49,11 +63,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sourceSerif.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      className={`${sourceSerif.variable} ${sourceSerifItalic.variable} ${inter.variable} ${jetbrains.variable}`}
+    >
       <head>
-        <link rel="preconnect" href={booking.origin} crossOrigin="anonymous" />
         <link rel="dns-prefetch" href={booking.origin} />
-        <link rel="preload" as="script" href={booking.scriptSrc} />
       </head>
       <body className="font-sans antialiased">
         <SiteChrome>{children}</SiteChrome>

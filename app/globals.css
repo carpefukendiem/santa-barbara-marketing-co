@@ -34,6 +34,7 @@
   --color-sbmc-border: rgb(11 31 51 / 0.14);
 
   --font-display: var(--font-source-serif), ui-serif, Georgia, 'Times New Roman', serif;
+  --font-display-italic: var(--font-source-serif-italic), var(--font-source-serif), ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-jb), ui-monospace, 'SFMono-Regular', monospace;
 
@@ -56,6 +57,9 @@
 }
 
 :root {
+  --font-display: var(--font-source-serif), ui-serif, Georgia, 'Times New Roman', serif;
+  --font-display-italic: var(--font-source-serif-italic), var(--font-source-serif), ui-serif, Georgia,
+    'Times New Roman', serif;
   --navy: #0b1f33;
   --ocean: #d9a441;
   --tile: #c4472e;
@@ -104,9 +108,10 @@
   --navy-28: rgba(11, 31, 51, 0.28);
   --navy-25: rgba(11, 31, 51, 0.25);
   --navy-22: rgba(11, 31, 51, 0.22);
-  --sh-panel: 0 30px 70px rgba(0, 0, 0, 0.45);
-  --sh-card-m: 0 18px 40px rgba(0, 0, 0, 0.4);
-  --sh-cta: 0 10px 24px rgba(196, 71, 46, 0.35);
+  /* Slightly cheaper paint than deep multi-layer blurs; looks the same at a glance. */
+  --sh-panel: 0 18px 40px rgba(0, 0, 0, 0.38);
+  --sh-card-m: 0 10px 24px rgba(0, 0, 0, 0.32);
+  --sh-cta: 0 8px 18px rgba(196, 71, 46, 0.32);
 }
 
 html {
@@ -201,6 +206,12 @@ footer.footer-badge::before {
   font-family: var(--font-display);
   font-weight: 300;
   letter-spacing: -0.02em;
+}
+
+em.font-display,
+.font-display em,
+i.font-display {
+  font-family: var(--font-display-italic);
 }
 
 .font-mono {

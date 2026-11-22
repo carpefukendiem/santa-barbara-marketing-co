@@ -56,7 +56,7 @@ export function Header() {
       className={cn(
         'site-header fixed inset-x-0 top-0 z-40',
         scrolled || lightTop
-          ? 'border-b border-rule bg-cream/95 text-ink backdrop-blur'
+          ? 'border-b border-rule bg-cream/95 text-ink'
           : 'border-b border-transparent bg-transparent text-cream',
       )}
       data-scrolled={scrolled ? '' : undefined}

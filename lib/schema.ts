@@ -114,6 +114,7 @@ export function businessSchema(): JsonLd {
       'CRM and marketing automation',
       'E-commerce websites',
     ],
+    sameAs: organizationSameAsLinks(),
     hasOfferCatalog: { '@id': offerCatalogId() },
     potentialAction: reserveAction(),
   };

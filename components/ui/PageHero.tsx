@@ -8,6 +8,10 @@ import { SealWatermark } from '@/components/ui/SealWatermark';
 import { Breadcrumbs, type Crumb } from '@/components/layout/Breadcrumbs';
 import type { SiteImage } from '@/data/images';
 import { primaryCta as siteCta } from '@/data/navigation';
+import {
+  HERO_IMAGE_QUALITY,
+  PAGE_HERO_IMAGE_SIZES,
+} from '@/lib/heroImage';
 import { cn } from '@/lib/utils';
 
 type Cta = { href: string; label: string };
@@ -68,8 +72,10 @@ export function PageHero({
             alt={image.alt}
             fill
             priority
-            quality={78}
-            sizes="(max-width: 1024px) 100vw, 42vw"
+            fetchPriority="high"
+            loading="eager"
+            quality={HERO_IMAGE_QUALITY}
+            sizes={PAGE_HERO_IMAGE_SIZES}
             className="object-cover"
             style={{ objectPosition: image.focalPoint }}
           />
