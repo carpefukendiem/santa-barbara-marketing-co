@@ -670,7 +670,7 @@
   justify-content: center;
   gap: 10px;
   color: var(--navy);
-  font-family: var(--font-display);
+  font-family: var(--font-display-italic);
   font-size: 18px;
   font-style: italic;
   font-weight: 500;

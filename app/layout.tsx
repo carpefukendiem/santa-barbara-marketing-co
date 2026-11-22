@@ -9,9 +9,19 @@ const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-source-serif',
-  style: ['normal', 'italic'],
-  // Preload only the display face used in the ATF headline.
+  style: 'normal',
+  // Preload only the ATF headline face (one woff2).
   preload: true,
+  adjustFontFallback: true,
+});
+
+// Italic ships for pull-quotes / closers but is not preloaded (below-fold on mobile).
+const sourceSerifItalic = Source_Serif_4({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-source-serif-italic',
+  style: 'italic',
+  preload: false,
   adjustFontFallback: true,
 });
 
@@ -53,7 +63,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sourceSerif.variable} ${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="en"
+      className={`${sourceSerif.variable} ${sourceSerifItalic.variable} ${inter.variable} ${jetbrains.variable}`}
+    >
       <head>
         <link rel="dns-prefetch" href={booking.origin} />
       </head>
