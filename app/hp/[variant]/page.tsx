@@ -15,7 +15,7 @@ const homeMetadata = buildMetadata({
   title:
     'Santa Barbara Marketing Co. | Digital Marketing Agency in Santa Barbara, CA',
   description:
-    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a free call.',
+    'Local SEO, websites, and Google Ads for Santa Barbara, Goleta, Montecito, and Carpinteria. Honest reporting. Book a 20-minute call.',
   path: '/',
   absoluteTitle: true,
 });

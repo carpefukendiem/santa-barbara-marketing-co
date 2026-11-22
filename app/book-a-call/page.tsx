@@ -7,7 +7,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Book a Free Call | Santa Barbara Marketing Co.',
+  title: 'Book a 20-Minute Call | Santa Barbara Marketing Co.',
   description:
     'A free 30-minute call with a local marketing team. No contract, no pitch deck.',
   path: '/book-a-call',
@@ -35,17 +35,17 @@ export default function BookACallPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Home', path: '/' },
-          { name: 'Book a Free Call', path: '/book-a-call' },
+          { name: 'Book a 20-Minute Call', path: '/book-a-call' },
         ])}
       />
       <PageHero
         variant="simple"
-        title="Book a Free Call."
+        title="Book a 20-Minute Call."
         accent="Call."
         subhead="Thirty minutes. We look at your visibility before we talk and bring a short list of what we would do first."
         breadcrumbs={[
           { href: '/', label: 'Home' },
-          { label: 'Book a Free Call' },
+          { label: 'Book a 20-Minute Call' },
         ]}
         primaryCta={null}
         compact

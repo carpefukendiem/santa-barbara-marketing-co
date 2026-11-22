@@ -15,13 +15,13 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Frequently Asked Questions',
   description:
-    'Clear answers on Local SEO, Google Ads, websites, pricing, and how we work with Santa Barbara County businesses. Book a Free Call.',
+    'Clear answers on Local SEO, Google Ads, websites, pricing, and how we work with Santa Barbara County businesses. Book a 20-Minute Call.',
   path: '/faq',
 });
 
 const groups: Array<{ category: FaqItem['category']; title: string }> = [
   { category: 'getting-started', title: 'Getting Started' },
-  { category: 'free-call', title: 'Free Call' },
+  { category: 'free-call', title: '20-Minute Call' },
   { category: 'seo', title: 'SEO & Local Search' },
   { category: 'ads', title: 'Google Ads' },
   { category: 'websites', title: 'Websites' },
@@ -78,7 +78,7 @@ export default function FaqPage() {
       ))}
       <CtaBand
         heading="Still looking at the market?"
-        subline="A free call is a written 90-day list for your category and city."
+        subline="A 20-minute call is a written 90-day list for your category and city."
       />
     </>
   );

@@ -22,7 +22,7 @@ import type { LucideIcon } from 'lucide-react';
 export const metadata = buildMetadata({
   title: 'About Us',
   description:
-    "We're a Santa Barbara digital marketing agency founded in 2026. Local by residence, proof over promises, one system. Book a Free Call.",
+    "We're a Santa Barbara digital marketing agency founded in 2026. Local by residence, proof over promises, one system. Book a 20-Minute Call.",
   path: '/about',
 });
 
@@ -186,7 +186,7 @@ export default function AboutPage() {
               there is no review widget. The street address and phone you see in
               the footer and on Contact are the ones we publish in schema. If a
               competitor is beating you on review velocity, we will say that in
-              a free call instead of dressing it up.
+              a 20-minute call instead of dressing it up.
             </p>
             <p>
               That posture is how we write service pages, location pages, and
@@ -205,7 +205,7 @@ export default function AboutPage() {
             </p>
             <h2>How to start</h2>
             <p>
-              <Link href="/book-a-call">Book a free call</Link>
+              <Link href="/book-a-call">Book a 20-minute call</Link>
               . We look at your current visibility before we talk and come with
               a short list of what we would do first. If it makes sense to work
               together, we send a proposal. If not, you leave with the list. No

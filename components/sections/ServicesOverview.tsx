@@ -181,7 +181,7 @@ export function ServicesOverview() {
           <Heading className="mt-4 text-center">Which do I need?</Heading>
           <p className="mx-auto mt-5 max-w-[58ch] text-center text-lg text-stone">
             Three common 805 situations, and the service we would usually open
-            with. A free call is how we confirm that for your pin and your
+            with. A 20-minute call is how we confirm that for your pin and your
             category, instead of selling the whole menu.
           </p>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -215,7 +215,7 @@ export function ServicesOverview() {
 
       <CtaBand
         heading="Not sure which service comes first?"
-        subline="A free call is a written 90-day priority list, not a pitch deck."
+        subline="A 20-minute call is a written 90-day priority list, not a pitch deck."
       />
     </>
   );

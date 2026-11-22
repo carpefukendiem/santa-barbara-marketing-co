@@ -72,7 +72,7 @@ export const pricingPlan = {
   steps: [
     {
       title: 'Talk first, or start now',
-      body: 'Book a free call and we look at your listing and site. Already decided? Get Started is the pay-and-enroll page.',
+      body: 'Book a 20-minute call and we look at your listing and site. Already decided? Get Started is the pay-and-enroll page.',
     },
     {
       title: 'We build the system',

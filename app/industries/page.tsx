@@ -72,7 +72,7 @@ export default function IndustriesPage() {
       </Section>
       <CtaBand
         heading="Not sure which page you need?"
-        subline="A free call starts from your category and city, not a template."
+        subline="A 20-minute call starts from your category and city, not a template."
       />
     </>
   );
