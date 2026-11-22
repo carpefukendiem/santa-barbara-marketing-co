@@ -20,38 +20,38 @@ export const sheepskinTradingPostDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Mon 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Mon 11 AM to 6 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Tue 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Tue 11 AM to 6 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Wed 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Wed 11 AM to 6 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Thu 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Thu 11 AM to 6 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Fri 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Fri 11 AM to 6 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "11 AM – 6 PM",
-      "hoursText": "Sat 11 AM – 6 PM"
+      "hours": "11 AM to 6 PM",
+      "hoursText": "Sat 11 AM to 6 PM"
     },
     {
       "day": "Sun",

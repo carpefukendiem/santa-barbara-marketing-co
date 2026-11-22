@@ -27,32 +27,32 @@ export const urbanStatementSalonDemo: DemoData = {
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "10 AM – 7 PM",
-      "hoursText": "Tue 10 AM – 7 PM"
+      "hours": "10 AM to 7 PM",
+      "hoursText": "Tue 10 AM to 7 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "10 AM – 7 PM",
-      "hoursText": "Wed 10 AM – 7 PM"
+      "hours": "10 AM to 7 PM",
+      "hoursText": "Wed 10 AM to 7 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "10 AM – 7 PM",
-      "hoursText": "Thu 10 AM – 7 PM"
+      "hours": "10 AM to 7 PM",
+      "hoursText": "Thu 10 AM to 7 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "10 AM – 7 PM",
-      "hoursText": "Fri 10 AM – 7 PM"
+      "hours": "10 AM to 7 PM",
+      "hoursText": "Fri 10 AM to 7 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "9 AM – 4 PM",
-      "hoursText": "Sat 9 AM – 4 PM"
+      "hours": "9 AM to 4 PM",
+      "hoursText": "Sat 9 AM to 4 PM"
     },
     {
       "day": "Sun",

@@ -27,32 +27,32 @@ export const stapeCyclesDemo: DemoData = {
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "12 – 5 PM",
-      "hoursText": "Tue 12 – 5 PM"
+      "hours": "12 to 5 PM",
+      "hoursText": "Tue 12 to 5 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "12 – 5 PM",
-      "hoursText": "Wed 12 – 5 PM"
+      "hours": "12 to 5 PM",
+      "hoursText": "Wed 12 to 5 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "12 – 5 PM",
-      "hoursText": "Thu 12 – 5 PM"
+      "hours": "12 to 5 PM",
+      "hoursText": "Thu 12 to 5 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "12 – 5 PM",
-      "hoursText": "Fri 12 – 5 PM"
+      "hours": "12 to 5 PM",
+      "hoursText": "Fri 12 to 5 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "12 – 5 PM",
-      "hoursText": "Sat 12 – 5 PM"
+      "hours": "12 to 5 PM",
+      "hoursText": "Sat 12 to 5 PM"
     },
     {
       "day": "Sun",

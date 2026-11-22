@@ -20,38 +20,38 @@ export const goletaRadiatorAutoRepairDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "9 AM – 5:30 PM",
-      "hoursText": "Mon 9 AM – 5:30 PM"
+      "hours": "9 AM to 5:30 PM",
+      "hoursText": "Mon 9 AM to 5:30 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "9 AM – 5:30 PM",
-      "hoursText": "Tue 9 AM – 5:30 PM"
+      "hours": "9 AM to 5:30 PM",
+      "hoursText": "Tue 9 AM to 5:30 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "9 AM – 5:30 PM",
-      "hoursText": "Wed 9 AM – 5:30 PM"
+      "hours": "9 AM to 5:30 PM",
+      "hoursText": "Wed 9 AM to 5:30 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "9 AM – 5:30 PM",
-      "hoursText": "Thu 9 AM – 5:30 PM"
+      "hours": "9 AM to 5:30 PM",
+      "hoursText": "Thu 9 AM to 5:30 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "9 AM – 5:30 PM",
-      "hoursText": "Fri 9 AM – 5:30 PM"
+      "hours": "9 AM to 5:30 PM",
+      "hoursText": "Fri 9 AM to 5:30 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "9 AM – 2 PM",
-      "hoursText": "Sat 9 AM – 2 PM"
+      "hours": "9 AM to 2 PM",
+      "hoursText": "Sat 9 AM to 2 PM"
     },
     {
       "day": "Sun",

@@ -20,32 +20,32 @@ export const bobsCanvasShopDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "9 AM – 5 PM",
-      "hoursText": "Mon 9 AM – 5 PM"
+      "hours": "9 AM to 5 PM",
+      "hoursText": "Mon 9 AM to 5 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "9 AM – 5 PM",
-      "hoursText": "Tue 9 AM – 5 PM"
+      "hours": "9 AM to 5 PM",
+      "hoursText": "Tue 9 AM to 5 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "9 AM – 5 PM",
-      "hoursText": "Wed 9 AM – 5 PM"
+      "hours": "9 AM to 5 PM",
+      "hoursText": "Wed 9 AM to 5 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "9 AM – 5 PM",
-      "hoursText": "Thu 9 AM – 5 PM"
+      "hours": "9 AM to 5 PM",
+      "hoursText": "Thu 9 AM to 5 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "9 AM – 5 PM",
-      "hoursText": "Fri 9 AM – 5 PM"
+      "hours": "9 AM to 5 PM",
+      "hoursText": "Fri 9 AM to 5 PM"
     },
     {
       "day": "Sat",

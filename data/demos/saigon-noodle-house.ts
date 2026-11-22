@@ -20,8 +20,8 @@ export const saigonNoodleHouseDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Mon 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Mon 10 AM to 9 PM"
     },
     {
       "day": "Tue",
@@ -32,32 +32,32 @@ export const saigonNoodleHouseDemo: DemoData = {
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Wed 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Wed 10 AM to 9 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Thu 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Thu 10 AM to 9 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Fri 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Fri 10 AM to 9 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Sat 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Sat 10 AM to 9 PM"
     },
     {
       "day": "Sun",
       "label": "Sunday",
-      "hours": "10 AM – 9 PM",
-      "hoursText": "Sun 10 AM – 9 PM"
+      "hours": "10 AM to 9 PM",
+      "hoursText": "Sun 10 AM to 9 PM"
     }
   ]
 };

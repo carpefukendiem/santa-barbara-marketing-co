@@ -20,38 +20,38 @@ export const caseysGarageDiscountSmogDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "8 AM – 5:30 PM",
-      "hoursText": "Mon 8 AM – 5:30 PM"
+      "hours": "8 AM to 5:30 PM",
+      "hoursText": "Mon 8 AM to 5:30 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "8 AM – 5:30 PM",
-      "hoursText": "Tue 8 AM – 5:30 PM"
+      "hours": "8 AM to 5:30 PM",
+      "hoursText": "Tue 8 AM to 5:30 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "8 AM – 5:30 PM",
-      "hoursText": "Wed 8 AM – 5:30 PM"
+      "hours": "8 AM to 5:30 PM",
+      "hoursText": "Wed 8 AM to 5:30 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "8 AM – 5:30 PM",
-      "hoursText": "Thu 8 AM – 5:30 PM"
+      "hours": "8 AM to 5:30 PM",
+      "hoursText": "Thu 8 AM to 5:30 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "8 AM – 5:30 PM",
-      "hoursText": "Fri 8 AM – 5:30 PM"
+      "hours": "8 AM to 5:30 PM",
+      "hoursText": "Fri 8 AM to 5:30 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "9 AM – 12:30 PM",
-      "hoursText": "Sat 9 AM – 12:30 PM"
+      "hours": "9 AM to 12:30 PM",
+      "hoursText": "Sat 9 AM to 12:30 PM"
     },
     {
       "day": "Sun",

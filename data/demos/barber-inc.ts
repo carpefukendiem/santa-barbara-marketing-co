@@ -20,38 +20,38 @@ export const barberIncDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "12 – 6:30 PM",
-      "hoursText": "Mon 12 – 6:30 PM"
+      "hours": "12 to 6:30 PM",
+      "hoursText": "Mon 12 to 6:30 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "10 AM – 5 PM",
-      "hoursText": "Tue 10 AM – 5 PM"
+      "hours": "10 AM to 5 PM",
+      "hoursText": "Tue 10 AM to 5 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "10 AM – 5 PM",
-      "hoursText": "Wed 10 AM – 5 PM"
+      "hours": "10 AM to 5 PM",
+      "hoursText": "Wed 10 AM to 5 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "10 AM – 5 PM",
-      "hoursText": "Thu 10 AM – 5 PM"
+      "hours": "10 AM to 5 PM",
+      "hoursText": "Thu 10 AM to 5 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "10 AM – 5 PM",
-      "hoursText": "Fri 10 AM – 5 PM"
+      "hours": "10 AM to 5 PM",
+      "hoursText": "Fri 10 AM to 5 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "1 – 5 PM",
-      "hoursText": "Sat 1 – 5 PM"
+      "hours": "1 to 5 PM",
+      "hoursText": "Sat 1 to 5 PM"
     },
     {
       "day": "Sun",

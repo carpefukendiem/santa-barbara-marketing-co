@@ -27,32 +27,32 @@ export const kidsCutsDemo: DemoData = {
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "10 AM – 6 PM",
-      "hoursText": "Tue 10 AM – 6 PM"
+      "hours": "10 AM to 6 PM",
+      "hoursText": "Tue 10 AM to 6 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "10 AM – 6 PM",
-      "hoursText": "Wed 10 AM – 6 PM"
+      "hours": "10 AM to 6 PM",
+      "hoursText": "Wed 10 AM to 6 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "10 AM – 6 PM",
-      "hoursText": "Thu 10 AM – 6 PM"
+      "hours": "10 AM to 6 PM",
+      "hoursText": "Thu 10 AM to 6 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "10 AM – 6 PM",
-      "hoursText": "Fri 10 AM – 6 PM"
+      "hours": "10 AM to 6 PM",
+      "hoursText": "Fri 10 AM to 6 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "10 AM – 3 PM",
-      "hoursText": "Sat 10 AM – 3 PM"
+      "hours": "10 AM to 3 PM",
+      "hoursText": "Sat 10 AM to 3 PM"
     },
     {
       "day": "Sun",

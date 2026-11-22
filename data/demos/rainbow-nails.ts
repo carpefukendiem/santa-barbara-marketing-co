@@ -20,32 +20,32 @@ export const rainbowNailsDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "9:30 AM – 7 PM",
-      "hoursText": "Mon 9:30 AM – 7 PM"
+      "hours": "9:30 AM to 7 PM",
+      "hoursText": "Mon 9:30 AM to 7 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "9:30 AM – 7 PM",
-      "hoursText": "Tue 9:30 AM – 7 PM"
+      "hours": "9:30 AM to 7 PM",
+      "hoursText": "Tue 9:30 AM to 7 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "9:30 AM – 7 PM",
-      "hoursText": "Wed 9:30 AM – 7 PM"
+      "hours": "9:30 AM to 7 PM",
+      "hoursText": "Wed 9:30 AM to 7 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "9:30 AM – 7 PM",
-      "hoursText": "Thu 9:30 AM – 7 PM"
+      "hours": "9:30 AM to 7 PM",
+      "hoursText": "Thu 9:30 AM to 7 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "9:30 AM – 7 PM",
-      "hoursText": "Fri 9:30 AM – 7 PM"
+      "hours": "9:30 AM to 7 PM",
+      "hoursText": "Fri 9:30 AM to 7 PM"
     },
     {
       "day": "Sat",

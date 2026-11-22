@@ -20,32 +20,32 @@ export const simplyAutomotiveDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "7:30 AM – 5:30 PM",
-      "hoursText": "Mon 7:30 AM – 5:30 PM"
+      "hours": "7:30 AM to 5:30 PM",
+      "hoursText": "Mon 7:30 AM to 5:30 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "7:30 AM – 5:30 PM",
-      "hoursText": "Tue 7:30 AM – 5:30 PM"
+      "hours": "7:30 AM to 5:30 PM",
+      "hoursText": "Tue 7:30 AM to 5:30 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "7:30 AM – 5:30 PM",
-      "hoursText": "Wed 7:30 AM – 5:30 PM"
+      "hours": "7:30 AM to 5:30 PM",
+      "hoursText": "Wed 7:30 AM to 5:30 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "7:30 AM – 5:30 PM",
-      "hoursText": "Thu 7:30 AM – 5:30 PM"
+      "hours": "7:30 AM to 5:30 PM",
+      "hoursText": "Thu 7:30 AM to 5:30 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "7:30 AM – 5:30 PM",
-      "hoursText": "Fri 7:30 AM – 5:30 PM"
+      "hours": "7:30 AM to 5:30 PM",
+      "hoursText": "Fri 7:30 AM to 5:30 PM"
     },
     {
       "day": "Sat",

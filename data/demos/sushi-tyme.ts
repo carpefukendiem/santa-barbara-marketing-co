@@ -20,44 +20,44 @@ export const sushiTymeDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Mon 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Mon 11 AM to 8:30 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Tue 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Tue 11 AM to 8:30 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Wed 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Wed 11 AM to 8:30 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Thu 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Thu 11 AM to 8:30 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Fri 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Fri 11 AM to 8:30 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Sat 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Sat 11 AM to 8:30 PM"
     },
     {
       "day": "Sun",
       "label": "Sunday",
-      "hours": "11 AM – 8:30 PM",
-      "hoursText": "Sun 11 AM – 8:30 PM"
+      "hours": "11 AM to 8:30 PM",
+      "hoursText": "Sun 11 AM to 8:30 PM"
     }
   ]
 };

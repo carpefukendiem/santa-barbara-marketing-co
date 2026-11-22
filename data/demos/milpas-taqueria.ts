@@ -20,44 +20,44 @@ export const milpasTaqueriaDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Mon 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Mon 8 AM to 8 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Tue 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Tue 8 AM to 8 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Wed 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Wed 8 AM to 8 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Thu 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Thu 8 AM to 8 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Fri 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Fri 8 AM to 8 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Sat 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Sat 8 AM to 8 PM"
     },
     {
       "day": "Sun",
       "label": "Sunday",
-      "hours": "8 AM – 8 PM",
-      "hoursText": "Sun 8 AM – 8 PM"
+      "hours": "8 AM to 8 PM",
+      "hoursText": "Sun 8 AM to 8 PM"
     }
   ]
 };

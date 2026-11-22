@@ -20,44 +20,44 @@ export const shanghaiRestaurantDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Mon 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Mon 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Tue 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Tue 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Wed 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Wed 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Thu 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Thu 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Fri 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Fri 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Sat 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Sat 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     },
     {
       "day": "Sun",
       "label": "Sunday",
-      "hours": "11:30 AM – 2:30 PM, 4:30 – 9 PM",
-      "hoursText": "Sun 11:30 AM – 2:30 PM, 4:30 – 9 PM"
+      "hours": "11:30 AM to 2:30 PM, 4:30 to 9 PM",
+      "hoursText": "Sun 11:30 AM to 2:30 PM, 4:30 to 9 PM"
     }
   ]
 };

@@ -20,38 +20,38 @@ export const uptownBarberShopDemo: DemoData = {
     {
       "day": "Mon",
       "label": "Monday",
-      "hours": "9 AM – 6 PM",
-      "hoursText": "Mon 9 AM – 6 PM"
+      "hours": "9 AM to 6 PM",
+      "hoursText": "Mon 9 AM to 6 PM"
     },
     {
       "day": "Tue",
       "label": "Tuesday",
-      "hours": "9 AM – 6 PM",
-      "hoursText": "Tue 9 AM – 6 PM"
+      "hours": "9 AM to 6 PM",
+      "hoursText": "Tue 9 AM to 6 PM"
     },
     {
       "day": "Wed",
       "label": "Wednesday",
-      "hours": "9 AM – 6 PM",
-      "hoursText": "Wed 9 AM – 6 PM"
+      "hours": "9 AM to 6 PM",
+      "hoursText": "Wed 9 AM to 6 PM"
     },
     {
       "day": "Thu",
       "label": "Thursday",
-      "hours": "9 AM – 6 PM",
-      "hoursText": "Thu 9 AM – 6 PM"
+      "hours": "9 AM to 6 PM",
+      "hoursText": "Thu 9 AM to 6 PM"
     },
     {
       "day": "Fri",
       "label": "Friday",
-      "hours": "9 AM – 6 PM",
-      "hoursText": "Fri 9 AM – 6 PM"
+      "hours": "9 AM to 6 PM",
+      "hoursText": "Fri 9 AM to 6 PM"
     },
     {
       "day": "Sat",
       "label": "Saturday",
-      "hours": "9 AM – 4 PM",
-      "hoursText": "Sat 9 AM – 4 PM"
+      "hours": "9 AM to 4 PM",
+      "hoursText": "Sat 9 AM to 4 PM"
     },
     {
       "day": "Sun",
