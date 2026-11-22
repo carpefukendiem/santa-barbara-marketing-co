@@ -12,7 +12,7 @@ export const batch1Locations: Location[] = [
     h1: 'Digital Marketing in Santa Maria',
     heroLede:
       'Santa Maria is the largest city in the county and the one most South Coast agencies skip. Broadway, Main Street, Orcutt, and the industrial belt along Betteravia are four different search jobs sharing one metro name.',
-    heroImage: photos.hero,
+    heroImage: photos.communitySantaMaria,
     intro:
       'Santa Maria sits at the north end of Santa Barbara County with its own downtown, its own suburbs, and an economy built on agriculture, food processing, retail, healthcare, and the everyday trades that keep a working city running. People who live here type Santa Maria. They do not type Santa Barbara when they need a dentist on Main, a contractor in Orcutt, or a lunch stop off Broadway. A marketing page that folds this city into a South Coast paragraph is asking to be ignored.\n\nSanta Barbara Marketing Co. writes for businesses that sell inside Santa Maria and Orcutt. The work is listings, pages, ads, and follow-up aimed at the searches that happen here, not at a waterfront template with the city name swapped. Founded in 2026, we serve the whole county. North County is not a footnote on that list.',
     marketProfile:
@@ -857,7 +857,7 @@ export const batch1Locations: Location[] = [
     h1: 'Santa Maria SEO Company',
     heroLede:
       'Santa Maria SEO is still underbuilt. The packs on Broadway, Main, and Orcutt are often missing a serious local operator who kept the profile complete and wrote a page that is actually about this city.',
-    heroImage: photos.hero,
+    heroImage: photos.communitySantaMaria,
     intro:
       'If you sell in Santa Maria, the listing in the three-pack is often the whole discovery path for trades, food, clinics, and local services. Someone searching from Orcutt, east Main, or a truck on Betteravia is looking at Maps first. Organic results under the pack still matter for medical, legal, multi-location home projects, and B2B work tied to agriculture and processing.\n\nThis page stays on ranking mechanics for this metro. Categories, reviews, proximity, and on-site relevance. Santa Barbara Marketing Co. treats Santa Maria as its own market. We do not stamp a South Coast paragraph and change the title. Founded in 2026. The Local Lead Plan is $297/mo or $2,970/yr and includes local SEO and on-site SEO when the fit is right.',
     marketProfile:
