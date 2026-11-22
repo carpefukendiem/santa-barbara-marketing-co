@@ -25,15 +25,20 @@ export function Breadcrumbs({
         className,
       )}
     >
-      <ol className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
+      {/*
+        Single row by default: earlier crumbs do not shrink; the last crumb
+        truncates with ellipsis (min-width:0). flex-wrap only kicks in if the
+        earlier crumbs alone cannot fit the viewport.
+      */}
+      <ol className="flex min-w-0 flex-nowrap items-center gap-x-1.5">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
             <li
               key={`${item.label}-${index}`}
               className={cn(
-                'flex min-w-0 items-center gap-1.5',
-                isLast ? 'max-w-full shrink' : 'shrink-0',
+                'flex items-center gap-1.5',
+                isLast ? 'min-w-0 basis-0 grow' : 'shrink-0',
               )}
             >
               {item.href && !isLast ? (
@@ -51,7 +56,7 @@ export function Breadcrumbs({
                   className={cn(
                     isLast && (light ? 'text-white' : 'text-navy'),
                     isLast &&
-                      'block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap',
+                      'block min-w-0 overflow-hidden text-ellipsis whitespace-nowrap',
                   )}
                   title={isLast ? item.label : undefined}
                 >
