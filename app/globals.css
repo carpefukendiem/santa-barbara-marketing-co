@@ -104,9 +104,10 @@
   --navy-28: rgba(11, 31, 51, 0.28);
   --navy-25: rgba(11, 31, 51, 0.25);
   --navy-22: rgba(11, 31, 51, 0.22);
-  --sh-panel: 0 30px 70px rgba(0, 0, 0, 0.45);
-  --sh-card-m: 0 18px 40px rgba(0, 0, 0, 0.4);
-  --sh-cta: 0 10px 24px rgba(196, 71, 46, 0.35);
+  /* Slightly cheaper paint than deep multi-layer blurs; looks the same at a glance. */
+  --sh-panel: 0 18px 40px rgba(0, 0, 0, 0.38);
+  --sh-card-m: 0 10px 24px rgba(0, 0, 0, 0.32);
+  --sh-cta: 0 8px 18px rgba(196, 71, 46, 0.32);
 }
 
 html {

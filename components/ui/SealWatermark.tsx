@@ -15,6 +15,11 @@ export function SealWatermark({
       alt=""
       width={size}
       height={size}
+      sizes="(max-width: 768px) 180px, 280px"
+      quality={60}
+      loading="lazy"
+      decoding="async"
+      fetchPriority="low"
       className={cn('seal-watermark', className)}
       aria-hidden="true"
     />

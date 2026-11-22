@@ -47,7 +47,7 @@ export function StickyEnrollBar({ targetId, ctaHref }: StickyEnrollBarProps) {
     <>
       {/* spacer to prevent footer overlap on mobile */}
       <div className="h-[74px] lg:h-0" aria-hidden="true" />
-      <div className="fixed inset-x-0 bottom-0 z-40 bg-cream/95 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur supports-[backdrop-filter]:bg-cream/80 lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 bg-cream/95 shadow-[0_-6px_16px_rgba(0,0,0,0.08)] lg:hidden">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3">
           <p className="text-sm">Ready to enroll?</p>
           <button

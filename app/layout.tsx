@@ -10,14 +10,17 @@ const sourceSerif = Source_Serif_4({
   display: 'swap',
   variable: '--font-source-serif',
   style: ['normal', 'italic'],
+  // Preload only the display face used in the ATF headline.
   preload: true,
+  adjustFontFallback: true,
 });
 
 const inter = Inter_Tight({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-  preload: true,
+  preload: false,
+  adjustFontFallback: true,
 });
 
 const jetbrains = JetBrains_Mono({
@@ -25,7 +28,8 @@ const jetbrains = JetBrains_Mono({
   display: 'swap',
   variable: '--font-mono-jb',
   weight: '500',
-  preload: true,
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -51,9 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sourceSerif.variable} ${inter.variable} ${jetbrains.variable}`}>
       <head>
-        <link rel="preconnect" href={booking.origin} crossOrigin="anonymous" />
         <link rel="dns-prefetch" href={booking.origin} />
-        <link rel="preload" as="script" href={booking.scriptSrc} />
       </head>
       <body className="font-sans antialiased">
         <SiteChrome>{children}</SiteChrome>

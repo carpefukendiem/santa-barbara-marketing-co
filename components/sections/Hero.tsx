@@ -4,6 +4,10 @@ import type { ReactNode } from 'react';
 import { photos } from '@/data/images';
 import type { HomepageCopy, IncludedItemCopy } from '@/data/homepage-variants';
 import { getHomepageCopy } from '@/data/homepage-variants';
+import {
+  HERO_IMAGE_QUALITY,
+  HERO_IMAGE_SIZES,
+} from '@/lib/heroImage';
 import styles from './hero-atf.module.css';
 
 type Step =
@@ -252,7 +256,10 @@ export function Hero({ copy = getHomepageCopy('a') }: { copy?: HomepageCopy }) {
           alt=""
           fill
           priority
-          sizes="(min-width: 1100px) 600px, 100vw"
+          fetchPriority="high"
+          loading="eager"
+          quality={HERO_IMAGE_QUALITY}
+          sizes={HERO_IMAGE_SIZES}
           className={styles.photoImg}
         />
         <div className={styles.overlay} />

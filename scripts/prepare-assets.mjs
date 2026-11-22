@@ -11,7 +11,7 @@
  *
  * Run: npm run prepare-assets
  */
-import { mkdir, readdir, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -171,19 +171,33 @@ async function generateBrandDerivatives() {
   const faviconOut = path.join(BRAND, 'sbmc-favicon.webp');
   await stripNearWhite(faviconSource, faviconOut, { circularMask: true });
 
-  const png32 = await sharp(faviconOut).resize(32, 32).png().toBuffer();
-  await sharp(png32).toFile(path.join(PUBLIC, 'favicon-32.png'));
+  const png32 = await sharp(faviconOut)
+    .resize(32, 32)
+    .png({ compressionLevel: 9, palette: true, colors: 64, effort: 10 })
+    .toBuffer();
+  await writeFile(path.join(PUBLIC, 'favicon-32.png'), png32);
   await writeFile(path.join(PUBLIC, 'favicon.ico'), pngToIco(png32, 32, 32));
 
+  // Keep app icons tiny: browsers only need 32–48px for /icon.png.
   await sharp(faviconOut)
-    .resize(512, 512)
-    .png()
+    .resize(48, 48)
+    .png({ compressionLevel: 9, palette: true, colors: 64, effort: 10 })
     .toFile(path.join(APP, 'icon.png'));
 
   await sharp(faviconOut)
     .resize(180, 180)
-    .png()
+    .png({ compressionLevel: 9, palette: true, colors: 64, effort: 10 })
     .toFile(path.join(APP, 'apple-icon.png'));
+
+  // Vector favicon for browsers that prefer SVG (same seal artwork family).
+  try {
+    await copyFile(
+      path.join(BRAND, 'badge-mono-navy.svg'),
+      path.join(APP, 'icon.svg'),
+    );
+  } catch {
+    // Badge SVG is optional when regenerating from raw only.
+  }
 
   await sharp(logoOut)
     .png()

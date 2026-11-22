@@ -60,6 +60,10 @@ describe('schema hard rules', () => {
       false,
     )
 
+    const business = businessSchema()
+    assert.deepEqual(business.sameAs, organizationSameAsLinks())
+    assert.deepEqual(business.sameAs, org.sameAs)
+
     const person = personSchema()
     assert.deepEqual(person.sameAs, founderSameAsLinks())
     assert.deepEqual(person.sameAs, ['https://www.linkedin.com/in/rubenruiz/'])
