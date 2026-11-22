@@ -1,3 +1,7 @@
+'use client';
+
+import Image from 'next/image';
+import { useRef } from 'react';
 import type { DemoData } from '@/data/demos/types';
 import { telHref } from '@/lib/utils';
 import { DemoLogo } from '@/components/demos/DemoLogo';
@@ -6,8 +10,11 @@ import { DemoViewTracker } from '@/components/demos/DemoViewTracker';
 import { HoursList } from '@/components/demos/HoursList';
 import { HoursToday } from '@/components/demos/HoursToday';
 import { MapEmbed } from '@/components/demos/MapEmbed';
+import { useDemoReveal } from '@/components/demos/useDemoReveal';
 import { NavIcon, PhoneIcon, PinIcon } from '@/components/demos/icons';
 import './coastal.css';
+
+const ASSET = '/demos/coastal-dentistry';
 
 function Waves() {
   return (
@@ -78,8 +85,11 @@ function Waves() {
 }
 
 export function CoastalPage({ demo }: { demo: DemoData }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useDemoReveal(rootRef);
+
   return (
-    <div className="sbmc-demo-page d-coastal">
+    <div ref={rootRef} className="sbmc-demo-page d-coastal">
       <DemoViewTracker slug={demo.slug} />
       <HoursToday hours={demo.hours} />
 
@@ -103,20 +113,22 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
           </nav>
           <a className="hc" href={telHref(demo.phone)}>
             <PhoneIcon size={16} />
-            Call
+            <span className="hd-call-short">Call</span>
+            <span className="hd-call-full">Call {demo.phone}</span>
           </a>
         </div>
       </header>
 
       <main id="top">
-        <section className="hero" style={{ paddingBottom: 0 }}>
+        <section className="hero">
           <div className="wrap grid">
-            <div>
+            <div className="hero-copy hero-rise">
               <div className="k">5973 Encina Rd #108 · Goleta</div>
-              <h1 style={{ marginTop: 14 }}>
+              <h1>
                 Your Goleta dentist.{' '}
                 <em>Dr. Loan Su, and a small office that knows you.</em>
               </h1>
+              <Waves />
               <p className="lead">
                 Careful, personal general dentistry and cleanings, from one dentist who
                 sees you every visit.
@@ -124,7 +136,7 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
               <div className="cta">
                 <a className="btn b1" href={telHref(demo.phone)}>
                   <PhoneIcon />
-                  {demo.phone}
+                  Call to book a cleaning
                 </a>
                 <a
                   className="btn b2"
@@ -133,32 +145,27 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
                   rel="noopener"
                 >
                   <NavIcon />
-                  Directions
+                  Directions to Encina Rd
                 </a>
               </div>
-              <div className="today">
-                Today: <b data-today-text>Mon 9 AM – 6 PM</b>
+              <div className="hero-meta">
+                <span className="sbmc-status" data-open-status>
+                  Hours today
+                </span>
+                <div className="today">
+                  Today: <b data-today-text>Mon 9 AM to 6 PM</b>
+                </div>
               </div>
             </div>
-            <div className="card">
-              <div className="k" style={{ color: 'var(--glass)' }}>
-                Meet your dentist
-              </div>
-              <div className="sig" style={{ marginTop: 10 }}>
-                Dr. Loan Su
-              </div>
-              <p>General dentistry and cleanings on Encina Road.</p>
-              <div className="facts">
-                <div>
-                  <b>One dentist</b>
-                  <span>Care, admin and billing</span>
-                </div>
-                <div>
-                  <b>Mon to Fri</b>
-                  <span>9 AM – 6 PM</span>
-                </div>
-              </div>
-              <Waves />
+            <div className="hero-ph hero-kb">
+              <Image
+                src={`${ASSET}/hero.jpg`}
+                alt="Calm dental operatory chair by a window"
+                width={1600}
+                height={2000}
+                priority
+                sizes="(min-width:900px) 42vw, 100vw"
+              />
             </div>
           </div>
         </section>
@@ -184,24 +191,37 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
 
         <section className="what" id="care">
           <div className="wrap">
-            <div className="k">What we do</div>
-            <h2 className="h2">A small office, on purpose.</h2>
-            <div className="list">
-              <div className="it">
-                <b>General dentistry</b>
-                <p>Everyday dental care with Dr. Su.</p>
+            <div className="care-grid">
+              <div>
+                <div className="k">What we do</div>
+                <h2 className="h2">A small office, on purpose.</h2>
+                <div className="list">
+                  <div className="it">
+                    <b>General dentistry</b>
+                    <p>Everyday dental care with Dr. Su.</p>
+                  </div>
+                  <div className="it">
+                    <b>Cleanings</b>
+                    <p>Regular cleanings to keep your smile healthy.</p>
+                  </div>
+                  <div className="it alt">
+                    <b>One person, start to finish</b>
+                    <p>
+                      Patients say Dr. Su handles the clinical work and the admin and
+                      billing herself, so you deal with the same person every time.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="it">
-                <b>Cleanings</b>
-                <p>Regular cleanings to keep your smile healthy.</p>
-              </div>
-              <div className="it alt">
-                <b>One person, start to finish</b>
-                <p>
-                  Patients say Dr. Su handles the clinical work and the admin and billing
-                  herself, so you deal with the same person every time.
-                </p>
-              </div>
+              <figure className="care-ph">
+                <Image
+                  src={`${ASSET}/tools.jpg`}
+                  alt="Sterile dental instruments on a tray"
+                  width={1400}
+                  height={1000}
+                  sizes="(min-width:900px) 40vw, 100vw"
+                />
+              </figure>
             </div>
           </div>
         </section>
@@ -210,18 +230,6 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
           <div className="wrap">
             <div className="k">Patient reviews</div>
             <h2 className="h2">Warm, careful, consistent.</h2>
-            <div className="rates">
-              <div>
-                <b>4.3</b>
-                <span className="s">★★★★☆</span>
-                <small>Birdeye · 6 reviews</small>
-              </div>
-              <div>
-                <b>5.0</b>
-                <span className="s">★★★★★</span>
-                <small>Map listing · 4 reviews</small>
-              </div>
-            </div>
             <blockquote className="q">
               <p>
                 Dr. Su is wonderful! Helped me so much when I needed it the most. Changed
@@ -240,11 +248,31 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
         </section>
 
         <section className="visit" id="visit">
-          <div className="wrap">
-            <div className="k">Visit</div>
-            <h2 className="h2">Suite 108 on Encina Road.</h2>
-            <HoursList hours={demo.hours} />
-            <MapEmbed address={demo.address} title={`Map of ${demo.address}`} />
+          <div className="wrap visit-shell">
+            <div
+              className="visit-texture"
+              style={{ backgroundImage: `url(${ASSET}/seaglass.jpg)` }}
+              aria-hidden="true"
+            />
+            <div className="visit-copy">
+              <div className="k">Visit</div>
+              <h2 className="h2">Suite 108 on Encina Road.</h2>
+            </div>
+            <div className="visit-card sbmc-map-card">
+              <div className="map-body">
+                <div className="map-addr">{demo.address}</div>
+                <a
+                  className="map-link"
+                  href={demo.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Open in Google Maps
+                </a>
+                <HoursList hours={demo.hours} />
+              </div>
+              <MapEmbed address={demo.address} title={`Map of ${demo.address}`} />
+            </div>
             <div className="contact">
               <a href={telHref(demo.phone)}>
                 <PhoneIcon size={22} />
@@ -281,17 +309,6 @@ export function CoastalPage({ demo }: { demo: DemoData }) {
           <div className="credit">Demo site by Santa Barbara Marketing Co</div>
         </div>
       </footer>
-
-      <div className="bar">
-        <a className="btn b1" href={telHref(demo.phone)}>
-          <PhoneIcon />
-          Call now
-        </a>
-        <a className="btn b2" href={demo.googleMapsUrl} target="_blank" rel="noopener">
-          <NavIcon />
-          Directions
-        </a>
-      </div>
 
       <DemoPreviewChrome
         businessName={demo.name}

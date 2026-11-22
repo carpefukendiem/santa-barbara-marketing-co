@@ -17,10 +17,13 @@
 .d-ocean-nails /* ticker */
 .tick{background:var(--sky);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(8,22,31,.15)}
 .d-ocean-nails .tick div{display:inline-flex;gap:28px;padding:11px 0;font:700 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;animation:t 40s linear infinite}
+.d-ocean-nails .tick:hover div{animation-play-state:paused}
 .d-ocean-nails .tick span:nth-child(even){font:italic 500 16px/1 var(--serif);letter-spacing:0;text-transform:none}
 @keyframes t{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.d-ocean-nails .tick div{animation:none}}
 .d-ocean-nails /* header */
-header{background:var(--ink);color:var(--bone)}
+header{position:sticky;top:0;z-index:20;background:rgba(8,22,31,.94);color:var(--bone);backdrop-filter:blur(8px);transition:background 180ms ease-out,box-shadow 180ms ease-out}
+.sbmc-demo-page.is-scrolled.d-ocean-nails header{background:rgba(8,22,31,.88);box-shadow:0 1px 0 rgba(0,0,0,.2)}
 .d-ocean-nails header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
 .d-ocean-nails .brand{display:flex;align-items:center;gap:12px;min-height:44px}
 .d-ocean-nails .brand img{width:70px;height:auto}
@@ -39,10 +42,14 @@ header{background:var(--ink);color:var(--bone)}
 .d-ocean-nails .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font-weight:800;font-size:16px;letter-spacing:.01em}
 .d-ocean-nails .btn.sky{background:var(--sky);color:var(--ink)}
 .d-ocean-nails .btn.ghost{border:1px solid rgba(244,240,232,.4);color:var(--bone)}
-.d-ocean-nails .today{display:flex;align-items:center;gap:10px;margin-top:26px;font-weight:600;font-size:15px;color:var(--sky2)}
-.d-ocean-nails .today:before{content:"";width:9px;height:9px;border-radius:50%;background:#7fe0a8;box-shadow:0 0 0 5px rgba(127,224,168,.18)}
+.d-ocean-nails .hero .sbmc-status{margin-top:0;background:rgba(156,200,226,.16);color:var(--sky2);border:1px solid rgba(156,200,226,.35)}
+.d-ocean-nails .ctas .sbmc-status{align-self:center}
 .d-ocean-nails .art{position:relative;min-height:520px}
 .d-ocean-nails .ring{position:absolute;width:150%;max-width:none;left:-18%;top:-6%;opacity:.95;transform:rotate(-12deg)}
+@media (prefers-reduced-motion:no-preference){
+ .d-ocean-nails .ring{animation:ocean-ring 1.2s ease-out forwards}
+}
+@keyframes ocean-ring{from{transform:rotate(-20deg)}to{transform:rotate(-12deg)}}
 .d-ocean-nails .arch{position:relative;margin:0 auto;width:min(78%,420px);aspect-ratio:3/4.3;border-radius:999px 999px 0 0;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.45)}
 .d-ocean-nails .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .d-ocean-nails .chip{position:absolute;right:2%;bottom:16%;background:var(--bone);color:var(--ink);border-radius:18px;padding:14px 16px;width:170px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
@@ -91,6 +98,7 @@ header{background:var(--ink);color:var(--bone)}
 .d-ocean-nails .bench p.sub{font-size:18px;max-width:46ch;color:#22394a}
 .d-ocean-nails /* reviews */
 .rev{background:var(--sky);padding:96px 0;position:relative;overflow:hidden}
+.d-ocean-nails .rev .open-note{font:700 15px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 36px;color:var(--ink2)}
 .d-ocean-nails .rev .q{font:italic 400 clamp(34px,7.4vw,84px)/1.04 var(--serif);letter-spacing:-.025em;max-width:16ch;position:relative}
 .d-ocean-nails .rev .q:before{content:"\201C";display:block;font:400 2.6em/.7 var(--serif);color:var(--bone);margin-bottom:.05em}
 .d-ocean-nails .rev .src{margin-top:26px;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
@@ -99,8 +107,8 @@ header{background:var(--ink);color:var(--bone)}
 .d-ocean-nails .mini p{font:400 21px/1.4 var(--serif)}
 .d-ocean-nails .mini p.src{font:700 14px/1.3 var(--sans)}
 .d-ocean-nails .mini .src{margin-top:16px}
-.d-ocean-nails .ratings{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.d-ocean-nails .ratings span{border:1px solid rgba(8,22,31,.35);border-radius:999px;padding:9px 14px;font-weight:700;font-size:14px}
+.d-ocean-nails .quiet-src{margin-top:22px;font-size:14px;font-weight:600}
+.d-ocean-nails .quiet-src a{text-decoration:underline;text-underline-offset:3px}
 .d-ocean-nails /* hours */
 .hrs{padding:96px 0}
 .d-ocean-nails .hrs-grid{display:grid;gap:48px;margin-top:40px}
@@ -112,6 +120,12 @@ header{background:var(--ink);color:var(--bone)}
 .d-ocean-nails .row.on{color:#3d7ea6}
 .d-ocean-nails .axis{display:flex;justify-content:space-between;padding-left:64px;font-size:13px;font-weight:600;color:#6a7780}
 .d-ocean-nails .visit{display:grid;gap:16px}
+.d-ocean-nails .sbmc-map-card{border-radius:24px;border:1px solid rgba(8,22,31,.12);background:#e8eef2;overflow:hidden}
+.d-ocean-nails .sbmc-map-card .map-body{padding:22px;gap:12px}
+.d-ocean-nails .sbmc-map-card .map-addr{font:400 28px/1.15 var(--serif)}
+.d-ocean-nails .sbmc-map-card .map-link{color:#3d7ea6;font-weight:700}
+.d-ocean-nails .sbmc-map-card .map-phone a{display:inline-flex;min-height:44px;align-items:center;color:#3d7ea6;font-weight:700}
+.d-ocean-nails .sbmc-map-card .map{display:block;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;background:#ddd;margin-top:8px}
 .d-ocean-nails .map{display:block;border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/3;background:#ddd}
 .d-ocean-nails .map iframe{width:100%;height:100%;min-height:240px;border:0;display:block}
 .d-ocean-nails .map b{position:absolute;left:14px;bottom:14px;background:var(--ink);color:var(--bone);padding:12px 16px;border-radius:999px;font-size:14px;min-height:44px;display:flex;align-items:center}
@@ -123,7 +137,7 @@ header{background:var(--ink);color:var(--bone)}
 .d-ocean-nails .final h2 i{color:var(--sky)}
 .d-ocean-nails .final .ctas{justify-content:center}
 .d-ocean-nails .final .ringbg{position:absolute;left:50%;top:50%;width:1100px;max-width:none;transform:translate(-50%,-50%) rotate(20deg);opacity:.14}
-.d-ocean-nails footer{background:#050E14;color:rgba(244,240,232,.75);padding:44px 0 120px;font-size:14px}
+.d-ocean-nails footer{background:#050E14;color:rgba(244,240,232,.75);padding:44px 0 56px;font-size:14px}
 .d-ocean-nails footer .wrap{display:grid;gap:18px;justify-items:start}
 .d-ocean-nails footer img{width:90px}
 .d-ocean-nails footer .credit{font-size:13px;opacity:.7}

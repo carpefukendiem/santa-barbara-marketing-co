@@ -102,7 +102,7 @@ const FONT_LINKS: Record<DemoSlug, string> = {
   'coastal-dentistry':
     'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap',
   'precision-motorcycle-service':
-    'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap',
+    'https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap',
   'javiers-old-town-garage':
     'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap',
   'shear-envy':

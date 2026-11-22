@@ -15,6 +15,7 @@
 .d-jewelry .shim{height:4px;background:var(--opal)}
 .d-jewelry header{background:var(--night);color:var(--ivory)}
 .d-jewelry .hd{display:flex;align-items:center;justify-content:space-between;min-height:84px;gap:14px}
+.d-jewelry .logo{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:4px 0}
 .d-jewelry .logo img{height:40px;width:auto;max-width:min(180px,48vw)}
 .d-jewelry nav{display:none;gap:30px;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
 .d-jewelry nav a{text-decoration:none;padding:12px 0}
@@ -112,4 +113,4 @@
  .d-jewelry footer .wrap{display:flex;justify-content:space-between;align-items:flex-end}
 }
 
-@media (max-width:400px){.d-jewelry .logo img,.d-jewelry footer img{height:36px;max-width:160px}}
+@media (max-width:400px){.d-jewelry .logo{min-height:44px}.d-jewelry .logo img,.d-jewelry footer img{height:40px;max-width:160px}}

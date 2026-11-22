@@ -12,26 +12,65 @@
 .d-atlas .w{max-width:1280px;margin:0 auto;padding:0 18px}
 .d-atlas .mono{font-family:"Chivo Mono",ui-monospace,monospace}
 .d-atlas .x{font-stretch:125%;font-weight:800;letter-spacing:-.01em}
-.d-atlas header{border-bottom:2px solid var(--gr)}
+.d-atlas header{position:sticky;top:0;z-index:20;border-bottom:2px solid var(--gr);background:rgba(221,225,228,.94);transition:background 180ms ease-out,backdrop-filter 180ms ease-out,box-shadow 180ms ease-out}
+.sbmc-demo-page.is-scrolled.d-atlas header{background:rgba(221,225,228,.82);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(0,0,0,.08)}
 .d-atlas .hd{display:flex;align-items:center;justify-content:space-between;height:70px}
 .d-atlas .hd .lg{display:flex;align-items:center;min-height:48px}.d-atlas .hd .lg img{height:40px;width:auto}
 .d-atlas .nav{display:none}
 .d-atlas .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;font:600 15px/1 "Chivo Mono",monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;border:2px solid var(--gr)}
 .d-atlas .btn.k{background:var(--gr);color:#fff}.d-atlas .btn.c{background:var(--cy);color:var(--gr)}.d-atlas .btn.o{background:transparent}
 .d-atlas .hd .btn{min-height:44px;padding:0 14px;font-size:14px}
+.d-atlas .hero .btn.o{border-color:rgba(255,255,255,.55);color:#fff}
 .d-atlas .bead{height:14px;background:radial-gradient(circle at 7px 7px,var(--cy) 0 5px,#1aa6c2 5.5px,transparent 6px) 0 0/9px 14px repeat-x}
 .d-atlas .bead.k{background-image:radial-gradient(circle at 7px 7px,#8d969d 0 5px,#6f787f 5.5px,transparent 6px)}
-.d-atlas .hero{padding:22px 0 0}
-.d-atlas .meta{display:flex;flex-wrap:wrap;gap:6px 16px;font:500 13px/1.4 "Chivo Mono";text-transform:uppercase;letter-spacing:.06em;color:var(--g2)}
-.d-atlas .giant{font:800 22vw/0.8 Archivo;font-stretch:125%;letter-spacing:-.03em;margin:14px 0 12px;color:var(--gr)}
-.d-atlas .hero h1{font-size:30px;line-height:1.08;font-stretch:112%;font-weight:800;margin:20px 0 12px;max-width:18ch}
-.d-atlas .hero h1 span{color:var(--cyd)}
-.d-atlas .lead{color:var(--g2);max-width:46ch}
-.d-atlas .ctas{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 26px}.d-atlas .ctas .btn{flex:1 1 auto}
-.d-atlas .band{position:relative;height:420px;overflow:hidden;border-top:2px solid var(--gr);border-bottom:2px solid var(--gr);background:#0b1013}
-.d-atlas .band img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.d-atlas .band .lbl{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;gap:10px;font:500 13px/1.3 "Chivo Mono";color:#d7f6fb;text-transform:uppercase;letter-spacing:.06em}
-.d-atlas .band .lbl b{background:rgba(11,16,19,.7);padding:6px 9px;font-weight:500}
+
+/* Full-bleed dark hero */
+.d-atlas .hero{position:relative;min-height:min(92vh,860px);padding:0;color:#E8ECEF;background:#0b1013;overflow:hidden;display:flex;align-items:flex-end}
+.d-atlas .hero-bg{position:absolute;inset:0;z-index:0}
+.d-atlas .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:brightness(.55) contrast(1.08)}
+.d-atlas .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,19,.35) 0%,rgba(11,16,19,.55) 42%,rgba(11,16,19,.92) 100%)}
+.d-atlas .hero-inner{position:relative;z-index:2;width:100%;padding-top:48px;padding-bottom:40px}
+.d-atlas .meta{display:flex;flex-wrap:wrap;gap:6px 16px;font:500 13px/1.4 "Chivo Mono";text-transform:uppercase;letter-spacing:.06em;color:#9aa4ab}
+.d-atlas .wm{font:800 clamp(72px,22vw,220px)/0.78 Archivo;font-stretch:125%;letter-spacing:-.04em;margin:10px 0 8px;color:rgba(255,255,255,.14);text-transform:uppercase;user-select:none}
+.d-atlas .hero h1{font-size:56px;line-height:1.02;font-stretch:112%;font-weight:800;margin:8px 0 14px;max-width:16ch;letter-spacing:-.02em;color:#fff}
+.d-atlas .lead{color:#B9C2C8;max-width:46ch}
+.d-atlas .ctas{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 0}.d-atlas .ctas .btn{flex:1 1 auto}
+.d-atlas .hero .sbmc-status{background:rgba(43,196,224,.16);color:#d7f6fb;border:1px solid rgba(43,196,224,.35);border-radius:0;font-family:"Chivo Mono",monospace;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+
+/* Weld bead stroke + sparks */
+.d-atlas .weld-bead{position:absolute;left:0;right:0;bottom:18%;width:100%;height:48px;z-index:1;pointer-events:none;opacity:.9}
+.d-atlas .weld-path{stroke-dasharray:1400;stroke-dashoffset:0}
+.d-atlas .sparks{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.d-atlas .sparks i{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffd27a;box-shadow:0 0 8px 2px rgba(255,180,60,.7);opacity:0}
+.d-atlas .sparks i:nth-child(1){left:18%;top:42%}
+.d-atlas .sparks i:nth-child(2){left:32%;top:38%}
+.d-atlas .sparks i:nth-child(3){left:48%;top:46%}
+.d-atlas .sparks i:nth-child(4){left:61%;top:40%}
+.d-atlas .sparks i:nth-child(5){left:74%;top:44%}
+.d-atlas .sparks i:nth-child(6){left:86%;top:39%}
+@media (prefers-reduced-motion:no-preference){
+ .d-atlas .weld-path{stroke-dashoffset:1400;animation:atlas-weld 1.8s ease-out .2s forwards}
+ .d-atlas .sparks i{animation:atlas-spark 1.1s ease-out forwards}
+ .d-atlas .sparks i:nth-child(1){animation-delay:.35s}
+ .d-atlas .sparks i:nth-child(2){animation-delay:.5s}
+ .d-atlas .sparks i:nth-child(3){animation-delay:.65s}
+ .d-atlas .sparks i:nth-child(4){animation-delay:.8s}
+ .d-atlas .sparks i:nth-child(5){animation-delay:.95s}
+ .d-atlas .sparks i:nth-child(6){animation-delay:1.1s}
+}
+@keyframes atlas-weld{to{stroke-dashoffset:0}}
+@keyframes atlas-spark{
+ 0%{opacity:0;transform:translate(0,0) scale(.6)}
+ 25%{opacity:1}
+ 100%{opacity:0;transform:translate(var(--sx,12px),var(--sy,-28px)) scale(.2)}
+}
+.d-atlas .sparks i:nth-child(1){--sx:10px;--sy:-32px}
+.d-atlas .sparks i:nth-child(2){--sx:-14px;--sy:-26px}
+.d-atlas .sparks i:nth-child(3){--sx:18px;--sy:-36px}
+.d-atlas .sparks i:nth-child(4){--sx:-8px;--sy:-22px}
+.d-atlas .sparks i:nth-child(5){--sx:16px;--sy:-30px}
+.d-atlas .sparks i:nth-child(6){--sx:-12px;--sy:-34px}
+
 .d-atlas section{padding:56px 0}
 .d-atlas .lab{font:600 13px/1 "Chivo Mono";text-transform:uppercase;letter-spacing:.12em;color:var(--cyd);display:flex;align-items:center;gap:10px}
 .d-atlas .lab::before{content:"";width:22px;height:2px;background:var(--cyd)}
@@ -41,6 +80,9 @@
 .d-atlas .sp .no{font:600 14px/1 "Chivo Mono";color:var(--cyd);padding-top:8px}
 .d-atlas .sp h3{font-size:24px;font-stretch:118%;font-weight:800;line-height:1.1}.d-atlas .sp p{color:var(--g2);margin-top:6px;font-size:15px}
 .d-atlas .sp svg{grid-column:2;width:100%;max-width:300px;height:auto;margin-top:12px}
+.d-atlas .work-shot{margin:28px 0 0;border:2px solid var(--gr)}
+.d-atlas .work-shot img{width:100%;height:280px;object-fit:cover;object-position:50% 55%}
+.d-atlas .work-shot figcaption{font:500 13px/1.3 "Chivo Mono";text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;color:var(--g2);background:#eef1f3}
 .d-atlas .ric{background:var(--gr);color:#E8ECEF}
 .d-atlas .ric .lab{color:var(--cy)}.d-atlas .ric .lab::before{background:var(--cy)}
 .d-atlas .rg{display:grid;gap:22px;margin-top:20px}
@@ -49,10 +91,10 @@
 .d-atlas .ric blockquote{border-left:4px solid var(--cy);padding:4px 0 4px 18px;font-size:19px;line-height:1.45;margin-top:18px}
 .d-atlas .ric cite{display:block;font:500 13px/1.3 "Chivo Mono";font-style:normal;color:#9aa4ab;margin-top:8px;text-transform:uppercase;letter-spacing:.05em}
 .d-atlas .ric mark{background:none;color:var(--cy)}
-.d-atlas .proof .pg{display:grid;gap:24px;margin-top:20px}
-.d-atlas .score{font:800 120px/0.85 Archivo;font-stretch:125%;letter-spacing:-.04em}
-.d-atlas .score small{display:block;font:500 14px/1.4 "Chivo Mono";letter-spacing:.02em;margin-top:14px;color:var(--g2)}
-.d-atlas .dist{border:2px solid var(--gr);background:#eef1f3;padding:18px}
+.d-atlas .proof .sbmc-proof{margin-top:20px;gap:22px}
+.d-atlas .proof .pq{border-left:4px solid var(--cyd);padding:4px 0 4px 18px;font-size:22px;line-height:1.35;font-stretch:108%;font-weight:600}
+.d-atlas .proof .pq cite{display:block;font:500 13px/1.3 "Chivo Mono";font-style:normal;color:var(--g2);margin-top:8px;text-transform:uppercase;letter-spacing:.05em}
+.d-atlas .dist{border:2px solid var(--gr);background:#eef1f3;padding:18px;margin-top:8px}
 .d-atlas .dr{display:grid;grid-template-columns:56px 1fr 34px;gap:12px;align-items:center;font:500 14px/1 "Chivo Mono";padding:9px 0}
 .d-atlas .dr .t{height:14px;background:#cfd5d9}.d-atlas .dr .t i{display:block;height:100%;background:var(--gr)}
 .d-atlas .dr.c5 .t i{background:var(--cyd)}
@@ -62,24 +104,29 @@
 .d-atlas .plate .a{font-size:26px;font-stretch:118%;font-weight:800;line-height:1.1;margin-bottom:14px}
 .d-atlas table{width:100%;border-collapse:collapse;font:500 15px/1.3 "Chivo Mono"}.d-atlas td{padding:12px 0;border-bottom:1px solid var(--st2)}.d-atlas td:last-child{text-align:right}
 .d-atlas tr.today td{color:var(--cyd);font-weight:600}.d-atlas tr.today td:first-child::before{content:"> "}
+.d-atlas .sbmc-map-card{border:2px solid var(--gr);background:#eef1f3}
+.d-atlas .sbmc-map-card .map-img{filter:grayscale(.85) contrast(1.05);aspect-ratio:16/10}
+.d-atlas .sbmc-map-card .map-body{padding:16px 18px 18px}
+.d-atlas .sbmc-map-card .map-addr{font-size:18px;font-stretch:112%;font-weight:800;line-height:1.2}
+.d-atlas .sbmc-map-card .map-link{font-family:"Chivo Mono",monospace;text-transform:uppercase;letter-spacing:.04em;font-size:13px;color:var(--cyd)}
 .d-atlas .map{display:block;border:2px solid var(--gr)}.d-atlas .map img{width:100%;height:auto;filter:grayscale(.85) contrast(1.05)}
 .d-atlas footer{background:var(--gr);color:#AEB7BD;padding:30px 0 22px;font:500 13px/1.6 "Chivo Mono"}
 .d-atlas footer .w{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 .d-atlas footer img{height:42px;width:auto}.d-atlas footer a{display:inline-flex;align-items:center;min-height:44px;color:#fff}
 @media(min-width:960px){
  .d-atlas .w{padding:0 40px}.d-atlas .nav{display:flex;gap:30px;font:500 13px/1 "Chivo Mono";text-transform:uppercase;letter-spacing:.1em}.d-atlas .nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
- .d-atlas .giant{font-size:300px;margin:18px 0 6px}
- .d-atlas .hrow{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;padding-bottom:36px}
- .d-atlas .hero h1{font-size:54px;margin:0}.d-atlas .ctas{margin:22px 0 0}.d-atlas .ctas .btn{flex:0 0 auto}
- .d-atlas .band{height:520px}
+ .d-atlas .hero{min-height:min(94vh,920px);align-items:flex-end}
+ .d-atlas .hero-inner{padding-top:80px;padding-bottom:64px}
+ .d-atlas .wm{font-size:280px;margin:6px 0 4px}
+ .d-atlas .hero h1{font-size:88px;max-width:14ch;margin:0 0 18px}
+ .d-atlas .ctas{margin:28px 0 0}.d-atlas .ctas .btn{flex:0 0 auto}
  .d-atlas section{padding:96px 0}.d-atlas h2{font-size:60px}
  .d-atlas .specs{grid-template-columns:repeat(3,1fr);border-top:0;gap:0}
  .d-atlas .sp{grid-template-columns:1fr;border:2px solid var(--gr);border-right:0;padding:26px}.d-atlas .sp:last-child{border-right:2px solid var(--gr)}.d-atlas .sp svg{grid-column:1}
+ .d-atlas .work-shot img{height:420px}
  .d-atlas .rg{grid-template-columns:1fr 1fr;gap:56px;align-items:center}.d-atlas .ric figure img{height:560px}
- .d-atlas .proof .pg{grid-template-columns:.8fr 1.2fr;align-items:center;gap:60px}.d-atlas .score{font-size:220px}
+ .d-atlas .proof .sbmc-proof{grid-template-columns:1.1fr .9fr;align-items:start;gap:40px}
+ .d-atlas .proof .pq{grid-column:1}
+ .d-atlas .proof .dist{grid-column:2;grid-row:1 / span 4;align-self:stretch}
  .d-atlas .visit .vg{grid-template-columns:1fr 1.3fr}
 }
-
-.d-atlas .bar{position:sticky;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#111214;color:#e9e9ea;font:500 13px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;border-top:1px solid #2a2b2e}
-.d-atlas .bar p{margin:0;max-width:62ch}.d-atlas .bar .mim{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:#fff;color:#111;font-weight:700;font-size:14px;text-decoration:none}
-@media(min-width:900px){.d-atlas .bar{justify-content:center;gap:20px}}

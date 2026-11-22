@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import type { DemoData } from '@/data/demos/types';
 import { DemoPreviewChrome } from '@/components/demos/DemoPreviewChrome';
 import { DemoViewTracker } from '@/components/demos/DemoViewTracker';
 import { HoursToday } from '@/components/demos/HoursToday';
+import { useDemoReveal } from '@/components/demos/useDemoReveal';
 import { telHref } from '@/lib/utils';
 
 export const MAP_TOKEN = '<!--SBMC_MAP_EMBED-->';
@@ -67,9 +68,12 @@ export function DemoMarkupPage({
 }: DemoMarkupPageProps) {
   const html = useMemo(() => applyDemoMarkup(markup, demo), [markup, demo]);
   const rootLang = lang ?? demo.lang;
+  const rootRef = useRef<HTMLDivElement>(null);
+  useDemoReveal(rootRef);
 
   return (
     <div
+      ref={rootRef}
       className={`sbmc-demo-page ${rootClassName}`}
       {...(rootLang ? { lang: rootLang } : {})}
     >
