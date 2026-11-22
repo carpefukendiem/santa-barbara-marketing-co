@@ -287,10 +287,10 @@ const variantA: HomepageCopy = {
     priceKicker: 'The Local Lead Plan',
     priceTitle: 'One monthly price.',
     closeKicker: 'The Local Lead Plan',
-    closeTitle: 'Start the plan, or book a free call.',
+    closeTitle: 'Start the plan, or book a 20-minute call.',
     closeLede: '$297/mo, or $2,970/yr. Cancel anytime with 30-day written notice.',
     closePrimaryCta: 'Start the plan',
-    closeSecondaryCta: 'Book a free call',
+    closeSecondaryCta: 'Book a 20-minute call',
     riskReversal: null,
   },
 };
