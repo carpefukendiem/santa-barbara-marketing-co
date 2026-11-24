@@ -150,7 +150,7 @@ export function personSchema(): JsonLd {
     worksFor: { '@id': organizationId() },
     knowsLanguage: ['en', 'es'],
     description: site.founder.description,
-    url: absoluteUrl('/about'),
+    url: absoluteUrl('/about/ruben-ruiz'),
     sameAs: founderSameAsLinks(),
   };
 }

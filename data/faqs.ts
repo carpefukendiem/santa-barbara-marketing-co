@@ -8,7 +8,8 @@ export type FaqItem = {
     | 'websites'
     | 'working-together'
     | 'free-call'
-    | 'homepage';
+    | 'homepage'
+    | 'strategy';
 };
 
 export const faqs: FaqItem[] = [

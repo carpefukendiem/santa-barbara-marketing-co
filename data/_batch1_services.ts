@@ -135,7 +135,13 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
           'Auction prices and audience mix move. Hospitality and retail see more visitor intent that converts in minutes or not at all. Service businesses may get more "while we are in town" noise. We plan budgets, creative, and exclusions around that calendar. Running January settings through July without a conversation is how accounts surprise you. You see the plan before the spike.',
       },
     ],
-    relatedServices: ['social-media', 'google-ads', 'local-seo'],
+    relatedServices: [
+      'social-media',
+      'google-ads',
+      'local-seo',
+      'ecommerce-websites',
+      'email-sms-marketing',
+    ],
     relatedLocations: [
       'santa-barbara-digital-marketing',
       'santa-maria-digital-marketing',
@@ -145,8 +151,10 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     relatedResources: [
       'google-ads-for-local-business',
       'ai-search-visibility-local-business',
+      'facebook-ads-cost-local-business',
+      'facebook-ads-vs-google-ads',
     ],
-    relatedIndustries: ['restaurants-hospitality', 'wineries'],
+    relatedIndustries: ['restaurants-hospitality', 'wineries', 'ecommerce'],
     pricingNote:
       'Meta ads has two costs: media, which you pay to Meta, and management, which you pay to us. Media is driven by your category, how tight the audience and offer are, and whether tracking and landing pages already work. A downtown restaurant in summer is a different auction than a North County winery in February. After we look at the current account (or confirm there is none) and the destination those ads would hit, we send a written management range and a recommended media band for learning. The Local Lead Plan is $297/mo, or $2,970/yr (2 months free), for its bundled website, Local SEO, review requests, and follow-up. Meta media and Meta management sit outside that bundle unless we write them in. Cancel anytime with 30-day written notice on retainers we manage.',
   },
@@ -298,6 +306,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     relatedResources: [
       'how-to-get-more-google-reviews',
       'google-business-profile-optimization',
+      'how-to-respond-to-negative-reviews',
     ],
     relatedIndustries: ['home-services', 'medical-wellness'],
     pricingNote:
@@ -452,6 +461,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
     relatedResources: [
       'local-seo-santa-barbara',
       'web-design-cost-santa-barbara',
+      'bilingual-marketing-guide-central-coast',
     ],
     relatedIndustries: ['home-services', 'restaurants-hospitality'],
     pricingNote:

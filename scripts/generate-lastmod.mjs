@@ -22,6 +22,8 @@ const ROUTE_SOURCES = {
   '/get-started': ['app/get-started/page.tsx'],
   '/local-lead-plan': ['app/local-lead-plan/page.tsx'],
   '/about': ['app/about/page.tsx'],
+  '/about/ruben-ruiz': ['app/about/ruben-ruiz/page.tsx'],
+  '/process': ['app/process/page.tsx'],
   '/contact': ['app/contact/page.tsx'],
   '/faq': ['app/faq/page.tsx', 'data/faqs.ts'],
   '/book-a-call': ['app/book-a-call/page.tsx'],
