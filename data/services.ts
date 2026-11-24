@@ -1,5 +1,6 @@
 import type { FaqItem } from './faqs';
 import { batch1Services } from './_batch1_services';
+import { batch2Services } from './_batch2_services';
 
 export type ServiceIconName =
   | 'local-seo'
@@ -184,6 +185,7 @@ export const services: Service[] = [
     relatedResources: [
       'local-seo-santa-barbara',
       'how-much-does-seo-cost-santa-barbara',
+      'how-to-rank-in-google-maps',
     ],
     relatedIndustries: ['home-services', 'restaurants-hospitality'],
     pricingNote:
@@ -316,6 +318,7 @@ export const services: Service[] = [
     relatedResources: [
       'local-seo-santa-barbara',
       'ai-search-visibility-local-business',
+      'how-long-does-seo-take',
     ],
     relatedIndustries: ['professional-services', 'medical-wellness'],
     pricingNote:
@@ -444,11 +447,18 @@ export const services: Service[] = [
           'No. We can control structure, tracking, copy, and landing pages. We cannot control competitors, Google’s auction, or whether your office answers the phone. We will give you a planning range after we see the account and the offer, and we will tell you when the math does not work. Guaranteed CPL is a sales line, not a media fact.',
       },
     ],
-    relatedServices: ['conversion-optimization', 'local-seo', 'analytics'],
+    relatedServices: [
+      'conversion-optimization',
+      'local-seo',
+      'analytics',
+      'local-service-ads',
+    ],
     relatedLocations: relatedLocationSlugs,
     relatedResources: [
       'google-ads-for-local-business',
       'web-design-cost-santa-barbara',
+      'google-ads-cost-santa-barbara',
+      'seo-vs-google-ads',
     ],
     relatedIndustries: ['home-services', 'medical-wellness'],
     pricingNote:
@@ -582,13 +592,25 @@ export const services: Service[] = [
           'A simple catalog or booking flow can live in scope. A full merchandising platform with inventory, shipping, and tax across states is a different product. If that is what you need, we will say so rather than stretching a marketing site until it pretends to be Shopify. The sitemap conversation is where that gets decided.',
       },
     ],
-    relatedServices: ['conversion-optimization', 'local-seo', 'seo'],
+    relatedServices: [
+      'conversion-optimization',
+      'local-seo',
+      'seo',
+      'ecommerce-websites',
+      'website-maintenance',
+      'website-redesign',
+    ],
     relatedLocations: relatedLocationSlugs,
     relatedResources: [
       'web-design-cost-santa-barbara',
       'google-ads-for-local-business',
+      'wix-squarespace-vs-custom-website',
     ],
-    relatedIndustries: ['restaurants-hospitality', 'professional-services'],
+    relatedIndustries: [
+      'restaurants-hospitality',
+      'professional-services',
+      'ecommerce',
+    ],
     pricingNote:
       'Website cost follows scope: how many templates, how much original copy, whether booking or CRM forms are in the build, the state of the current URL list, and how ready photography is. A five-page marketing site for a Carpinteria shop is a different job than a multi-service professional firm with a decade of URLs to redirect. After we look at the current site and the sitemap you actually need, we send a written project range and a timeline. We will not invent a starting price on this page. Hosting and third-party tools (booking, email, call tracking) are separate, and we will list them rather than bury them.',
   },
@@ -720,6 +742,7 @@ export const services: Service[] = [
     relatedResources: [
       'google-business-profile-optimization',
       'local-seo-santa-barbara',
+      'google-business-profile-suspended',
     ],
     relatedIndustries: ['restaurants-hospitality', 'home-services'],
     pricingNote:
@@ -853,6 +876,7 @@ export const services: Service[] = [
     relatedResources: [
       'web-design-cost-santa-barbara',
       'google-ads-for-local-business',
+      'why-your-website-isnt-getting-leads',
     ],
     relatedIndustries: ['restaurants-hospitality', 'real-estate'],
     pricingNote:
@@ -984,11 +1008,14 @@ export const services: Service[] = [
       'google-business-profile',
       'web-design',
       'marketing-automation',
+      'email-sms-marketing',
+      'ecommerce-websites',
     ],
     relatedLocations: relatedLocationSlugs,
     relatedResources: [
       'google-business-profile-optimization',
       'ai-search-visibility-local-business',
+      'social-media-management-cost',
     ],
     relatedIndustries: ['restaurants-hospitality', 'real-estate'],
     pricingNote:
@@ -1116,11 +1143,18 @@ export const services: Service[] = [
           'No. It makes the front desk faster and covers the hours nobody is there. Someone still has to quote, book, and do the work. Automation that pretends to replace judgment is how customers feel handled. We keep a human in the stages that sell.',
       },
     ],
-    relatedServices: ['ai-automation', 'analytics', 'strategy'],
+    relatedServices: [
+      'ai-automation',
+      'analytics',
+      'strategy',
+      'missed-call-text-back',
+      'email-sms-marketing',
+    ],
     relatedLocations: relatedLocationSlugs,
     relatedResources: [
       'google-ads-for-local-business',
       'ai-search-visibility-local-business',
+      'speed-to-lead-follow-up-systems',
     ],
     relatedIndustries: ['professional-services', 'home-services'],
     pricingNote:
@@ -1248,11 +1282,18 @@ export const services: Service[] = [
           'A generic chat bubble tries to answer everything and usually answers nothing. These workflows start from a real event (missed call, closed job, new form) and do one job. If we add chat later, it will use the same handoff rules. We will not drop a widget on the site as a substitute for the four jobs on this page.',
       },
     ],
-    relatedServices: ['marketing-automation', 'google-ads', 'analytics'],
+    relatedServices: [
+      'marketing-automation',
+      'google-ads',
+      'analytics',
+      'ai-receptionist',
+      'missed-call-text-back',
+    ],
     relatedLocations: relatedLocationSlugs,
     relatedResources: [
       'ai-search-visibility-local-business',
       'google-ads-for-local-business',
+      'cost-of-a-missed-call',
     ],
     relatedIndustries: ['medical-wellness', 'home-services'],
     pricingNote:
@@ -1385,6 +1426,7 @@ export const services: Service[] = [
     relatedResources: [
       'google-ads-for-local-business',
       'how-much-does-seo-cost-santa-barbara',
+      'track-calls-and-leads-from-google',
     ],
     relatedIndustries: ['professional-services', 'real-estate'],
     pricingNote:
@@ -1528,6 +1570,7 @@ export const services: Service[] = [
       'Strategy is scoped by how many channels and locations we must look at, whether ads and analytics access is available, and whether you want a single 90-day document or a short follow-up cycle. A one-location shop on Hollister is a different engagement than a multi-service firm serving Montecito and downtown with an existing agency in the mix. After we see the site, the listing, and the question you actually need answered, we send a written range for the strategy work. Implementation of SEO, ads, or a website is quoted separately. We will not invent a master-plan price that pretends media spend and development are included.',
   },
   ...batch1Services,
+  ...batch2Services,
 ];
 
 export function getService(slug: string): Service | undefined {

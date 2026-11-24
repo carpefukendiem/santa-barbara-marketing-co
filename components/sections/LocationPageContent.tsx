@@ -6,7 +6,6 @@ import { CtaBand } from '@/components/sections/CtaBand';
 import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { FAQAccordion } from '@/components/ui/Accordion';
-import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Chip } from '@/components/ui/Chip';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -36,6 +35,7 @@ const santaBarbaraNav = [
   { slug: 'santa-barbara-seo', label: 'SEO' },
   { slug: 'santa-barbara-web-design', label: 'Web Design' },
   { slug: 'santa-barbara-google-ads', label: 'Google Ads' },
+  { slug: 'santa-barbara-social-media', label: 'Social Media' },
 ] as const;
 
 const serviceTypeLabel: Record<Location['pageType'], string> = {
@@ -43,6 +43,7 @@ const serviceTypeLabel: Record<Location['pageType'], string> = {
   seo: 'Search Engine Optimization',
   'web-design': 'Web Design',
   'google-ads': 'Google Ads',
+  'social-media': 'Social Media Marketing',
 };
 
 const taglines: Record<string, string> = {

@@ -34,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/get-started', 0.8, 'monthly'),
     entry('/local-lead-plan', 0.8, 'monthly'),
     entry('/about', 0.7, 'monthly'),
+    entry('/about/ruben-ruiz', 0.6, 'monthly'),
+    entry('/process', 0.7, 'monthly'),
     entry('/contact', 0.7, 'monthly'),
     entry('/faq', 0.7, 'monthly'),
     entry('/book-a-call', 0.9, 'monthly'),

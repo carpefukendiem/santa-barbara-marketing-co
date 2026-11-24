@@ -1,5 +1,6 @@
 import type { FaqItem } from './faqs';
 import { batch1Industries } from './_batch1_industries';
+import { batch2Industries } from './_batch2_industries';
 
 export type Industry = {
   slug: string;
@@ -94,6 +95,7 @@ export const industries: Industry[] = [
       'google-business-profile-optimization',
       'google-ads-for-local-business',
       'local-seo-santa-barbara',
+      'cost-of-a-missed-call',
     ],
   },
   {
@@ -242,6 +244,7 @@ export const industries: Industry[] = [
       'google-business-profile-optimization',
       'google-ads-for-local-business',
       'ai-search-visibility-local-business',
+      'marketing-a-restaurant-in-santa-barbara',
     ],
   },
   {
@@ -393,6 +396,7 @@ export const industries: Industry[] = [
     ],
   },
   ...batch1Industries,
+  ...batch2Industries,
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

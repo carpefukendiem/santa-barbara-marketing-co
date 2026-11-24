@@ -1,5 +1,6 @@
 import type { FaqItem } from './faqs';
 import { howToGetMoreGoogleReviews } from './_batch1_resource';
+import { batch2Resources } from './_batch2_resources';
 
 export type ResourceStatus = 'published' | 'planned';
 export type ResourceCategory = 'seo' | 'ads' | 'websites' | 'ai' | 'strategy';
@@ -1014,133 +1015,8 @@ export const resources: Resource[] = [
       },
     ],
   },
-  {
-    slug: 'santa-barbara-seo-guide',
-    title: 'Santa Barbara SEO Guide',
-    metaTitle: 'Santa Barbara SEO Guide',
-    metaDescription:
-      'A planned full-length SEO guide for Santa Barbara businesses covering Maps, organic pages, content, technical work, and the first fixes to make.',
-    category: 'seo',
-    excerpt:
-      'A longer, step-by-step SEO guide for Santa Barbara businesses. Planned. The Local SEO pillar and cost articles are live in the meantime.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
-  {
-    slug: 'local-search-ranking-factors',
-    title: 'Local Search Ranking Factors in the 805',
-    metaTitle: 'Local Search Ranking Factors in the 805',
-    metaDescription:
-      'A planned deep look at local ranking factors for Santa Barbara County: proximity, prominence, relevance, and what is overhyped. Not published yet.',
-    category: 'seo',
-    excerpt:
-      'A planned article on which local ranking factors actually move Map Pack and organic results on the South Coast.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
   howToGetMoreGoogleReviews,
-  {
-    slug: 'why-your-website-isnt-getting-leads',
-    title: 'Why Your Website Is Not Getting Leads',
-    metaTitle: 'Why Your Website Is Not Getting Leads',
-    metaDescription:
-      'A planned look at why local websites get visits and no calls: page speed, unclear offers, hidden phone numbers, thin proof, and traffic quality.',
-    category: 'websites',
-    excerpt:
-      'A planned diagnosis of websites that get visits and no calls. Traffic quality, mobile friction, and follow-up will be in scope.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
-  {
-    slug: 'goleta-local-seo-guide',
-    title: 'Local SEO in Goleta for West-Side Business',
-    metaTitle: 'Local SEO in Goleta for West-Side Business',
-    metaDescription:
-      'A planned local SEO guide for Goleta businesses covering Old Town, UCSB-adjacent demand, and why a Goleta pin rarely wins downtown Santa Barbara.',
-    category: 'seo',
-    excerpt:
-      'A planned local SEO guide written for Goleta businesses, not a downtown Santa Barbara article with the city name swapped.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
-  {
-    slug: 'marketing-a-restaurant-in-santa-barbara',
-    title: 'Marketing a Restaurant in Santa Barbara',
-    metaTitle: 'Marketing a Restaurant in Santa Barbara',
-    metaDescription:
-      'A planned guide to restaurant marketing in Santa Barbara: Maps, menus, seasonality, ads, and tourist versus local demand. Not published yet.',
-    category: 'strategy',
-    excerpt:
-      'A planned playbook for restaurants and hospitality on the South Coast, including Maps, menus, and seasonal demand.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
-  {
-    slug: 'home-services-marketing',
-    title: 'Home Services Marketing in the 805',
-    metaTitle: 'Home Services Marketing in the 805',
-    metaDescription:
-      'A planned marketing guide for 805 contractors and home services covering Map Pack, Google Ads, review velocity, and speed-to-lead follow-up.',
-    category: 'strategy',
-    excerpt:
-      'A planned marketing guide for plumbers, HVAC, roofing, and similar trades in the 805. Maps first, then ads and follow-up.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
-  {
-    slug: 'speed-to-lead-follow-up-systems',
-    title: 'Speed-to-Lead Follow-Up for Local Business',
-    metaTitle: 'Speed-to-Lead Follow-Up for Local Business',
-    metaDescription:
-      'A planned article on answering 805 leads fast: call routing, SMS texts, after-hours coverage, CRM follow-up, and the metrics that actually matter.',
-    category: 'ai',
-    excerpt:
-      'A planned look at the systems that call and text leads before a competitor does. Separate from ranking. Often the cheaper win.',
-    readTime: '',
-    datePublished: '',
-    dateModified: '',
-    status: 'planned',
-    relatedServices: [],
-    relatedLocations: [],
-    relatedArticles: [],
-    body: [],
-  },
+  ...batch2Resources,
 ];
 
 export function getResource(slug: string): Resource | undefined {

@@ -136,12 +136,16 @@ export const batch1Locations: Location[] = [
     ],
     nearbyLinks: [
       { label: 'Santa Maria SEO', href: '/santa-maria-seo' },
+      { label: 'Santa Maria web design', href: '/santa-maria-web-design' },
       { label: 'Lompoc digital marketing', href: '/lompoc-digital-marketing' },
       { label: 'Santa Ynez Valley digital marketing', href: '/santa-ynez-valley-digital-marketing' },
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
       { label: 'Goleta digital marketing', href: '/goleta-digital-marketing' },
     ],
-    relatedResources: ['local-seo-santa-barbara', 'home-services-marketing'],
+    relatedResources: [
+      'local-seo-santa-barbara',
+      'how-to-get-more-google-reviews',
+    ],
     dateModified: '2026-11-22',
   },
   {
@@ -562,11 +566,15 @@ export const batch1Locations: Location[] = [
     nearbyLinks: [
       { label: 'Digital marketing in Goleta', href: '/goleta-digital-marketing' },
       { label: 'Goleta web design', href: '/goleta-web-design' },
+      { label: 'Goleta Google Ads', href: '/goleta-google-ads' },
       { label: 'Santa Barbara SEO', href: '/santa-barbara-seo' },
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
       { label: 'Montecito digital marketing', href: '/montecito-digital-marketing' },
     ],
-    relatedResources: ['goleta-local-seo-guide', 'google-business-profile-optimization'],
+    relatedResources: [
+      'how-to-rank-in-google-maps',
+      'google-business-profile-optimization',
+    ],
     dateModified: '2026-11-22',
   },
   {
@@ -703,6 +711,7 @@ export const batch1Locations: Location[] = [
     nearbyLinks: [
       { label: 'Digital marketing in Goleta', href: '/goleta-digital-marketing' },
       { label: 'Goleta SEO', href: '/goleta-seo' },
+      { label: 'Goleta Google Ads', href: '/goleta-google-ads' },
       { label: 'Santa Barbara web design', href: '/santa-barbara-web-design' },
       { label: 'Montecito web design', href: '/montecito-web-design' },
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
@@ -839,6 +848,7 @@ export const batch1Locations: Location[] = [
     ],
     nearbyLinks: [
       { label: 'Digital marketing in Montecito', href: '/montecito-digital-marketing' },
+      { label: 'Montecito SEO', href: '/montecito-seo' },
       { label: 'Santa Barbara web design', href: '/santa-barbara-web-design' },
       { label: 'Goleta web design', href: '/goleta-web-design' },
       { label: 'Santa Barbara digital marketing', href: '/santa-barbara-digital-marketing' },
@@ -980,12 +990,16 @@ export const batch1Locations: Location[] = [
     ],
     nearbyLinks: [
       { label: 'Digital marketing in Santa Maria', href: '/santa-maria-digital-marketing' },
+      { label: 'Santa Maria web design', href: '/santa-maria-web-design' },
       { label: 'Lompoc digital marketing', href: '/lompoc-digital-marketing' },
       { label: 'Santa Ynez Valley digital marketing', href: '/santa-ynez-valley-digital-marketing' },
       { label: 'Santa Barbara SEO', href: '/santa-barbara-seo' },
       { label: 'Goleta SEO', href: '/goleta-seo' },
     ],
-    relatedResources: ['local-search-ranking-factors', 'how-to-get-more-google-reviews'],
+    relatedResources: [
+      'how-to-rank-in-google-maps',
+      'how-to-get-more-google-reviews',
+    ],
     dateModified: '2026-11-22',
   },
 ];

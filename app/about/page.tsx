@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { Layers, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Heading } from '@/components/ui/Heading';
 import { IconCircle } from '@/components/ui/IconCircle';
 import { PageHero } from '@/components/ui/PageHero';
 import { Prose } from '@/components/ui/Prose';
@@ -132,8 +130,10 @@ export default function AboutPage() {
             <p>
               Santa Barbara Marketing Co is a digital marketing agency for
               businesses across Santa Barbara County. We were founded in{' '}
-              {site.founded} by {site.founder.name}, who has marketed local
-              businesses since 2007. Formerly Ranking SB. We live in the 805.
+              {site.founded} by{' '}
+              <Link href="/about/ruben-ruiz">{site.founder.name}</Link>, who
+              has marketed local businesses since 2007. Formerly Ranking SB. We
+              live in the 805.
               That is the origin story. There is no invented decade on a wall,
               and there is no claim that we have been serving this county for a
               generation under this name. If a sentence cannot be checked, it
