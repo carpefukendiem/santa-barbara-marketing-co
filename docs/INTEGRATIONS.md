@@ -6,7 +6,7 @@ Never log emails, phone numbers, or messages in production. Provider API keys st
 
 ## GoHighLevel (primary)
 
-Set `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` in Vercel for CRM sync. The Santa Barbara Marketing Co. location id is `yDnbD2jIOGjslYuMeUok`. Booking uses that location’s Discovery Call calendar (`Zzp5TRRTwptdDEdra1wZ`), served on the agency widget host `link.rankingsb.com`. Override with `NEXT_PUBLIC_GHL_CALENDAR_ID` / `NEXT_PUBLIC_GHL_BOOKING_URL` if the calendar is replaced. If the iframe fails, the page links to the public scheduling URL and the contact email. Form submissions still use `LEAD_PROVIDER` when the GHL API is unset.
+Set `GHL_PRIVATE_TOKEN` and `GHL_LOCATION_ID` in Vercel for CRM sync. The Santa Barbara Marketing Co. location id is `yDnbD2jIOGjslYuMeUok`. Booking uses the Discovery Call calendar (`uWQ1f6dLxRJidjeDn7Cx`), served on `link.sbmc.io`. Override with `NEXT_PUBLIC_GHL_CALENDAR_ID` / `NEXT_PUBLIC_GHL_BOOKING_URL` if the calendar is replaced. If the iframe fails, the page links to the public scheduling URL and the contact email. Form submissions still use `LEAD_PROVIDER` when the CRM API is unset.
 
 On submit, the API upserts a contact at `POST https://services.leadconnectorhq.com/contacts/upsert` (Version `2021-07-28`) and creates an opportunity on the pipeline.
 
@@ -25,7 +25,7 @@ Create a Print stage in the subaccount pipeline. Set `GHL_PRINT_STAGE_ID` so pri
 
 If the GHL API errors, the lead is still acknowledged to the visitor (`{ ok: true }`) and sent to the fallback `LEAD_PROVIDER` (console, webhook, or resend).
 
-Booking uses the GoHighLevel iframe on `/book-a-call` and in the desktop modal (`https://link.rankingsb.com/widget/booking/...` plus `form_embed.js` for height). Set calendar colors in GHL to navy `#0B1F33` and terracotta `#C4472E`.
+Booking uses the booking/CRM widget iframe on `/book-a-call` and in the desktop modal (`https://link.sbmc.io/widget/booking/...` plus `form_embed.js` for height). Set calendar colors in the booking tool to navy `#0B1F33` and terracotta `#C4472E`.
 
 ## Stripe Checkout (The Local Lead Plan)
 

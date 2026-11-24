@@ -1,8 +1,9 @@
-// Santa Barbara Marketing Co. GHL location `yDnbD2jIOGjslYuMeUok`.
-// Widgets are served on the Ranking SB agency domain until this location has its own booking host.
-const ORIGIN = 'https://link.rankingsb.com';
-const DEFAULT_CALENDAR_ID = 'Zzp5TRRTwptdDEdra1wZ';
-const DEFAULT_SCHEDULING_PATH = '/widget/bookings/discovery-call-8649';
+// Booking / CRM widgets for Santa Barbara Marketing Co.
+// Served on the sbmc.io link domain.
+const ORIGIN = 'https://link.sbmc.io';
+const DEFAULT_CALENDAR_ID = 'uWQ1f6dLxRJidjeDn7Cx';
+const DEFAULT_SCHEDULING_PATH =
+  '/widget/bookings/discovery-call-8649-2c7fe6b5-688f-41f3-ae6a-652d37173678';
 
 export const booking = {
   calendarId: process.env.NEXT_PUBLIC_GHL_CALENDAR_ID || DEFAULT_CALENDAR_ID,
