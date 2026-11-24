@@ -249,7 +249,7 @@ export function Hero({ copy = getHomepageCopy('a') }: { copy?: HomepageCopy }) {
   const hero = copy.hero;
 
   return (
-    <section className={styles.hero} aria-labelledby="hero-title" data-hp-variant-hero>
+    <section className={`${styles.hero} hero-overlay`} aria-labelledby="hero-title" data-hp-variant-hero>
       <div className={styles.photo} aria-hidden="true">
         <Image
           src={photos.hero.src}

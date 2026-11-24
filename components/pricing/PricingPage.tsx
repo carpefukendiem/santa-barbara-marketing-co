@@ -237,11 +237,11 @@ function SectionHead({ kick, title, lede, kickClass }: { kick: string; title: Re
   );
 }
 
-export function PricingPage() {
+export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} hero-overlay`}>
       <section className={styles.hero}>
         <div className={styles.photo} aria-hidden="true">
           <Image
@@ -310,6 +310,7 @@ export function PricingPage() {
           </div>
         </div>
       </section>
+      {afterHero}
 
       <section className={styles.section} id="included">
         <div className={styles.wrap}>
@@ -346,6 +347,7 @@ export function PricingPage() {
       </section>
 
       <section className={`${styles.section} ${styles.addons}`} id="add-ons">
+        <div id="catalog" />
         <div className={styles.wrap}>
           <SectionHead
             kick="Optional add-ons · not in $297"

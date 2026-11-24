@@ -104,6 +104,8 @@
   --cream-10: rgba(247, 241, 230, 0.1);
   --cream-055: rgba(247, 241, 230, 0.055);
   --cream-05: rgba(247, 241, 230, 0.05);
+  /* Unscrolled fixed header. Scroll clearance uses this, not the shorter scrolled bar. */
+  --header-height: 76px;
   --ochre-75: rgba(217, 164, 65, 0.75);
   --ochre-35: rgba(217, 164, 65, 0.35);
   --ochre-28: rgba(217, 164, 65, 0.28);
@@ -119,6 +121,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+/* In-page anchors clear the fixed bar. #main is the document start, not a section target.
+   Engines that honor scroll-padding add it to scroll-margin, so the margin is only the fallback. */
+[id]:not(#main) {
+  scroll-margin-top: var(--header-height);
+}
+
+@supports (scroll-padding-top: 0px) {
+  [id]:not(#main) {
+    scroll-margin-top: 0px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -361,8 +376,69 @@ i.font-display {
   user-select: none;
 }
 
+/* Layout owns header clearance. Overlay heroes cancel this and pad themselves. */
+#main {
+  padding-top: var(--header-height);
+}
+
+.hero-overlay {
+  margin-top: calc(var(--header-height) * -1);
+}
+
+/* A visible sibling already sits in the layout offset, so don't pull the hero over it. */
+#main > :not(script) ~ .hero-overlay {
+  margin-top: 0;
+}
+
+/* Overlay heroes keep today's gap under the bar: header height plus the old leftover. */
+.hero-pad {
+  --hero-gap: 52px;
+  padding-top: calc(var(--header-height) + var(--hero-gap));
+}
+
+.hero-pad-compact {
+  --hero-gap: 36px;
+}
+
+.hero-pad-work {
+  --hero-gap: 100px;
+}
+
+@media (min-width: 768px) {
+  .hero-pad {
+    --hero-gap: 100px;
+  }
+
+  .hero-pad-compact {
+    --hero-gap: 84px;
+  }
+
+  .hero-pad-work {
+    --hero-gap: 100px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-pad {
+    --hero-gap: 64px;
+  }
+
+  .hero-pad-compact {
+    --hero-gap: 48px;
+  }
+
+  .hero-pad-work {
+    --hero-gap: 64px;
+  }
+}
+
+/* Main already cleared the bar, so don't add the header height a second time. */
+.hero-pad:not(.hero-overlay) {
+  padding-top: var(--hero-gap);
+}
+
 header.site-header {
-  height: 76px;
+  height: var(--header-height);
   overflow: visible;
   transition:
     height 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
@@ -426,6 +502,50 @@ header.site-header[data-over-dark] .nav-link[aria-expanded='true'] {
   color: var(--ochre);
 }
 
+/* Light first section: cream bar and ink type, even though the bar is still unscrolled. */
+body:has([data-light-first]) header.site-header:not([data-scrolled]) {
+  border-bottom-color: var(--rule);
+  background-color: rgb(247 241 230 / 0.95);
+  background-image: none;
+  color: var(--ink);
+}
+
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .nav-link,
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .header-phone,
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .header-menu {
+  color: var(--ink);
+}
+
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .nav-link[aria-current='page'],
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .nav-link:hover,
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .nav-link[aria-expanded='true'] {
+  color: var(--ochre-ink);
+}
+
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .header-menu {
+  border-color: rgb(11 31 51 / 0.25);
+}
+
+.header-mark-on-dark {
+  display: none;
+}
+
+header.site-header[data-over-dark] .header-mark-ink {
+  display: none;
+}
+
+header.site-header[data-over-dark] .header-mark-on-dark {
+  display: block;
+}
+
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .header-mark-ink {
+  display: block;
+}
+
+body:has([data-light-first]) header.site-header:not([data-scrolled]) .header-mark-on-dark {
+  display: none;
+}
+
 header.site-header a.header-book {
   box-shadow: none;
   gap: 0;
@@ -455,8 +575,8 @@ header.site-header a.header-book:hover {
 }
 
 @media (min-width: 1100px) {
-  header.site-header {
-    height: 112px;
+  :root {
+    --header-height: 112px;
   }
 
   header.site-header[data-scrolled] {

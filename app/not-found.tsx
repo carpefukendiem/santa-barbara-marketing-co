@@ -15,7 +15,7 @@ export default function NotFound() {
   });
 
   return (
-    <Section className="relative overflow-hidden bg-sbmc-cream">
+    <Section lightFirst className="relative overflow-hidden bg-sbmc-cream">
       <Image
         src={decor.palmTree.src}
         alt=""
