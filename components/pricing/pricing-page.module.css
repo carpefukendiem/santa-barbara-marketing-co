@@ -101,7 +101,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
   gap: 64px;
   align-items: center;
-  padding: 148px clamp(28px, 3.889vw, 56px) 88px clamp(40px, 5.556vw, 80px);
+  padding: calc(var(--header-height) + 36px) clamp(28px, 3.889vw, 56px) 88px clamp(40px, 5.556vw, 80px);
 }
 
 .crumb {
@@ -1070,7 +1070,7 @@
   .hgrid {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
-    padding: 80px 14px 40px;
+    padding: calc(var(--header-height) + 4px) 14px 40px;
   }
 
   .copy {

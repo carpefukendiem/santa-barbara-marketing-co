@@ -91,7 +91,10 @@ export default async function CaseStudyPage({ params }: Props) {
           },
         ]}
       />
-      <Section className="bg-cream pb-12 pt-44">
+      <Section
+        lightFirst
+        className="hero-overlay hero-pad hero-pad-work bg-cream pb-12"
+      >
         <Container>
           <Breadcrumbs
             items={[

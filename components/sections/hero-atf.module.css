@@ -41,7 +41,7 @@
 .layout {
   position: relative;
   z-index: 1;
-  padding-top: 76px;
+  padding-top: var(--header-height);
   min-width: 0;
 }
 
@@ -724,7 +724,7 @@
     justify-content: space-between;
     max-width: 1440px;
     margin-inline: auto;
-    padding-top: 132px;
+    padding-top: calc(var(--header-height) + 20px);
     padding-right: clamp(20px, 3.89vw, 56px);
     padding-left: clamp(24px, 5.56vw, 80px);
   }

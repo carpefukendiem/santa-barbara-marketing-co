@@ -9,6 +9,8 @@ type SectionProps = {
   padded?: boolean;
   bg?: 'white' | 'sand' | 'navy' | 'tile' | 'cream';
   py?: string;
+  /** First visible section is light, so the fixed header uses ink on cream. */
+  lightFirst?: boolean;
 };
 
 export function Section({
@@ -19,6 +21,7 @@ export function Section({
   padded = true,
   bg,
   py,
+  lightFirst = false,
 }: SectionProps) {
   const dark = bg === 'navy' || bg === 'tile';
   const inner = (
@@ -29,6 +32,7 @@ export function Section({
     <DarkProvider dark={dark}>
       <Tag
         id={id}
+        data-light-first={lightFirst ? '' : undefined}
         className={cn(
           padded && (py ?? 'py-24 lg:py-36'),
           (bg === 'white' || bg === 'sand' || bg === 'cream' || !bg) &&

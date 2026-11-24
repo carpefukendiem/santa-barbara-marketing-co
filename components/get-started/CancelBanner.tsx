@@ -16,6 +16,7 @@ export function CancelBanner({ href, className }: { href: string; className?: st
         'mx-auto mb-4 max-w-[1440px] px-6 lg:px-14',
         className,
       )}
+      data-light-first=""
     >
       <div className="rounded-xl border border-ochre/30 bg-ochre/10 p-4 text-ink backdrop-blur-sm">
         <p className="text-sm">

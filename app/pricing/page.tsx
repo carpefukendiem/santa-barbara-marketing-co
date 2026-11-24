@@ -65,22 +65,25 @@ export default function Page() {
           faqPageSchema(pricingFaqs),
         ]}
       />
-      <AnswerFirst
-        answer={`The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr and includes a website (typically live in 30 days), local SEO, Google Business Profile work, and a full CRM with follow-up. Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo and Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo as optional add-ons.`}
-        facts={[
-          { label: 'Monthly', value: `$${pricingPlan.monthlyAmount}/mo` },
-          { label: 'Yearly', value: `$${pricingPlan.annualAmount}/yr` },
-          {
-            label: 'Voice AI',
-            value: `$${ADDONS.voice_ai.monthlyAmount}/mo optional`,
-          },
-          {
-            label: 'Chat AI',
-            value: `$${ADDONS.chat_ai.monthlyAmount}/mo optional`,
-          },
-        ]}
+      <PricingPage
+        afterHero={
+          <AnswerFirst
+            answer={`The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr and includes a website (typically live in 30 days), local SEO, Google Business Profile work, and a full CRM with follow-up. Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo and Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo as optional add-ons.`}
+            facts={[
+              { label: 'Monthly', value: `$${pricingPlan.monthlyAmount}/mo` },
+              { label: 'Yearly', value: `$${pricingPlan.annualAmount}/yr` },
+              {
+                label: 'Voice AI',
+                value: `$${ADDONS.voice_ai.monthlyAmount}/mo optional`,
+              },
+              {
+                label: 'Chat AI',
+                value: `$${ADDONS.chat_ai.monthlyAmount}/mo optional`,
+              },
+            ]}
+          />
+        }
       />
-      <PricingPage />
     </>
   );
 }

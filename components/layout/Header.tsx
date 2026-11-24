@@ -43,9 +43,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const lightTop =
-    pathname === '/work' || pathname.startsWith('/work/');
-  const overDark = !scrolled && !lightTop;
+  const overDark = !scrolled;
   const navItemClass = cn(
     'nav-link',
     overDark ? 'text-[var(--white)]' : 'text-ink',
@@ -55,9 +53,9 @@ export function Header() {
     <header
       className={cn(
         'site-header fixed inset-x-0 top-0 z-40',
-        scrolled || lightTop
+        scrolled
           ? 'border-b border-rule bg-cream/95 text-ink'
-          : /* Navy wash behind white nav so links stay readable over light hero regions. */
+          : /* Navy wash behind white nav. Pages with a light first section set data-light-first. */
             'border-b border-transparent bg-[linear-gradient(180deg,rgba(11,31,51,0.72)_0%,rgba(11,31,51,0.28)_70%,transparent_100%)] text-cream',
       )}
       data-scrolled={scrolled ? '' : undefined}
@@ -69,7 +67,8 @@ export function Header() {
           className="header-logo"
           aria-label="Santa Barbara Marketing Co. home"
         >
-          <Wordmark inverted={overDark} priority />
+          <Wordmark priority className="header-mark-ink" />
+          <Wordmark inverted priority className="header-mark-on-dark" />
         </Link>
 
         {isMinimal ? (
@@ -77,7 +76,10 @@ export function Header() {
             {site.phone ? (
               <a
                 href={telHref(site.phone)}
-                className={cn('hidden text-sm md:inline lg:hidden', overDark ? 'text-cream' : 'text-ink')}
+                className={cn(
+                  'header-phone hidden text-sm md:inline lg:hidden',
+                  overDark ? 'text-cream' : 'text-ink',
+                )}
               >
                 {formatPhone(site.phone)}
               </a>
@@ -169,7 +171,7 @@ export function Header() {
                 <a
                   href={telHref(site.phone)}
                   className={cn(
-                    'hidden font-mono text-xs tracking-[0.16em] uppercase md:inline min-[1100px]:hidden',
+                    'header-phone hidden font-mono text-xs tracking-[0.16em] uppercase md:inline min-[1100px]:hidden',
                     overDark ? 'text-cream' : 'text-ink',
                   )}
                 >
@@ -184,7 +186,7 @@ export function Header() {
               <button
                 type="button"
                 className={cn(
-                  'inline-flex min-h-11 items-center gap-2 rounded-full border px-[15px] py-[9px] text-[12.5px] font-semibold uppercase tracking-[0.14em] min-[1100px]:hidden',
+                  'header-menu inline-flex min-h-11 items-center gap-2 rounded-full border px-[15px] py-[9px] text-[12.5px] font-semibold uppercase tracking-[0.14em] min-[1100px]:hidden',
                   overDark
                     ? 'border-[rgba(247,241,230,0.45)] text-[var(--white)]'
                     : 'border-navy/25 text-ink',

@@ -33,6 +33,8 @@ type PageHeroProps = {
   disableReveal?: boolean;
   align?: 'start' | 'end';
   tightMobile?: boolean;
+  /** Paint under the fixed header. Turn off when a visible sibling sits above the hero. */
+  overlay?: boolean;
 };
 
 function HeroCopy({
@@ -116,6 +118,7 @@ export function PageHero({
   disableReveal = false,
   align = 'end',
   tightMobile = false,
+  overlay = true,
 }: PageHeroProps) {
   const resolvedCta = primaryCta === undefined ? siteCta : primaryCta;
   const showPhoto = Boolean(image) && (variant === 'photo' || variant === 'split');
@@ -139,8 +142,10 @@ export function PageHero({
   return (
     <section
       className={cn(
-        'relative overflow-hidden bg-navy',
-        compact ? 'pt-28 md:pt-40' : 'md:min-h-[56vh] pt-32 md:pt-44',
+        'hero-pad relative overflow-hidden bg-navy',
+        overlay && 'hero-overlay',
+        compact && 'hero-pad-compact',
+        !compact && 'md:min-h-[56vh]',
       )}
     >
       {showPhoto && image ? (
