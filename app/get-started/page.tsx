@@ -65,12 +65,12 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
               </p>
               <p className="mt-2">{ppcManagement.addonBlurb}</p>
               <p className="mt-2">
-                Display only on this page (not in checkout yet). After you enroll,
-                ask us to add it, or{' '}
+                Add it anytime after you enroll: just ask us and we&apos;ll turn it
+                on. Want PPC on its own?{' '}
                 <Link href={primaryCta.href} className="text-ochre underline">
-                  book a 20-Minute Call
-                </Link>{' '}
-                for standalone. See{' '}
+                  Book a 20-Minute Call
+                </Link>
+                . See{' '}
                 <Link href={ppcManagement.href} className="text-ochre underline">
                   Google Ads management
                 </Link>

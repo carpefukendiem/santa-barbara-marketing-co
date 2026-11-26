@@ -160,7 +160,7 @@ export const ppcManagement = {
       category: 'getting-started' as const,
       question: 'How do I get started?',
       answer:
-        'Local Lead Plan clients can add PPC management as a display add-on on Pricing and ask us to turn it on. Standalone clients book a 20-Minute Call. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice.',
+        'Local Lead Plan clients can ask us to add PPC Management at any time. Standalone clients book a 20-Minute Call. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice.',
     },
   ],
 
