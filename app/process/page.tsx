@@ -10,6 +10,7 @@ import { FAQAccordion } from '@/components/ui/Accordion';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { ppcManagement } from '@/data/ppc-management';
 import { site } from '@/data/site';
 import {
   breadcrumbSchema,
@@ -17,7 +18,7 @@ import {
   webPageSchema,
 } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
-import { formatPhone } from '@/lib/utils';
+import { formatPhone, formatUsd } from '@/lib/utils';
 
 export const metadata = buildMetadata({
   title: 'Our Process: Live in 30 Days',
@@ -234,9 +235,11 @@ export default function ProcessPage() {
             <p>
               The process on this page is the Local Lead Plan launch path. The
               price is $297/mo or $2,970/yr with two months free on the annual
-              option. PPC Management is an optional add-on at $150/mo; you pay
-              Google for ad spend on your own card (minimum $500/mo). See{' '}
-              <Link href="/services/google-ads">Google Ads management</Link>.
+              option. PPC Management is an optional add-on at{' '}
+              {formatUsd(ppcManagement.monthlyAmount)}/mo; you pay Google for ad
+              spend on your own card (minimum{' '}
+              {formatUsd(ppcManagement.minAdBudgetMonthly)}/mo). See{' '}
+              <Link href={ppcManagement.href}>Google Ads management</Link>.
               Print and apparel are quoted per order. Voice AI and Chat AI are
               optional add-ons and are not required to launch the site. If you
               want the plan in writing before a call, read{' '}

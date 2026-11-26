@@ -351,7 +351,7 @@ export const services: Service[] = [
       {
         step: 1,
         title: 'Access and tracking',
-        body: 'You own the Google Ads account and pay Google on your own card. We get access, confirm the $500/mo minimum ad budget, and set call and form conversion tracking before spend scales.',
+        body: `You own the Google Ads account and pay Google on your own card. We get access, confirm the $${ppcManagement.minAdBudgetMonthly}/mo minimum ad budget, and set call and form conversion tracking before spend scales.`,
       },
       {
         step: 2,

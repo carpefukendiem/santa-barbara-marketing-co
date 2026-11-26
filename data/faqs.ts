@@ -1,3 +1,5 @@
+import { ppcManagement } from './ppc-management';
+
 export type FaqItem = {
   question: string;
   answer: string;
@@ -106,7 +108,7 @@ export const faqs: FaqItem[] = [
     category: 'ads',
     question: 'Do you mark up ad spend?',
     answer:
-      'No. You pay Google for ad spend on your own card and own the account. Our PPC Management fee is $150/mo for campaign build, tuning, tracking, reporting, and a monthly check-in. There is a $500/mo minimum ad budget. If a platform rebate or partner benefit exists, it is disclosed.',
+      `No. You pay Google for ad spend on your own card and own the account. Our PPC Management fee is $${ppcManagement.monthlyAmount}/mo for campaign build, tuning, tracking, reporting, and a monthly check-in. There is a $${ppcManagement.minAdBudgetMonthly}/mo minimum ad budget. $500+ recommended for competitive trades. If a platform rebate or partner benefit exists, it is disclosed.`,
   },
   {
     category: 'websites',
@@ -130,7 +132,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 20-Minute Call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. PPC Management is an optional add-on at $150/mo; you pay Google for ad spend on your own card with a $500/mo minimum. Print production is quoted per order. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
+      `The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 20-Minute Call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. PPC Management is an optional add-on at $${ppcManagement.monthlyAmount}/mo; you pay Google for ad spend on your own card with a $${ppcManagement.minAdBudgetMonthly}/mo minimum. Print production is quoted per order. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.`,
   },
   {
     category: 'working-together',

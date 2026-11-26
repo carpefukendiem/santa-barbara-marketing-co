@@ -4,6 +4,9 @@
  * surfaces stay in sync. Revise here first.
  */
 
+const MONTHLY_AMOUNT = 150;
+const MIN_AD_BUDGET_MONTHLY = 300;
+
 export const ppcManagement = {
   /** Public URL. Existing Google Ads service page (do not duplicate). */
   href: '/services/google-ads',
@@ -14,12 +17,11 @@ export const ppcManagement = {
   serviceName: 'Google Ads Management',
   navLabel: 'Google Ads',
 
-  monthlyAmount: 150,
-  minAdBudgetMonthly: 500,
+  monthlyAmount: MONTHLY_AMOUNT,
+  minAdBudgetMonthly: MIN_AD_BUDGET_MONTHLY,
 
   /** Checkout / pricing add-on blurb. Ad spend stays separate from the fee. */
-  addonBlurb:
-    'Google Search ads and Local Services Ads where you qualify. Ad spend is paid to Google separately, with a $500/mo minimum.',
+  addonBlurb: `Google Search ads and Local Services Ads where you qualify. Ad spend is paid to Google separately, with a $${MIN_AD_BUDGET_MONTHLY}/mo minimum.`,
 
   metaTitle: 'Google Ads Management for $150/mo',
   metaDescription:
@@ -38,8 +40,7 @@ export const ppcManagement = {
     title: 'What you pay, in plain terms',
     management:
       'The $150/mo is our management fee. It covers campaign build, ongoing management, tracking, reporting, and a short monthly check-in.',
-    adSpend:
-      'Your ad budget is separate. You pay Google directly on your own card, and you own the ad account. There is a $500/mo minimum ad budget. There is no ad-spend cap.',
+    adSpend: `Your ad budget is separate. You pay Google directly on your own card, and you own the ad account. There is a $${MIN_AD_BUDGET_MONTHLY}/mo minimum ad budget. $500+ recommended for competitive trades. There is no ad-spend cap.`,
     twoWays:
       'Same $150/mo price either way: as an add-on to The Local Lead Plan, or as a standalone service. Standalone starts with a 20-Minute Call.',
   },
@@ -102,7 +103,7 @@ export const ppcManagement = {
     title: 'Who this is for',
     items: [
       'Small and local businesses that want hire-intent Google ads without a large retainer',
-      'Owners who can fund at least $500/mo in ad spend paid directly to Google',
+      `Owners who can fund at least $${MIN_AD_BUDGET_MONTHLY}/mo in ad spend paid directly to Google. $500+ recommended for competitive trades.`,
       'Businesses ready to own their Google Ads account and keep billing on their own card',
       'Local Lead Plan clients who want paid search as an add-on next to the full CRM',
       'Trades and local services that may also qualify for Google Local Services Ads',
@@ -113,7 +114,7 @@ export const ppcManagement = {
     title: 'Who this is not for',
     items: [
       'Businesses that need Meta, TikTok, or video production in the same fee',
-      'Accounts that cannot fund the $500/mo minimum ad budget',
+      `Accounts that cannot fund the $${MIN_AD_BUDGET_MONTHLY}/mo minimum ad budget`,
       'Multi-location rollouts that need a custom quote before anything launches',
       'Anyone looking for a results, ranking, or revenue guarantee',
     ],
@@ -123,8 +124,7 @@ export const ppcManagement = {
     {
       category: 'ads' as const,
       question: 'What does the $150/mo cover?',
-      answer:
-        'The $150/mo is the management fee: campaign build, keyword and negative-keyword tuning, ad copy, call and form conversion tracking, a monthly plain-English report, and a short monthly check-in. Ad spend is separate. You pay Google directly on your own card, with a $500/mo minimum. Cancel anytime with 30-day written notice.',
+      answer: `The $150/mo is the management fee: campaign build, keyword and negative-keyword tuning, ad copy, call and form conversion tracking, a monthly plain-English report, and a short monthly check-in. Ad spend is separate. You pay Google directly on your own card, with a $${MIN_AD_BUDGET_MONTHLY}/mo minimum. $500+ recommended for competitive trades. Cancel anytime with 30-day written notice.`,
     },
     {
       category: 'ads' as const,
@@ -165,8 +165,7 @@ export const ppcManagement = {
   ],
 
   /** Schema.org Offer description (ad spend separate, minimum noted). */
-  offerDescription:
-    'Google Ads management fee of $150 per month. Ad spend is paid directly to Google by the client on their own card, with a $500 per month minimum ad budget. The client owns the ad account.',
+  offerDescription: `Google Ads management fee of $150 per month. Ad spend is paid directly to Google by the client on their own card, with a $${MIN_AD_BUDGET_MONTHLY} per month minimum ad budget. The client owns the ad account.`,
 
   schemaServiceType: 'Google Ads and PPC management',
 
