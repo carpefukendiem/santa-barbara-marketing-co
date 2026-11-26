@@ -1,4 +1,5 @@
 import { pricingPlan } from '@/data/pricing'
+import { ppcManagement } from '@/data/ppc-management'
 
 export const ADDONS = {
   voice_ai: {
@@ -17,6 +18,14 @@ export const ADDONS = {
     monthlyAmount: 29,
     envVar: 'STRIPE_PRICE_CHAT_AI_MONTHLY',
   },
+  ppc_management: {
+    id: 'ppc_management',
+    tag: 'ppc-management-addon',
+    name: 'PPC Management',
+    blurb: ppcManagement.addonBlurb,
+    monthlyAmount: ppcManagement.monthlyAmount,
+    envVar: 'STRIPE_PRICE_PPC_MONTHLY',
+  },
 } as const
 
 export type AddonId = keyof typeof ADDONS
@@ -31,7 +40,7 @@ export type PublicAddon = {
 const ADDON_IDS = Object.keys(ADDONS) as AddonId[]
 
 export function isAddonId(value: unknown): value is AddonId {
-  return value === 'voice_ai' || value === 'chat_ai'
+  return typeof value === 'string' && value in ADDONS
 }
 
 export function parseAddonList(value: unknown): AddonId[] {
@@ -98,7 +107,28 @@ export function configuredAddonIds(requested: readonly AddonId[]): AddonId[] {
   return requested.filter((id) => Boolean(process.env[ADDONS[id].envVar]))
 }
 
+export function isAddonConfigured(id: AddonId): boolean {
+  return Boolean(process.env[ADDONS[id].envVar])
+}
+
 export function addonPriceId(id: AddonId): string | null {
   const value = process.env[ADDONS[id].envVar]
   return value && value.length > 0 ? value : null
+}
+
+export function knownAddonPriceIds(): Record<AddonId, string | null> {
+  const prices = {} as Record<AddonId, string | null>
+  for (const id of ADDON_IDS) {
+    prices[id] = addonPriceId(id)
+  }
+  return prices
+}
+
+/** Zod-friendly tuple of every AddonId, derived from ADDONS. */
+export function addonIdEnumValues(): [AddonId, ...AddonId[]] {
+  const [first, ...rest] = ADDON_IDS
+  if (!first) {
+    throw new Error('ADDONS must define at least one add-on')
+  }
+  return [first, ...rest]
 }

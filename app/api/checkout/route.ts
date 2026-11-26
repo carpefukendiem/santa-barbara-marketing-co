@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import {
   ADDONS,
+  addonIdEnumValues,
   addonListParam,
   addonPriceId,
   chargePlan,
@@ -23,7 +24,7 @@ const bodySchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email(),
   phone: z.string().trim().max(40).optional().or(z.literal('')),
-  addons: z.array(z.enum(['voice_ai', 'chat_ai'])).optional(),
+  addons: z.array(z.enum(addonIdEnumValues())).optional(),
   attribution: z.record(z.string(), z.string()).optional(),
 });
 

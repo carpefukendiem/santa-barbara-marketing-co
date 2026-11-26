@@ -1,5 +1,5 @@
 import type Stripe from 'stripe'
-import { addonPriceId } from '@/lib/addons'
+import { knownAddonPriceIds } from '@/lib/addons'
 import { getStripe } from '@/lib/stripe'
 import {
   summarizeCheckoutSession,
@@ -35,10 +35,7 @@ export async function loadPurchaseSummary(sessionId: string): Promise<PurchaseSu
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
       expand: ['line_items.data.price'],
     })
-    return summarizeCheckoutSession(snapshotFromSession(session), {
-      voice: addonPriceId('voice_ai'),
-      chat: addonPriceId('chat_ai'),
-    })
+    return summarizeCheckoutSession(snapshotFromSession(session), knownAddonPriceIds())
   } catch (error) {
     console.error('[checkout] session lookup failed', error)
     return null

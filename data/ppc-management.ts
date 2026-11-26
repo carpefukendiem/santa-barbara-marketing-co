@@ -17,9 +17,9 @@ export const ppcManagement = {
   monthlyAmount: 150,
   minAdBudgetMonthly: 500,
 
-  /** Display-only add-on blurb (not Stripe-selectable). */
+  /** Checkout / pricing add-on blurb. Ad spend stays separate from the fee. */
   addonBlurb:
-    'Google Search ads and Local Services Ads where you qualify. You pay Google for ad spend on your own card.',
+    'Google Search ads and Local Services Ads where you qualify. Ad spend is paid to Google separately, with a $500/mo minimum.',
 
   metaTitle: 'Google Ads Management for $150/mo',
   metaDescription:
@@ -160,7 +160,7 @@ export const ppcManagement = {
       category: 'getting-started' as const,
       question: 'How do I get started?',
       answer:
-        'Local Lead Plan clients can ask us to add PPC Management at any time. Standalone clients book a 20-Minute Call. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice.',
+        'Local Lead Plan clients can add PPC Management at checkout or ask us to add it later. Standalone clients book a 20-Minute Call. Email info@sbmc.io or call (805) 307-7600. Cancel anytime with 30-day written notice.',
     },
   ],
 

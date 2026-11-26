@@ -9,7 +9,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { pricingPlan } from '@/data/pricing';
 import { ppcManagement } from '@/data/ppc-management';
-import { publicAddons } from '@/lib/addons';
+import { isAddonConfigured, publicAddons } from '@/lib/addons';
 import { formatUsd } from '@/lib/utils';
 import { CancelBanner } from '@/components/get-started/CancelBanner';
 import { StickyEnrollBar } from '@/components/get-started/StickyEnrollBar';
@@ -28,6 +28,9 @@ export const metadata: Metadata = buildMetadata({
 
 export default async function GetStartedPage({ searchParams }: GetStartedPageProps) {
   const { checkout } = await searchParams;
+  const checkoutAddons = publicAddons();
+  const ppcSelectable = isAddonConfigured('ppc_management');
+
   return (
     <>
       {checkout === 'cancelled' ? <CancelBanner href={primaryCta.href} /> : null}
@@ -57,26 +60,28 @@ export default async function GetStartedPage({ searchParams }: GetStartedPagePro
             <PricingCard
               variant="checkout"
               cancelled={checkout === 'cancelled'}
-              addons={publicAddons()}
+              addons={checkoutAddons}
             />
-            <div className="rounded-xl border border-cream/20 bg-navy/80 px-4 py-4 text-left text-sm text-cream/80">
-              <p className="font-medium text-cream">
-                {ppcManagement.name} · {formatUsd(ppcManagement.monthlyAmount)}/mo
-              </p>
-              <p className="mt-2">{ppcManagement.addonBlurb}</p>
-              <p className="mt-2">
-                Add it anytime after you enroll: just ask us and we&apos;ll turn it
-                on. Want PPC on its own?{' '}
-                <Link href={primaryCta.href} className="text-ochre underline">
-                  Book a 20-Minute Call
-                </Link>
-                . See{' '}
-                <Link href={ppcManagement.href} className="text-ochre underline">
-                  Google Ads management
-                </Link>
-                .
-              </p>
-            </div>
+            {!ppcSelectable ? (
+              <div className="rounded-xl border border-cream/20 bg-navy/80 px-4 py-4 text-left text-sm text-cream/80">
+                <p className="font-medium text-cream">
+                  {ppcManagement.name} · {formatUsd(ppcManagement.monthlyAmount)}/mo
+                </p>
+                <p className="mt-2">{ppcManagement.addonBlurb}</p>
+                <p className="mt-2">
+                  Add it anytime after you enroll: just ask us and we&apos;ll turn it
+                  on. Want PPC on its own?{' '}
+                  <Link href={primaryCta.href} className="text-ochre underline">
+                    Book a 20-Minute Call
+                  </Link>
+                  . See{' '}
+                  <Link href={ppcManagement.href} className="text-ochre underline">
+                    Google Ads management
+                  </Link>
+                  .
+                </p>
+              </div>
+            ) : null}
           </div>
         }
       />

@@ -252,7 +252,14 @@ function SectionHead({ kick, title, lede, kickClass }: { kick: string; title: Re
   );
 }
 
-export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
+export function PricingPage({
+  afterHero,
+  ppcSelectable = false,
+}: {
+  afterHero?: ReactNode;
+  /** When false, show the ask-us fallback for PPC instead of implying checkout. */
+  ppcSelectable?: boolean;
+}) {
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -419,9 +426,18 @@ export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
           </ul>
           <p className={styles.footnote}>
             Website chat is already included in the plan. PPC ad spend is paid
-            directly to Google (minimum ${ppcManagement.minAdBudgetMonthly}/mo).
-            After you enroll in The Local Lead Plan, ask us to add PPC Management,
-            or book a 20-Minute Call for the standalone version.{' '}
+            directly to Google (minimum ${ppcManagement.minAdBudgetMonthly}/mo).{' '}
+            {ppcSelectable ? (
+              <>
+                Choose PPC Management at checkout on Get Started, or book a
+                20-Minute Call for the standalone version.{' '}
+              </>
+            ) : (
+              <>
+                Add it anytime after you enroll: just ask us and we&apos;ll turn
+                it on. Want PPC on its own? Book a 20-Minute Call.{' '}
+              </>
+            )}
             <Link href={ppcManagement.href}>Google Ads details</Link>.
           </p>
         </div>

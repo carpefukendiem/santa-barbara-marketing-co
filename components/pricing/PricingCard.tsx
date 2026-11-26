@@ -243,23 +243,37 @@ export function PricingCard({
                   {addons.map((addon) => {
                     const checked = selectedAddons.includes(addon.id);
                     return (
-                      <label
+                      <div
                         key={addon.id}
-                        className="flex cursor-pointer items-start gap-3 rounded-xl border border-cream/15 px-3 py-3"
+                        className="rounded-xl border border-cream/15 px-3 py-3"
                       >
-                        <input
-                          type="checkbox"
-                          className="mt-1"
-                          checked={checked}
-                          onChange={() => toggleAddon(addon.id)}
-                        />
-                        <span>
-                          <span className="block text-sm text-cream">
-                            {addon.name} · {formatUsd(addon.monthlyAmount)}/mo
+                        <label className="flex cursor-pointer items-start gap-3">
+                          <input
+                            type="checkbox"
+                            className="mt-1"
+                            checked={checked}
+                            onChange={() => toggleAddon(addon.id)}
+                          />
+                          <span>
+                            <span className="block text-sm text-cream">
+                              {addon.name} · {formatUsd(addon.monthlyAmount)}/mo
+                            </span>
+                            <span className="mt-1 block text-xs text-cream/60">
+                              {addon.blurb}
+                            </span>
                           </span>
-                          <span className="mt-1 block text-xs text-cream/60">{addon.blurb}</span>
-                        </span>
-                      </label>
+                        </label>
+                        {addon.id === 'ppc_management' ? (
+                          <p className="mt-2 pl-7 text-xs text-cream/60">
+                            <Link
+                              href="/services/google-ads"
+                              className="text-ochre underline"
+                            >
+                              Google Ads details
+                            </Link>
+                          </p>
+                        ) : null}
+                      </div>
                     );
                   })}
                 </fieldset>

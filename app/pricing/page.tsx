@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { PricingPage } from '@/components/pricing/PricingPage';
 import { pricingPlan } from '@/data/pricing';
 import { ppcManagement } from '@/data/ppc-management';
-import { ADDONS } from '@/lib/addons';
+import { ADDONS, isAddonConfigured } from '@/lib/addons';
 import {
   breadcrumbSchema,
   faqPageSchema,
@@ -47,6 +47,8 @@ const pricingFaqs = [
 ];
 
 export default function Page() {
+  const ppcSelectable = isAddonConfigured('ppc_management');
+
   return (
     <>
       <JsonLd
@@ -66,6 +68,7 @@ export default function Page() {
         ]}
       />
       <PricingPage
+        ppcSelectable={ppcSelectable}
         afterHero={
           <AnswerFirst
             answer={`The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr and includes a website (typically live in 30 days), local SEO, Google Business Profile work, and a full CRM with follow-up. Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo, Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo, and PPC Management is $${ppcManagement.monthlyAmount}/mo as optional add-ons.`}
