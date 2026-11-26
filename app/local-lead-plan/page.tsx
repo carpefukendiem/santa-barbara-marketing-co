@@ -8,7 +8,9 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { buildMetadata } from '@/lib/seo';
 import { pricingPlan } from '@/data/pricing';
+import { ppcManagement } from '@/data/ppc-management';
 import { primaryCta } from '@/data/navigation';
+import { ADDONS } from '@/lib/addons';
 import { formatUsd } from '@/lib/utils';
 
 export const metadata: Metadata = buildMetadata({
@@ -31,7 +33,7 @@ export default function LocalLeadPlanPage() {
         variant="simple"
         eyebrow="The Local Lead Plan"
         title="One plan for getting found and followed up with."
-        subhead={`${formatUsd(pricingPlan.monthlyAmount)}/mo, or ${formatUsd(pricingPlan.annualAmount)}/yr with 2 months free. You save ${formatUsd(pricingPlan.monthlyAmount * 12 - pricingPlan.annualAmount)} versus paying monthly. Voice AI and Chat AI are optional and are not included.`}
+        subhead={`${formatUsd(pricingPlan.monthlyAmount)}/mo, or ${formatUsd(pricingPlan.annualAmount)}/yr with 2 months free. You save ${formatUsd(pricingPlan.monthlyAmount * 12 - pricingPlan.annualAmount)} versus paying monthly. Voice AI, Chat AI, and PPC Management are optional and are not included.`}
         breadcrumbs={[
           { href: '/', label: 'Home' },
           { label: 'The Local Lead Plan' },
@@ -58,6 +60,36 @@ export default function LocalLeadPlanPage() {
             Rather talk first? Book a call
           </Button>
         </div>
+      </Section>
+      <Section>
+        <Heading as="h2">Optional add-ons</Heading>
+        <p className="mt-4 max-w-2xl text-stone">
+          Not included in the {formatUsd(pricingPlan.monthlyAmount)}/mo plan.
+        </p>
+        <ul className="mt-10 max-w-2xl divide-y divide-rule">
+          <li className="py-6">
+            <p className="font-display text-2xl text-ink">
+              Voice AI · {formatUsd(ADDONS.voice_ai.monthlyAmount)}/mo
+            </p>
+            <p className="mt-2 text-stone">{ADDONS.voice_ai.blurb}</p>
+          </li>
+          <li className="py-6">
+            <p className="font-display text-2xl text-ink">
+              Chat AI · {formatUsd(ADDONS.chat_ai.monthlyAmount)}/mo
+            </p>
+            <p className="mt-2 text-stone">{ADDONS.chat_ai.blurb}</p>
+          </li>
+          <li className="py-6">
+            <Link
+              href={ppcManagement.href}
+              className="font-display text-2xl text-ink hover:text-tile"
+            >
+              {ppcManagement.name} · {formatUsd(ppcManagement.monthlyAmount)}/mo
+            </Link>
+            <p className="mt-2 text-stone">{ppcManagement.addonBlurb}</p>
+            <p className="mt-2 text-stone">{ppcManagement.planClientNote}</p>
+          </li>
+        </ul>
       </Section>
     </>
   );

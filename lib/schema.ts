@@ -1,5 +1,6 @@
 import { ADDONS } from '@/lib/addons';
 import { pricingPlan } from '@/data/pricing';
+import { ppcManagement } from '@/data/ppc-management';
 import {
   founderSameAsLinks,
   organizationSameAsLinks,
@@ -160,11 +161,54 @@ function money(amount: number): string {
 }
 
 /** The Local Lead Plan Service + Offers (monthly / yearly) and AI add-on Offers. */
+export function ppcManagementOfferId(): string {
+  return `${site.url}${ppcManagement.href}#offer`;
+}
+
+/** Google Ads / PPC management Service + Offer ($150/mo). Ad spend is separate. */
+export function ppcManagementServiceSchema(): JsonLd {
+  const price = money(ppcManagement.monthlyAmount);
+  const url = absoluteUrl(ppcManagement.href);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: ppcManagement.serviceName,
+    serviceType: ppcManagement.schemaServiceType,
+    description: ppcManagement.offerDescription,
+    url,
+    provider: { '@id': businessId() },
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: 'Santa Barbara County, CA',
+    },
+    offers: {
+      '@type': 'Offer',
+      '@id': ppcManagementOfferId(),
+      name: `${ppcManagement.name} (monthly)`,
+      description: ppcManagement.offerDescription,
+      price,
+      priceCurrency: 'USD',
+      url,
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price,
+        priceCurrency: 'USD',
+        unitCode: 'MON',
+        unitText: 'month',
+        billingDuration: 'P1M',
+      },
+    },
+  };
+}
+
 export function localLeadPlanSchema(): JsonLd {
   const monthly = money(pricingPlan.monthlyAmount);
   const yearly = money(pricingPlan.annualAmount);
   const voice = money(ADDONS.voice_ai.monthlyAmount);
   const chat = money(ADDONS.chat_ai.monthlyAmount);
+  const ppc = money(ppcManagement.monthlyAmount);
 
   return {
     '@context': 'https://schema.org',
@@ -236,6 +280,26 @@ export function localLeadPlanSchema(): JsonLd {
             '@type': 'UnitPriceSpecification',
             price: chat,
             priceCurrency: 'USD',
+            billingDuration: 'P1M',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: ppcManagement.name,
+            url: absoluteUrl(ppcManagement.href),
+          },
+          description: ppcManagement.offerDescription,
+          price: ppc,
+          priceCurrency: 'USD',
+          url: absoluteUrl(ppcManagement.href),
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: ppc,
+            priceCurrency: 'USD',
+            unitCode: 'MON',
+            unitText: 'month',
             billingDuration: 'P1M',
           },
         },

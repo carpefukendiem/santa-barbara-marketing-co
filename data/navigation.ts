@@ -104,7 +104,7 @@ export const megaFeatures: MegaFeature[] = [
   {
     label: 'Google Ads',
     href: '/services/google-ads',
-    blurb: 'Hire-intent search, tracked to the phone.',
+    blurb: 'Turn on Google Ads for $150 a month.',
     icon: 'ads',
   },
   {

@@ -135,7 +135,7 @@ export const batch2Locations: Array<Location & { dateModified: string }> = [
     ],
     nearbyLinks: [
       { label: 'Digital marketing in Goleta', href: '/goleta-digital-marketing' },
-      { label: 'Google Ads service', href: '/services/google-ads' },
+      { label: 'Google Ads management ($150/mo)', href: '/services/google-ads' },
       { label: 'Santa Barbara Google Ads', href: '/santa-barbara-google-ads' },
       { label: 'Goleta SEO', href: '/goleta-seo' },
       { label: 'Pricing', href: '/pricing' },

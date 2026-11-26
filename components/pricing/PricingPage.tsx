@@ -4,6 +4,7 @@ import { useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { photos } from '@/data/images';
+import { ppcManagement } from '@/data/ppc-management';
 import {
   HERO_IMAGE_QUALITY,
   PRICING_HERO_IMAGE_SIZES,
@@ -43,7 +44,6 @@ const glance = [
 ] as const;
 
 const quoted = [
-  ['Google Ads management', 'Reach people searching for what you do right now. Ad spend is billed by Google, separate from the plan.'],
   ['Google Business Profile rebuild', 'A complete, accurate profile for the map results where locals choose who to call.'],
   ['Print & apparel', 'Shirts, uniforms, and promo that keep your name in front of customers. Garments and print runs are quoted per order.'],
 ] as const;
@@ -52,7 +52,10 @@ const faqs = [
   ['Is there a long-term contract?', 'No. The Local Lead Plan is billed monthly or annually. Cancel anytime with 30-day written notice.'],
   ['How does the annual option work?', 'Pay $2,970 once a year instead of $297 a month. That’s 2 months free, and you save $594 vs. monthly.'],
   ['Is Voice AI or Chat AI in the $297?', 'No. They’re optional add-ons: Voice AI is $99/mo and Chat AI is $29/mo. Add either, both, or neither. Website chat is already included in the plan.'],
-  ['Is Google Ads spend included?', 'No. Google Ads management is quoted separately, and ad spend is billed by Google.'],
+  [
+    'Is Google Ads included in the $297?',
+    `No. PPC management is an optional add-on at $${ppcManagement.monthlyAmount}/mo. You pay Google for ad spend on your own card (minimum $${ppcManagement.minAdBudgetMonthly}/mo). Same price as a standalone service.`,
+  ],
   ['Can I talk to someone before I start?', 'Yes. Book a call and talk it through first. When you start, a local team comes to meet you and learn the business.'],
 ] as const;
 
@@ -101,6 +104,18 @@ function ChatIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z" />
+    </svg>
+  );
+}
+
+function AdsIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 19V5" />
+      <path d="M4 19h16" />
+      <path d="M8 15v-4" />
+      <path d="M12 15V8" />
+      <path d="M16 15v-6" />
     </svg>
   );
 }
@@ -305,7 +320,10 @@ export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
               <span className={`${styles.addonMiniLabel} ${styles.mono}`}>Optional add-ons · not in $297</span>
               <span className={styles.addonPill}>Voice AI · $99/mo</span>
               <span className={styles.addonPill}>Chat AI · $29/mo</span>
-              <span>Add either, both, or neither.</span>
+              <span className={styles.addonPill}>
+                PPC Management · ${ppcManagement.monthlyAmount}/mo
+              </span>
+              <span>Add the ones that fit. Ad spend is paid to Google separately.</span>
             </div>
           </div>
         </div>
@@ -351,8 +369,8 @@ export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
         <div className={styles.wrap}>
           <SectionHead
             kick="Optional add-ons · not in $297"
-            title="Cover the calls and chats you can’t get to."
-            lede="Not part of the $297 plan. Add either, both, or neither, whenever it makes sense for the business."
+            title="Cover calls, chats, and hire-intent ads."
+            lede="Not part of the $297 plan. Add Voice AI, Chat AI, and/or PPC Management when they fit the business."
           />
           <ul className={styles.addonGrid}>
             <li className={styles.addonCard}>
@@ -379,8 +397,33 @@ export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
                 <p>Handles chats when you can’t, so after-hours visitors still get an answer.</p>
               </div>
             </li>
+            <li className={styles.addonCard}>
+              <span className={styles.addonIcon}>
+                <AdsIcon />
+              </span>
+              <div>
+                <h3>
+                  PPC Management{' '}
+                  <span className={styles.addonPrice}>
+                    ${ppcManagement.monthlyAmount}
+                    <span>/mo</span>
+                  </span>{' '}
+                  <span className={`${styles.tag} ${styles.mono}`}>Optional</span>
+                </h3>
+                <p>
+                  {ppcManagement.addonBlurb}{' '}
+                  <Link href={ppcManagement.href}>Details</Link>
+                </p>
+              </div>
+            </li>
           </ul>
-          <p className={styles.footnote}>Add either, both, or neither. Website chat is already included in the plan.</p>
+          <p className={styles.footnote}>
+            Website chat is already included in the plan. PPC ad spend is paid
+            directly to Google (minimum ${ppcManagement.minAdBudgetMonthly}/mo).
+            After you enroll in The Local Lead Plan, ask us to add PPC Management,
+            or book a 20-Minute Call for the standalone version.{' '}
+            <Link href={ppcManagement.href}>Google Ads details</Link>.
+          </p>
         </div>
       </section>
 
@@ -409,7 +452,10 @@ export function PricingPage({ afterHero }: { afterHero?: ReactNode }) {
                 <span className={`${styles.tag} ${styles.mono}`}>Optional · not in $297</span>
               </div>
               <p>
-                Voice AI answers calls when you can’t, <strong>$99/mo</strong>. Chat AI handles chats when you can’t, <strong>$29/mo</strong>. Add either, both, or neither.
+                Voice AI answers calls when you can’t, <strong>$99/mo</strong>. Chat AI
+                handles chats when you can’t, <strong>$29/mo</strong>. PPC Management
+                is <strong>${ppcManagement.monthlyAmount}/mo</strong> (ad spend paid
+                to Google separately). Add the ones that fit.
               </p>
             </li>
             <li className={styles.step}>

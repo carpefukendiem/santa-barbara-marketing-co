@@ -55,11 +55,6 @@ export const pricingPlan = {
   ] satisfies PricingIncluded[],
   extras: [
     {
-      title: 'Google Ads management',
-      href: '/services/google-ads',
-      note: 'Media spend is billed by Google, separate from the system rate.',
-    },
-    {
       title: 'Google Business Profile rebuild',
       href: '/services/google-business-profile',
     },
