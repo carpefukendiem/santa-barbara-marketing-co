@@ -670,7 +670,7 @@ export const locations: Location[] = [
     ],
     nearbyLinks: [
       { label: 'Digital marketing in Santa Barbara', href: '/santa-barbara-digital-marketing' },
-      { label: 'Goleta digital marketing', href: '/goleta-digital-marketing' },
+      { label: 'Google Ads management ($150/mo)', href: '/services/google-ads' },
       { label: 'Goleta Google Ads', href: '/goleta-google-ads' },
       { label: 'Montecito digital marketing', href: '/montecito-digital-marketing' },
       { label: 'Carpinteria digital marketing', href: '/carpinteria-digital-marketing' },

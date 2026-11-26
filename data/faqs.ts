@@ -106,7 +106,7 @@ export const faqs: FaqItem[] = [
     category: 'ads',
     question: 'Do you mark up ad spend?',
     answer:
-      'Media spend goes to Google. Our fee is for management, tracking, and creative. You will see both numbers. If a platform rebate or partner benefit exists, it is disclosed. Hidden markups are how trust dies in month two.',
+      'No. You pay Google for ad spend on your own card and own the account. Our PPC Management fee is $150/mo for campaign build, tuning, tracking, reporting, and a monthly check-in. There is a $500/mo minimum ad budget. If a platform rebate or partner benefit exists, it is disclosed.',
   },
   {
     category: 'websites',
@@ -130,7 +130,7 @@ export const faqs: FaqItem[] = [
     category: 'working-together',
     question: 'How do you price your work?',
     answer:
-      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 20-minute call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. Google Ads media and print production are quoted separately. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
+      'The Local Lead Plan is $297/mo for the bundled website, Local SEO, review requests, and follow-up. Pay $2,970/yr and you get 2 months free. Most people book a 20-Minute Call from the pricing page. If you already want in, Get Started is the pay page; payment enrolls you automatically. PPC Management is an optional add-on at $150/mo; you pay Google for ad spend on your own card with a $500/mo minimum. Print production is quoted per order. If the work is outside that bundle, we send a written range after we see the listing, the site, and the tracking you already have.',
   },
   {
     category: 'working-together',

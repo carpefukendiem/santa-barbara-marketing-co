@@ -35,10 +35,7 @@ export type CheckoutSessionSnapshot = {
   lineItems: CheckoutLineSnapshot[]
 }
 
-export type KnownPriceIds = {
-  voice: string | null
-  chat: string | null
-}
+export type KnownPriceIds = Partial<Record<AddonId, string | null>>
 
 function dollars(cents: number | null | undefined): number {
   if (cents == null || !Number.isFinite(cents)) return 0
@@ -56,12 +53,14 @@ export function summarizeCheckoutSession(
   const metadata = session.metadata ?? {}
   const billingInterval = intervalOf(metadata.interval)
   const addonIds = parseAddonList(metadata.addons)
-  const priceByAddon = new Map<AddonId, string | null>([
-    ['voice_ai', prices.voice],
-    ['chat_ai', prices.chat],
-  ])
+  const addonKeys = Object.keys(ADDONS) as AddonId[]
+  const priceByAddon = new Map<AddonId, string | null>(
+    addonKeys.map((id) => [id, prices[id] ?? null]),
+  )
   const addonPriceIds = new Set(
-    [prices.voice, prices.chat].filter((id): id is string => Boolean(id)),
+    addonKeys
+      .map((id) => prices[id])
+      .filter((id): id is string => Boolean(id)),
   )
 
   const seenAddonPrices = new Set<string>()

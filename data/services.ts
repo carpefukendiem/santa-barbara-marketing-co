@@ -1,6 +1,7 @@
 import type { FaqItem } from './faqs';
 import { batch1Services } from './_batch1_services';
 import { batch2Services } from './_batch2_services';
+import { ppcManagement } from './ppc-management';
 
 export type ServiceIconName =
   | 'local-seo'
@@ -325,144 +326,68 @@ export const services: Service[] = [
       'SEO scope follows the current site, not a package name. A five-page brochure that needs titles, internal links, and two service pages is a different job than a slow WordPress install with duplicate URLs and no Search Console history. Competitive professional terms in Santa Barbara take more writing and more time than a straightforward local service page. After we look at the live site and Search Console, we send a written range for a defined set of technical fixes and pages, plus how we would report. That range is not a ranking purchase. If the site itself needs a rebuild before SEO is worth doing, we will say that first.',
   },
   {
-    slug: 'google-ads',
-    name: 'Google Ads Management',
-    shortName: 'Google Ads',
+    slug: ppcManagement.slug,
+    name: ppcManagement.serviceName,
+    shortName: ppcManagement.shortName,
     navGroup: 'found',
     icon: 'google-ads',
     iconBg: 'var(--sbmc-peach)',
-    cardBlurb:
-      'Targeted, high-intent traffic that turns into real customers.',
-    metaTitle: 'Google Ads Management in Santa Barbara County',
-    metaDescription:
-      'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Book a 20-Minute Call.',
-    h1: 'Google Ads management for Santa Barbara businesses tired of wasted clicks',
-    eyebrow: 'Paid Search',
-    heroLede:
-      'Paid search is the fastest way to stand in front of someone who is already typing that they need a plumber, a table, a dentist, or a contractor this week. It is also the fastest way to light money on fire if the account is built on broad match vanity terms, brand queries you would have gotten anyway, and a landing page that dies on a phone. We manage Google Ads for 805 businesses with an emphasis on the searches that mean hire-us-now, on call tracking you can audit, and on budgets that respect Fiesta, summer, and the quiet months. Media spend goes to Google. Our work is the structure, the tracking, and the weekly judgment about what to pause.',
-    problemFraming:
-      'The usual 805 Ads story looks like a win in the dashboard and a shrug on the shop floor. Brand campaigns absorb clicks from people who already searched your name on State Street. Broad match turns “Santa Barbara” into tourist research, job seekers, and someone looking for a free park. The phone rings from a number that is not tagged, so nobody knows which campaign paid for the call. Conversion actions count button clicks. Meanwhile a competitor with a worse truck and a tighter account takes the emergency jobs.\n\nAttribution is the boring problem that decides whether you keep spending. If we cannot tell a booked estimate from a pocket-dial, we should not scale. Call tracking, call recording where it is legal and disclosed, and forms that fire a conversion only on thank-you are not extras. They are the job. A Goleta clinic and a Funk Zone tasting room need different conversion definitions. We will not import a national e-commerce template onto a local service account and call it performance.\n\nSeasonality here is real. Summer and Fiesta inflate some categories and starve others. A restaurant that needs covers in February is not running the same bid strategy it runs in July. A home-service company that books out in October still needs the phone answered in April. We plan budgets around that calendar instead of averaging a year into a meaningless monthly number. When the account cannot learn because the budget is too small for the click price, we will say so instead of “optimizing” a sample size of twelve clicks.',
-    whatsIncluded: [
-      {
-        title: 'Account rebuild around hire-intent search',
-        body:
-          'Campaigns split by intent: brand, high-intent services, and anything experimental kept in a box that cannot drain the budget. Match types and negatives get written from how people in this county actually search, including tourist queries we may exclude on purpose. Broad match is a tool, not a default.',
-      },
-      {
-        title: 'Call tracking and conversion hygiene',
-        body:
-          'Phone calls and forms tied to campaigns and keywords, with a conversion action that means a real inquiry, not a tap on a click-to-call overlay that never connected. If you already have a call platform, we use it. If you do not, we specify what to install before we spend media like it is already proven.',
-      },
-      {
-        title: 'Landing pages that load and ask for the call',
-        body:
-          'Ads should not dump into a slow homepage with a buried number. We send traffic to a page that states the offer, shows the city, and makes the next step obvious on a phone. If that page does not exist, we will say whether a simple landing page or a fuller website project is the right fix.',
-      },
-      {
-        title: 'Brand versus non-brand, reported separately',
-        body:
-          'Brand spend is defense and convenience. Non-brand is the work. Mixing them in one ROAS number is how accounts look healthy while competitors take the jobs. You will see both. If brand is most of the “success,” we will say that in the first report, not month six.',
-      },
-      {
-        title: 'Seasonal budget and schedule planning',
-        body:
-          'Fiesta, Solstice, summer visitors, UCSB calendars, and the slow weeks after Labor Day change click prices and intent. We set budgets and ad schedules around those swings, including pausing waste that only appears in tourist months. You approve the calendar. We do not surprise you with a July invoice story.',
-      },
-      {
-        title: 'Weekly optimization while the account is learning',
-        body:
-          'Search terms, negatives, bid adjustments, and ad copy tests, with notes you can read. Once the account is stable, the cadence can slow. During a rebuild it should not. If nothing changed in a week, the note will say that too. Silence is not a strategy.',
-      },
-    ],
+    dateModified: ppcManagement.dateModified,
+    cardBlurb: ppcManagement.cardBlurb,
+    metaTitle: ppcManagement.metaTitle,
+    metaDescription: ppcManagement.metaDescription,
+    h1: ppcManagement.h1,
+    eyebrow: ppcManagement.eyebrow,
+    heroLede: ppcManagement.heroLede,
+    problemFraming: [
+      ppcManagement.moneyExplanation.management,
+      ppcManagement.moneyExplanation.adSpend,
+      ppcManagement.seoVsAds,
+      ppcManagement.planClientNote,
+      ppcManagement.standaloneNote,
+    ].join('\n\n'),
+    whatsIncluded: [...ppcManagement.included],
     process: [
       {
         step: 1,
-        title: 'Audit the waste before we touch bids',
-        body:
-          'We open the account, the landing pages, and whatever tracking exists. Brand is separated from non-brand. Search terms get read like a receipt. We look at where calls go after hours, whether the site is usable on a phone, and whether Fiesta-season spikes were treated as genius or as a calendar. You get a written diagnosis: what to keep, what to pause, and what cannot be fixed inside Google Ads because the website or the phone process is the leak.',
+        title: 'Access and tracking',
+        body: 'You own the Google Ads account and pay Google on your own card. We get access, confirm the $500/mo minimum ad budget, and set call and form conversion tracking before spend scales.',
       },
       {
         step: 2,
-        title: 'Tracking first, then structure',
-        body:
-          'New conversion actions, call tracking, and Google Analytics alignment happen before we scale spend. If we cannot measure a qualified call, we will not pour budget into a pretty campaign map. Structure follows the offers you actually want: emergency versus booked, downtown versus Goleta if the economics differ, tourist terms included or excluded on purpose. Naming is boring and consistent so next quarter’s report still makes sense.',
+        title: 'Campaign build',
+        body: 'We build Google Search campaigns around the services and geography you want. When your category qualifies, we also set up Google Local Services Ads.',
       },
       {
         step: 3,
-        title: 'Launch with a budget that can learn',
-        body:
-          'We set a media budget that can collect useful data without pretending a thin budget will teach a high-CPC category anything. You pay Google for clicks. You pay us to manage. Ads go live against the landing pages we agreed on. The first two weeks are for catching obvious waste, not for declaring victory. If impression share is tiny because competitors outbid a thin budget, we will say so rather than hide it in a quality-score lecture.',
+        title: 'Tune and report',
+        body: 'Keyword and negative-keyword tuning is weekly in month 1, then monthly. You get a monthly plain-English report and a short monthly check-in covering spend, calls, forms, cost per lead, and what changes next.',
       },
       {
         step: 4,
-        title: 'Report in jobs, then iterate',
-        body:
-          'Weekly notes during the rebuild, then a monthly view that still separates brand from non-brand. We compare cost to calls and, when you share close rates, to booked work. Copy, keywords, and landing pages change when the search terms say they should. Seasonality gets a conversation before the weekend it hits. If the account is not producing work after a fair learning window, we recommend cutting or changing the offer instead of asking for more budget as the only idea.',
+        title: 'Stay or cancel on notice',
+        body: 'Cancel anytime with 30-day written notice. Local Lead Plan clients get every lead in the full CRM with instant follow-up. Standalone clients get a recommendation for a site that converts and fast follow-up.',
       },
     ],
     outcomes: [
-      'An account structured around hire-intent searches, with brand campaigns isolated so they cannot fake the story.',
-      'Call and form conversions you can audit, instead of click-counts dressed up as leads.',
-      'Traffic sent to pages that load on a phone and ask for the next step.',
-      'A budget calendar that respects summer, Fiesta, and the slow months, rather than a flat number that ignores the 805.',
-      'Plain-language reports that show what produced calls and what got paused.',
-      'Speed that ads can actually deliver: qualified inquiries can start in days once tracking is live, with judgment delayed until the sample is real.',
+      'Google Search ads live under a $150/mo management fee, with ad spend paid by you to Google.',
+      'Local Services Ads included where your category qualifies.',
+      'Call and form conversion tracking set up for the account.',
+      'Monthly plain-English reporting and a short monthly check-in.',
+      'Same $150/mo price as a Local Lead Plan add-on or as a standalone service.',
     ],
-    faqs: [
-      {
-        category: 'ads',
-        question: 'Do you mark up the media spend?',
-        answer:
-          'No. Clicks and impressions are billed by Google to your account. Our fee is for management, tracking, and creative. You will see both numbers. If a platform credit or partner benefit ever applies, it gets disclosed. Hidden markups are how trust dies in month two, and we are not interested in that model.',
-      },
-      {
-        category: 'ads',
-        question: 'Why did my last Google Ads account waste money?',
-        answer:
-          'The usual pattern in this county is broad match on vanity keywords, no call tracking, a slow homepage as the landing page, and brand terms mixed into the only ROAS number anyone looks at. Search term reports full of tourists, resumes, and “free” queries go un-negatived. We rebuild around the searches that mean someone wants to hire you this week, and we will not scale what we cannot measure.',
-      },
-      {
-        category: 'ads',
-        question:
-          'How much media spend does a local business need for Ads to learn?',
-        answer:
-          'Enough to collect a statistically useful sample without lighting money on fire. Click prices in Santa Barbara vary hard by category. A budget that cannot buy enough clicks to learn will look “optimized” and still be noise. We will look at your close rate and what a qualified call is worth, then tell you whether paid search can work at the budget you have. We will not invent a number on this page to look decisive.',
-      },
-      {
-        category: 'ads',
-        question: 'Should I run ads on my own business name?',
-        answer:
-          'Often yes, as defense, especially if competitors bid on it. Brand campaigns should be cheap and separate. They should not be the story you use to keep the rest of the account. If 80 percent of your conversions are brand, you do not have a growth engine. You have a shield. We will show you that split every time we report.',
-      },
-      {
-        category: 'ads',
-        question: 'How do Fiesta and summer change Google Ads here?',
-        answer:
-          'Click prices and query mix move. Hospitality, retail, and some services see visitor intent that converts in minutes or not at all. Home services may get more “while we are in town” noise. We plan budgets and negatives around that calendar. Running January bids through July without a conversation is how accounts surprise you. You will see the plan before the spike, not after the invoice.',
-      },
-      {
-        category: 'ads',
-        question: 'Can you guarantee a cost per lead?',
-        answer:
-          'No. We can control structure, tracking, copy, and landing pages. We cannot control competitors, Google’s auction, or whether your office answers the phone. We will give you a planning range after we see the account and the offer, and we will tell you when the math does not work. Guaranteed CPL is a sales line, not a media fact.',
-      },
-    ],
-    relatedServices: [
-      'conversion-optimization',
-      'local-seo',
-      'analytics',
-      'local-service-ads',
-    ],
+    faqs: [...ppcManagement.faqs] as FaqItem[],
+    relatedServices: [...ppcManagement.relatedServiceSlugs],
     relatedLocations: relatedLocationSlugs,
-    relatedResources: [
-      'google-ads-for-local-business',
-      'web-design-cost-santa-barbara',
-      'google-ads-cost-santa-barbara',
-      'seo-vs-google-ads',
-    ],
-    relatedIndustries: ['home-services', 'medical-wellness'],
-    pricingNote:
-      'Google Ads has two costs: media, which you pay to Google, and management, which you pay to us. Media is driven by category click prices, how tightly we can target hire-intent terms, and whether landing pages and call tracking are already in place. A downtown restaurant in summer is a different auction than a Goleta B2B service in February. After we look at the current account (or confirm there is none) and the site those ads would hit, we send a written management range and a recommended media band for learning. We will not publish a starting price here, and we will not treat brand-click ROAS as proof the account is working.',
+    relatedResources: [...ppcManagement.relatedResourceSlugs],
+    relatedIndustries: [...ppcManagement.relatedIndustrySlugs],
+    pricingNote: [
+      ppcManagement.moneyExplanation.management,
+      ppcManagement.moneyExplanation.adSpend,
+      ppcManagement.planClientNote,
+      ppcManagement.standaloneNote,
+      ppcManagement.cancelNotice,
+    ].join(' '),
   },
   {
     slug: 'web-design',

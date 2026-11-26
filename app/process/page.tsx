@@ -234,12 +234,13 @@ export default function ProcessPage() {
             <p>
               The process on this page is the Local Lead Plan launch path. The
               price is $297/mo or $2,970/yr with two months free on the annual
-              option. Google Ads media spend, when you want ads, is billed by
-              Google and managed under a separate scope. Print and apparel are
-              quoted per order. Voice AI and Chat AI are optional add-ons and are
-              not required to launch the site. If you want the plan in writing
-              before a call, read <Link href="/pricing">Pricing</Link>. If you
-              want to talk first,{' '}
+              option. PPC Management is an optional add-on at $150/mo; you pay
+              Google for ad spend on your own card (minimum $500/mo). See{' '}
+              <Link href="/services/google-ads">Google Ads management</Link>.
+              Print and apparel are quoted per order. Voice AI and Chat AI are
+              optional add-ons and are not required to launch the site. If you
+              want the plan in writing before a call, read{' '}
+              <Link href="/pricing">Pricing</Link>. If you want to talk first,{' '}
               <Link href="/book-a-call">book a 20-Minute Call</Link>. If you are
               ready to enroll, open <Link href="/get-started">Get Started</Link>.
             </p>

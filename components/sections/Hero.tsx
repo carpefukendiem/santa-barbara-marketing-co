@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { photos } from '@/data/images';
 import type { HomepageCopy, IncludedItemCopy } from '@/data/homepage-variants';
 import { getHomepageCopy } from '@/data/homepage-variants';
+import { ppcManagement } from '@/data/ppc-management';
 import {
   HERO_IMAGE_QUALITY,
   HERO_IMAGE_SIZES,
@@ -147,7 +148,7 @@ function stepBody(step: Step): ReactNode {
           <strong>{step.lead}</strong>{' '}
           <span className={styles.tag}>Optional · not in $297</span>
           <br />
-          Voice AI answers calls when you can’t, $99/mo. Chat AI handles chats when you can’t, $29/mo. Add either, both, or neither.
+          {`Voice AI answers calls when you can’t, $99/mo. Chat AI handles chats when you can’t, $29/mo. PPC Management is $${ppcManagement.monthlyAmount}/mo (ad spend paid to Google separately). Add the ones that fit.`}
         </p>
       );
     default: {
@@ -187,7 +188,12 @@ function AddonsBox() {
       <p className={styles.addonsLabel}>Optional add-ons · not in $297</p>
       <span className={styles.pill}>Voice AI · $99/mo</span>
       <span className={styles.pill}>Chat AI · $29/mo</span>
-      <p className={styles.addonsText}>Add either, both, or neither.</p>
+      <span className={styles.pill}>
+        {`PPC Management · $${ppcManagement.monthlyAmount}/mo`}
+      </span>
+      <p className={styles.addonsText}>
+        Add the ones that fit. Ad spend is paid to Google separately.
+      </p>
     </div>
   );
 }

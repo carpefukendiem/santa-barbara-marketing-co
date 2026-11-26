@@ -2,12 +2,14 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { ADDONS } from '@/lib/addons'
 import { pricingPlan } from '@/data/pricing'
+import { ppcManagement } from '@/data/ppc-management'
 import {
   articleSchema,
   businessSchema,
   localLeadPlanSchema,
   organizationSchema,
   personSchema,
+  ppcManagementServiceSchema,
   sitewideGraph,
   websiteSchema,
 } from '@/lib/schema'
@@ -77,13 +79,28 @@ describe('schema hard rules', () => {
       pricingPlan.annualAmount.toFixed(2),
       ADDONS.voice_ai.monthlyAmount.toFixed(2),
       ADDONS.chat_ai.monthlyAmount.toFixed(2),
+      ppcManagement.monthlyAmount.toFixed(2),
     ]
     const priceMatches = blob.match(/"price":"(\d+\.\d{2})"/g) ?? []
-    assert.ok(priceMatches.length >= 4)
+    assert.ok(priceMatches.length >= 5)
     for (const match of priceMatches) {
       const amount = match.replace('"price":"', '').replace('"', '')
       assert.ok(allowed.includes(amount), `unexpected price ${amount}`)
     }
+  })
+
+  it('PPC management Service Offer uses $150/mo and unitCode MON', () => {
+    const schema = ppcManagementServiceSchema()
+    const offer = schema.offers as Record<string, unknown>
+    assert.equal(offer.price, ppcManagement.monthlyAmount.toFixed(2))
+    assert.equal(offer.priceCurrency, 'USD')
+    const spec = offer.priceSpecification as Record<string, unknown>
+    assert.equal(spec.unitCode, 'MON')
+    assert.equal(spec.unitText, 'month')
+    const blob = json(schema)
+    assert.match(blob, /Ad spend is paid directly to Google/)
+    assert.match(blob, /\$500 per month minimum/)
+    assert.equal(blob.includes(ppcManagement.goLivePromise), false)
   })
 
   it('articles author Ruben Person @id', () => {

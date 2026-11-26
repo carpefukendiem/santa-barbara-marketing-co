@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
+import { ppcManagement } from '@/data/ppc-management'
 import { chargePlan } from './addons'
 import { summarizeCheckoutSession } from './purchaseSummary'
 
 const PRICES = {
-  voice: 'price_voice',
-  chat: 'price_chat',
+  voice_ai: 'price_voice',
+  chat_ai: 'price_chat',
+  ppc_management: 'price_ppc',
 }
 
 describe('checkout charges', () => {
@@ -30,6 +32,11 @@ describe('checkout charges', () => {
       separateAddonDollars: 0,
       dueToday: 425,
     })
+    assert.deepEqual(chargePlan('month', ['ppc_management']), {
+      checkoutDollars: 297 + ppcManagement.monthlyAmount,
+      separateAddonDollars: 0,
+      dueToday: 297 + ppcManagement.monthlyAmount,
+    })
   })
 
   it('bills annual core in Checkout and add-ons on a monthly subscription', () => {
@@ -52,6 +59,11 @@ describe('checkout charges', () => {
       checkoutDollars: 2970,
       separateAddonDollars: 128,
       dueToday: 3098,
+    })
+    assert.deepEqual(chargePlan('year', ['ppc_management']), {
+      checkoutDollars: 2970,
+      separateAddonDollars: ppcManagement.monthlyAmount,
+      dueToday: 2970 + ppcManagement.monthlyAmount,
     })
   })
 
@@ -98,6 +110,25 @@ describe('checkout charges', () => {
     assert.equal(annual.planPrice, 2970)
     assert.equal(annual.addonDetails[0]?.price, 99)
     assert.equal(annual.addonDetails[1]?.price, 29)
+
+    const annualPpc = summarizeCheckoutSession(
+      {
+        id: 'cs_test_annual_ppc',
+        amountTotal: 297000,
+        paymentStatus: 'paid',
+        currency: 'usd',
+        metadata: {
+          interval: 'year',
+          addons: 'ppc_management',
+          addon_billing: 'separate_monthly',
+        },
+        lineItems: [{ priceId: 'price_core_year', amountTotal: 297000 }],
+      },
+      PRICES,
+    )
+    assert.equal(annualPpc.chargedToday, 2970 + ppcManagement.monthlyAmount)
+    assert.equal(annualPpc.addonDetails[0]?.id, 'ppc_management')
+    assert.equal(annualPpc.addonDetails[0]?.price, ppcManagement.monthlyAmount)
 
     const unpaid = summarizeCheckoutSession(
       {

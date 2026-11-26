@@ -3,7 +3,8 @@ import { AnswerFirst } from '@/components/seo/AnswerFirst';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { PricingPage } from '@/components/pricing/PricingPage';
 import { pricingPlan } from '@/data/pricing';
-import { ADDONS } from '@/lib/addons';
+import { ppcManagement } from '@/data/ppc-management';
+import { ADDONS, isAddonConfigured } from '@/lib/addons';
 import {
   breadcrumbSchema,
   faqPageSchema,
@@ -15,7 +16,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Pricing: Local Lead Plan $297/mo',
   description:
-    'The Local Lead Plan is $297/mo, or $2,970/yr with 2 months free. Website, full CRM, follow-up, reporting, and training. Voice AI and Chat AI are optional and not included.',
+    'The Local Lead Plan is $297/mo, or $2,970/yr with 2 months free. Website, full CRM, follow-up, reporting, and training. Voice AI, Chat AI, and PPC Management are optional and not included.',
   path: '/pricing',
 });
 
@@ -35,9 +36,8 @@ const pricingFaqs = [
     answer: `No. They are optional add-ons: Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo and Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo. Add either, both, or neither. Website chat is already included in the plan.`,
   },
   {
-    question: 'Is Google Ads spend included?',
-    answer:
-      'No. Google Ads management is quoted separately, and ad spend is billed by Google.',
+    question: `Is Google Ads included in the $${pricingPlan.monthlyAmount}?`,
+    answer: `No. PPC management is an optional add-on at $${ppcManagement.monthlyAmount}/mo. You pay Google for ad spend on your own card (minimum $${ppcManagement.minAdBudgetMonthly}/mo). Same price as a standalone service.`,
   },
   {
     question: 'Can I talk to someone before I start?',
@@ -47,6 +47,8 @@ const pricingFaqs = [
 ];
 
 export default function Page() {
+  const ppcSelectable = isAddonConfigured('ppc_management');
+
   return (
     <>
       <JsonLd
@@ -66,9 +68,10 @@ export default function Page() {
         ]}
       />
       <PricingPage
+        ppcSelectable={ppcSelectable}
         afterHero={
           <AnswerFirst
-            answer={`The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr and includes a website (typically live in 30 days), local SEO, Google Business Profile work, and a full CRM with follow-up. Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo and Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo as optional add-ons.`}
+            answer={`The Local Lead Plan is $${pricingPlan.monthlyAmount}/mo or $${pricingPlan.annualAmount}/yr and includes a website (typically live in 30 days), local SEO, Google Business Profile work, and a full CRM with follow-up. Voice AI is $${ADDONS.voice_ai.monthlyAmount}/mo, Chat AI is $${ADDONS.chat_ai.monthlyAmount}/mo, and PPC Management is $${ppcManagement.monthlyAmount}/mo as optional add-ons.`}
             facts={[
               { label: 'Monthly', value: `$${pricingPlan.monthlyAmount}/mo` },
               { label: 'Yearly', value: `$${pricingPlan.annualAmount}/yr` },
@@ -79,6 +82,10 @@ export default function Page() {
               {
                 label: 'Chat AI',
                 value: `$${ADDONS.chat_ai.monthlyAmount}/mo optional`,
+              },
+              {
+                label: 'PPC Management',
+                value: `$${ppcManagement.monthlyAmount}/mo optional`,
               },
             ]}
           />
