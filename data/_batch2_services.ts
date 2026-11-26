@@ -1,3 +1,4 @@
+import { ppcManagement } from './ppc-management';
 import type { Service } from './services';
 
 const relatedLocationSlugs: Service['relatedLocations'] = [
@@ -724,7 +725,7 @@ export const batch2Services: Array<Service & { dateModified: string }> = [
         category: 'ads',
         question: 'How does this relate to your $150/mo Google Ads offer?',
         answer:
-          'PPC Management at $150/mo includes Google Search ads plus Local Services Ads where your category qualifies. Ad spend is paid to Google on your card, with a $500/mo minimum. If you only need the LSA product scoped alone, we still start with a 20-Minute Call. See the Google Ads management page for the bundled offer.',
+          `PPC Management at $${ppcManagement.monthlyAmount}/mo includes Google Search ads plus Local Services Ads where your category qualifies. Ad spend is paid to Google on your card, with a $${ppcManagement.minAdBudgetMonthly}/mo minimum. If you only need the LSA product scoped alone, we still start with a 20-Minute Call. See the Google Ads management page for the bundled offer.`,
       },
       {
         category: 'free-call',
@@ -742,7 +743,7 @@ export const batch2Services: Array<Service & { dateModified: string }> = [
     ],
     relatedIndustries: ['home-services', 'hvac', 'plumbing', 'electricians'],
     pricingNote:
-      'Local Services Ads has two costs: lead charges billed by Google, and management paid to us. Lead prices move with category, season, and how tight your job types are. After we check eligibility, reviews, and response time, we send a written management range and a suggested weekly cap. The Local Lead Plan remains $297/mo or $2,970/yr for its website, Local SEO, review requests, and follow-up bundle and does not include LSA media unless we write that in. When Search ads and Local Services Ads belong together, our PPC Management offer at $150/mo includes Google Search ads plus Local Services Ads where your category qualifies (ad spend paid to Google separately, $500/mo minimum). Details are on the Google Ads management service page. Cancel anytime with 30-day written notice on retainers we manage.',
+      `Local Services Ads has two costs: lead charges billed by Google, and management paid to us. Lead prices move with category, season, and how tight your job types are. After we check eligibility, reviews, and response time, we send a written management range and a suggested weekly cap. The Local Lead Plan remains $297/mo or $2,970/yr for its website, Local SEO, review requests, and follow-up bundle and does not include LSA media unless we write that in. When Search ads and Local Services Ads belong together, our PPC Management offer at $${ppcManagement.monthlyAmount}/mo includes Google Search ads plus Local Services Ads where your category qualifies (ad spend paid to Google separately, $${ppcManagement.minAdBudgetMonthly}/mo minimum). Details are on the Google Ads management service page. Cancel anytime with 30-day written notice on retainers we manage.`,
   },
   {
     slug: 'website-maintenance',

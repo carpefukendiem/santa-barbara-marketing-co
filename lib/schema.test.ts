@@ -99,7 +99,10 @@ describe('schema hard rules', () => {
     assert.equal(spec.unitText, 'month')
     const blob = json(schema)
     assert.match(blob, /Ad spend is paid directly to Google/)
-    assert.match(blob, /\$500 per month minimum/)
+    assert.match(
+      blob,
+      new RegExp(`\\$${ppcManagement.minAdBudgetMonthly} per month minimum`),
+    )
     assert.equal(blob.includes(ppcManagement.goLivePromise), false)
   })
 
