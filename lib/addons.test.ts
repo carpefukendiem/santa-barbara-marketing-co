@@ -15,6 +15,7 @@ describe('addons', () => {
     }
     assert.equal(isAddonId('not_an_addon'), false)
     assert.equal(isAddonId(99), false)
+    assert.equal(isAddonId('toString'), false)
   })
 
   it('parses addon lists including ppc_management', () => {
@@ -27,6 +28,7 @@ describe('addons', () => {
       'ppc_management',
     ])
     assert.deepEqual(parseAddonList(''), [])
+    assert.deepEqual(parseAddonList('toString,constructor,__proto__'), [])
   })
 
   it('charges monthly PPC with the plan', () => {

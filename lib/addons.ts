@@ -40,7 +40,7 @@ export type PublicAddon = {
 const ADDON_IDS = Object.keys(ADDONS) as AddonId[]
 
 export function isAddonId(value: unknown): value is AddonId {
-  return typeof value === 'string' && value in ADDONS
+  return typeof value === 'string' && Object.prototype.hasOwnProperty.call(ADDONS, value)
 }
 
 export function parseAddonList(value: unknown): AddonId[] {
