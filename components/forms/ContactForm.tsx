@@ -10,6 +10,7 @@ import { FormStatus } from '@/components/forms/FormStatus';
 import { contactSchema, type ContactInput } from '@/lib/schemas';
 import { track, trackGa4 } from '@/lib/analytics';
 import { readClientAttribution } from '@/lib/attribution';
+import { notifyInquiry } from '@/lib/notifyInquiry';
 
 const INTEREST_OPTIONS: Array<{ value: ContactInput['interest']; label: string }> = [
   { value: 'digital', label: 'Digital marketing' },
@@ -55,6 +56,16 @@ export function ContactForm() {
         setStatus('error');
         return;
       }
+      // Non-blocking secondary notify; existing lead flow and success UI stay unchanged.
+      notifyInquiry({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        businessName: values.businessName,
+        message: values.message,
+        pagePath: pathname,
+        company_website: values.company_website,
+      });
       setStatus('success');
       track('lead_submit', { page: pathname, interest: values.interest });
       trackGa4('generate_lead', {

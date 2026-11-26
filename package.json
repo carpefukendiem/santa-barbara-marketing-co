@@ -12,6 +12,7 @@
     "generate-lastmod": "node scripts/generate-lastmod.mjs",
     "submit-indexnow": "node scripts/submit-indexnow.mjs",
     "test:schema": "npx tsx --test lib/schema.test.ts",
+    "test:webhooks": "npx tsx --test lib/serverWebhook.test.ts && npx tsx scripts/exercise-webhooks.mts",
     "validate-schema": "npx tsx scripts/validate-schema.mts && npx tsx scripts/validate-schema-remote.mts"
   },
   "dependencies": {
