@@ -79,7 +79,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO and Google Maps</a> in Santa Barbara County, and how it relates to hiring a <a href="/santa-barbara-seo">Santa Barbara SEO company</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with a 20-minute call. If you want to understand the market first, keep reading.`,
+        html: `This guide is the pillar for how we think about <a href="/services/local-seo">local SEO and Google Maps</a> in Santa Barbara County, and how it relates to hiring a <a href="/santa-barbara-seo">Santa Barbara SEO company</a>. It is written for owners and operators, not for people who sell ranking packages. There is no 30-day first-page promise here. There is a clear picture of Map Pack versus organic results, the three signals Google actually uses, why a Goleta address behaves differently from a downtown pin, and how tourist queries differ from resident ones. If you want a plan for your own listing and site, start with a 30-minute call. If you want to understand the market first, keep reading.`,
       },
       {
         type: 'h2',
@@ -206,7 +206,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2026; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what a 20-minute call is for.`,
+        html: `We will not guarantee a Map Pack slot. We will not publish forty neighborhood pages that say the same thing. We will not invent reviews or client results to make a case study. Santa Barbara Marketing Co. was founded in 2026; we do not have a decade of awards to lean on, and we do not need them to explain how this market ranks. If you want the work scoped to your pin, your category, and your city, that is what a 30-minute call is for.`,
       },
       {
         type: 'takeaways',
@@ -537,7 +537,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `Santa Barbara Marketing Co. prices by scope after we see the market and the site. We do not publish a fake average to win the RFP. A 20-minute call is how we show you the gaps first. Then you can decide whether SEO, the site, ads, or follow-up is the first dollar. That order is worth more than shaving $200 off a retainer that was aimed at the wrong surface.`,
+        html: `Santa Barbara Marketing Co. prices by scope after we see the market and the site. We do not publish a fake average to win the RFP. A 30-minute call is how we show you the gaps first. Then you can decide whether SEO, the site, ads, or follow-up is the first dollar. That order is worth more than shaving $200 off a retainer that was aimed at the wrong surface.`,
       },
       {
         type: 'takeaways',
@@ -692,7 +692,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2026; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what a 20-minute call starts.`,
+        html: `We price websites by scope after we know the pages, the integrations, and the content you already have. We will not invent a “Santa Barbara average website cost” as if every restaurant and every clinic buys the same thing. We will not pad a quote with fake awards. Santa Barbara Marketing Co. was founded in 2026; the standard is the work on the screen, not a wall of plaques. If you want a range for your project, that is a conversation with the sitemap in front of us, which is what a 30-minute call starts.`,
       },
       {
         type: 'takeaways',
@@ -846,7 +846,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2026; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, a 20-minute call can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
+        html: `We will not guarantee a cost per lead. We will not hide markups. We will not pretend a week of data is a strategy. We will not invent ROAS from a client we do not have. Santa Barbara Marketing Co. was founded in 2026; there is no decade of award badges on this page, and there should not be. The test of an account is whether qualified calls went up and whether you can see why. If you already have an account, a 30-minute call can include a look at where the spend went. If you do not, we will still start from the job value and the geo, not from a national template.`,
       },
       {
         type: 'takeaways',
@@ -1001,7 +1001,7 @@ export const resources: Resource[] = [
       },
       {
         type: 'p',
-        html: `If you want this applied to your listing and your pages, ask for a 20-minute call. You will get what we can see in Search and Maps, not a made-up “AI visibility score.” If the honest gap is the website or the profile, we will say that. If the honest gap is that a competitor has ten times the review velocity, we will say that too.`,
+        html: `If you want this applied to your listing and your pages, ask for a 30-minute call. You will get what we can see in Search and Maps, not a made-up “AI visibility score.” If the honest gap is the website or the profile, we will say that. If the honest gap is that a competitor has ten times the review velocity, we will say that too.`,
       },
       {
         type: 'takeaways',

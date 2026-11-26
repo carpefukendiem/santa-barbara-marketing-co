@@ -55,7 +55,7 @@ function areaServedNodes(
 function reserveAction(): JsonLd {
   return {
     '@type': 'ReserveAction',
-    name: 'Book a 20-Minute Call',
+    name: 'Book a 30-Minute Call',
     target: {
       '@type': 'EntryPoint',
       urlTemplate: `${site.url}/book-a-call`,

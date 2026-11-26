@@ -61,7 +61,7 @@ export const services: Service[] = [
       'Get found in Google Search and Maps when locals are ready to buy.',
     metaTitle: 'Local SEO & Google Maps in Santa Barbara County',
     metaDescription:
-      'Local SEO and Google Maps ranking for Santa Barbara County. Honest work on your listing and pages. Book a 20-Minute Call.',
+      'Local SEO and Google Maps ranking for Santa Barbara County. Honest work on your listing and pages. Book a 30-Minute Call.',
     h1: 'Local SEO and Google Maps ranking for Santa Barbara County',
     eyebrow: 'Get Found',
     heroLede:
@@ -202,7 +202,7 @@ export const services: Service[] = [
       'Technical health, site architecture, and content pages worth ranking.',
     metaTitle: 'Technical & Content SEO for Local Sites',
     metaDescription:
-      'Technical SEO, site architecture, and content for local business sites. Clear pages Google and AI tools can quote. Book a 20-Minute Call.',
+      'Technical SEO, site architecture, and content for local business sites. Clear pages Google and AI tools can quote. Book a 30-Minute Call.',
     h1: 'Technical and content SEO for local business websites',
     eyebrow: 'Organic Search',
     heroLede:
@@ -335,7 +335,7 @@ export const services: Service[] = [
       'Targeted, high-intent traffic that turns into real customers.',
     metaTitle: 'Google Ads Management in Santa Barbara County',
     metaDescription:
-      'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Book a 20-Minute Call.',
+      'Google Ads for Santa Barbara businesses tired of wasted clicks. Call tracking, brand versus non-brand, and seasonal budgets. Book a 30-Minute Call.',
     h1: 'Google Ads management for Santa Barbara businesses tired of wasted clicks',
     eyebrow: 'Paid Search',
     heroLede:
@@ -475,7 +475,7 @@ export const services: Service[] = [
       'Modern, fast, and built to convert visitors into customers.',
     metaTitle: 'Website Design in Santa Barbara County',
     metaDescription:
-      'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Book a 20-Minute Call.',
+      'Fast, accessible websites for Santa Barbara businesses. Built for phones, Core Web Vitals, and a short tourist decision window. Book a 30-Minute Call.',
     h1: 'Websites built for phones, speed, and a short decision window',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -625,7 +625,7 @@ export const services: Service[] = [
       'Make the listing people tap in Maps accurate, complete, and worth trusting.',
     metaTitle: 'Google Business Profile in Santa Barbara County',
     metaDescription:
-      'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Book a 20-Minute Call.',
+      'Fix the Google listing Santa Barbara customers actually tap. Categories, photos, reviews, hours, and service areas, done honestly. Book a 30-Minute Call.',
     h1: 'Google Business Profile work for the listing customers actually tap',
     eyebrow: 'Your Google Listing',
     heroLede:
@@ -759,7 +759,7 @@ export const services: Service[] = [
       'Turn the traffic you already pay for into more calls, forms, and booked jobs.',
     metaTitle: 'Conversion Optimization for Local Business',
     metaDescription:
-      'Turn Santa Barbara site traffic into more calls and forms. Landing pages, mobile CTAs, and tests based on real behavior. Book a 20-Minute Call.',
+      'Turn Santa Barbara site traffic into more calls and forms. Landing pages, mobile CTAs, and tests based on real behavior. Book a 30-Minute Call.',
     h1: 'Conversion optimization for local sites that get visits and miss the call',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -893,7 +893,7 @@ export const services: Service[] = [
       'Content and campaigns that build your brand and community.',
     metaTitle: 'Social Media Marketing in Santa Barbara County',
     metaDescription:
-      'Social media for Santa Barbara businesses that need community and content, not a posting treadmill. Instagram, campaigns, and honest scope. Book a 20-Minute Call.',
+      'Social media for Santa Barbara businesses that need community and content, not a posting treadmill. Instagram, campaigns, and honest scope. Book a 30-Minute Call.',
     h1: 'Social media marketing that matches how the 805 actually uses it',
     eyebrow: 'Convert & Grow',
     heroLede:
@@ -1032,7 +1032,7 @@ export const services: Service[] = [
       'Save time, follow up faster, and never miss a lead again.',
     metaTitle: 'Marketing Automation & CRM for the 805',
     metaDescription:
-      'CRM and follow-up for Santa Barbara businesses so leads get a reply before they hire someone else. Pipelines, reminders, reporting. Book a 20-Minute Call.',
+      'CRM and follow-up for Santa Barbara businesses so leads get a reply before they hire someone else. Pipelines, reminders, reporting. Book a 30-Minute Call.',
     h1: 'Marketing automation so 805 leads get a reply before they hire someone else',
     eyebrow: 'Follow-up Systems',
     heroLede:
@@ -1171,7 +1171,7 @@ export const services: Service[] = [
       'Missed-call text-back, routing, review asks, and intake that actually runs.',
     metaTitle: 'AI Automation for Santa Barbara County',
     metaDescription:
-      'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Book a 20-Minute Call.',
+      'Practical AI for 805 businesses: missed-call text-back, lead routing, review requests, and intake triage. No science-fiction pitch. Book a 30-Minute Call.',
     h1: 'AI automation for missed calls, routing, reviews, and intake',
     eyebrow: 'Practical AI',
     heroLede:
@@ -1310,7 +1310,7 @@ export const services: Service[] = [
       'Calls, forms, and campaigns in English, without a 14-tab vanity dashboard.',
     metaTitle: 'Marketing Analytics in Santa Barbara County',
     metaDescription:
-      'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Book a 20-Minute Call.',
+      'Marketing analytics for Santa Barbara businesses: call tracking, GA4, and reports you can read. Know what produced the job. Book a 30-Minute Call.',
     h1: 'Marketing analytics you can read without a decoder',
     eyebrow: 'Measurement',
     heroLede:
@@ -1442,11 +1442,11 @@ export const services: Service[] = [
     cardBlurb: 'A clear plan for long-term, sustainable growth.',
     metaTitle: 'Digital Marketing Strategy in Santa Barbara County',
     metaDescription:
-      'A 90-day digital marketing plan for Santa Barbara businesses: what to do first, what to wait on, and how we will measure. Book a 20-Minute Call.',
+      'A 90-day digital marketing plan for Santa Barbara businesses: what to do first, what to wait on, and how we will measure. Book a 30-Minute Call.',
     h1: 'Digital marketing strategy for the next 90 days, not a binder',
     eyebrow: 'The Plan',
     heroLede:
-      'Most 805 owners do not need more ideas. They need a sequence. Local SEO, a website, ads, social, automation: each can be right, and doing a little of all of them is how budgets disappear by October. Digital marketing strategy here is a written plan for Santa Barbara, Goleta, Montecito, and Carpinteria businesses that says what to run first, what to ignore, who has to answer the phone, and how we will know in 90 days whether it worked. A 20-minute call is a short version of this thinking. A strategy engagement is the deeper one, with access, competitors, and a calendar you can staff. It is not a 70-page deck that dies in a drawer.',
+      'Most 805 owners do not need more ideas. They need a sequence. Local SEO, a website, ads, social, automation: each can be right, and doing a little of all of them is how budgets disappear by October. Digital marketing strategy here is a written plan for Santa Barbara, Goleta, Montecito, and Carpinteria businesses that says what to run first, what to ignore, who has to answer the phone, and how we will know in 90 days whether it worked. A 30-minute call is a short version of this thinking. A strategy engagement is the deeper one, with access, competitors, and a calendar you can staff. It is not a 70-page deck that dies in a drawer.',
     problemFraming:
       'The pattern is familiar. A State Street retailer hired a social person, a Goleta contractor bought an SEO package from a national call center, the website was rebuilt in 2019, and Google Ads was “tried” for six weeks in summer. Nobody owns the story. Reports do not agree. Fiesta is treated as a surprise every year. The owner is asked to pick a channel like a personality test.\n\nMontecito-facing firms have a different version: high ticket, low search volume, a reputation that lives in referrals, and a fear of looking hungry online. Carpinteria businesses get treated as Santa Barbara with a cheaper rent, which they are not. Strategy that ignores those differences is just a generic funnel graphic. Proximity in Maps, tourist versus resident intent, UCSB calendars, and the 101 commute are not flavor. They are constraints.\n\nWe write plans that a small team can run. First 90 days usually mean one acquisition engine (often Local SEO plus the listing, or ads if the phone needs to ring while organic catches up), a site that does not leak, and follow-up that does not depend on heroics. Measurement is part of the plan, not an appendix. We will not promise a ranking, a lead volume, or a revenue figure we cannot see. Founded in 2026, we do not pretend to a decade of case studies. We pretend to a calendar and a point of view.',
     whatsIncluded: [
@@ -1498,7 +1498,7 @@ export const services: Service[] = [
         step: 3,
         title: 'Write the 90-day sequence',
         body:
-          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We keep the same level of clarity as the 20-minute call even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
+          'A prioritized list with reasons, a measurement section, and a “do not do this yet” list. Timelines are honest: ads in days, websites in weeks, Local SEO in months. We keep the same level of clarity as the 30-minute call even when this engagement goes deeper: a person writes it, you can read it without a decoder, and there is no ranking pledge in the footer.',
       },
       {
         step: 4,
@@ -1518,9 +1518,9 @@ export const services: Service[] = [
     faqs: [
       {
         category: 'working-together',
-        question: 'Is this the same as the 20-minute call?',
+        question: 'Is this the same as the 30-minute call?',
         answer:
-          'The 20-minute call is a shorter, no-obligation version: visibility gaps, a competitor glance, and 90-day priorities, delivered within three business days, then we walk through it on the call. A strategy engagement is deeper: more access, a tighter channel sequence, resourcing, and measurement design. You can request the free plan first. Many businesses should. We will not make you pay for a longer document if the short one already answers the question.',
+          'The 30-minute call is a shorter, no-obligation version: visibility gaps, a competitor glance, and 90-day priorities, delivered within three business days, then we walk through it on the call. A strategy engagement is deeper: more access, a tighter channel sequence, resourcing, and measurement design. You can request the free plan first. Many businesses should. We will not make you pay for a longer document if the short one already answers the question.',
       },
       {
         category: 'working-together',

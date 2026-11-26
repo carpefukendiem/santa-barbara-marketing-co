@@ -13,7 +13,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
       'Facebook and Instagram ads that find local buyers without mixing media into our fee.',
     metaTitle: 'Meta Ads Management in Santa Barbara County',
     metaDescription:
-      'Facebook and Instagram ads for Santa Barbara County. Ad spend stays separate from management. Clear tracking and seasonal budgets. Book a 20-Minute Call.',
+      'Facebook and Instagram ads for Santa Barbara County. Ad spend stays separate from management. Clear tracking and seasonal budgets. Book a 30-Minute Call.',
     h1: 'Meta ads management for Santa Barbara County businesses that want buyers, not vanity reach',
     eyebrow: 'Paid Social',
     heroLede:
@@ -170,7 +170,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
       'Honest review requests and replies that follow Google rules and build recent proof.',
     metaTitle: 'Review Management in Santa Barbara County',
     metaDescription:
-      'Google review requests and replies for Santa Barbara County businesses. Policy-safe process, no fake or gated reviews. Book a 20-Minute Call.',
+      'Google review requests and replies for Santa Barbara County businesses. Policy-safe process, no fake or gated reviews. Book a 30-Minute Call.',
     h1: 'Review management for Santa Barbara County businesses that want recent proof, not fake stars',
     eyebrow: 'Convert & Trust',
     heroLede:
@@ -324,7 +324,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
       'Bilingual websites, listings, and campaigns that speak clearly to Spanish-preferring customers.',
     metaTitle: 'Spanish Marketing in Santa Barbara County',
     metaDescription:
-      'Bilingual marketing for Santa Barbara County: Spanish web pages, Google listing copy, and campaigns done with care. Book a 20-Minute Call today.',
+      'Bilingual marketing for Santa Barbara County: Spanish web pages, Google listing copy, and campaigns done with care. Book a 30-Minute Call today.',
     h1: 'Spanish-language marketing for Santa Barbara County businesses that need to be understood',
     eyebrow: 'Get Found',
     heroLede:
@@ -443,7 +443,7 @@ export const batch1Services: Array<Service & { dateModified: string }> = [
         category: 'getting-started',
         question: 'How do we get started?',
         answer:
-          'Book a 20-Minute Call, or email info@sbmc.io, or call (805) 307-7600. Bring examples of Spanish inquiries you already get and who can return those calls. If the Local Lead Plan fits ($297/mo, or $2,970/yr with 2 months free), we will say how bilingual work sits inside or beside that bundle. Cancel anytime with 30-day written notice on ongoing work.',
+          'Book a 30-Minute Call, or email info@sbmc.io, or call (805) 307-7600. Bring examples of Spanish inquiries you already get and who can return those calls. If the Local Lead Plan fits ($297/mo, or $2,970/yr with 2 months free), we will say how bilingual work sits inside or beside that bundle. Cancel anytime with 30-day written notice on ongoing work.',
       },
     ],
     relatedServices: [

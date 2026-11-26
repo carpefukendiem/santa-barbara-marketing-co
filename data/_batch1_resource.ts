@@ -183,7 +183,7 @@ export const howToGetMoreGoogleReviews: Resource & { faqs: FaqItem[] } = {
     },
     {
       type: 'p',
-      html: `If you want a straight look at your current listing, your last thirty reviews, and whether the ask is even happening, book a 20-minute call. Email info@sbmc.io or call (805) 307-7600. Bring access to the Google Business Profile if you have it. We will tell you what is broken in the habit before we talk about packages.`,
+      html: `If you want a straight look at your current listing, your last thirty reviews, and whether the ask is even happening, book a 30-minute call. Email info@sbmc.io or call (805) 307-7600. Bring access to the Google Business Profile if you have it. We will tell you what is broken in the habit before we talk about packages.`,
     },
     {
       type: 'takeaways',
@@ -238,7 +238,7 @@ export const howToGetMoreGoogleReviews: Resource & { faqs: FaqItem[] } = {
       category: 'getting-started',
       question: 'Does the Local Lead Plan include review requests?',
       answer:
-        'Yes. The Local Lead Plan is $297/mo, or $2,970/yr (2 months free), and includes review requests with the bundled website, Local SEO, and follow-up. For a deeper reply process or a listing that needs a full cleanup first, we may recommend review management or Google Business Profile work after a 20-minute call. Email info@sbmc.io or call (805) 307-7600.',
+        'Yes. The Local Lead Plan is $297/mo, or $2,970/yr (2 months free), and includes review requests with the bundled website, Local SEO, and follow-up. For a deeper reply process or a listing that needs a full cleanup first, we may recommend review management or Google Business Profile work after a 30-minute call. Email info@sbmc.io or call (805) 307-7600.',
     },
   ],
 };
